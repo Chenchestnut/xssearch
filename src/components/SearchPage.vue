@@ -2,7 +2,7 @@
 import Navbar from './Navbar.vue'
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-// import axios from 'axios';
+import axios from 'axios';
 
 const searchQuery = ref('');
 const router = useRouter();
@@ -11,18 +11,18 @@ function handleSearch(){
         alert('請輸入商品型號或關鍵字');
         return;
     }
-    router.push('/searchPagecache')
-
+    // 串接普通查詢api
+    axios.post('https://api.xssearch.brid.pw/api/search/',{"keyword":searchQuery.value})
+    .then(function(response){
+        console.log(response.data);
+        router.push('/searchPagecache')
+    })
+    .catch(function(error){
+        console.error(error);
+    })
 }
 
-// 串接普通查詢api
-// axios.post('https://api.xssearch.brid.pw/api/search/',{"keyword":searchQuery.value})
-// .then(function(response){
-//     console.log(response.data);
-// })
-// .catch(function(error){
-//     console.error(error);
-// })
+
 </script>
 
 <template>
