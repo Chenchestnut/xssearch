@@ -28,7 +28,7 @@ function handleSearch(){
 <template>
     <div class="searchPage">
         <Navbar />
-        <p>買前先掃這一頁--
+        <p>買前先掃這一頁
         <br>
         踩雷從此是別人的夜</p>
         <form @submit.prevent="handleSearch">
