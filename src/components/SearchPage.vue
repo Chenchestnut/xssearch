@@ -12,7 +12,13 @@ function handleSearch(){
         return;
     }
     // 串接普通查詢api
-    axios.post('https://api.xssearch.brid.pw/api/search/',{"keyword":searchQuery.value})
+    axios.post('https://api.xssearch.brid.pw/api/search/',{"keyword":searchQuery.value},{
+    headers: {
+      'Content-Type': 'application/json', // 確保後端接受 JSON
+      // 若有其他需求（如 API Key）：
+      // 'Authorization': 'Bearer your_token_here'
+    }
+  })
     .then(function(response){
         console.log(response.data);
         router.push('/searchPagecache')
