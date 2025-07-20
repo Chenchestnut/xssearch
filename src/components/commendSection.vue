@@ -2,7 +2,8 @@
 import Comment from './Comment.vue';
 import { useSearchStore } from '../stores/useSearchStore';
 const searchStore = useSearchStore();
-</script>
+console.log('searchStore.analysis:', searchStore.analysis);
+console.log('searchStore.analysis.summary:', searchStore.analysis.summary);</script>
 
 <template>
     <section>
