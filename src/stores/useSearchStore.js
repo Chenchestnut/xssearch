@@ -44,9 +44,9 @@ export const useSearchStore = defineStore("searchResults", {
       this.matched_products = data.matched_products;
       this.analysis = {
         summary: data.analysis.summary,
-        advantage: data.analysis.advantage,
-        disadvantage: data.analysis.disadvantage,
-        wordcloud: data.analysis.wordcloud,
+        advantage: data.analysis.positive_keywords,
+        disadvantage: data.analysis.negative_keywords,
+        wordcloud: data.analysis.word_cloud_data,
       };
       this.all_reviews = data.all_reviews;
     },
