@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { startTransition } from "react";
 
 export const useSearchStore = defineStore("searchResults", {
   state: () => ({
