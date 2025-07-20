@@ -12,7 +12,7 @@ console.log('searchStore.analysis.summary:', searchStore.analysis.summary);</scr
         <div class="comment">
             <h2>評論</h2>
             <div class="totalComment">
-                <p>{{ searchStore.analysis.summary}}</p>
+                <!-- <p>{{ searchStore.analysis.summary}}</p> -->
             </div>
             <div class="commentContent">
                 <ul>
@@ -22,7 +22,7 @@ console.log('searchStore.analysis.summary:', searchStore.analysis.summary);</scr
                     <li class="noBorder"><span>eprice</span></li>
                 </ul>
                 <div class="commentList">
-                    <Comment />
+                    <!-- <Comment /> -->
                 </div>
             </div>
         </div>
