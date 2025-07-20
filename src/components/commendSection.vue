@@ -5,14 +5,15 @@ import { useSearchStore } from '../stores/useSearchStore';
 console.log('commendSection 組件載入了');
 const searchStore = useSearchStore();
 console.log('searchStore.analysis:', searchStore.analysis);
-console.log('searchStore.analysis.summary:', searchStore.analysis.summary);</script>
+console.log('searchStore.analysis.summary:', searchStore.analysis.summary);
+</script>
 
 <template>
     <section>
         <div class="comment">
-            <!-- <h2>評論</h2> -->
+            <h2>評論</h2>
             <div class="totalComment">
-                <!-- <p>{{ searchStore.analysis.summary}}</p> -->
+                <p>{{ searchStore.analysis.summary}}</p>
             </div>
             <div class="commentContent">
                 <ul>
@@ -22,7 +23,7 @@ console.log('searchStore.analysis.summary:', searchStore.analysis.summary);</scr
                     <li class="noBorder"><span>eprice</span></li>
                 </ul>
                 <div class="commentList">
-                    <!-- <Comment /> -->
+                    <Comment />
                 </div>
             </div>
         </div>
