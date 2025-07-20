@@ -41,6 +41,8 @@ $word-color:#2F2F2F;
     .content{
         display: flex;
         flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
         text-align: left;
         p{
             font-size: 1rem;
