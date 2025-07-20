@@ -20,7 +20,6 @@ const searchStore = useSearchStore();
                 </ul>
                 <div class="commentList">
                     <Comment />
-                    <Comment />
                 </div>
             </div>
         </div>

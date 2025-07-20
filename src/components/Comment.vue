@@ -4,9 +4,9 @@ const searchStore = useSearchStore();
 </script>
 
 <template>
-<div class="commentElement">
+<div class="commentElement" v-for="(i, index) in searchStore.momoReviews" :key="index">
     <div class="avatar"></div>
-    <div class="content" v-for="(i, index) in searchStore.momoReviews" :key="index">
+    <div class="content">
         <p>User：大強</p>
         <div class="star">
             <i class="fa-regular fa-star"></i>
