@@ -1,6 +1,7 @@
 <script setup>
 import Comment from './Comment.vue';
 import { useSearchStore } from '../stores/useSearchStore';
+console.log('commendSection 組件載入了');
 const searchStore = useSearchStore();
 console.log('searchStore.analysis:', searchStore.analysis);
 console.log('searchStore.analysis.summary:', searchStore.analysis.summary);</script>
