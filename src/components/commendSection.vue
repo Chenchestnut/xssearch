@@ -1,4 +1,5 @@
 <script setup>
+alert('commendSection 組件開始載入');
 import Comment from './Comment.vue';
 import { useSearchStore } from '../stores/useSearchStore';
 console.log('commendSection 組件載入了');
