@@ -5,10 +5,12 @@ export const useSearchStore = defineStore("searchResults", {
     search_keyword: "",
     matched_products_count: 0,
     matched_products: [],
-    advantage: [],
-    disadvantage: [],
-    wordcloud: [],
-    summary: "",
+    analysis: {
+      summary: "",
+      advantage: [],
+      disadvantage: [],
+      wordcloud: {},
+    },
     all_reviews: [],
   }),
   actions: {
@@ -40,10 +42,12 @@ export const useSearchStore = defineStore("searchResults", {
       this.search_keyword = data.keyword;
       this.matched_products_count = data.matched_products_count;
       this.matched_products = data.matched_products;
-      this.advantage = data.advantage;
-      this.disadvantage = data.disadvantage;
-      this.wordcloud = data.wordcloud;
-      this.summary = data.summary;
+      this.analysis = {
+        summary: data.analysis.summary,
+        advantage: data.analysis.advantage,
+        disadvantage: data.analysis.disadvantage,
+        wordcloud: data.analysis.wordcloud,
+      };
       this.all_reviews = data.all_reviews;
     },
   },
