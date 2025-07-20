@@ -1,11 +1,37 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
+
 const isHambergerMenuOpen = ref(true);
 // function closeMenu() {
 //     isHambergerMenuOpen.value = !isHambergerMenuOpen.value;
 // }
 
-let menu = ['首頁', '普通搜尋', '個人化推薦', '好物比拚', '升級方案', '登出']
+let menu = ['首頁', '普通搜尋','個人化推薦', '好物比拚', '升級方案', '登出']
+function changePage(item){
+    switch(item){
+        case '首頁':
+            router.push('/');
+            break;
+        case '普通搜尋':
+            router.push('/search');
+            break;
+        case '個人化推薦':
+            router.push('/recommend');
+            break;
+        case '好物比拚':
+            router.push('/compare');
+            break;
+        case '升級方案':
+            router.push('/membership');
+            break;
+        case '登出':
+            // 登出邏輯
+            router.push('/');
+            break;
+    }
+}
 </script>
 
 <template>
@@ -15,7 +41,7 @@ let menu = ['首頁', '普通搜尋', '個人化推薦', '好物比拚', '升級
     </div> -->
     <div class="component">
         <ul>
-            <li v-for="item in menu" :key="item">{{ item }}</li>
+            <li v-for="item in menu" :key="item" @click="changePage(item)">{{ item }}</li>
         </ul>
     </div>
 </div>
