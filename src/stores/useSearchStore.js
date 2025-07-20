@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { startTransition } from "react";
 
 export const useSearchStore = defineStore("searchResults", {
   state: () => ({
@@ -11,8 +12,36 @@ export const useSearchStore = defineStore("searchResults", {
       disadvantage: [],
       wordcloud: {},
     },
-    all_reviews: [],
+    all_reviews: [
+      {
+        source_product: "",
+        source_platform: "",
+        comment: "",
+      },
+    ],
   }),
+  getters: {
+    momoReviews: (state) => {
+      return state.all_reviews
+        .filter((review) => review.source_platform === "momo")
+        .slice(0, 3);
+    },
+    pchomeReviews: (state) => {
+      return state.all_reviews
+        .filter((review) => review.source_platform === "pchome")
+        .slice(0, 3);
+    },
+    tReviews: (state) => {
+      return state.all_reviews
+        .filter((review) => review.source_platform === "t")
+        .slice(0, 3);
+    },
+    epriceReviews: (state) => {
+      return state.all_reviews
+        .filter((review) => review.source_platform === "eprice")
+        .slice(0, 3);
+    },
+  },
   actions: {
     // setKeyword(newKeyword) {
     //   this.search_keyword = newKeyword;
@@ -48,7 +77,11 @@ export const useSearchStore = defineStore("searchResults", {
         disadvantage: data.analysis.negative_keywords,
         wordcloud: data.analysis.word_cloud_data,
       };
-      this.all_reviews = data.all_reviews;
+      this.all_reviews = data.all_reviews.map((review) => ({
+        source_product: review.source_product,
+        source_platform: review.source_platform,
+        comment: review.comment,
+      }));
     },
   },
 });

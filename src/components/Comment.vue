@@ -1,17 +1,19 @@
 <script setup>
+import { useSearchStore } from '../stores/useSearchStore';
+const searchStore = useSearchStore();
 </script>
 
 <template>
 <div class="commentElement">
     <div class="avatar"></div>
-    <div class="content">
+    <div class="content" v-for="(i, index) in searchStore.momoReviews" :key="index">
         <p>User：大強</p>
         <div class="star">
             <i class="fa-regular fa-star"></i>
             <i class="fa-regular fa-star"></i>
             <i class="fa-regular fa-star"></i>
         </div>
-        <p>相機控制按鍵設計不佳，使用起來不符合人體工學</p>
+        <p>{{ i.comment }}</p>
     </div>
 </div>
 </template>

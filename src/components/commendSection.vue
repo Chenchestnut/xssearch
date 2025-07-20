@@ -1,5 +1,7 @@
 <script setup>
 import Comment from './Comment.vue';
+import { useSearchStore } from '../stores/useSearchStore';
+const searchStore = useSearchStore();
 </script>
 
 <template>
@@ -7,7 +9,7 @@ import Comment from './Comment.vue';
         <div class="comment">
             <h2>評論</h2>
             <div class="totalComment">
-                <p>這代最有感的是「終於不會燙手了」！A18玩手遊很順，續航也有進步，但充電還是慢到讓人翻白眼。拍照的AI修圖超強，隨便拍都像網美照，不過螢幕沒120Hz真的說不過去。外觀根本是15換標籤，要不是合約到了真的不想換。建議15用戶可以pass，安卓跳槽的會覺得很新鮮。</p>
+                <p>{{ searchStore.analysis.summary}}</p>
             </div>
             <div class="commentContent">
                 <ul>
