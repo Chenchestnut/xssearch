@@ -1,11 +1,14 @@
 <script setup>
-alert('commendSection 組件開始載入');
+// alert('commendSection 組件開始載入');
 import Comment from './Comment.vue';
 import { useSearchStore } from '../stores/useSearchStore';
-console.log('commendSection 組件載入了');
+// console.log('commendSection 組件載入了');
 const searchStore = useSearchStore();
-console.log('searchStore.analysis:', searchStore.analysis);
-console.log('searchStore.analysis.summary:', searchStore.analysis.summary);
+// console.log('searchStore.analysis:', searchStore.analysis);
+// console.log('searchStore.analysis.summary:', searchStore.analysis.summary);
+// function handlePlatformChange(platform) {
+//     searchStore.all_reviews.source_platform = platform;
+// }
 </script>
 
 <template>
@@ -17,6 +20,10 @@ console.log('searchStore.analysis.summary:', searchStore.analysis.summary);
             </div>
             <div class="commentContent">
                 <ul>
+                    <!-- <li @click="handlePlatformChange('momo')"><span>Momo</span></li>
+                    <li @click="handlePlatformChange('pchome')"><span>PChome</span></li>
+                    <li @click="handlePlatformChange('t')"><span>T客邦</span></li>
+                    <li class="noBorder" @click="handlePlatformChange('eprice')"><span>eprice</span></li> -->
                     <li><span>Momo</span></li>
                     <li><span>PChome</span></li>
                     <li><span>T客邦</span></li>

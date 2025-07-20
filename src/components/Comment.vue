@@ -1,6 +1,8 @@
 <script setup>
 import { useSearchStore } from '../stores/useSearchStore';
 const searchStore = useSearchStore();
+// const currentPlatform = ref('momo')
+
 </script>
 
 <template>
@@ -24,7 +26,7 @@ $word-color:#2F2F2F;
 .commentElement{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    // justify-content: center;
     width: 60%;
     border-radius: 35px;
     padding: 1.5rem 1rem;
