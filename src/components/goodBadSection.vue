@@ -1,5 +1,6 @@
 <script setup>
-
+import { useSearchStore } from '../stores/useSearchStore';
+const searchStore = useSearchStore();
 </script>
 
 <template>
@@ -9,17 +10,13 @@
             <div class="advantage">
                 <h2>優點<i class="fa-solid fa-thumbs-up"></i></h2>
                 <ul>
-                    <li>續航力佳</li>
-                    <li>很順</li>
-                    <li>螢幕大</li>
+                    <li v-for="(item,index) in searchStore.advantage" :key="index">{{ item }}</li>
                 </ul>
             </div>
             <div class="disadvantage">
                 <h2>缺點<i class="fa-solid fa-thumbs-down"></i></h2>
                 <ul>
-                    <li>價格偏高</li>
-                    <li>容易發燙</li>
-                    <li>容量小</li>
+                    <li v-for="(item,index) in searchStore.disadvantage" :key="index">{{ item }}</li>
                 </ul>
             </div>
         </div>

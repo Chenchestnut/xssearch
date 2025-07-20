@@ -6,13 +6,9 @@ import CommendSection from './commendSection.vue';
 import SpecificationSection from './specificationSection.vue';
 import SideNavBar from './SideNavBar.vue';
 import photoSection from './photoSection.vue';
+// import { useSearchStore } from '../stores/useSearchStore';
 import { onMounted, ref } from 'vue';
-// const props = defineProps({
-//     isRecommend: {
-//         type: Boolean,
-//         default: false
-//     }
-// })
+// const searchStore = useSearchStore();
 const sections = ref([
     {title:"優缺點"},
     {title:"文字雲"},

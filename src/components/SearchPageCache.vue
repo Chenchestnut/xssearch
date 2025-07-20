@@ -1,18 +1,15 @@
 <script setup>
 import Navbar from './Navbar.vue';
 import CacheCard from './CacheCard.vue';
+import { useSearchStore } from '../stores/useSearchStore';
+const searchStore = useSearchStore();
 </script>
 
 <template>
   <div class="searchPageCache">
     <Navbar />
     <div class="productCache">
-        <CacheCard />
-        <CacheCard />
-        <CacheCard />
-        <CacheCard />
-        <CacheCard />
-        <CacheCard />
+        <CacheCard v-for="(item,index) in searchStore.matched_products_count" :key="index"/>
     </div>
     
   </div>
