@@ -2,10 +2,13 @@
 import Navbar from './Navbar.vue'
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useSearchStore } from '../stores/useSearchStore';
 import axios from 'axios';
 
 const searchQuery = ref('');
 const router = useRouter();
+const searchStore = useSearchStore();
+
 function handleSearch(){
     if(searchQuery.value.trim() === '') {
         alert('請輸入商品型號或關鍵字');
@@ -14,13 +17,14 @@ function handleSearch(){
     // 串接普通查詢api
     axios.post('https://api.xssearch.brid.pw/api/search/',{"keyword":searchQuery.value},{
     headers: {
-      'Content-Type': 'application/json', // 確保後端接受 JSON
-      // 若有其他需求（如 API Key）：
-      // 'Authorization': 'Bearer your_token_here'
+      'Content-Type': 'application/json',
     }
   })
     .then(function(response){
-        console.log(response.data);
+        const data = response.data;
+        console.log(data);
+        searchStore.saveSearchResults(data);
+        // 將搜尋結果存入store後，跳轉到searchPageCache
         router.push('/searchPagecache')
     })
     .catch(function(error){
