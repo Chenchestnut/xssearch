@@ -10,7 +10,7 @@ console.log('searchStore.analysis.summary:', searchStore.analysis.summary);</scr
 <template>
     <section>
         <div class="comment">
-            <h2>評論</h2>
+            <!-- <h2>評論</h2> -->
             <div class="totalComment">
                 <!-- <p>{{ searchStore.analysis.summary}}</p> -->
             </div>
