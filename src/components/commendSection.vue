@@ -6,9 +6,11 @@ import { useSearchStore } from '../stores/useSearchStore';
 const searchStore = useSearchStore();
 // console.log('searchStore.analysis:', searchStore.analysis);
 // console.log('searchStore.analysis.summary:', searchStore.analysis.summary);
-// function handlePlatformChange(platform) {
-//     searchStore.all_reviews.source_platform = platform;
-// }
+const platform = ref('momo')
+function handlePlatformChange(platform) {
+    platform.value = platform;
+}
+const 
 </script>
 
 <template>
@@ -20,17 +22,17 @@ const searchStore = useSearchStore();
             </div>
             <div class="commentContent">
                 <ul>
-                    <!-- <li @click="handlePlatformChange('momo')"><span>Momo</span></li>
+                    <li @click="handlePlatformChange('momo')"><span>Momo</span></li>
                     <li @click="handlePlatformChange('pchome')"><span>PChome</span></li>
-                    <li @click="handlePlatformChange('t')"><span>T客邦</span></li>
-                    <li class="noBorder" @click="handlePlatformChange('eprice')"><span>eprice</span></li> -->
-                    <li><span>Momo</span></li>
+                    <li @click="handlePlatformChange('phone_pad')"><span>T客邦</span></li>
+                    <li class="noBorder" @click="handlePlatformChange('eprice')"><span>eprice</span></li>
+                    <!-- <li><span>Momo</span></li>
                     <li><span>PChome</span></li>
                     <li><span>T客邦</span></li>
-                    <li class="noBorder"><span>eprice</span></li>
+                    <li class="noBorder"><span>eprice</span></li> -->
                 </ul>
                 <div class="commentList">
-                    <Comment />
+                    <Comment :platform="platform"/>
                 </div>
             </div>
         </div>

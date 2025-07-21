@@ -1,12 +1,19 @@
 <script setup>
 import { useSearchStore } from '../stores/useSearchStore';
 const searchStore = useSearchStore();
+const props = defineProps({
+    platform: {
+        type: String,
+        default: 'momo'
+    }
+});
+
 // const currentPlatform = ref('momo')
 
 </script>
 
 <template>
-<div class="commentElement" v-for="(i, index) in searchStore.momoReviews" :key="index">
+<div class="commentElement" v-for="(i, index) in searchStore[`${props.platform}Reviews`]" :key="index">
     <div class="avatar"></div>
     <div class="content">
         <p>User：大強</p>

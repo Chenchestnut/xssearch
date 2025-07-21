@@ -30,9 +30,9 @@ export const useSearchStore = defineStore("searchResults", {
         .filter((review) => review.source_platform === "pchome")
         .slice(0, 3);
     },
-    tReviews: (state) => {
+    phone_padReviews: (state) => {
       return state.all_reviews
-        .filter((review) => review.source_platform === "t")
+        .filter((review) => review.source_platform === "phone_pad")
         .slice(0, 3);
     },
     epriceReviews: (state) => {
