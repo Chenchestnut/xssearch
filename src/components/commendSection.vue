@@ -2,15 +2,15 @@
 // alert('commendSection 組件開始載入');
 import Comment from './Comment.vue';
 import { useSearchStore } from '../stores/useSearchStore';
+import { ref } from 'vue';
 // console.log('commendSection 組件載入了');
 const searchStore = useSearchStore();
 // console.log('searchStore.analysis:', searchStore.analysis);
 // console.log('searchStore.analysis.summary:', searchStore.analysis.summary);
 const platform = ref('momo')
-function handlePlatformChange(platform) {
-    platform.value = platform;
+function handlePlatformChange(platformName) {
+    platform.value = platformName;
 }
-const 
 </script>
 
 <template>

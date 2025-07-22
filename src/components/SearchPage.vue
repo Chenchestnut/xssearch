@@ -3,32 +3,42 @@ import Navbar from './Navbar.vue'
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useSearchStore } from '../stores/useSearchStore';
+import { useAlert } from '../SweetAlert';
 import axios from 'axios';
 
 const searchQuery = ref('');
 const router = useRouter();
 const searchStore = useSearchStore();
+const { showLoading, closeLoading, showWarning} = useAlert();
 
 function handleSearch(){
     if(searchQuery.value.trim() === '') {
-        alert('請輸入商品型號或關鍵字');
+        showWarning('請輸入商品型號或關鍵字', '搜尋欄位不能為空！');
         return;
     }
+    showLoading('努力搜尋中...')
     // 串接普通查詢api
     axios.post('https://api.xssearch.brid.pw/api/search/',{"keyword":searchQuery.value},{
     headers: {
       'Content-Type': 'application/json',
-    }
+    },
+    // onUploadProgress: (progressEvent) => {
+    //     const percent = Math.round((progressEvent.loaded / progressEvent.total) * 100);
+    //     updateLoading(percent);
+    // }
   })
     .then(function(response){
         const data = response.data;
         console.log(data);
         searchStore.saveSearchResults(data);
+        closeLoading()
         // 將搜尋結果存入store後，跳轉到searchPageCache
         router.push('/searchPagecache')
     })
     .catch(function(error){
         console.error(error);
+        closeLoading()
+        showWarning("QQ 沒找到相關資訊!", "請檢查您的輸入是否有拼寫錯誤，或嘗試使用不同的關鍵詞進行搜索。")
     })
 }
 

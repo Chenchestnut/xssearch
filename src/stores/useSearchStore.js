@@ -19,6 +19,7 @@ export const useSearchStore = defineStore("searchResults", {
       },
     ],
   }),
+  persist: true, // Enable persistence
   getters: {
     momoReviews: (state) => {
       return state.all_reviews
