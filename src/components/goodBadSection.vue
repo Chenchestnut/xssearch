@@ -84,6 +84,7 @@ section{
         justify-content: center;
         .keyPointBox{
             align-items: center;
+            gap: 0;
             div{
                 width: 90%;
                 min-width: 290px;
