@@ -62,7 +62,7 @@ onBeforeUnmount(()=>{
 $word-color: #2F2F2F;
 .sidNavBar{
     position: fixed;
-    top: 100px;
+    top: 80px;
     left: 0;
     min-width: 80px;
     max-width: 80px;
@@ -75,10 +75,10 @@ $word-color: #2F2F2F;
     // flex-direction: column;
     // align-items: flex-start;
     text-align: center ;
-    @media screen and (max-width: 1000px) {
-            top: auto;
-            bottom: 0;
-        }
+    // @media screen and (max-width: 1000px) {
+    //         top: auto;
+    //         bottom: 0;
+    //     }
     @media screen and (max-width: 550px) {
         display: none;
     }
