@@ -117,7 +117,7 @@ color: $word-color;
             align-items: center;
             justify-content: flex-start;
             width: 20%;
-            min-width: 300px;
+            min-width: 290px;
             height: 45vh;
             background-color: #D2D5DA;
             border-radius: 35px;
