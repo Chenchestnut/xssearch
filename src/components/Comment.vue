@@ -25,8 +25,8 @@ const props = defineProps({
             <i class="fa-regular fa-star"></i>
         </div>
         <p @click="iscollapse = !iscollapse">{{ i.comment }}</p>
+        <div v-if="iscollapse" class="mask"></div>
     </div>
-    <div v-if="iscollapse" class="mask"></div>
 </div>
 </template>
 
