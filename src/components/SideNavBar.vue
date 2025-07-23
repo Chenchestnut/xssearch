@@ -84,7 +84,7 @@ $word-color: #2F2F2F;
     }
     ul{
         margin: 0;
-        padding: 0.2rem 0;
+        padding: 0.5rem 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -98,7 +98,7 @@ $word-color: #2F2F2F;
             color: $word-color;
             cursor: pointer;
             @media screen and (max-width: 1000px) {
-                font-size: 0.8rem;
+                font-size: 0.9rem;
                 
             }
             &:hover{
