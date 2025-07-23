@@ -64,9 +64,8 @@ $word-color: #2F2F2F;
     position: fixed;
     top: 100px;
     left: 0;
-    width: 20%;
-    min-width: 120px;
-    max-width: 120px;
+    min-width: 100px;
+    max-width: 100px;
     background-color: rgba(210, 213, 218, 0.8);
     border-bottom-right-radius: 35px;
     border-top-right-radius: 35px;
@@ -92,6 +91,10 @@ $word-color: #2F2F2F;
             text-decoration: none;
             color: $word-color;
             cursor: pointer;
+            @media screen and (max-width: 1000px) {
+                font-size: 0.8rem;
+                
+            }
             &:hover{
                 color: #7e90a7;
             }
