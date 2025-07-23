@@ -77,17 +77,12 @@ $word-color: #2F2F2F;
     // align-items: flex-start;
     text-align: center ;
     @media screen and (max-width: 1000px) {
-        .sidNavBar{
             top: auto;
             bottom: 100px;
         }
-    }
     @media screen and (max-width: 550px) {
-    .sidNavBar{
         display: none;
     }
-    
-}
     ul{
         padding-left:1rem ;
         li{
