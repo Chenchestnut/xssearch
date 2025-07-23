@@ -80,6 +80,7 @@ $word-color:#2F2F2F;
         width: 100%;
         height: 300px;
         background: linear-gradient(rgba(255, 255, 255, 0), #caccd3);
+        cursor: pointer;
     }
 }
 
