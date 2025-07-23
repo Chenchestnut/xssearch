@@ -123,6 +123,10 @@ color: $word-color;
             border-radius: 35px;
             padding:2rem 2rem;
             margin-top: 2rem;
+            @media screen and (max-width: 900px) {
+                padding: 1.5rem 1.5rem;
+                
+            }
             div.price{
                 display: flex;
                 span{
