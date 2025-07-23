@@ -64,8 +64,8 @@ $word-color: #2F2F2F;
     position: fixed;
     top: 100px;
     left: 0;
-    min-width: 100px;
-    max-width: 100px;
+    min-width: 80px;
+    max-width: 80px;
     background-color: rgba(210, 213, 218, 0.8);
     border-bottom-right-radius: 35px;
     border-top-right-radius: 35px;
@@ -84,7 +84,7 @@ $word-color: #2F2F2F;
     }
     ul{
         margin: 0;
-        padding: 0;
+        padding: 0.2rem 0;
         display: flex;
         flex-direction: column;
         align-items: center;
