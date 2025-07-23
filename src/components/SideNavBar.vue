@@ -84,6 +84,7 @@ $word-color: #2F2F2F;
     }
     ul{
         margin: 0;
+        padding: 0;
         li{
             list-style: none;
             padding: 0.5rem 0.8rem;
