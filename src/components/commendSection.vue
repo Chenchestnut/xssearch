@@ -108,7 +108,7 @@ div.comment{
                 @media screen and (max-width: 520px) {
                     font-size: 1rem;
                     padding: 0.5rem 0.2rem;
-                    border-right: none;
+                    border: none;
                 }
                 span{
                     width: 100%;
