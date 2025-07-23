@@ -56,6 +56,7 @@ section{
             margin: 2rem 0;
             padding: 1.5rem 0 1.5rem 2rem;
             h2{
+                display: inline-block;
                 max-width: 100%;
                 font-size: 1.75rem;
                 font-weight: 500;
