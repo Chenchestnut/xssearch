@@ -34,11 +34,16 @@ h2.title{
     font-weight: bold;
     text-align: center;
     padding-top:1.5rem ;
+    @media screen and (max-width: 520px) {
+        font-size: 1.5rem;
+    }
 }
 section{
     margin-left: 15px;
     .keyPointBox{
         display: flex;
+        flex-wrap: wrap;
+        flex: 0 1 auto;
         justify-content: space-evenly;
         text-align: left;
         gap: 5rem;
@@ -73,4 +78,26 @@ section{
     }
 }
 
+
+@media screen and (max-width: 520px) {
+    section{
+        justify-content: center;
+        .keyPointBox{
+            align-items: center;
+            div{
+                width: 90%;
+                min-width: 290px;
+                h2{
+                    font-size: 1rem;
+                }
+                ul{
+                    li{
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+    
+}
 </style>
