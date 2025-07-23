@@ -95,4 +95,18 @@ $word-color: #2F2F2F;
         }
     }
 }
+
+@media screen and (max-width: 1000px) {
+    .sidNavBar{
+        bottom: 100px;
+        left: 0;
+    }
+    
+}
+@media screen and (max-width: 550px) {
+    .sidNavBar{
+        display: none;
+    }
+    
+}
 </style>
