@@ -91,7 +91,7 @@ $word-color: #2F2F2F;
         justify-content: space-between;
         li{
             list-style: none;
-            padding: 0.5rem 0.8rem;
+            padding: 0.3rem 0.5rem;
             border-bottom: 1px solid #ccc;
             text-align: right;
             text-decoration: none;
