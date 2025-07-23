@@ -85,6 +85,10 @@ $word-color: #2F2F2F;
     ul{
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
         li{
             list-style: none;
             padding: 0.5rem 0.8rem;
