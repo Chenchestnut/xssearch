@@ -90,6 +90,7 @@ div.comment{
             display: flex;
             justify-content: center;
             list-style: none;
+            padding: 0;
             li{
                 font-size: 1.5rem;
                 font-weight: 300;
