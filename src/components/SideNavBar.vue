@@ -78,7 +78,8 @@ $word-color: #2F2F2F;
     text-align: center ;
     @media screen and (max-width: 1000px) {
         .sidNavBar{
-            top: 200px;
+            top: auto;
+            bottom: 100px;
         }
     }
     @media screen and (max-width: 550px) {
