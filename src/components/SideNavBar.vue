@@ -77,7 +77,7 @@ $word-color: #2F2F2F;
     text-align: center ;
     @media screen and (max-width: 1000px) {
             top: auto;
-            bottom: 100px;
+            bottom: 0;
         }
     @media screen and (max-width: 550px) {
         display: none;
