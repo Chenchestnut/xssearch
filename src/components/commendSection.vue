@@ -106,8 +106,8 @@ div.comment{
                     padding: 0.75rem 1rem;
                 }
                 @media screen and (max-width: 520px) {
-                    font-size: 1.2rem;
-                    padding: 0.5rem 0.75rem;
+                    font-size: 1rem;
+                    padding: 0.5rem 0.5rem;
                     border-right: none;
                 }
                 span{

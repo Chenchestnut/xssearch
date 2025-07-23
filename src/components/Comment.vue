@@ -58,7 +58,7 @@ $word-color:#2F2F2F;
             font-size: 1rem;
             padding: 0.5rem 0;
             @media screen and (max-width: 520px) {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
         }
         .star{
