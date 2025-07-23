@@ -88,7 +88,7 @@ section{
             align-items: center;
             gap: 0;
             div{
-                width: 90%;
+                width: 15%;
                 min-width: 290px;
                 h2{
                     font-size: 1rem;
