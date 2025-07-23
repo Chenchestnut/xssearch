@@ -84,7 +84,8 @@ $word-color: #2F2F2F;
     }
     ul{
         margin: 0;
-        padding: 0.5rem 0;
+        padding: 0.3rem 0;
+        padding-left: 0.5rem;
         display: flex;
         flex-direction: column;
         align-items: center;
