@@ -91,11 +91,11 @@ section{
                 width: 15%;
                 min-width: 290px;
                 h2{
-                    font-size: 1rem;
+                    font-size: 1.5rem;
                 }
                 ul{
                     li{
-                        font-size: 0.8rem;
+                        font-size: 1rem;
                     }
                 }
             }

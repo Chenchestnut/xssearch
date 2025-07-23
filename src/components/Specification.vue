@@ -48,6 +48,9 @@ $word-color: #2F2F2F;
                 font-size: 1.2rem;
                 color: $word-color;
                 margin: 0.5rem 0;
+                @media screen and (max-width: 520px) {
+                    font-size: 1rem;
+                }
             }
         }
         div.mask{
