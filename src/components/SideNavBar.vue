@@ -74,7 +74,7 @@ $word-color: #2F2F2F;
     display: flex;
     // flex-direction: column;
     // align-items: flex-start;
-    text-align: right;
+    text-align: left;
     // @media screen and (max-width: 1000px) {
     //         top: auto;
     //         bottom: 0;
