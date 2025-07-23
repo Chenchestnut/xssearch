@@ -178,7 +178,8 @@ color: $word-color;
             }
         }
         div.member{
-            margin-bottom: 2rem;            
+            margin-bottom: 2rem;
+            padding: 1rem;            
             button{
                 cursor: pointer;
                 background-color: #D4B2A8;
