@@ -34,9 +34,6 @@ h2.title{
     font-weight: bold;
     text-align: center;
     padding-top:1.5rem ;
-    @media screen and (max-width: 520px) {
-        font-size: 1.5rem;
-    }
 }
 section{
     margin-left: 15px;

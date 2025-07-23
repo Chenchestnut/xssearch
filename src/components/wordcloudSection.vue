@@ -29,7 +29,7 @@ h2.title{
     justify-content: center;
     img{
         width: 75%;
-        min-width: 360px;
+        min-width: 300px;
         height: auto;
         object-fit: cover; /* 把圖片撐滿容器且不變形 */
         display: block;    /* 消除底部多餘空隙 */

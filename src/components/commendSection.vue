@@ -89,8 +89,11 @@ div.comment{
                 padding: 1rem 3rem;
                 border-bottom: black 1px solid;
                 border-right: #2F2F2F 1px solid;
+                @media screen and (max-width: 950px) {
+                    padding: 1rem 1.5rem;
+                }
                 span{
-                    padding: 0 1rem;
+                    width: 100%;
                     &:hover{
                     background-color: #D3D2C7;
                     border-radius: 35px;
