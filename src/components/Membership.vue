@@ -112,10 +112,11 @@ color: $word-color;
             justify-content: flex-start;
             width: 20%;
             min-width: 350px;
-            height: 55vh;
+            height: 50vh;
             background-color: #D2D5DA;
             border-radius: 35px;
             padding:2rem 2rem;
+            margin-top: 2rem;
             div.price{
                 display: flex;
                 span{
