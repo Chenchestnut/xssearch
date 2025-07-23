@@ -96,6 +96,9 @@ color: $word-color;
         font-weight: 450;
         text-align: center;
         margin: 2rem 0;
+        @media screen and (max-width: 520px) {
+            font-size: 2rem;
+        }
         
     }
     div.card{
@@ -111,7 +114,7 @@ color: $word-color;
             align-items: center;
             justify-content: flex-start;
             width: 20%;
-            min-width: 350px;
+            min-width: 300px;
             height: 50vh;
             background-color: #D2D5DA;
             border-radius: 35px;
