@@ -90,7 +90,6 @@ $word-color: #2F2F2F;
             list-style: none;
             padding: 0.3rem 0.5rem;
             border-bottom: 1px solid #ccc;
-            text-align: right;
             text-decoration: none;
             color: $word-color;
             cursor: pointer;
