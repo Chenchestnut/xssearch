@@ -1,6 +1,8 @@
 <script setup>
 import { useSearchStore } from '../stores/useSearchStore';
+import { ref } from 'vue';
 const searchStore = useSearchStore();
+const iscollapse = ref(false);
 const props = defineProps({
     platform: {
         type: String,
@@ -22,8 +24,9 @@ const props = defineProps({
             <i class="fa-regular fa-star"></i>
             <i class="fa-regular fa-star"></i>
         </div>
-        <p>{{ i.comment }}</p>
+        <p @click="iscollapse = !iscollapse">{{ i.comment }}</p>
     </div>
+    <div v-if="iscollapse" class="mask"></div>
 </div>
 </template>
 
@@ -68,6 +71,15 @@ $word-color:#2F2F2F;
                 padding-right: 0.2rem;
             }
         }
+    }
+    div.mask{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(rgba(255, 255, 255, 0), #caccd3);
     }
 }
 
