@@ -74,6 +74,7 @@ $word-color:#2F2F2F;
             }
         }
         .maskDistrict{
+            position: relative;
             div.mask{
                 position: absolute;
                 bottom: 0;
