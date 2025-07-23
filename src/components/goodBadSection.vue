@@ -81,8 +81,8 @@ section{
 
 @media screen and (max-width: 520px) {
     section{
-        justify-content: center;
         .keyPointBox{
+            justify-content: center;
             align-items: center;
             gap: 0;
             div{
