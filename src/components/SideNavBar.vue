@@ -83,10 +83,10 @@ $word-color: #2F2F2F;
         display: none;
     }
     ul{
-        padding-left:1rem ;
+        margin: 0;
         li{
             list-style: none;
-            padding: 1rem;
+            padding: 0.5rem 0.8rem;
             border-bottom: 1px solid #ccc;
             text-decoration: none;
             color: $word-color;
