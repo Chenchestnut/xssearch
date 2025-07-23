@@ -76,6 +76,17 @@ $word-color: #2F2F2F;
     // flex-direction: column;
     // align-items: flex-start;
     text-align: center ;
+    @media screen and (max-width: 1000px) {
+        .sidNavBar{
+            top: 200px;
+        }
+    }
+    @media screen and (max-width: 550px) {
+    .sidNavBar{
+        display: none;
+    }
+    
+}
     ul{
         padding-left:1rem ;
         li{
@@ -96,17 +107,6 @@ $word-color: #2F2F2F;
     }
 }
 
-@media screen and (max-width: 1000px) {
-    .sidNavBar{
-        bottom: 100px;
-        left: 0;
-    }
-    
-}
-@media screen and (max-width: 550px) {
-    .sidNavBar{
-        display: none;
-    }
-    
-}
+
+
 </style>
