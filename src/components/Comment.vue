@@ -35,6 +35,7 @@ $word-color:#2F2F2F;
     flex-direction: row;
     // justify-content: center;
     width: 60%;
+    min-width: 250px;
     border-radius: 35px;
     padding: 1.5rem 1rem;
     // margin-bottom: 1.5rem;

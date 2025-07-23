@@ -50,6 +50,9 @@ h2.title{
     font-weight: bold;
     text-align: center;
     padding-top:1.5rem ;
+    @media screen and (max-width: 520px) {
+        font-size: 1.8rem;
+    }
 }
 div.comment{
     display: flex;
@@ -65,6 +68,7 @@ div.comment{
     }
     .totalComment{
         width: 80%;
+        min-width: 290px;
         padding: 1.5rem 2rem;
         background-color: #7E90A7;
         color: white;
@@ -73,6 +77,10 @@ div.comment{
         p{
             font-size: 1.15rem;
             text-align: left;
+            @media screen and (max-width: 650px) {
+                font-size: 1rem;
+                
+            }
         }
     }
     .commentContent{
@@ -91,6 +99,11 @@ div.comment{
                 border-right: #2F2F2F 1px solid;
                 @media screen and (max-width: 950px) {
                     padding: 1rem 1.5rem;
+                }
+                @media screen and (max-width: 650px) {
+                    font-size: 1.2rem;
+                    padding: 0.75rem 1rem;
+                    
                 }
                 span{
                     width: 100%;
