@@ -26,7 +26,7 @@ const props = defineProps({
         </div>
         <div class="maskDistrict" :class="{collapse: iscollapse}">
             <p @click="iscollapse = !iscollapse">{{ i.comment }}</p>
-            <div v-if="iscollapse" class="mask"></div>
+            <div v-if="iscollapse" class="mask" @click="iscollapse = !iscollapse"></div>
         </div>
     </div>
 </div>
