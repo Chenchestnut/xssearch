@@ -105,14 +105,19 @@ div.comment{
                     padding: 0.75rem 1rem;
                 }
                 @media screen and (max-width: 500px) {
-                    font-size: 1rem;
+                    font-size: 0.8rem;
                     padding: 0.5rem 0.75rem;
-                    
+                    border-right: none;
                 }
                 span{
                     width: 100%;
+                    @media screen and (max-width: 500px) {
+                        border: #D3D2C7 1px solid;
+                        border-radius: 35px;
+                        padding: 0.1rem 0.3rem;
+                    }
                     &:hover{
-                    background-color: #D3D2C7;
+                    background-color: #B5B8A3;
                     border-radius: 35px;
                     }
                 }
