@@ -115,7 +115,7 @@ color: $word-color;
             justify-content: flex-start;
             width: 20%;
             min-width: 300px;
-            height: 50vh;
+            height: 40vh;
             background-color: #D2D5DA;
             border-radius: 35px;
             padding:2rem 2rem;
