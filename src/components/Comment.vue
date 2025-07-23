@@ -2,14 +2,20 @@
 import { useSearchStore } from '../stores/useSearchStore';
 import { ref } from 'vue';
 const searchStore = useSearchStore();
-const iscollapse = ref(true);
+const isCollapse = ref(true);
 const props = defineProps({
     platform: {
         type: String,
         default: 'momo'
     }
 });
-
+const textLimit = 300;
+function showMask(comment){
+    return comment.length > textLimit;
+}
+function isCollapsed(){
+    return !isCollapse.value;
+}
 // const currentPlatform = ref('momo')
 
 </script>
@@ -24,9 +30,9 @@ const props = defineProps({
             <i class="fa-regular fa-star"></i>
             <i class="fa-regular fa-star"></i>
         </div>
-        <div class="maskDistrict" :class="{collapse: iscollapse}">
-            <p @click="iscollapse = !iscollapse">{{ i.comment }}</p>
-            <div v-if="iscollapse" class="mask" @click="iscollapse = !iscollapse"></div>
+        <div class="maskDistrict" :class="{collapse: isCollapsed && showMask(i.comment)}">
+            <p @click="isCollapsed">{{ i.comment }}</p>
+            <div v-if="isCollapsed && showMask(i.comment)" class="mask" @click="isCollapsed"></div>
         </div>
     </div>
 </div>
@@ -62,6 +68,7 @@ $word-color:#2F2F2F;
         p{
             font-size: 1rem;
             padding: 0.5rem 0;
+            cursor: pointer;
             @media screen and (max-width: 520px) {
                 font-size: 0.9rem;
             }
