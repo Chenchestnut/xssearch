@@ -108,6 +108,9 @@ color: $word-color;
         justify-content: space-evenly;
         align-items: center;
         margin: 5rem 2rem;
+        @media screen and (max-width: 900px) {
+            margin: 3rem 0;
+        }
         .free,.member{
             display: flex;
             flex-direction: column;
