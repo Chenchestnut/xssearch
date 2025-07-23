@@ -74,7 +74,7 @@ $word-color: #2F2F2F;
     display: flex;
     // flex-direction: column;
     // align-items: flex-start;
-    text-align: center ;
+    text-align: right;
     // @media screen and (max-width: 1000px) {
     //         top: auto;
     //         bottom: 0;
@@ -86,10 +86,6 @@ $word-color: #2F2F2F;
         margin: 0;
         padding: 0.3rem 0;
         padding-left: 0.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
         li{
             list-style: none;
             padding: 0.3rem 0.5rem;
