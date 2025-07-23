@@ -111,7 +111,7 @@ div.comment{
                 }
                 span{
                     width: 100%;
-                    @media screen and (max-width: 500px) {
+                    @media screen and (max-width: 520px) {
                         border: #B5B8A3 1px solid;
                         border-radius: 35px;
                         padding: 0.1rem 0.3rem;
