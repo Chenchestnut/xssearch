@@ -117,7 +117,7 @@ color: $word-color;
             align-items: center;
             justify-content: flex-start;
             width: 20%;
-            min-width: 290px;
+            min-width: 280px;
             height: 45vh;
             background-color: #D2D5DA;
             border-radius: 35px;
@@ -177,7 +177,8 @@ color: $word-color;
 
             }
         }
-        div.member{            
+        div.member{
+            margin-bottom: 2rem;            
             button{
                 cursor: pointer;
                 background-color: #D4B2A8;
