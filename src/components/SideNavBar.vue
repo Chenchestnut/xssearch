@@ -88,11 +88,12 @@ $word-color: #2F2F2F;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: space-between;
         li{
             list-style: none;
             padding: 0.5rem 0.8rem;
             border-bottom: 1px solid #ccc;
+            text-align: right;
             text-decoration: none;
             color: $word-color;
             cursor: pointer;
