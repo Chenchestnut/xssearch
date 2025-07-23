@@ -24,8 +24,10 @@ const props = defineProps({
             <i class="fa-regular fa-star"></i>
             <i class="fa-regular fa-star"></i>
         </div>
-        <p @click="iscollapse = !iscollapse">{{ i.comment }}</p>
-        <div v-if="iscollapse" class="mask"></div>
+        <div class="maskDistrict" :class="{collapse: iscollapse}">
+            <p @click="iscollapse = !iscollapse">{{ i.comment }}</p>
+            <div v-if="iscollapse" class="mask"></div>
+        </div>
     </div>
 </div>
 </template>
@@ -71,17 +73,25 @@ $word-color:#2F2F2F;
                 padding-right: 0.2rem;
             }
         }
+        .maskDistrict{
+            div.mask{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: 150px;
+                background: linear-gradient(rgba(255, 255, 255, 0), #caccd3);
+                cursor: pointer;
+            }
+        }
+        .maskDistrict.collapse{
+            max-height: 8rem;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
     }
-    div.mask{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 300px;
-        background: linear-gradient(rgba(255, 255, 255, 0), #caccd3);
-        cursor: pointer;
-    }
+    
 }
 
 </style>
