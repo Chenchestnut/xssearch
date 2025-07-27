@@ -9,6 +9,8 @@ const props = defineProps({
         default: 'momo'
     }
 });
+console.log(`${props.platform}Reviews:`, searchStore[`${props.platform}Reviews`]);
+console.log('platform 值:', props.platform);
 const textLimit = 300;
 function showMask(comment){
     return comment.length > textLimit;
