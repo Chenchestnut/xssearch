@@ -88,8 +88,8 @@ div.wholeNavbar{
                         border: 1px solid #B5B8A3;
                     }
 
-                    h2.brandName {
-                        font-size: 24px;
+                    .brandName {
+                        font-size: 1rem;
                         color: white;
                         cursor: pointer;
                     }
