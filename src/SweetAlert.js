@@ -24,9 +24,9 @@ export const useAlert = () => {
           .swal2-html-container {
             overflow: visible !important;
             max-height: none !important;
-            display: flex;
-            justify-content: center;
-            height: 80px;
+            display: flex !important;
+            justify-content: center !important;
+            height: 80px !important;
           }
           .swal2-popup {
           max-height: none !important; 
