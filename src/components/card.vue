@@ -72,7 +72,7 @@ $word-color:#2F2F2F;
         justify-content: center;
         align-items: center;
         width: 320px;
-        height: 250px;
+        height: 280px;
         position: relative;
         transition: transform 0.6s;
         transform-style: preserve-3d;
