@@ -26,7 +26,7 @@ function toggleHambergerMenu() {
             <nav>
                 <div class="logo">
                     <img src="../assets/logo.jpeg" alt="LOGO">
-                    <h2>XSSearch</h2>
+                    <router-link to="/" class="brandName">XSSearch</router-link>
                 </div>
                 <div class="navLinks">
                     <router-link to="/search" class="search">普通查詢</router-link>
@@ -88,9 +88,10 @@ div.wholeNavbar{
                         border: 1px solid #B5B8A3;
                     }
 
-                    h2 {
+                    h2.brandName {
                         font-size: 24px;
                         color: white;
+                        cursor: pointer;
                     }
             }
             .navLinks{
