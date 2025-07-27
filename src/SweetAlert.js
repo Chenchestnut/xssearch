@@ -9,7 +9,7 @@ export const useAlert = () => {
     return Swal.fire({
       title: title,
       //   html: `<img src="${loadingImage}" />`,
-      html: '<div class="ldBar" data-preset="stripe" data-value="0" id="myBar"> </div>',
+      html: '<div class="ldBar" data-preset="stripe" data-value="0" data-text="% id="myBar"> </div>',
       allowOutsideClick: false,
       allowEscapeKey: false,
       allowEnterKey: false,
