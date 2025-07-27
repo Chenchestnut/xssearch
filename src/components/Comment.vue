@@ -55,10 +55,7 @@ $word-color:#2F2F2F;
     background-color: #caccd3;
     color: $word-color;
     .avatar{
-        width: 40px;
-        height: 40px;
-        background-color: #B5B8A3;
-        border-radius: 50%;
+        border-left: #B5B8A3 solid 1px;
         margin-right: 0.5rem;
     }
     .content{

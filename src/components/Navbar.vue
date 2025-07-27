@@ -89,9 +89,11 @@ div.wholeNavbar{
                     }
 
                     .brandName {
-                        font-size: 1rem;
+                        font-size: 1.5rem;
+                        font-weight: 300;
                         color: white;
                         cursor: pointer;
+                        text-decoration: none;
                     }
             }
             .navLinks{
