@@ -19,6 +19,17 @@ export const useAlert = () => {
       //     Swal.showLoading(); //加載動畫
       //   },
       didOpen: () => {
+        const style = document.createElement("style");
+        style.innerHTML = `
+          .swal2-html-container {
+            overflow: visible !important;
+            max-height: none !important;
+          }
+          .swal2-popup {
+          max-height: none !important; 
+          }
+        `;
+        document.head.appendChild(style);
         // 初始化
         barInstance = new ldBar("#myBar");
         fakeProgress = 0;
