@@ -57,7 +57,7 @@ $word-color:#2F2F2F;
     .avatar{
         border-left: #B5B8A3 solid 1px;
         margin-right: 0.5rem;
-        height: 3vh;
+        height: 4vh;
     }
     .content{
         display: flex;
