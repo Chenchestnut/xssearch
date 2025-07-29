@@ -18,8 +18,8 @@ function flipCard3() {
 
 <template>
     <div class="cardContainer">
-        <div class="card" :class="{flipped : isFlipped1}" @mouseenter="flipCard1" @mouseleave="flipCard1">
-            <div class="cardFront">
+        <div class="card">
+            <div class="cardFront" :class="{flipped : isFlipped1}" @mouseenter="flipCard1" @mouseleave="flipCard1">
                 普通查詢
             </div>
             <div class="cardBack">
@@ -27,8 +27,8 @@ function flipCard3() {
             </div>
         </div>
 
-        <div class="card" :class="{flipped : isFlipped2}" @mouseenter="flipCard2" @mouseleave="flipCard2">
-            <div class="cardFront">
+        <div class="card">
+            <div class="cardFront" :class="{flipped : isFlipped2}" @mouseenter="flipCard2" @mouseleave="flipCard2">
                 個人化推薦
             </div>
             <div class="cardBack">
@@ -40,8 +40,8 @@ function flipCard3() {
             </div>
         </div>
 
-        <div class="card" :class="{flipped : isFlipped3}" @mouseenter="flipCard3" @mouseleave="flipCard3">
-            <div class="cardFront">
+        <div class="card">
+            <div class="cardFront" :class="{flipped : isFlipped3}" @mouseenter="flipCard3" @mouseleave="flipCard3">
                 好物比拚
             </div>
             <div class="cardBack">
