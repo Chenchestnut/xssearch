@@ -30,9 +30,9 @@ function updateActive(){
         activeBtn.value = 'search';
     } else if(currentPath.includes('/recommend')) {
         activeBtn.value = 'recommend';
-    } /*else if(currentPath.includes('/compare')) {
+    } else if(currentPath.includes('/compare')) {
         activeBtn.value = 'compare';
-    } */else if(currentPath.includes('/membership')) {
+    } else if(currentPath.includes('/membership')) {
         activeBtn.value = 'membership';
     }
 }
