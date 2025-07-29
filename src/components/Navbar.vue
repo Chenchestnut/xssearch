@@ -1,5 +1,6 @@
 <script setup>
 import { useInputStore } from '../stores/useInputStore';
+import { useRoute } from 'vue-router';
 import { ref } from 'vue';
 import Personal from './Personal.vue';
 import HambergerMenu from './HambergerMenu.vue';
@@ -7,6 +8,7 @@ const inputStore = useInputStore();
 let name = inputStore.text.slice(1);
 let isPersonalMenuOpen = ref(false);
 let isHambergerMenuOpen = ref(false);
+let activeBtn = ref('');
 // const icon = [
 //     {title:'hamberger',icon:'fa-solid fa-bars'},
 //     {title:'close',icon:'fa-solid fa-xmark'},
@@ -17,6 +19,21 @@ function togglePersonalMenu() {
 }
 function toggleHambergerMenu() {
     isHambergerMenuOpen.value = !isHambergerMenuOpen.value;
+}
+function setActive(activeBtn){
+    activeBtn.value = activeBtn;
+}
+function updateActive(){
+    const currentPath = route.path
+    if(currentPath.includes('/search')) {
+        activeBtn.value = 'search';
+    } else if(currentPath.includes('/recommend')) {
+        activeBtn.value = 'recommend';
+    } /*else if(currentPath.includes('/compare')) {
+        activeBtn.value = 'compare';
+    } */else if(currentPath.includes('/membership')) {
+        activeBtn.value = 'membership';
+    }
 }
 </script>
 
@@ -29,10 +46,10 @@ function toggleHambergerMenu() {
                     <router-link to="/" class="brandName">XSSearch</router-link>
                 </div>
                 <div class="navLinks">
-                    <router-link to="/search" class="search">普通查詢</router-link>
-                    <router-link to="/recommend" class="recommend">個人化推薦</router-link>
+                    <router-link to="/search" class="search" @click="setActive('search')" :class="{active: activeBtn === 'search'}">普通查詢</router-link>
+                    <router-link to="/recommend" class="recommend" @click="setActive('recommend')" :class="{active: activeBtn === 'recommend'}">個人化推薦</router-link>
                     <!-- <router-link to="/compare" class="compare">好物比拼<i class="fa-solid fa-crown"></i></router-link>   -->
-                    <router-link to="/membership" class="compare">好物比拼<i class="fa-solid fa-crown"></i></router-link>
+                    <router-link to="/membership" class="compare" @click="setActive('membership')" :class="{active: activeBtn === 'membership'}">好物比拼<i class="fa-solid fa-crown"></i></router-link>
                 </div>
                 <div class="personal">
                         <div class="avatar">
@@ -196,5 +213,8 @@ div.wholeNavbar{
     
     
 }
-
+.active{
+    background-color: #C4C5B5;
+    border: #B5B8A3 1px solid;
+}
 </style>
