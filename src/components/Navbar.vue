@@ -9,6 +9,7 @@ let name = inputStore.text.slice(1);
 let isPersonalMenuOpen = ref(false);
 let isHambergerMenuOpen = ref(false);
 let activeBtn = ref('');
+const route = useRoute();
 // const icon = [
 //     {title:'hamberger',icon:'fa-solid fa-bars'},
 //     {title:'close',icon:'fa-solid fa-xmark'},
