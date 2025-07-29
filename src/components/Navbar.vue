@@ -34,11 +34,12 @@ function updateActive(){
     } */else if(currentPath.includes('/membership')) {
         activeBtn.value = 'membership';
     }
-
-    onMounted(()=>{
-        updateActive();
-    })
 }
+
+
+onMounted(()=>{
+    updateActive();
+})
 </script>
 
 <template>
