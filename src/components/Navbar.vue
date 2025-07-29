@@ -1,7 +1,7 @@
 <script setup>
 import { useInputStore } from '../stores/useInputStore';
 import { useRoute } from 'vue-router';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import Personal from './Personal.vue';
 import HambergerMenu from './HambergerMenu.vue';
 const inputStore = useInputStore();
@@ -34,6 +34,10 @@ function updateActive(){
     } */else if(currentPath.includes('/membership')) {
         activeBtn.value = 'membership';
     }
+
+    onMounted(()=>{
+        updateActive();
+    })
 }
 </script>
 
