@@ -18,7 +18,7 @@ function flipCard3() {
 
 <template>
     <div class="cardContainer">
-        <div class="card" :class="{flipped : isFlipped1}" @click="flipCard1">
+        <div class="card" :class="{flipped : isFlipped1}" @mouseenter="flipCard1" @mouseleave="flipCard1">
             <div class="cardFront">
                 普通查詢
             </div>
@@ -26,8 +26,8 @@ function flipCard3() {
                 試著輸入你要找的商品型號吧！
             </div>
         </div>
-        
-        <div class="card" :class="{flipped : isFlipped2}" @click="flipCard2">
+
+        <div class="card" :class="{flipped : isFlipped2}" @mouseenter="flipCard2" @mouseleave="flipCard2">
             <div class="cardFront">
                 個人化推薦
             </div>
@@ -39,8 +39,8 @@ function flipCard3() {
                 EX:我想要一台可以打電動的筆電
             </div>
         </div>
-        
-        <div class="card" :class="{flipped : isFlipped3}" @click="flipCard3">
+
+        <div class="card" :class="{flipped : isFlipped3}" @mouseenter="flipCard3" @mouseleave="flipCard3">
             <div class="cardFront">
                 好物比拚
             </div>
