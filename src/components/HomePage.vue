@@ -1,23 +1,33 @@
 <script setup>
 import card from './card.vue';
 import { ref, onMounted} from 'vue';
-import * as anime from "animejs";
+import { animate, stagger, text  } from 'animejs';
 
 const isClicked = ref(false);
-// const { proxy } = getCurrentInstance();
 
 function toggleLogin(){
     isClicked.value = !isClicked.value;
 }
 
-onMounted(() => {
-    anime({
-        targets: 'h1',
-        translateY: [0, 100],
-        duration: 750,
-        easing: 'easeInOutSine',
-        delay: 300
-    });
+onMounted(() => {    
+    // 文字分割動畫
+    setTimeout(() => {
+        try {
+            const { chars } = text.split('h1', { words: false, chars: true });
+            
+            animate(chars, {
+                y: [
+                    { to: '-2.75rem', ease: 'outExpo', duration: 300 },
+                    { to: 0, ease: 'outBounce', duration: 800, delay: 100 }
+                ],
+                delay: stagger(50),
+                ease: 'inOutCirc',
+                loop: false
+            });
+        } catch (error) {
+            console.error('Text split animation failed:', error);
+        }
+    }, 1000);
 });
 </script>
 
