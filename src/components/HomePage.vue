@@ -2,9 +2,8 @@
 import card from './card.vue';
 import { ref, onMounted } from 'vue';
 import { useAnimations } from '../composables/useAnimations';
-
 const isClicked = ref(false);
-const { textSplitAnimation, delayedAnimation } = useAnimations();
+const { textSplitAnimation, delayedAnimation} = useAnimations();
 
 function toggleLogin(){
     isClicked.value = !isClicked.value;
@@ -13,10 +12,16 @@ function toggleLogin(){
 onMounted(() => {
     // 延遲執行文字分割動畫
     delayedAnimation(() => textSplitAnimation('h1'), 1000);
+
 });
 </script>
 
 <template>
+<!-- <section class="wrap">
+    <div class="word">
+        <p class="title">XSSearch<br>你的最佳助手</p>
+    </div>
+</section> -->
 <div class="homePage">
     <header>
         <div class="logo">
@@ -46,8 +51,33 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 $word-color:#2F2F2F;
-
-
+.wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #efece9;
+    z-index: 100;
+    .word{
+        .title{
+            font-size: 5rem;
+        }
+        .title{
+            font-weight: bold;
+            text-align: center;
+            color: $word-color;
+            @media screen and (max-width: 520px) {
+                font-size: 2rem;
+            }
+            
+        }
+        
+    }
+}
 .homePage {
 margin: 0;
 padding: 0;

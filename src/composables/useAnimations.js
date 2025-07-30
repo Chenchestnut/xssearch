@@ -1,5 +1,4 @@
-import { onMounted } from "vue";
-import { animate, stagger, text } from "animejs";
+import { animate, stagger, text, svg } from "animejs";
 
 export function useAnimations() {
   // 基本淡入動畫
