@@ -1,22 +1,25 @@
 <script setup>
 import card from './card.vue';
-import { ref } from 'vue';
-import { animate, text, stagger } from 'animejs';
+import { ref, onMounted, getCurrentInstance } from 'vue';
 
-const {words} = text.split('h2',{words:{wrap:'clip'},})
-animate(words,{
-    y:[
-        {to:['0%','100%']}
-    ],
-    duration:750,
-    delay: stagger(100),
-    easing:'easeInOutSine',
-    loop:false,
-})
 const isClicked = ref(false);
+const { proxy } = getCurrentInstance();
+
 function toggleLogin(){
     isClicked.value = !isClicked.value;
 }
+
+onMounted(() => {
+    // 使用全域的 anime
+    proxy.$anime({
+        targets: '.logo h2',
+        translateY: [-20, 0],
+        opacity: [0, 1],
+        duration: 750,
+        easing: 'easeInOutSine',
+        delay: 300
+    });
+});
 </script>
 
 <template>
