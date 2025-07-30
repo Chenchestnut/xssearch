@@ -1,7 +1,7 @@
 <script setup>
 import card from './card.vue';
 import { ref, onMounted} from 'vue';
-import anime from "animejs";
+import * as anime from "animejs";
 
 const isClicked = ref(false);
 // const { proxy } = getCurrentInstance();
