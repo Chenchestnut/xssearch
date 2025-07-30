@@ -1,17 +1,17 @@
 <script setup>
 import card from './card.vue';
-import { ref, onMounted, getCurrentInstance } from 'vue';
+import { ref, onMounted} from 'vue';
+import anime from "animejs";
 
 const isClicked = ref(false);
-const { proxy } = getCurrentInstance();
+// const { proxy } = getCurrentInstance();
 
 function toggleLogin(){
     isClicked.value = !isClicked.value;
 }
 
 onMounted(() => {
-    // 使用全域的 anime
-    proxy.$anime({
+    anime({
         targets: 'h1',
         translateY: [0, 100],
         duration: 750,
