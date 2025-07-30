@@ -1,7 +1,18 @@
 <script setup>
 import card from './card.vue';
 import { ref } from 'vue';
+import { animate, text, stagger } from 'animejs';
 
+const {words} = text.split('h2',{words:{wrap:'clip'},})
+animate(words,{
+    y:[
+        {to:['0%','100%']}
+    ],
+    duration:750,
+    delay: stagger(100),
+    easing:'easeInOutSine',
+    loop:false,
+})
 const isClicked = ref(false);
 function toggleLogin(){
     isClicked.value = !isClicked.value;
@@ -10,7 +21,6 @@ function toggleLogin(){
 
 <template>
 <div class="homePage">
-    
     <header>
         <div class="logo">
             <img src="../assets/logo.jpeg" alt="LOGO">
