@@ -8,6 +8,8 @@ import SideNavBar from './SideNavBar.vue';
 import photoSection from './photoSection.vue';
 // import { useSearchStore } from '../stores/useSearchStore';
 import { onMounted, ref } from 'vue';
+const { fadeIn } = useAnimations();
+
 // const searchStore = useSearchStore();
 const sections = ref([
     {title:"優缺點"},
@@ -19,6 +21,7 @@ const sections = ref([
 let sectionRefs = [];
 onMounted(()=>{
     sectionRefs = new Array(sections.value.length).fill(null)
+    fadeIn('.searchResult')
 })
 const setSectionRefs=(el,index)=>{
     // el是組件實例，$el是組件的根元素

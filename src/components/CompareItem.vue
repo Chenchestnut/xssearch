@@ -15,7 +15,9 @@ let compareDetails = reactive({
     <div class="compareItem">
         <div class="compareSort">
             <p>商品種類</p>
-            <button v-for="(detail, sort) in compareDetails" :key="sort"  :class="{active: selectSort === sort}" @click="selectSort = sort">{{ sort }}</button>
+            <div class="sortBtn">
+                <button v-for="(detail, sort) in compareDetails" :key="sort"  :class="{active: selectSort === sort}" @click="selectSort = sort">{{ sort }}</button>
+            </div>
         </div>
         <div class="compareDetails">
             <p>對比項目</p>
@@ -42,33 +44,41 @@ $word-color: #2F2F2F;
     color: $word-color;
     background-color: #D3D2C7;
     width: 50%;
-    min-width: 360px;
     border-radius: 35px;
     margin-top: 3rem;
+    min-width: 300px;
     .compareSort{
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        align-items: start;
         justify-content: flex-start;
         width: 100%;
-        padding: 1.5rem;
-        button{
-            background-color: #a4aebd;
-            padding: 0.5rem 2rem;
-            border: none;
-            border-radius: 35px;
-            margin: 0 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            &:hover{
-                background-color: #7e90a7;
-                color: white;
+        padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+        div.sortBtn{
+            margin-top: 1rem;
+            button{
+                background-color: #a4aebd;
+                padding: 0.5rem 2rem;
+                border: none;
+                border-radius: 35px;
+                margin: 0 1rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                @media screen and (max-width: 960px) {
+                    padding: 0.5rem 1rem;
+                    margin: 0 0.5rem;
+                    min-width: 60px;
+                }
+                &:hover{
+                    background-color: #7e90a7;
+                    color: white;
+                }
+                &.active{
+                    background-color: #7e90a7;
+                    color: white;   
+                }
             }
-            &.active{
-                background-color: #7e90a7;
-                color: white;   
-            }
-        }
+        }    
     }
     .compareDetails{
         display: flex;
@@ -100,6 +110,9 @@ $word-color: #2F2F2F;
                     border: black solid 1px;
                     border-radius: 10px;
                     padding: 0.5rem 2rem;
+                    @media screen and (max-width: 960px) {
+                        padding: 0.5rem 1.5rem;
+                    }
                     &:hover{
                         background-color: #B5B8A3;
                     }
