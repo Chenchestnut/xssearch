@@ -12,9 +12,8 @@ function toggleLogin(){
 onMounted(() => {
     // 使用全域的 anime
     proxy.$anime({
-        targets: '.logo h2',
-        translateY: [-20, 0],
-        opacity: [0, 1],
+        targets: 'h1',
+        translateY: [0, 100],
         duration: 750,
         easing: 'easeInOutSine',
         delay: 300
