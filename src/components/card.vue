@@ -59,14 +59,16 @@ function flipCard3() {
 <style lang="scss" scoped>
 $word-color:#2F2F2F;
 .cardContainer{
-    perspective: 1000px;
+    // perspective: 1000px;
     display: flex;
     flex-wrap: wrap;
     flex: 0 1 auto;
     justify-content: center;
     align-items: center;
     margin: 3rem 3rem 0rem 3rem;
-
+    @media screen and (max-width: 500px) {
+        margin: 3rem 0rem 0rem 0rem; 
+    }
     .card{
         display: flex;
         justify-content: center;
@@ -77,7 +79,10 @@ $word-color:#2F2F2F;
         transition: transform 0.6s;
         transform-style: preserve-3d;
         cursor: pointer;
-        margin: 0.5rem 2rem;
+        margin: 0.5rem 3rem;
+        @media screen and (max-width: 500px) {
+            margin: 0.5rem 0rem;
+        }
         
         .cardFront,.cardBack{
             position: absolute;

@@ -1,15 +1,21 @@
 <script setup>
 import Navbar from './Navbar.vue'
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useSearchStore } from '../stores/useSearchStore';
 import { useAlert } from '../SweetAlert';
 import axios from 'axios';
+import { useAnimations } from '../composables/useAnimations';
 
 const searchQuery = ref('');
 const router = useRouter();
 const searchStore = useSearchStore();
 const { showLoading, closeLoading, showWarning} = useAlert();
+const {  searchBoxAnimation } = useAnimations();
+
+onMounted(()=>{
+    searchBoxAnimation('.searchBar')
+})
 
 function handleSearch(){
     if(searchQuery.value.trim() === '') {
@@ -97,7 +103,7 @@ form{
     .searchBar{
         position: relative;
         width: 50%;
-        min-width: 300px;
+        min-width: 300px; /* 正常狀態下的最小寬度 */
         input.searchInput{
         padding: 1.25rem 4rem 1.25rem 1.5rem;
         width: 100%;

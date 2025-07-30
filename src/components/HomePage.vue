@@ -1,33 +1,18 @@
 <script setup>
 import card from './card.vue';
-import { ref, onMounted} from 'vue';
-import { animate, stagger, text  } from 'animejs';
+import { ref, onMounted } from 'vue';
+import { useAnimations } from '../composables/useAnimations';
 
 const isClicked = ref(false);
+const { textSplitAnimation, delayedAnimation } = useAnimations();
 
 function toggleLogin(){
     isClicked.value = !isClicked.value;
 }
 
-onMounted(() => {    
-    // 文字分割動畫
-    setTimeout(() => {
-        try {
-            const { chars } = text.split('h1', { words: false, chars: true });
-            
-            animate(chars, {
-                y: [
-                    { to: '-2.75rem', ease: 'outExpo', duration: 300 },
-                    { to: 0, ease: 'outBounce', duration: 800, delay: 100 }
-                ],
-                delay: stagger(50),
-                ease: 'inOutCirc',
-                loop: false
-            });
-        } catch (error) {
-            console.error('Text split animation failed:', error);
-        }
-    }, 1000);
+onMounted(() => {
+    // 延遲執行文字分割動畫
+    delayedAnimation(() => textSplitAnimation('h1'), 1000);
 });
 </script>
 
@@ -127,15 +112,15 @@ color: $word-color;
                 float: right;
                 top: 100%;
                 left: 50%;
-                transform: translateX(-50%);
+                transform: translateX(-55%);
                 z-index: 10;
                 background-color: #dddbde;
-                padding: 1rem;
+                padding: 0.5rem;
                 margin-top: 1rem;
                 border-radius: 35px;
                 .loginBtn, .registerBtn {
                     // margin-right: auto;
-                    padding: 0.5rem 1.5rem;
+                    padding: 0.3rem 1rem;
                     border-radius: 50px;
                     font-size: 1rem;
                     cursor: pointer;
@@ -198,7 +183,7 @@ color: $word-color;
         align-items: center;
         flex-wrap: wrap;
         .startBtn{
-            margin: 2rem;
+            margin-top: 8rem;
             padding: 1rem 5rem;
             width: 45%;
             min-width: 260px;
