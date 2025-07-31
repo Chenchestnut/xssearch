@@ -124,7 +124,7 @@ hr{
                     width: 100%;
                     min-width: 300px;
                     padding: 0.5rem 4rem 0.5rem 1.5rem;
-                    // margin:0 1rem ;
+                    margin-top: 0.5rem;
                     background-color: #EFECE9;
                     border: 2px solid #B5B8A3;
                     border-radius: 150px;
@@ -207,7 +207,7 @@ hr{
                 margin-left: 3.5rem;
                 color: #7E90A7;
                 font-size: 1.5rem;
-                margin-left: 2rem;
+                // margin-left: 2rem;
                 padding: 0.5rem;
                 cursor: pointer;
                 
