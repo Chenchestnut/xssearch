@@ -118,6 +118,7 @@ export function useAnimations() {
 
   return {
     fadeIn,
+    fadeIn2,
     searchBoxAnimation,
     textSplitAnimation,
     slideIn,
