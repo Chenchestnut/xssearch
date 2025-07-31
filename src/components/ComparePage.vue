@@ -114,7 +114,7 @@ hr{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 80%;
+                width: 60%;
                 transform: translateX(2%);
                 .searchBar{
                     position: relative;
