@@ -1,14 +1,20 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import { useInputStore } from '../stores/useInputStore';
+import { useAnimations } from '../composables/useAnimations';
+import { onMounted } from 'vue';
+const { fadeIn } = useAnimations();
 const inputStore = useInputStore();
 let name = inputStore.text.slice(1);
 
 const router = useRouter();
 function changeToCompare() {
     router.push('/compare');
-    console.log('切換到商品對比頁面');
 }
+
+onMounted(()=>{
+    fadeIn('.card');
+})
 </script>
 
 <template>

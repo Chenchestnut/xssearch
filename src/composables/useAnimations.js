@@ -13,6 +13,18 @@ export function useAnimations() {
 
     return animate(selector, { ...defaultOptions, ...options });
   };
+  //會員動畫
+  const fadeIn2 = (selector, options = {}) => {
+    const defaultOptions = {
+      translateY: [-100, -80],
+      opacity: [0, 1],
+      duration: 1000,
+      easing: "easeInOutSine",
+      delay: 0,
+    };
+
+    return animate(selector, { ...defaultOptions, ...options });
+  };
   //搜尋框動畫
   const searchBoxAnimation = (selector, options = {}) => {
     const defaultOptions = {
