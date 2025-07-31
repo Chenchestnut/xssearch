@@ -6,6 +6,7 @@ import CommendSection from './commendSection.vue';
 import SpecificationSection from './specificationSection.vue';
 import SideNavBar from './SideNavBar.vue';
 import photoSection from './photoSection.vue';
+import { useAnimations } from '../composables/useAnimations';
 // import { useSearchStore } from '../stores/useSearchStore';
 import { onMounted, ref } from 'vue';
 const { fadeIn } = useAnimations();
