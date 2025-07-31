@@ -73,7 +73,6 @@ background-attachment: fixed;
 height: 100vh;
 width: 100%;
 color: $word-color;
-padding-bottom: 1rem;
     .personal{
             display: flex;
             justify-content: right;
