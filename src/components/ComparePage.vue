@@ -200,10 +200,8 @@ hr{
                 }
             }
             i.hamburger{
-                margin-left: 3.5rem;
                 color: #7E90A7;
                 font-size: 1.5rem;
-                // margin-left: 2rem;
                 padding: 0.5rem;
                 cursor: pointer;
                 
