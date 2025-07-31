@@ -16,7 +16,7 @@ export function useAnimations() {
   //會員動畫
   const fadeIn2 = (selector, options = {}) => {
     const defaultOptions = {
-      translateY: [100, 30],
+      translateY: [80, 20],
       opacity: [0, 1],
       duration: 1000,
       easing: "easeInOutSine",
