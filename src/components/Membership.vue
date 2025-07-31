@@ -185,7 +185,7 @@ color: $word-color;
         }
         div.member{
             margin-bottom: 2rem;
-            padding: 1rem;            
+            padding: 2rem 2rem 1rem 2rem;
             button{
                 cursor: pointer;
                 background-color: #D4B2A8;
