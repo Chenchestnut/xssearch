@@ -1,14 +1,19 @@
 <script setup>
 import Navbar from './Navbar.vue'
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import CompareItem from './CompareItem.vue';
+import { useAnimations } from '../composables/useAnimations';
 
 // import axios from 'axios';
-
+const { searchBoxAnimation } = useAnimations();
 const searchQuery = ref('');
 const router = useRouter();
 const showItem = ref(false);
+
+onMounted(()=>{
+    searchBoxAnimation('.searchBar');
+})
 function handleSearch(){
     if(searchQuery.value.trim() === '') {
         alert('請輸入商品型號或關鍵字');
