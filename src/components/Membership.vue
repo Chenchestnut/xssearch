@@ -113,9 +113,12 @@ color: $word-color;
         flex: 0 1 auto;
         justify-content: space-evenly;
         align-items: center;
-        margin: 2rem;
+        margin: 5rem 2rem;
         @media screen and (max-width: 900px) {
             margin: 3rem 0;
+        }
+        @media screen and (max-width: 560px) {
+            margin: 1rem 0;
         }
         .free,.member{
             display: flex;
