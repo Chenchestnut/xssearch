@@ -109,7 +109,7 @@ hr{
             align-items: center;
             justify-content: center;
             width: 100%;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             form{
                 display: flex;
                 justify-content: center;
@@ -121,7 +121,6 @@ hr{
                     width: 100%;
                     min-width: 300px;
                     padding: 0.5rem 4rem 0.5rem 1.5rem;
-                    margin-top: 0.5rem;
                     background-color: #EFECE9;
                     border: 2px solid #B5B8A3;
                     border-radius: 150px;
