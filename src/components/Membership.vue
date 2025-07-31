@@ -101,7 +101,7 @@ color: $word-color;
         font-size: 2.5rem;
         font-weight: 450;
         text-align: center;
-        margin: 2rem 0;
+        margin: 2rem 0 1rem 0;
         @media screen and (max-width: 520px) {
             font-size: 2rem;
         }
