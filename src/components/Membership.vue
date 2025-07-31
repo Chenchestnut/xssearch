@@ -129,6 +129,7 @@ color: $word-color;
             border-radius: 35px;
             padding:2rem 2rem;
             margin-top: 2rem;
+            margin-bottom: 2rem;
             @media screen and (max-width: 520px) {
                 padding: 1.5rem 1.5rem;
                 
@@ -184,7 +185,6 @@ color: $word-color;
             }
         }
         div.member{
-            // margin-bottom: 2rem;
             padding: 2rem 2rem 1rem 2rem;
             button{
                 cursor: pointer;
