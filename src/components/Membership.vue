@@ -3,7 +3,7 @@ import { useRouter } from 'vue-router';
 import { useInputStore } from '../stores/useInputStore';
 import { useAnimations } from '../composables/useAnimations';
 import { onMounted } from 'vue';
-const { fadeIn } = useAnimations();
+const { fadeIn2 } = useAnimations();
 const inputStore = useInputStore();
 let name = inputStore.text.slice(1);
 
@@ -13,7 +13,7 @@ function changeToCompare() {
 }
 
 onMounted(()=>{
-    fadeIn('.card');
+    fadeIn2('.card');
 })
 </script>
 
