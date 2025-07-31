@@ -70,9 +70,10 @@ background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
 background-attachment: fixed;
-min-height: 100vh;
+height: 100vh;
 width: 100%;
 color: $word-color;
+padding-bottom: 1rem;
     .personal{
             display: flex;
             justify-content: right;
