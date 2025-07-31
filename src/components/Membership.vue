@@ -128,8 +128,7 @@ color: $word-color;
             background-color: #D2D5DA;
             border-radius: 35px;
             padding:2rem 2rem;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+            margin-top: 1rem;
             @media screen and (max-width: 520px) {
                 padding: 1.5rem 1.5rem;
                 
