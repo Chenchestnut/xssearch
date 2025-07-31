@@ -73,6 +73,7 @@ background-attachment: fixed;
 height: 100vh;
 width: 100%;
 color: $word-color;
+overflow-y: auto;
     .personal{
             display: flex;
             justify-content: right;
