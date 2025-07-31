@@ -204,7 +204,7 @@ hr{
                 font-size: 1.5rem;
                 padding: 0.5rem;
                 cursor: pointer;
-                transform: translateX(5%);
+                transform: translateX(40%);
                 &:hover{
                     background-color: rgba(154, 167, 184, 0.3);
                     border-radius: 50%;
