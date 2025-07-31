@@ -8,6 +8,7 @@ import WordcloudSection from './wordcloudSection.vue';
 import CommendSection from './commendSection.vue';
 import SpecificationSection from './specificationSection.vue';
 import { onMounted, ref } from 'vue';
+import { useAnimations } from '../composables/useAnimations';
 const sections = ref([
     {title:"推薦理由"},
     {title:"優缺點"},
@@ -16,8 +17,11 @@ const sections = ref([
     {title:"規格"}
 ])
 let sectionRefs = [];
+
+const { fadeIn } = useAnimations();
 onMounted(()=>{
     sectionRefs = new Array(sections.value.length).fill(null)
+    fadeIn('.recommendResult')
 })
 const setSectionRefs=(el,index)=>{
     // el是組件實例，$el是組件的根元素

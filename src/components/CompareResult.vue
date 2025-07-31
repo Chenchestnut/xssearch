@@ -3,12 +3,15 @@ import Navbar from './Navbar.vue';
 import CompareProductCard from './CompareProductCard.vue';
 import Specification from './Specification.vue';
 import { onMounted, reactive, ref } from 'vue';
+import { useAnimations } from '../composables/useAnimations';
 
 const compareTitle = reactive(['對比結果', '基本規格', '其他評價']);
 const navBarHight = ref(0);
 const offset = ref(0);
+const { fadeIn } = useAnimations();
 
 onMounted(()=>{
+    fadeIn('.compareResult');
     const navbarElement = document.querySelector('.navbar');
     if(navbarElement){
         navBarHight.value = navbarElement.offsetHeight;
