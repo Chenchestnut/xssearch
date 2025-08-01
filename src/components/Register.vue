@@ -1,5 +1,4 @@
 <script setup>
-import { useInputStore } from '../stores/useInputStore';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 import googleLogin from './googleLogin.vue';
@@ -61,7 +60,7 @@ function handleRegister(){
 <style lang="scss" scoped>
 $word-color:#2F2F2F;
 .registerPage{
-    background-image: url('../assets/backGround.png');
+    background-image: url('../assets/background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
