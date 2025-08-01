@@ -153,6 +153,10 @@ $word-color:#2F2F2F;
         }
     }
     .other{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         .wrapper{
             display: flex;
             flex-direction: row;
