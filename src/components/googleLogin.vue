@@ -1,5 +1,7 @@
 <script setup>
 import { onMounted, defineProps } from 'vue';
+import { useInputStore } from '../stores/useInputStore';
+const inputStore = useInputStore();
 
     const props =defineProps({
         width:{
@@ -24,6 +26,7 @@ import { onMounted, defineProps } from 'vue';
     // 取得User資料
     function handleCredentialResponse(response) {
         const data = parseJwt(response.credential)
+        inputStore.setPicture(data.picture);
         console.log(data)
     }
 

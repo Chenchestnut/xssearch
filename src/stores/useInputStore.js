@@ -2,12 +2,12 @@ import { defineStore } from "pinia";
 
 export const useInputStore = defineStore("input", {
   state: () => ({
-    text: "",
+    picture: "",
   }),
   persist: true, // Enable persistence
   actions: {
-    setText(newText) {
-      this.text = newText;
+    setPicture(newPicture) {
+      this.picture = newPicture;
     },
   },
 });

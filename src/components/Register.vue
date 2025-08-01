@@ -2,14 +2,15 @@
 import { useInputStore } from '../stores/useInputStore';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
+import googleLogin from './googleLogin.vue';
 
-const inputStore = useInputStore();
 const email = ref('');
 const password = ref('');
+const name = ref('');
 const router = useRouter();
 
 function handleRegister(){
-    if(!(email.value && password.value && inputStore.text)) {
+    if(!(email.value && password.value && name.value)) {
         alert('請填寫所有欄位');
         return;
     }
@@ -33,14 +34,24 @@ function handleRegister(){
             <br>
             <label for="Name">Name</label>
             <br>
-            <input v-model="inputStore.text" type="text" placeholder="Name" required class="name">
-            
+            <input v-model="name" type="text" placeholder="Name" required class="name">
+
             <button type="submit" class="submitBtn">註冊</button>
         </form>
     </section>
     <section class="login">
         <p>已有帳號？</p>
         <router-link to="/login" class="loginBtn">登入</router-link>
+    </section>
+    <section class="other">
+        <div class="wrapper">
+            <div class="line"><hr></div>
+            <div>或</div>
+            <div class="line"><hr></div>
+        </div>
+        <div class="google">
+            <googleLogin />
+        </div>
     </section>
 </div>
     
@@ -147,6 +158,27 @@ $word-color:#2F2F2F;
             color: $word-color;
             &:hover{
                 color: black;
+            }
+        }
+    }
+    .other{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .wrapper{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0;
+            .line{
+                width: 50%;
+                min-width: 140px;
+                hr{
+                    width: 100%;
+                    border: 0.05rem solid $word-color;
+                }
             }
         }
     }

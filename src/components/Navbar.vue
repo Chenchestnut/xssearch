@@ -5,7 +5,8 @@ import { onMounted, ref } from 'vue';
 import Personal from './Personal.vue';
 import HambergerMenu from './HambergerMenu.vue';
 const inputStore = useInputStore();
-let name = inputStore.text.slice(1);
+// let name = inputStore.text.slice(1);
+let avatar = inputStore.picture;
 let isPersonalMenuOpen = ref(false);
 let isHambergerMenuOpen = ref(false);
 let activeBtn = ref('');
@@ -59,7 +60,7 @@ onMounted(()=>{
                 </div>
                 <div class="personal">
                         <div class="avatar">
-                            <!-- <p>{{ name }}</p> -->
+                            <img :src="avatar" alt="">
                              <i class="fa-regular fa-user"></i>
                         </div>
                         <i class="fa-solid fa-chevron-down" @click="togglePersonalMenu"></i>
