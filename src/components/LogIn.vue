@@ -1,7 +1,7 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import {ref} from 'vue';
-
+import googleLogin from './googleLogin.vue';
 const router = useRouter();
 const email = ref('');
 const password = ref('');
@@ -33,6 +33,16 @@ function handleLogin(){
     </section>
     <section class="login">
         <router-link to="/register" class="loginBtn">立即註冊</router-link>
+    </section>
+    <section class="other">
+        <div class="wrapper">
+            <div class="line"><hr></div>
+            <div>或</div>
+            <div class="line"><hr></div>
+        </div>
+        <div class="google">
+            <googleLogin />
+        </div>
     </section>
 </div>
     
@@ -140,6 +150,12 @@ $word-color:#2F2F2F;
             &:hover{
                 color: black;
             }
+        }
+    }
+    .other{
+        .wrapper{
+            display: flex;
+            flex-direction: row;
         }
     }
 }
