@@ -170,6 +170,8 @@ div.wholeNavbar{
                             font-size: 1.5rem;
                         }
                         img{
+                            width: 50%;
+                            height: 50%;
                             border-radius: 50%;
                         }
                     }
