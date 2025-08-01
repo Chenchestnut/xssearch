@@ -160,6 +160,14 @@ $word-color:#2F2F2F;
         .wrapper{
             display: flex;
             flex-direction: row;
+            .line{
+                width: 50%;
+                min-width: 140px;
+                hr{
+                    width: 100%;
+                    border: 0.05rem solid $word-color;
+                }
+            }
         }
     }
 }
