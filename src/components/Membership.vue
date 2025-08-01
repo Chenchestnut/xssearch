@@ -4,9 +4,9 @@ import { useInputStore } from '../stores/useInputStore';
 import { useAnimations } from '../composables/useAnimations';
 import { onMounted } from 'vue';
 const { fadeIn2 } = useAnimations();
-const avatar = useInputStore();
+const inputStore = useInputStore();
 // let name = inputStore.text.slice(1);
-
+let avatar = inputStore.picture;
 const router = useRouter();
 function changeToCompare() {
     router.push('/compare');
