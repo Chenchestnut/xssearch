@@ -4,8 +4,8 @@ import { useInputStore } from '../stores/useInputStore';
 import { useAnimations } from '../composables/useAnimations';
 import { onMounted } from 'vue';
 const { fadeIn2 } = useAnimations();
-const inputStore = useInputStore();
-let name = inputStore.text.slice(1);
+const avatar = useInputStore();
+// let name = inputStore.text.slice(1);
 
 const router = useRouter();
 function changeToCompare() {
@@ -21,7 +21,7 @@ onMounted(()=>{
     <div class="membership">
         <div class="personal">
                 <div class="avatar">
-                    <p>{{ name }}</p>
+                    <img :src="avatar" alt="">
                 </div>
                 <i class="fa-solid fa-chevron-down"></i>
         </div>
@@ -83,15 +83,19 @@ overflow-y: auto;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 80px;
-                height: 80px;
-                background-color: #B5B8A3;
+                width: 60px;
+                height: 60px;
                 border-radius: 50%;
                 margin-right: 0.5rem;
-                p{
-                    color: $word-color;
-                    text-align: center;
-                    font-size: 1.5rem;
+                // p{
+                //     color: $word-color;
+                //     text-align: center;
+                //     font-size: 1.5rem;
+                // }
+                img{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
                 }
             }
             i{
