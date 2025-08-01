@@ -61,7 +61,7 @@ onMounted(()=>{
                 <div class="personal">
                         <div class="avatar">
                             <img :src="avatar" alt="">
-                             <i class="fa-regular fa-user"></i>
+                             <!-- <i class="fa-regular fa-user"></i> -->
                         </div>
                         <i class="fa-solid fa-chevron-down" @click="togglePersonalMenu"></i>
                         <div class="component" v-if="isPersonalMenuOpen">
@@ -168,6 +168,9 @@ div.wholeNavbar{
                             color: $word-color;
                             text-align: center;
                             font-size: 1.5rem;
+                        }
+                        img{
+                            border-radius: 50%;
                         }
                     }
                     i{
