@@ -56,5 +56,8 @@ import { onMounted, defineProps } from 'vue';
     align-items: center;
     width: 100%;
     height: 100%;
+    #google-sign-in-button {
+        border-radius: 35px;
+    }
 }
 </style>

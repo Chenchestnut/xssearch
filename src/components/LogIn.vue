@@ -162,6 +162,7 @@ $word-color:#2F2F2F;
             flex-direction: row;
             align-items: center;
             justify-content: center;
+            margin: 1rem 0;
             .line{
                 width: 50%;
                 min-width: 140px;
