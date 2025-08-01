@@ -161,17 +161,16 @@ div.wholeNavbar{
                         justify-content: center;
                         width: 60px;
                         height: 60px;
-                        background-color: #B5B8A3;
                         border-radius: 50%;
                         margin-right: 0.5rem;
-                        p{
-                            color: $word-color;
-                            text-align: center;
-                            font-size: 1.5rem;
-                        }
+                        // p{
+                        //     color: $word-color;
+                        //     text-align: center;
+                        //     font-size: 1.5rem;
+                        // }
                         img{
-                            width: 50%;
-                            height: 50%;
+                            width: 60px;
+                            height: 60px;
                             border-radius: 50%;
                         }
                     }
