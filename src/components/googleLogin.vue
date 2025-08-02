@@ -28,7 +28,7 @@ const inputStore = useInputStore();
         const data = parseJwt(response.credential)
         inputStore.setPicture(data.picture);
         console.log(data)
-        window.location.href = '/search';
+        // window.location.href = '/search';
     }
 
     onMounted(()=>{
