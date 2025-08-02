@@ -2,10 +2,11 @@
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 import { useAlert } from '../SweetAlert';
-import { gapi } from 'gapi-script';
+import { useInputStore } from '../stores/useInputStore';
 
 const {showWarning} = useAlert();
 const router = useRouter();
+const inputStore = useInputStore();
 
 const options = [
     { title: '升級方案' ,icon:'fa-regular fa-circle-up',action:'update'},
@@ -18,16 +19,9 @@ function handleClick(action){
             router.push('/membership');
             break;
         case 'logout':
-            try{
-                const auth2 = gapi.auth2.getAuthInstance();
-                auth2.signOut().then(() => {
-                    console.log('User signed out.');
-                    router.push('/'); // Redirect to home page after logout
-                });
-            }
-            catch(error){
-                showWarning('登出失敗', error.message);
-            }
+            inputStore.removeToken();
+            window.google.accounts.id.disableAutoSelect(); // 取消自動登入
+            router.push('/');
             break;
     }
 }

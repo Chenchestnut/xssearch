@@ -15,6 +15,7 @@ const inputStore = useInputStore();
     })
     //這個function是要將拿到的User資料(Base64)轉成js的物件型態方便取用
     function parseJwt (token) {
+        inputStore.setToken(token);
         const base64Url = token.split('.')[1];
         const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
         const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
