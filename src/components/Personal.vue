@@ -2,6 +2,7 @@
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 import { useAlert } from '../SweetAlert';
+import { gapi } from 'gapi-script';
 
 const {showWarning} = useAlert();
 const router = useRouter();
