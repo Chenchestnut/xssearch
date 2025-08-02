@@ -1,6 +1,9 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
+import { useAlert } from '../SweetAlert';
+
+const {showWarning} = useAlert();
 const router = useRouter();
 
 const options = [
@@ -14,7 +17,16 @@ function handleClick(action){
             router.push('/membership');
             break;
         case 'logout':
-            console.log('登出功能尚未實作');
+            try{
+                const auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(() => {
+                    console.log('User signed out.');
+                    router.push('/'); // Redirect to home page after logout
+                });
+            }
+            catch(error){
+                showWarning('登出失敗', error.message);
+            }
             break;
     }
 }

@@ -11,7 +11,7 @@ const searchQuery = ref('');
 const router = useRouter();
 const searchStore = useSearchStore();
 const { showLoading, closeLoading, showWarning} = useAlert();
-const {  searchBoxAnimation,fadeIn } = useAnimations();
+const {  searchBoxAnimation} = useAnimations();
 
 onMounted(()=>{
     searchBoxAnimation('.searchBar')
