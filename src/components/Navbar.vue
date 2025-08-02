@@ -6,6 +6,7 @@ import Personal from './Personal.vue';
 import HambergerMenu from './HambergerMenu.vue';
 const inputStore = useInputStore();
 // let name = inputStore.text.slice(1);
+let token = ref(inputStore.token);
 let avatar = inputStore.picture;
 let isPersonalMenuOpen = ref(false);
 let isHambergerMenuOpen = ref(false);
@@ -60,8 +61,8 @@ onMounted(()=>{
                 </div>
                 <div class="personal">
                         <div class="avatar">
-                            <img :src="avatar" alt="">
-                             <!-- <i class="fa-regular fa-user"></i> -->
+                            <img :src="avatar" alt="google avatar" v-if="token">
+                            <i class="fa-regular fa-user" v-else></i>
                         </div>
                         <i class="fa-solid fa-chevron-down" @click="togglePersonalMenu"></i>
                         <div class="component" v-if="isPersonalMenuOpen">
@@ -163,6 +164,7 @@ div.wholeNavbar{
                         height: 60px;
                         border-radius: 50%;
                         margin-right: 0.5rem;
+                        background-color: #B5B8A3;
                         // p{
                         //     color: $word-color;
                         //     text-align: center;
@@ -172,6 +174,10 @@ div.wholeNavbar{
                             width: 60px;
                             height: 60px;
                             border-radius: 50%;
+                        }
+                        i{
+                            color: white;
+                            cursor: pointer;
                         }
                     }
                     i{
