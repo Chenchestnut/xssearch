@@ -75,22 +75,14 @@ height: 100vh;
 width: 100%;
 color: $word-color;
 overflow-y: auto;
-    .personal{
-            display: flex;
-            justify-content: right;
-            align-items: flex-end;
-            padding: 1.5rem 3rem;
-            .close{
-                // display: flex;
-                // align-items: center;
-                // justify-content: center;
-                // width: 60px;
-                // height: 60px;
-                // border-radius: 50%;
-                // margin-right: 0.5rem;
-                i{
-                    color: $word-color;
-                }
+    .close{
+        display: flex;
+        justify-content: right;
+        align-items: flex-end;
+        padding: 1.5rem 3rem;
+            i{
+                color: $word-color;
+                cursor: pointer;
             }
     }
     h1{
