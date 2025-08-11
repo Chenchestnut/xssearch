@@ -83,6 +83,7 @@ overflow-y: auto;
             i{
                 color: $word-color;
                 cursor: pointer;
+                font-size: 2rem;
             }
     }
     h1{
