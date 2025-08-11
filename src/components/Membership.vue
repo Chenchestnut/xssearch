@@ -6,10 +6,14 @@ import { onMounted } from 'vue';
 const { fadeIn2 } = useAnimations();
 const inputStore = useInputStore();
 // let name = inputStore.text.slice(1);
-let avatar = inputStore.picture;
+// let avatar = inputStore.picture;
 const router = useRouter();
 function changeToCompare() {
     router.push('/compare');
+}
+
+function goBack() {
+    router.back();
 }
 
 onMounted(()=>{
@@ -19,11 +23,8 @@ onMounted(()=>{
 
 <template>
     <div class="membership">
-        <div class="personal">
-                <div class="avatar">
-                    <img :src="avatar" alt="">
-                </div>
-                <i class="fa-solid fa-chevron-down"></i>
+        <div class="close">
+            <i class="fa-solid fa-xmark" @click="goBack"></i>
         </div>
         <h1>提升你的使用體驗</h1>
         <div class="card">
@@ -79,27 +80,17 @@ overflow-y: auto;
             justify-content: right;
             align-items: flex-end;
             padding: 1.5rem 3rem;
-            .avatar{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                margin-right: 0.5rem;
-                // p{
-                //     color: $word-color;
-                //     text-align: center;
-                //     font-size: 1.5rem;
-                // }
-                img{
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 50%;
+            .close{
+                // display: flex;
+                // align-items: center;
+                // justify-content: center;
+                // width: 60px;
+                // height: 60px;
+                // border-radius: 50%;
+                // margin-right: 0.5rem;
+                i{
+                    color: $word-color;
                 }
-            }
-            i{
-                color: white;
             }
     }
     h1{
