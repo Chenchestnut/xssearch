@@ -2,7 +2,7 @@
 import { useSearchStore } from '../stores/useSearchStore';
 import { ref } from 'vue';
 const searchStore = useSearchStore();
-const isCollapse = ref([true]);
+const isCollapse = ref([]);
 const props = defineProps({
     platform: {
         type: String,
@@ -16,7 +16,7 @@ function showMask(comment){
     return comment.length > textLimit;
 }
 function isCollapsed(index){
-    if(!(index in isCollapse.value)) {
+    if(index in isCollapse.value) {
         isCollapse.value[index] = true;
     }
     isCollapse.value[index] = !isCollapse.value[index];
