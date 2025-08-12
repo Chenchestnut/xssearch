@@ -62,7 +62,7 @@ onBeforeUnmount(()=>{
 $word-color: #2F2F2F;
 .sidNavBar{
     position: fixed;
-    z-index: 999; // 確保側邊導航欄在最上層
+    z-index: 1001; // 確保側邊導航欄在最上層
     top: 100px;
     left: 0;
     min-width: 90px;
