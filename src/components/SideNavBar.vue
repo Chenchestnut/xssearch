@@ -61,7 +61,7 @@ onBeforeUnmount(()=>{
 <style lang="scss" scoped>
 $word-color: #2F2F2F;
 .sidNavBar{
-    position: fixed !important;
+    position: fixed;
     z-index: 1001; // 確保側邊導航欄在最上層
     top: 100px;
     left: 0;
@@ -105,6 +105,7 @@ $word-color: #2F2F2F;
         li.active{
             background-color: #B5B8A3;
             border-radius: 35px;
+            padding: 0.1rem;
         }
     }
 }
