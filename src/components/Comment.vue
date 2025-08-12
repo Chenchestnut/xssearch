@@ -2,7 +2,7 @@
 import { useSearchStore } from '../stores/useSearchStore';
 import { ref } from 'vue';
 const searchStore = useSearchStore();
-const isCollapse = ref([]);
+const isCollapse = ref({});
 const props = defineProps({
     platform: {
         type: String,
@@ -15,11 +15,15 @@ const textLimit = 300;
 function showMask(comment){
     return comment.length > textLimit;
 }
-function isCollapsed(index){
+function toggleCollapsed(index){
     if(!(index in isCollapse.value)) {
         isCollapse.value[index] = true;
     }
     isCollapse.value[index] = !isCollapse.value[index];
+}
+
+function getCollapseState(index){
+    return isCollapse.value[index] !== false
 }
 // const currentPlatform = ref('momo')
 
@@ -35,9 +39,9 @@ function isCollapsed(index){
             <i class="fa-regular fa-star"></i>
             <i class="fa-regular fa-star"></i>
         </div>
-        <div class="maskDistrict" :class="{collapse: isCollapse[index] && showMask(i.comment)}">
-            <p @click="isCollapsed(index)">{{ i.comment }}</p>
-            <div v-if="isCollapse[index] && showMask(i.comment)" class="mask" @click="isCollapsed(index)"></div>
+        <div class="maskDistrict" :class="{collapse: getCollapseState(index) && showMask(i.comment)}">
+            <p @click="toggleCollapsed(index)">{{ i.comment }}</p>
+            <div v-if="getCollapseState(index) && showMask(i.comment)" class="mask" @click="toggleCollapsed(index)"></div>
         </div>
     </div>
 </div>
