@@ -89,7 +89,7 @@ $word-color: #2F2F2F;
         padding-left: 0.5rem;
         li{
             list-style: none;
-            padding: 0.3rem 0.2rem 0.3rem 0.5rem;
+            padding: 0.3rem 0.2rem 0.3rem 0.3rem;
             border-bottom: 1px solid #ccc;
             text-decoration: none;
             color: $word-color;
