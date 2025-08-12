@@ -36,10 +36,10 @@ const setSectionRefs=(el,index)=>{
 <template>
 <div class="searchResult">
     <Navbar />
-    <aside>
+    <div>
         <photoSection/>
         <SideNavBar :items="sections" :sectionRefs="sectionRefs"/>
-    </aside>
+    </div>
     <div class="content">
         <section class="result">
             <!-- <GoodBadSection :ref="el=>{if(el) sectionRefs.value[0] = el}"/>
