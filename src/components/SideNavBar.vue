@@ -62,7 +62,7 @@ onBeforeUnmount(()=>{
 $word-color: #2F2F2F;
 .sidNavBar{
     position: fixed;
-    top: 80px;
+    top: 100px;
     left: 0;
     min-width: 90px;
     max-width: 90px;
