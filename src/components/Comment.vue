@@ -2,7 +2,7 @@
 import { useSearchStore } from '../stores/useSearchStore';
 import { ref } from 'vue';
 const searchStore = useSearchStore();
-const isCollapse = ref([]);
+const isCollapse = ref([true]);
 const props = defineProps({
     platform: {
         type: String,
