@@ -16,7 +16,7 @@ function showMask(comment){
     return comment.length > textLimit;
 }
 function isCollapsed(index){
-    if(index in isCollapse.value) {
+    if(!(index in isCollapse.value)) {
         isCollapse.value[index] = true;
     }
     isCollapse.value[index] = !isCollapse.value[index];
@@ -35,7 +35,7 @@ function isCollapsed(index){
             <i class="fa-regular fa-star"></i>
             <i class="fa-regular fa-star"></i>
         </div>
-        <div class="maskDistrict" :class="{collapse: isCollapse[index] && showMask(i.comment)}">
+        <div class="maskDistrict" :class="{collapse: isCollapsed(index) && showMask(i.comment)}">
             <p @click="isCollapsed(index)">{{ i.comment }}</p>
             <div v-if="isCollapse[index] && showMask(i.comment)" class="mask" @click="isCollapsed(index)"></div>
         </div>
