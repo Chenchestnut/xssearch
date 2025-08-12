@@ -34,9 +34,9 @@ const setSectionRefs=(el,index)=>{
 </script>
 
 <template>
+<SideNavBar :items="sections" :sectionRefs="sectionRefs"/>
 <div class="searchResult">
     <Navbar />
-    <SideNavBar :items="sections" :sectionRefs="sectionRefs"/>
     <div>
         <photoSection/>
     </div>
