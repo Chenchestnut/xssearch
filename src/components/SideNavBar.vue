@@ -105,7 +105,7 @@ $word-color: #2F2F2F;
         li.active{
             background-color: #B5B8A3;
             border-radius: 35px;
-            padding: 0.1rem;
+            padding: 0.3rem 0.3rem 0.3rem 0.5rem;
         }
     }
 }
