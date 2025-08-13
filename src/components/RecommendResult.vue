@@ -30,11 +30,11 @@ const setSectionRefs=(el,index)=>{
 </script>
 
 <template>
+    <SideNavBar :items="sections" :sectionRefs="sectionRefs"/>
     <div class="recommendResult">
         <Navbar />
         <aside>
             <photoSection/>
-            <SideNavBar :items="sections" :sectionRefs="sectionRefs"/>
         </aside>
         <div class="content">
             <section class="result">
