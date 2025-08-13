@@ -47,7 +47,7 @@ export function useAnimations() {
           { to: "-2.75rem", ease: "outExpo", duration: 300 },
           { to: 0, ease: "outBounce", duration: 800, delay: 100 },
         ],
-        delay: stagger(50),
+        delay: stagger(30),
         ease: "easeInOutCirc",
         loop: false,
       };
