@@ -22,10 +22,10 @@ function handlePlatformChange(platformName) {
             </div>
             <div class="commentContent">
                 <ul>
-                    <li @click="handlePlatformChange('momo')"><span>Momo</span></li>
-                    <li @click="handlePlatformChange('pchome')"><span>PChome</span></li>
-                    <li @click="handlePlatformChange('phone_pad')"><span>T客邦</span></li>
-                    <li class="noBorder" @click="handlePlatformChange('eprice')"><span>eprice</span></li>
+                    <li @click="handlePlatformChange('momo')" :class="{active:platform === 'momo'}"><span>Momo</span></li>
+                    <li @click="handlePlatformChange('pchome')" :class="{active:platform === 'pchome'}"><span>PChome</span></li>
+                    <li @click="handlePlatformChange('phone_pad')" :class="{active:platform === 'phone_pad'}"><span>T客邦</span></li>
+                    <li class="noBorder" @click="handlePlatformChange('eprice')" :class="{active:platform === 'eprice'}"><span>eprice</span></li>
                     <!-- <li><span>Momo</span></li>
                     <li><span>PChome</span></li>
                     <li><span>T客邦</span></li>
@@ -138,5 +138,9 @@ div.comment{
             margin-bottom: 1.5rem;
         }
     }
+}
+.active{
+    background-color: #D3D2C7;
+    border-radius: 35px;
 }
 </style>
