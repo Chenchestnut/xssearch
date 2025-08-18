@@ -7,10 +7,14 @@ import { useInputStore } from '../stores/useInputStore';
 const {showWarning} = useAlert();
 const router = useRouter();
 const inputStore = useInputStore();
+const props = defineProps({
+    token:Boolean,
+})
 
 const options = [
-    { title: '升級方案' ,icon:'fa-regular fa-circle-up',action:'update'},
-    { title: '登出',icon:'fa-solid fa-arrow-right-from-bracket',action:'logout'},
+    { title: '升級方案' ,icon:'fa-regular fa-circle-up',action:'update',login:true},
+    { title: '登出',icon:'fa-solid fa-arrow-right-from-bracket',action:'logout' ,login:props.token},
+    { title:'登入',icon:'fa-solid fa-arrow-right-to-bracket',action:'login' ,login:!props.token}
 ];
 
 function handleClick(action){
@@ -23,6 +27,9 @@ function handleClick(action){
             window.google.accounts.id.disableAutoSelect(); // 取消自動登入
             router.push('/');
             break;
+        case 'login':
+            router.push('/login');
+            break;
     }
 }
 </script>
@@ -31,7 +38,7 @@ function handleClick(action){
 <div class="personal">
     <section class="opt">
         <ul>
-            <li v-for="(option, index) in options" :key="index" @click="handleClick(option.action)"><i :class="option.icon"></i>{{ option.title }}</li>
+            <li v-if="option.login" v-for="(option, index) in options" :key="index" @click="handleClick(option.action)"><i :class="option.icon"></i>{{ option.title }}</li>
         </ul>
     </section>
 </div>

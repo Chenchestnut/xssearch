@@ -66,7 +66,7 @@ onMounted(()=>{
                         </div>
                         <i class="fa-solid fa-chevron-down" @click="togglePersonalMenu"></i>
                         <div class="component" v-if="isPersonalMenuOpen">
-                            <Personal />
+                            <Personal :token="token"/>
                         </div>
                 </div>
                 <div class="hamber">
