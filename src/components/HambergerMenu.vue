@@ -1,9 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useInputStore } from '../stores/useInputStore';
 const router = useRouter();
 
 const isHambergerMenuOpen = ref(true);
+const inputStore = useInputStore();
+const token = computed(() => inputStore.token);
+const avatar = computed(() => inputStore.picture);
+
 // function closeMenu() {
 //     isHambergerMenuOpen.value = !isHambergerMenuOpen.value;
 // }
@@ -40,6 +45,10 @@ function changePage(item){
         <i class="fa-solid fa-xmark"></i>
     </div> -->
     <div class="component">
+        <div class="avatar">
+            <img :src="avatar" alt="google avatar" v-if="token">
+            <i class="fa-regular fa-user" v-else></i>
+        </div>
         <ul>
             <li v-for="item in menu" :key="item" @click="changePage(item)">{{ item }}</li>
         </ul>
@@ -78,11 +87,34 @@ div.hambergerMenu{
         }
     }
     .component{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         background-color: #fff;
         padding: 2rem;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         color: $word-color;
+        .avatar{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            background-color: #B5B8A3;
+            img{
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+            }
+            i{
+                color: white;
+                cursor: pointer;
+            }
+        }
         ul{
             list-style-type: none;
             padding: 0;
