@@ -1,6 +1,6 @@
 <script setup>
 import card from './card.vue';
-import { ref, onMounted } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 import { useAnimations } from '../composables/useAnimations';
 import { useInputStore } from '../stores/useInputStore';
 const isClicked = ref(false);
