@@ -1,12 +1,13 @@
 <script setup>
 import { useInputStore } from '../stores/useInputStore';
 import { useRoute } from 'vue-router';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import Personal from './Personal.vue';
 import HambergerMenu from './HambergerMenu.vue';
 const inputStore = useInputStore();
 // let name = inputStore.text.slice(1);
-let token = ref(inputStore.token);
+let token = computed(() => inputStore.token);
+const hasToken = computed(() => !!inputStore.token);
 let avatar = inputStore.picture;
 let isPersonalMenuOpen = ref(false);
 let isHambergerMenuOpen = ref(false);
@@ -66,7 +67,7 @@ onMounted(()=>{
                         </div>
                         <i class="fa-solid fa-chevron-down" @click="togglePersonalMenu"></i>
                         <div class="component" v-if="isPersonalMenuOpen">
-                            <Personal :token="token"/>
+                            <Personal :token="hasToken"/>
                         </div>
                 </div>
                 <div class="hamber">
