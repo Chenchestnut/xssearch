@@ -12,7 +12,7 @@ const props = defineProps({
 })
 
 const options = [
-    { title: '升級方案' ,icon:'fa-regular fa-circle-up',action:'update',show:props.token},
+    { title: '升級方案' ,icon:'fa-regular fa-circle-up',action:'update',show:true},
     { title: '登出',icon:'fa-solid fa-arrow-right-from-bracket',action:'logout' ,show:props.token},
     { title:'登入',icon:'fa-solid fa-arrow-right-to-bracket',action:'login' ,show:!props.token}
 ];
