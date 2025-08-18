@@ -12,9 +12,9 @@ const props = defineProps({
 })
 
 const options = [
-    { title: '升級方案' ,icon:'fa-regular fa-circle-up',action:'update',login:true},
-    { title: '登出',icon:'fa-solid fa-arrow-right-from-bracket',action:'logout' ,login:props.token},
-    { title:'登入',icon:'fa-solid fa-arrow-right-to-bracket',action:'login' ,login:!props.token}
+    { title: '升級方案' ,icon:'fa-regular fa-circle-up',action:'update',isLogin:true},
+    { title: '登出',icon:'fa-solid fa-arrow-right-from-bracket',action:'logout' ,isLogin:props.token},
+    { title:'登入',icon:'fa-solid fa-arrow-right-to-bracket',action:'login' ,isLogin:!props.token}
 ];
 
 function handleClick(action){
@@ -38,7 +38,7 @@ function handleClick(action){
 <div class="personal">
     <section class="opt">
         <ul>
-            <li v-if="option.login" v-for="(option, index) in options" :key="index" @click="handleClick(option.action)"><i :class="option.icon"></i>{{ option.title }}</li>
+            <li v-if="option.isLogin" v-for="(option, index) in options" :key="index" @click="handleClick(option.action)"><i :class="option.icon"></i>{{ option.title }}</li>
         </ul>
     </section>
 </div>
