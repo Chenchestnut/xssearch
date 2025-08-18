@@ -3,7 +3,8 @@ import card from './card.vue';
 import { computed, ref, onMounted } from 'vue';
 import { useAnimations } from '../composables/useAnimations';
 import { useInputStore } from '../stores/useInputStore';
-import {personal} from './Personal.vue';
+import Personal from './Personal.vue';
+import Personal from './Personal.vue';
 const isClicked = ref(false);
 const { textSplitAnimation, delayedAnimation} = useAnimations();
 const inputStore = useInputStore();
@@ -42,7 +43,7 @@ onMounted(() => {
             <div class="logIn" v-if="isClicked">
                 <!-- <router-link to="/login" class="loginBtn">登入</router-link>
                 <router-link to="/register" class="registerBtn">註冊</router-link>   -->
-                <personal :token="hasToken"/>
+                <Personal :token="hasToken"/>
             </div>
         </div>
     </header>
