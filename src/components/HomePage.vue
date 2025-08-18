@@ -7,7 +7,7 @@ const isClicked = ref(false);
 const { textSplitAnimation, delayedAnimation} = useAnimations();
 const inputStore = useInputStore();
 const token = computed(() => inputStore.token);
-// const hasToken = computed(() => !!inputStore.token);
+const hasToken = computed(() => !!inputStore.token);
 const avatar = computed(() => inputStore.picture);
 
 function toggleLogin(){
