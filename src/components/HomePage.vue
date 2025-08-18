@@ -35,8 +35,8 @@ onMounted(() => {
             <img src="../assets/logo.jpeg" alt="LOGO">
             <h2>XSSearch</h2>
         </div>
-        <div class="personal" @click="toggleLogin">
-            <div class="avatar">
+        <div class="personal">
+            <div class="avatar"  @click="toggleLogin">
                 <img :src="avatar" alt="google avatar" v-if="token">
                 <i class="fa-regular fa-user" v-else></i>
             </div>
