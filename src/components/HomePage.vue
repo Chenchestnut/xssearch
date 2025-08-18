@@ -2,8 +2,13 @@
 import card from './card.vue';
 import { ref, onMounted } from 'vue';
 import { useAnimations } from '../composables/useAnimations';
+import { useInputStore } from '../stores/useInputStore';
 const isClicked = ref(false);
 const { textSplitAnimation, delayedAnimation} = useAnimations();
+const inputStore = useInputStore();
+const token = computed(() => inputStore.token);
+const hasToken = computed(() => !!inputStore.token);
+const avatar = computed(() => inputStore.picture);
 
 function toggleLogin(){
     isClicked.value = !isClicked.value;
@@ -28,8 +33,11 @@ onMounted(() => {
             <img src="../assets/logo.jpeg" alt="LOGO">
             <h2>XSSearch</h2>
         </div>
-        <div class="avater">
-            <i class="fa-regular fa-user" @click="toggleLogin"></i>
+        <div class="personal" @click="toggleLogin">
+            <div class="avatar">
+                <img :src="avatar" alt="google avatar" v-if="token">
+                <i class="fa-regular fa-user" v-else></i>
+            </div>
             <div class="logIn" v-if="isClicked">
                 <router-link to="/login" class="loginBtn">登入</router-link>
                 <router-link to="/register" class="registerBtn">註冊</router-link>  
@@ -118,19 +126,31 @@ color: $word-color;
                 color: $word-color;
             }
         }
-        .avater {
+        .personal {
             display: flex;
+            justify-content: center;
             align-items: center;
             position: relative;
-            font-size: 1.5rem;
-            color: $word-color;
             cursor: pointer;
-            i {
-                padding: 0.8rem;
-                background-color: #9AA7B8;
+            .avatar {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 60px;
+                height: 60px;
                 border-radius: 50%;
-                margin-right: 1rem;
+                margin-right: 0.5rem;
+                background-color: #B5B8A3;
+                img{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                }
+                i {
+                    color: white;
+                }
             }
+            
             .logIn {
                 display: flex;
                 flex-direction: column;

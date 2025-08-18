@@ -61,14 +61,14 @@ onMounted(()=>{
                     <router-link to="/membership" class="compare" @click="setActive('membership')" :class="{active: activeBtn === 'membership'}">好物比拼<i class="fa-solid fa-crown"></i></router-link>
                 </div>
                 <div class="personal">
-                        <div class="avatar">
-                            <img :src="avatar" alt="google avatar" v-if="token">
-                            <i class="fa-regular fa-user" v-else></i>
-                        </div>
-                        <i class="fa-solid fa-chevron-down" @click="togglePersonalMenu"></i>
-                        <div class="component" v-if="isPersonalMenuOpen">
-                            <Personal :token="hasToken"/>
-                        </div>
+                    <div class="avatar">
+                        <img :src="avatar" alt="google avatar" v-if="token">
+                        <i class="fa-regular fa-user" v-else></i>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" @click="togglePersonalMenu"></i>
+                    <div class="component" v-if="isPersonalMenuOpen">
+                        <Personal :token="hasToken"/>
+                    </div>
                 </div>
                 <div class="hamber">
                     <i class="fa-solid fa-bars" @click="toggleHambergerMenu"></i>
