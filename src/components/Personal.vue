@@ -38,7 +38,7 @@ function handleClick(action){
 <div class="personal">
     <section class="opt">
         <ul>
-            <li v-if="option.isLogin" v-for="(option, index) in options" :key="index" @click="handleClick(option.action)"><i :class="option.icon"></i>{{ option.title }}</li>
+            <li v-for="(option, index) in options" v-show="option.isLogin" :key="index" @click="handleClick(option.action)"><i :class="option.icon"></i>{{ option.title }}</li>
         </ul>
     </section>
 </div>
