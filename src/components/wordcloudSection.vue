@@ -46,7 +46,7 @@ h2.title{
     justify-content: center;
     img{
         // width: 75%;
-        max-width: 500px;
+        max-width: 1000px;
         min-width: 280px;
         height: auto;
         object-fit: cover; /* 把圖片撐滿容器且不變形 */
