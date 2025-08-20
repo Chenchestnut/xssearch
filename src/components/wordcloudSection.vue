@@ -17,7 +17,7 @@ const wordCloudImg = computed(()=>{
     <section>
         <h2 class="title">文字雲</h2>
         <div class="wordcloud">
-            <img :src="wordCloudImg" alt="keyword" v-if="wordCloudImg">
+            <img :src="`data:image/png;base64,${wordCloudImg}`" alt="keyword" v-if="wordCloudImg">
             <div v-else class="no-image">
                 <p>暫無文字雲圖片</p>
             </div>
