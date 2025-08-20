@@ -2,14 +2,20 @@
 import Navbar from './Navbar.vue';
 import CacheCard from './CacheCard.vue';
 import { useSearchStore } from '../stores/useSearchStore';
+import { useWordCloudStore } from '../stores/useWordCloudStore';
 const searchStore = useSearchStore();
+const wordCloudStore = useWordCloudStore();
+
+function getWordCloudIndex(index){
+  wordCloudStore.setWordCloudIndex(index);
+}
 </script>
 
 <template>
   <div class="searchPageCache">
     <Navbar />
     <div class="productCache">
-        <CacheCard v-for="(item,index) in searchStore.matched_products_count" :key="index"/>
+        <CacheCard v-for="(item,index) in searchStore.matched_products_count" :key="index" @click="getWordCloudIndex(index)"/>
     </div>
     
   </div>

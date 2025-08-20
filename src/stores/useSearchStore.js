@@ -9,7 +9,12 @@ export const useSearchStore = defineStore("searchResults", {
       summary: "",
       advantage: [],
       disadvantage: [],
-      wordcloud: {},
+      wordcloud: [
+        {
+          name: "",
+          image_base64: "",
+        },
+      ],
     },
     all_reviews: [
       {
