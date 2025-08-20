@@ -6,7 +6,7 @@ const wordCloudStore = useWordCloudStore();
 const searchStore = useSearchStore();
 
 const wordCloudImg = computed(()=>{
-    if(searchStore.wordcloud.length > 0){
+    if(searchStore.wordcloud[wordCloudStore.wordCloudIndex].image_base64 > 0){
         return searchStore.wordcloud[wordCloudStore.wordCloudIndex].image_base64;
     }
     return '';
