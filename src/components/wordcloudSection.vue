@@ -6,8 +6,8 @@ const wordCloudStore = useWordCloudStore();
 const searchStore = useSearchStore();
 
 const wordCloudImg = computed(()=>{
-    if(searchStore.wordcloud[wordCloudStore.wordCloudIndex].image_base64.length > 0){
-        return searchStore.wordcloud[wordCloudStore.wordCloudIndex].image_base64;
+    if(searchStore.analysis.wordcloud[wordCloudStore.wordCloudIndex].image_base64.length > 0){
+        return searchStore.analysis.wordcloud[wordCloudStore.wordCloudIndex].image_base64;
     }
     return '';
 })
