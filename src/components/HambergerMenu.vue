@@ -13,7 +13,14 @@ const avatar = computed(() => inputStore.picture);
 //     isHambergerMenuOpen.value = !isHambergerMenuOpen.value;
 // }
 
-let menu = ['首頁', '普通搜尋','個人化推薦', '好物比拚', '升級方案', '登出', '登入']
+let menu = computed(()=>{
+    if(token.value){
+        return ['首頁', '普通搜尋','個人化推薦', '好物比拚', '升級方案', '登出']
+    }
+    else{
+        return ['首頁', '普通搜尋','個人化推薦', '好物比拚', '升級方案', '登入']
+    }
+})
 function changePage(item){
     switch(item){
         case '首頁':
@@ -26,59 +33,24 @@ function changePage(item){
             router.push('/recommend');
             break;
         case '好物比拚':
-            router.push('/compare');
+            if(token.value){
+                router.push('/compare');
+            }
+            else{
+                router.push('/login');
+            }
             break;
         case '升級方案':
             router.push('/membership');
             break;
         case '登出':
-            // 登出邏輯
+            inputStore.removeToken();
             router.push('/');
             break;
         case '登入':
             router.push('/login');
             break;
     }
-}
-
-function isLogin(item){
-    if(token.value){
-        switch(item){
-            case '首頁':
-                return true;
-            case '普通搜尋':
-                return true;
-            case '個人化推薦':
-                return true;
-            case '好物比拚':
-                return true;
-            case '升級方案':
-                return true;
-            case '登出':
-                return true;
-            case '登入':
-                return false;
-        }
-    }
-    else{
-        switch(item){
-            case '首頁':
-                return true;
-            case '普通搜尋':
-                return true;
-            case '個人化推薦':
-                return true;
-            case '好物比拚':
-                return true;
-            case '升級方案':
-                return true;
-            case '登入':
-                return true;
-            case '登出':
-                return false;
-        }
-    }
-    
 }
 </script>
 
@@ -93,7 +65,7 @@ function isLogin(item){
             <i class="fa-regular fa-user" v-else></i>
         </div>
         <ul>
-            <li v-for="item in menu" :key="item" @click="changePage(item)" v-if="isLogin(item)">{{ item }}</li>
+            <li v-for="item in menu" :key="item" @click="changePage(item)">{{ item }}</li>
         </ul>
     </div>
 </div>
