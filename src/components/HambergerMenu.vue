@@ -45,10 +45,15 @@ function isLogin(item){
     if(token.value){
         switch(item){
             case '首頁':
+                return true;
             case '普通搜尋':
+                return true;
             case '個人化推薦':
+                return true;
             case '好物比拚':
+                return true;
             case '升級方案':
+                return true;
             case '登出':
                 return true;
             case '登入':
@@ -58,10 +63,15 @@ function isLogin(item){
     else{
         switch(item){
             case '首頁':
+                return true;
             case '普通搜尋':
+                return true;
             case '個人化推薦':
+                return true;
             case '好物比拚':
+                return true;
             case '升級方案':
+                return true;
             case '登入':
                 return true;
             case '登出':
