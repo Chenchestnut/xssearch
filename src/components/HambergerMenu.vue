@@ -13,7 +13,7 @@ const avatar = computed(() => inputStore.picture);
 //     isHambergerMenuOpen.value = !isHambergerMenuOpen.value;
 // }
 
-let menu = ['首頁', '普通搜尋','個人化推薦', '好物比拚', '升級方案', '登出']
+let menu = ['首頁', '普通搜尋','個人化推薦', '好物比拚', '升級方案', '登出', '登入']
 function changePage(item){
     switch(item){
         case '首頁':
@@ -35,7 +35,40 @@ function changePage(item){
             // 登出邏輯
             router.push('/');
             break;
+        case '登入':
+            router.push('/login');
+            break;
     }
+}
+
+function isLogin(item){
+    if(token.value){
+        switch(item){
+            case '首頁':
+            case '普通搜尋':
+            case '個人化推薦':
+            case '好物比拚':
+            case '升級方案':
+            case '登出':
+                return true;
+            case '登入':
+                return false;
+        }
+    }
+    else{
+        switch(item){
+            case '首頁':
+            case '普通搜尋':
+            case '個人化推薦':
+            case '好物比拚':
+            case '升級方案':
+            case '登入':
+                return true;
+            case '登出':
+                return false;
+        }
+    }
+    
 }
 </script>
 
@@ -50,7 +83,7 @@ function changePage(item){
             <i class="fa-regular fa-user" v-else></i>
         </div>
         <ul>
-            <li v-for="item in menu" :key="item" @click="changePage(item)">{{ item }}</li>
+            <li v-for="item in menu" :key="item" @click="changePage(item)" v-if="isLogin(item)">{{ item }}</li>
         </ul>
     </div>
 </div>
