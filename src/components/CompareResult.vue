@@ -123,7 +123,7 @@ $word-color: #2F2F2F;
                     font-size: 1rem;
                 }
                 @media screen and (max-width: 480px) {
-                    font-size: 0.9rem;
+                    font-size: 0.8rem;
                 }
                 li{
                     list-style: none;
