@@ -41,7 +41,7 @@ $word-color: #2F2F2F;
         background-color: white;
         display: flex;
         flex-wrap: wrap;
-        flex: auto;
+        flex: 0 1 auto;
         flex-direction: column;
         justify-content: center;
         align-items: center;
