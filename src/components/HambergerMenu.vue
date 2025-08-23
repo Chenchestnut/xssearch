@@ -19,7 +19,7 @@ const props = defineProps({
 //     isHambergerMenuOpen.value = !isHambergerMenuOpen.value;
 // }
 //打開設定禁止滾動頁面
-watch( isOpen, (newVal) => {
+watch( props.isOpen, (newVal) => {
     if (newVal) {
         document.body.style.overflow = 'hidden';
     }
