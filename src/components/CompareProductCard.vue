@@ -32,16 +32,16 @@
 $word-color: #2F2F2F;
 .compareProductCard {
     display: flex;
+    flex-wrap: wrap;
+    flex: 0 1 auto;
     justify-content: center;
     align-items: center;
     color: $word-color;
     margin-top: 2rem;
     gap: 2rem;
     div.container{
-        background-color: white;
         display: flex;
-        flex-wrap: wrap;
-        flex: 0 1 auto;
+        background-color: white;
         flex-direction: column;
         justify-content: center;
         align-items: center;
