@@ -122,9 +122,9 @@ $word-color: #2F2F2F;
                 @media screen and (max-width: 600px) {
                     font-size: 1rem;
                 }
-                // @media screen and (max-width: 480px) {
-                //     font-size: 0.8rem;
-                // }
+                @media screen and (max-width: 480px) {
+                    font-size: 0.9rem;
+                }
                 li{
                     list-style: none;
                     margin: 0 2rem;
