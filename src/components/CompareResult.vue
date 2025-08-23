@@ -94,12 +94,18 @@ $word-color: #2F2F2F;
             font-weight: 500;
             text-align: left;
             margin-top: 2rem;
+            @media screen and (max-width: 520px) {
+                font-size: 1.8rem;
+            }
         }
         h3{
             font-size: 1.5rem;
             font-weight: 400;
             text-align: left;
             margin-top: 0.5rem;
+            @media screen and (max-width: 520px) {
+                font-size: 1.2rem;
+            }
         }
         div.navBar{
             background-color: #b6bec9;
@@ -112,6 +118,7 @@ $word-color: #2F2F2F;
                 justify-content: center;
                 font-size: 1.3rem;
                 margin: 0.8rem 0;
+                padding: 0;
                 @media screen and (max-width: 600px) {
                     font-size: 1rem;
                 }
