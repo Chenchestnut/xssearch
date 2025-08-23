@@ -76,6 +76,7 @@ function changePage(item){
 $word-color: #2F2F2F;
 div.hambergerMenu{
     display: flex;
+    overflow-y: hidden;
     flex-direction: column;
     align-items: center;
     justify-content: center;
