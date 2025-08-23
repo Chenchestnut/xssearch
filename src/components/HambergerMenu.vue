@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useInputStore } from '../stores/useInputStore';
 import { defineProps } from 'vue';
@@ -19,7 +19,7 @@ const props = defineProps({
 //     isHambergerMenuOpen.value = !isHambergerMenuOpen.value;
 // }
 //打開設定禁止滾動頁面
-watch( props.isOpen, (newVal) => {
+watch( () => props.isOpen, (newVal) => {
     if (newVal) {
         document.body.style.overflow = 'hidden';
     }
@@ -31,6 +31,9 @@ watch( props.isOpen, (newVal) => {
 onMounted(()=>{
     document.body.style.overflow = '';
 })
+onUnmounted(() => {
+    document.body.style.overflow = '';
+});
 
 let menu = computed(()=>{
     if(token.value){
