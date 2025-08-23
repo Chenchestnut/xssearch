@@ -22,6 +22,7 @@ const props = defineProps({
 watch( () => props.isOpen, (newVal) => {
     if (newVal) {
         document.body.style.overflow = 'hidden';
+        console.log(newVal,"禁止滾動")
     }
     else{
         document.body.style.overflow = '';
