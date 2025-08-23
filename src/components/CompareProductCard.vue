@@ -47,6 +47,7 @@ $word-color: #2F2F2F;
         align-items: center;
         border-radius: 20px;
         width: 30%;
+        min-width: 300px;
         padding: 1rem   ;
         div.imgBox{
             width: 100%;
