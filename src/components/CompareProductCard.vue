@@ -55,6 +55,9 @@ $word-color: #2F2F2F;
             min-width: 160px;
             overflow: hidden;
             border-radius: 20px;
+            @media screen and (max-width: 620px) {
+                height: 300px;
+            }
             img{
                 width: 100%;
                 height: 100%;
