@@ -135,6 +135,9 @@ $word-color: #2F2F2F;
                         color: black;
                         text-decoration: underline;
                     }
+                    @media screen and (max-width: 600px) {
+                        margin: 0 1.5rem;
+                    }
                 }
             }
         }
