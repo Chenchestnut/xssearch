@@ -19,7 +19,8 @@ console.log('組件初始化，props.isOpen:', props.isOpen);
 //     isHambergerMenuOpen.value = !isHambergerMenuOpen.value;
 // }
 //打開設定禁止滾動頁面
-watch( () => props.isOpen, (newVal) => {
+watch( () => props.isOpen, (newVal,oldVal) => {
+    console.log(newVal,oldVal)
     if (newVal) {
         document.body.style.overflow = 'hidden';
         console.log(newVal,"禁止滾動")
