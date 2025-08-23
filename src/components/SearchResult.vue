@@ -35,26 +35,24 @@ const setSectionRefs=(el,index)=>{
 
 <template>
 <SideNavBar :items="sections" :sectionRefs="sectionRefs"/>
-<div class="searchResult">
-    <Navbar />
-    <div>
-        <photoSection/>
+    <div class="searchResult">
+        <Navbar />
+        <aside>
+            <photoSection/>
+        </aside>
+        <div class="content">
+            <section class="result">
+                <!-- <GoodBadSection :ref="el=>{if(el) sectionRefs.value[0] = el}"/>
+                <WordcloudSection :ref="el=>{if(el) sectionRefs.value[1] = el}"/>
+                <CommendSection :ref="el=>{if(el) sectionRefs.value[2] = el}"/>
+                <SpecificationSection :ref="el=>{if(el) sectionRefs.value[3] = el}"/> -->
+                <GoodBadSection :ref="el=>setSectionRefs(el,0)"/>
+                <WordcloudSection :ref="el=>setSectionRefs(el,1)"/>
+                <CommendSection :ref="el=>setSectionRefs(el,2)"/>
+                <SpecificationSection :ref="el=>setSectionRefs(el,3)"/>
+            </section>
+        </div>
     </div>
-    <div class="content">
-        <section class="result">
-            <!-- <GoodBadSection :ref="el=>{if(el) sectionRefs.value[0] = el}"/>
-            <WordcloudSection :ref="el=>{if(el) sectionRefs.value[1] = el}"/>
-            <CommendSection :ref="el=>{if(el) sectionRefs.value[2] = el}"/>
-            <SpecificationSection :ref="el=>{if(el) sectionRefs.value[3] = el}"/> -->
-            <GoodBadSection :ref="el=>setSectionRefs(el,0)"/>
-            <WordcloudSection :ref="el=>setSectionRefs(el,1)"/>
-            <CommendSection :ref="el=>setSectionRefs(el,2)"/>
-            <SpecificationSection :ref="el=>setSectionRefs(el,3)"/>
-        </section>
-    </div>
-</div>
-
-
 </template>
 
 
@@ -68,13 +66,10 @@ $word-color:#2F2F2F;
     // background-attachment: fixed;
     min-height: 100vh;
     width: 100%;
-    color: $word-color;
-    .content{
-        display: flex;
-        // .result{
-        // }
-    }
-    
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: $word-color;   
     
 }
 
