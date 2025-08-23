@@ -59,6 +59,9 @@ background-repeat: no-repeat;
 // background-attachment: fixed;
 min-height: 100vh;
 width: 100%;
+max-width: 100vw;
+margin: 0;
+padding: 0;
 color: $word-color;
 }
 </style>
