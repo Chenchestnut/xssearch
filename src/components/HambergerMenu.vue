@@ -14,7 +14,7 @@ const avatar = computed(() => inputStore.picture);
 const props = defineProps({
     isOpen: Boolean
 })
-
+console.log('組件初始化，props.isOpen:', props.isOpen);
 // function closeMenu() {
 //     isHambergerMenuOpen.value = !isHambergerMenuOpen.value;
 // }
