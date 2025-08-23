@@ -48,7 +48,7 @@ $word-color: #2F2F2F;
         padding: 1rem;
         div.imgBox{
             width: 100%;
-            height: 400px;
+            height: 350px;
             min-width: 160px;
             overflow: hidden;
             border-radius: 20px;
