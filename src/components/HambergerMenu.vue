@@ -1,17 +1,36 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { useInputStore } from '../stores/useInputStore';
+import { defineProps } from 'vue';
+import { onMounted } from 'vue';
 const router = useRouter();
 
-const isHambergerMenuOpen = ref(true);
+// const isHambergerMenuOpen = ref(false);
 const inputStore = useInputStore();
 const token = computed(() => inputStore.token);
 const avatar = computed(() => inputStore.picture);
 
+const props = defineProps({
+    isOpen: Boolean
+})
+
 // function closeMenu() {
 //     isHambergerMenuOpen.value = !isHambergerMenuOpen.value;
 // }
+//打開設定禁止滾動頁面
+watch( isOpen, (newVal) => {
+    if (newVal) {
+        document.body.style.overflow = 'hidden';
+    }
+    else{
+        document.body.style.overflow = '';
+    }
+});
+
+onMounted(()=>{
+    document.body.style.overflow = '';
+})
 
 let menu = computed(()=>{
     if(token.value){
@@ -76,7 +95,6 @@ function changePage(item){
 $word-color: #2F2F2F;
 div.hambergerMenu{
     display: flex;
-    overflow-y: hidden;
     flex-direction: column;
     align-items: center;
     justify-content: center;

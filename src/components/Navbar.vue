@@ -18,6 +18,7 @@ const route = useRoute();
 //     {title:'close',icon:'fa-solid fa-xmark'},
 // ]
 
+
 function togglePersonalMenu() {
     isPersonalMenuOpen.value = !isPersonalMenuOpen.value;
 }
@@ -72,7 +73,7 @@ onMounted(()=>{
                 </div>
                 <div class="hamber">
                     <i class="fa-solid fa-bars" @click="toggleHambergerMenu"></i>
-                    <HambergerMenu v-if="isHambergerMenuOpen" @close="isHambergerMenuOpen = false"/>
+                    <HambergerMenu v-if="isHambergerMenuOpen" @close="isHambergerMenuOpen = false" :isOpen="isHambergerMenuOpen"/>
                 </div>
             </nav>
         </header>
