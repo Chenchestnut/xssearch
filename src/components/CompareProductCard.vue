@@ -51,12 +51,12 @@ $word-color: #2F2F2F;
         padding: 1rem   ;
         div.imgBox{
             width: 100%;
-            height: 300px;
+            height: 400px;
             min-width: 160px;
             overflow: hidden;
             border-radius: 20px;
             @media screen and (max-width: 620px) {
-                height: 250px;
+                height: 300px;
             }
             img{
                 width: 100%;
