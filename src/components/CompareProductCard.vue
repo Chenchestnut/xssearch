@@ -45,13 +45,13 @@ $word-color: #2F2F2F;
         align-items: center;
         border-radius: 20px;
         width: 30%;
-        padding: 1rem;
         div.imgBox{
             width: 100%;
             height: 350px;
             min-width: 160px;
             overflow: hidden;
             border-radius: 20px;
+            margin: 1rem;
             @media screen and (max-width: 520px) {
                 height: 300px;
             }
