@@ -61,13 +61,13 @@ const setSectionRefs=(el,index)=>{
 <style lang="scss" scoped>
 $word-color:#2F2F2F;
 .searchResult{
-    background-image: url('../assets/backGround2.png');
+    background-image: url('../assets/backGround3.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    // background-attachment: fixed;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     color: $word-color;
     .content{
         display: flex;
