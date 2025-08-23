@@ -73,7 +73,7 @@ onMounted(()=>{
                 </div>
                 <div class="hamber">
                     <i class="fa-solid fa-bars" @click="toggleHambergerMenu"></i>
-                    <HambergerMenu v-if="isHambergerMenuOpen" @close="isHambergerMenuOpen = false" :isOpen="isHambergerMenuOpen"/>
+                    <HambergerMenu v-show="isHambergerMenuOpen" @close="isHambergerMenuOpen = false" :isOpen="isHambergerMenuOpen"/>
                 </div>
             </nav>
         </header>
