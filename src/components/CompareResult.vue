@@ -138,6 +138,9 @@ $word-color: #2F2F2F;
                     @media screen and (max-width: 600px) {
                         margin: 0 1.5rem;
                     }
+                    @media screen and (max-width: 480px) {
+                        margin: 0 1rem;
+                    }
                 }
             }
         }
