@@ -49,8 +49,12 @@ $word-color: #2F2F2F;
         div.imgBox{
             width: 100%;
             height: 400px;
+            min-width: 160px;
             overflow: hidden;
             border-radius: 20px;
+            @media screen and (max-width: 520px) {
+                height: 300px;
+            }
             img{
                 width: 100%;
                 height: 100%;
@@ -64,6 +68,12 @@ $word-color: #2F2F2F;
             h2{
                 font-size: 1.5rem;
                 font-weight: 500;
+                @media screen and (max-width: 740px) {
+                    font-size: 1.2rem;
+                }
+                @media screen and (max-width: 520px) {
+                    font-size: 1rem;
+                }
             }
             p.star{
                 i{

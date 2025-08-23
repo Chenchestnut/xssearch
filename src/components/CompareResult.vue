@@ -112,6 +112,9 @@ $word-color: #2F2F2F;
                 justify-content: center;
                 font-size: 1.3rem;
                 margin: 0.8rem 0;
+                @media screen and (max-width: 600px) {
+                    font-size: 1rem;
+                }
                 li{
                     list-style: none;
                     margin: 0 2rem;
