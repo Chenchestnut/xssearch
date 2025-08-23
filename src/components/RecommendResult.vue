@@ -62,6 +62,7 @@ width: 100%;
 max-width: 100vw;
 margin: 0;
 padding: 0;
+overflow-x: hidden;
 color: $word-color;
 }
 </style>
