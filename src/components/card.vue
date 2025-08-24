@@ -30,34 +30,38 @@ function flipCard3() {
 //電腦版滑鼠移入翻轉
 function cardHover(index){
     console.log("電腦版滑鼠移入翻轉");
-    if(!isComputer.value)return;
-    switch(index){
-        case 1:
-            flipCard1();
-            break;
-        case 2:
-            flipCard2();
-            break;
-        case 3:
-            flipCard3();
-            break;
+    if(isComputer.value){
+        switch(index){
+            case 1:
+                flipCard1();
+                break;
+            case 2:
+                flipCard2();
+                break;
+            case 3:
+                flipCard3();
+                break;
+        }
     }
+    
 }
 //非電腦版點擊翻轉
 function cardClick(index){
     console.log("非電腦版點擊翻轉");
-    if(isComputer.value)return;
-    switch(index){
-        case 1:
-            flipCard1();
-            break;
-        case 2:
-            flipCard2();
-            break;
-        case 3:
-            flipCard3();
-            break;
+    if(!isComputer.value){
+        switch(index){
+            case 1:
+                flipCard1();
+                break;
+            case 2:
+                flipCard2();
+                break;
+            case 3:
+                flipCard3();
+                break;
+        }
     }
+    
 }
 </script>
 
