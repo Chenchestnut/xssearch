@@ -1,9 +1,22 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 
 const isFlipped1 = ref(false);
 const isFlipped2 = ref(false);
 const isFlipped3 = ref(false);
+const windowWidth = ref(window.innerWidth);
+const isComputer = computed(()=>windowWidth > 768)
+const handleResize=()=>{
+    windowWidth.value = window.innerWidth;
+}
+
+onMounted(()=>{
+    window.addEventListener('resize',handleResize);
+})
+
+onUnmounted(()=>{
+    window.removeEventListener('resize',handleResize);
+})
 
 function flipCard1() {
     isFlipped1.value = !isFlipped1.value;
@@ -14,11 +27,41 @@ function flipCard2() {
 function flipCard3() {
     isFlipped3.value = !isFlipped3.value;
 }
+//電腦版滑鼠移入翻轉
+function cardHover(index){
+    if(!isComputer.value)return;
+    switch(index){
+        case 1:
+            flipCard1();
+            break;
+        case 2:
+            flipCard2();
+            break;
+        case 3:
+            flipCard3();
+            break;
+    }
+}
+//非電腦版點擊翻轉
+function cardClick(index){
+    if(isComputer.value)return;
+    switch(index){
+        case 1:
+            flipCard1();
+            break;
+        case 2:
+            flipCard2();
+            break;
+        case 3:
+            flipCard3();
+            break;
+    }
+}
 </script>
 
 <template>
     <div class="cardContainer">
-        <div class="card" :class="{flipped : isFlipped1}" @mouseenter="flipCard1" @mouseleave="flipCard1">
+        <div class="card" :class="{flipped : isFlipped1}" @click="cardClick(1)" @mouseenter="cardHover(1)" @mouseleave="cardHover(1)">
             <div class="cardFront">
                 普通查詢
             </div>
@@ -27,7 +70,7 @@ function flipCard3() {
             </div>
         </div>
 
-        <div class="card" :class="{flipped : isFlipped2}" @mouseenter="flipCard2" @mouseleave="flipCard2">
+        <div class="card" :class="{flipped : isFlipped2}" @click="cardClick(2)" @mouseenter="cardHover(2)" @mouseleave="cardHover(2)">
             <div class="cardFront">
                 個人化推薦
             </div>
@@ -40,7 +83,7 @@ function flipCard3() {
             </div>
         </div>
 
-        <div class="card" :class="{flipped : isFlipped3}" @mouseenter="flipCard3" @mouseleave="flipCard3">
+        <div class="card" :class="{flipped : isFlipped3}" @click="cardClick(3)" @mouseenter="cardHover(3)" @mouseleave="cardHover(3)">
             <div class="cardFront">
                 好物比拚
             </div>
