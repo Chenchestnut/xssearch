@@ -30,6 +30,7 @@ const setSectionRefs=(el,index)=>{
 </script>
 
 <template>
+    <div class="backGround"></div>
     <SideNavBar :items="sections" :sectionRefs="sectionRefs"/>
     <Navbar />
     <div class="recommendResult">
@@ -51,17 +52,27 @@ const setSectionRefs=(el,index)=>{
 
 <style lang="scss" scoped>
 $word-color: #2F2F2F;
+.backGround{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-image: url('../assets/backGround2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    // background-attachment: fixed;
+    z-index: -100;
+    
+}
 .recommendResult {
-background-image: url('../assets/backGround2.png');
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-background-attachment: fixed;
 min-height: 100vh;
 width: 100%;
 margin: 0;
 padding: 0;
 overflow-x: hidden;
 color: $word-color;
+background: transparent;
 }
 </style>
