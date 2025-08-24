@@ -29,7 +29,6 @@ function flipCard3() {
 }
 //電腦版滑鼠移入翻轉
 function cardHover(index){
-    console.log("電腦版滑鼠移入翻轉");
     if(isComputer.value){
         switch(index){
             case 1:
@@ -47,7 +46,6 @@ function cardHover(index){
 }
 //非電腦版點擊翻轉
 function cardClick(index){
-    console.log("非電腦版點擊翻轉");
     if(!isComputer.value){
         switch(index){
             case 1:
