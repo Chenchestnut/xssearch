@@ -29,8 +29,8 @@ function handleScroll(index){
 </script>
 
 <template>
+    <Navbar />
     <div class="compareResult">
-        <Navbar />
         <section class="img">
             <CompareProductCard />
         </section>

@@ -31,8 +31,8 @@ const setSectionRefs=(el,index)=>{
 
 <template>
     <SideNavBar :items="sections" :sectionRefs="sectionRefs"/>
+    <Navbar />
     <div class="recommendResult">
-        <Navbar />
         <aside>
             <photoSection/>
         </aside>
