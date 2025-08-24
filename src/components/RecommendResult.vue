@@ -21,7 +21,7 @@ let sectionRefs = [];
 const { fadeIn } = useAnimations();
 onMounted(()=>{
     sectionRefs = new Array(sections.value.length).fill(null)
-    fadeIn('.anime')
+    fadeIn('.recommendResult')
 })
 const setSectionRefs=(el,index)=>{
     // el是組件實例，$el是組件的根元素
@@ -31,23 +31,20 @@ const setSectionRefs=(el,index)=>{
 
 <template>
     <SideNavBar :items="sections" :sectionRefs="sectionRefs"/>
-    
+    <Navbar />
     <div class="recommendResult">
-        <Navbar />
-        <section class="anime">
-            <aside>
-                <photoSection/>
-            </aside>
-            <div class="content">
-                <section class="result">
-                    <ReasonSection :ref="el=>setSectionRefs(el,0)"/>
-                    <GoodBadSection :ref="el=>setSectionRefs(el,1)"/>
-                    <WordcloudSection :ref="el=>setSectionRefs(el,2)"/>
-                    <CommendSection :ref="el=>setSectionRefs(el,3)"/>
-                    <SpecificationSection :ref="el=>setSectionRefs(el,4)"/>
-                </section>
-            </div>
-        </section>
+        <aside>
+            <photoSection/>
+        </aside>
+        <div class="content">
+            <section class="result">
+                <ReasonSection :ref="el=>setSectionRefs(el,0)"/>
+                <GoodBadSection :ref="el=>setSectionRefs(el,1)"/>
+                <WordcloudSection :ref="el=>setSectionRefs(el,2)"/>
+                <CommendSection :ref="el=>setSectionRefs(el,3)"/>
+                <SpecificationSection :ref="el=>setSectionRefs(el,4)"/>
+            </section>
+        </div>
     </div>    
 </template>
 
