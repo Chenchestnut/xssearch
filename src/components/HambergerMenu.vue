@@ -106,7 +106,7 @@ div.hambergerMenu{
     width: 100%;
     height: 100vh;
     background-color: #efece9;
-    z-index: 9999;
+    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
