@@ -5,7 +5,7 @@ const isFlipped1 = ref(false);
 const isFlipped2 = ref(false);
 const isFlipped3 = ref(false);
 const windowWidth = ref(window.innerWidth);
-const isComputer = computed(()=>windowWidth > 768)
+const isComputer = computed(()=>windowWidth.value > 768)
 const handleResize=()=>{
     windowWidth.value = window.innerWidth;
 }
