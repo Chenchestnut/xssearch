@@ -64,15 +64,14 @@ $word-color: #2F2F2F;
     background-repeat: no-repeat;
     // background-attachment: fixed;
     z-index: -100;
-    
 }
 .recommendResult {
-min-height: 100vh;
-width: 100%;
-margin: 0;
-padding: 0;
-overflow-x: hidden;
-color: $word-color;
-background: transparent;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: $word-color;
+    background: transparent;
 }
 </style>

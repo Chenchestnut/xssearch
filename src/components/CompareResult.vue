@@ -29,6 +29,7 @@ function handleScroll(index){
 </script>
 
 <template>
+    <div class="backGround"></div>
     <Navbar />
     <div class="compareResult">
         <section class="img">
@@ -75,12 +76,20 @@ function handleScroll(index){
 
 <style lang="scss" scoped>
 $word-color: #2F2F2F;
-.compareResult {
+.backGround{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
     background-image: url('../assets/backGround2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    // background-attachment: fixed;
+    z-index: -100;
+}
+.compareResult {
     min-height: 100vh;
     width: 100vw;
     color: $word-color;
