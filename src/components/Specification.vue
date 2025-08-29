@@ -6,6 +6,7 @@ let isCollapsed = ref(true);
 function toggleCollapsed(){
     isCollapsed.value = !isCollapsed.value;
     console.log(isCollapsed);
+    console.log(searchStore.matched_products.spec);
 }
 </script>
 
