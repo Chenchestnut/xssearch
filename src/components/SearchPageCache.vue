@@ -4,8 +4,9 @@ import CacheCard from './CacheCard.vue';
 import { useSearchStore } from '../stores/useSearchStore';
 import { useIndexStore } from '../stores/useIndexStore';
 import { useAnalysisStore } from '../stores/useAnalysisStore';
+import axios from 'axios';
 const searchStore = useSearchStore();
-const indexStore = useIndexStore();
+// const indexStore = useIndexStore();
 const analysisStore = useAnalysisStore();
 
 // function getIdIndex(index){
