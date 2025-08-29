@@ -89,13 +89,15 @@ export const useSearchStore = defineStore("searchResults", {
     saveSearchResults(data) {
       this.search_keyword = data.keyword;
       this.matched_products_count = data.matched_products_count;
-      this.matched_products = [
-        {
-          id: data.matched_products.id,
-          name: data.matched_products.name,
-          img: data.matched_products.img,
-        },
-      ];
+      this.matched_products = data.matched_products.map((product) => ({
+        id: product.id,
+        name: product.name,
+        img: product.img,
+        spec:
+          typeof product.spec === "string"
+            ? product.spec.split("\n")
+            : ["暫無規格"],
+      }));
       // this.analysis = {
       //   summary: data.analysis.summary,
       //   advantage: data.analysis.positive_keywords,
