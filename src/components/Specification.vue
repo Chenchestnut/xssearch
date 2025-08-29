@@ -48,7 +48,6 @@ $word-color: #2F2F2F;
             flex-direction: column;
             justify-content: center;
             text-align: left;
-            align-items: center;
             list-style: none;
             li{
                 text-align: left;
