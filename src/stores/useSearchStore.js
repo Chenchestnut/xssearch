@@ -4,12 +4,14 @@ export const useSearchStore = defineStore("searchResults", {
   state: () => ({
     search_keyword: "",
     matched_products_count: 0,
-    matched_products: {
-      id: "",
-      name: "",
-      img: "",
-      spec: [],
-    },
+    matched_products: [
+      {
+        id: "",
+        name: "",
+        img: "",
+        spec: [],
+      },
+    ],
     // analysis: {
     //   summary: "",
     //   advantage: [],
