@@ -50,6 +50,7 @@ $word-color: #2F2F2F;
             align-items: center;
             list-style: none;
             li{
+                text-align: left;
                 font-size: 1.2rem;
                 color: $word-color;
                 margin: 0.5rem 0;
