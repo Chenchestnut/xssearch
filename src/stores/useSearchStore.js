@@ -87,7 +87,7 @@ export const useSearchStore = defineStore("searchResults", {
       }
     },
     saveSearchResults(data) {
-      this.search_keyword = data.keyword;
+      this.search_keyword = data.search_keyword;
       this.matched_products_count = data.matched_products_count;
       this.matched_products = data.matched_products.map((product) => ({
         id: product.id,
