@@ -45,6 +45,7 @@ $word-color: #2F2F2F;
         transition: max-height 0.3s ease;
         ul{
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             list-style: none;
