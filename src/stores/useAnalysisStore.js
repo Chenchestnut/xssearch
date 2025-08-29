@@ -43,7 +43,7 @@ export const useAnalysisStore = defineStore("analysisResults", {
   },
   actions: {
     saveAnalysisResults(data) {
-      this.search_keyword = data.keyword;
+      this.search_keyword = data.search_keyword;
       this.analysis = {
         summary: data.analysis.summary,
         advantage: data.analysis.positive_keywords,

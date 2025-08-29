@@ -2,7 +2,7 @@
 import Navbar from './Navbar.vue';
 import CacheCard from './CacheCard.vue';
 import { useSearchStore } from '../stores/useSearchStore';
-import { useIndexStore } from '../stores/useIndexStore';
+// import { useIndexStore } from '../stores/useIndexStore';
 import { useAnalysisStore } from '../stores/useAnalysisStore';
 import axios from 'axios';
 const searchStore = useSearchStore();
