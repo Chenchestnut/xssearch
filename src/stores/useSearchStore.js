@@ -79,13 +79,6 @@ export const useSearchStore = defineStore("searchResults", {
     // setReview(newAllReview) {
     //   this.all_reviews = newAllReview;
     // },
-    splitSpecString(data) {
-      if (typeof data.matched_products.spec === "string") {
-        this.matched_products.spec = data.matched_products.spec.split("\n");
-      } else {
-        this.matched_products.spec = ["暫無規格"];
-      }
-    },
     saveSearchResults(data) {
       this.search_keyword = data.search_keyword;
       this.matched_products_count = data.matched_products_count;

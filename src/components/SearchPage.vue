@@ -33,7 +33,6 @@ function handleSearch(){
         const data = response.data;
         console.log(data);
         searchStore.saveSearchResults(data);
-        searchStore.splitSpecString(data);
         closeLoading()
         // 將搜尋結果存入store後，跳轉到searchPageCache
         router.push('/searchPagecache')
