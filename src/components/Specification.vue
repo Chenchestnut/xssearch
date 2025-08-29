@@ -44,6 +44,9 @@ $word-color: #2F2F2F;
         overflow: hidden;
         transition: max-height 0.3s ease;
         ul{
+            display: flex;
+            justify-content: center;
+            align-items: center;
             list-style: none;
             li{
                 font-size: 1.2rem;
