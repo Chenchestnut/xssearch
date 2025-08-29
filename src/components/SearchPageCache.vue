@@ -6,15 +6,15 @@ import { useSearchStore } from '../stores/useSearchStore';
 import { useAnalysisStore } from '../stores/useAnalysisStore';
 import axios from 'axios';
 const searchStore = useSearchStore();
-// const indexStore = useIndexStore();
+const indexStore = useIndexStore();
 const analysisStore = useAnalysisStore();
 
-// function getIdIndex(index){
-//   indexStore.setIndex(index);
-// }
+function getIdIndex(index){
+  indexStore.setIndex(index);
+}
 
 function handleAnalysis(index){
-  // getIdIndex(index);
+  getIdIndex(index);
   //接分析
   console.log(searchStore.search_keyword, searchStore.matched_products[index].id);
   axios.post('https://api.xssearch.brid.pw/api/analysis/',{"keyword":searchStore.search_keyword,"product_id": searchStore.matched_products[index].id},{

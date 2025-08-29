@@ -1,12 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 import { useSearchStore } from '../stores/useSearchStore';
+import { useIndexStore } from '../stores/useIndexStore';
 const searchStore = useSearchStore();
+const indexStore = useIndexStore();
 let isCollapsed = ref(true);
 function toggleCollapsed(){
     isCollapsed.value = !isCollapsed.value;
     console.log(isCollapsed);
-    console.log(searchStore.matched_products.spec[0]);
+    console.log(searchStore.matched_products[indexStore.index].spec);
 }
 </script>
 
@@ -14,7 +16,7 @@ function toggleCollapsed(){
 <div class="specification">
     <div class="description" :class="{ collapsed: isCollapsed }">
         <ul>
-            <li v-for="(item,index) in searchStore.matched_products.spec" :key="index">{{ item }}</li>
+            <li v-for="(item,index) in searchStore.matched_products[indexStore.index].spec" :key="index">{{ item }}</li>
         </ul>
         <div v-if="isCollapsed" class="mask"></div>
     </div>
