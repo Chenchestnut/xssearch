@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue';
+import { useSearchStore } from '../stores/useSearchStore';
+const searchStore = useSearchStore();
 let isCollapsed = ref(true);
 function toggleCollapsed(){
     isCollapsed.value = !isCollapsed.value;
@@ -11,11 +13,7 @@ function toggleCollapsed(){
 <div class="specification">
     <div class="description" :class="{ collapsed: isCollapsed }">
         <ul>
-            <li>商品：iPhone 16</li>
-            <li>品牌：Apple</li>
-            <li>型號：iPhone 16（6.1 吋）</li>
-            <li>螢幕：6.1吋</li>
-            <li>晶片：A18晶片</li>
+            <li v-for="(item,index) in searchStore.matched_products.spec" :key="index">{{ item }}</li>
         </ul>
         <div v-if="isCollapsed" class="mask"></div>
     </div>

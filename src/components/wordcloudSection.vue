@@ -1,13 +1,11 @@
 <script setup>
-import { useWordCloudStore } from '../stores/useWordCloudStore';
-import { useSearchStore } from '../stores/useSearchStore';
+import { useAnalysisStore } from '../stores/useAnalysisStore';
 import { computed } from 'vue';
-const wordCloudStore = useWordCloudStore();
-const searchStore = useSearchStore();
+const analysisStore = useAnalysisStore();
 
 const wordCloudImg = computed(()=>{
-    if(searchStore.analysis.wordcloud[wordCloudStore.wordCloudIndex].image_base64.length > 0){
-        return searchStore.analysis.wordcloud[wordCloudStore.wordCloudIndex].image_base64;
+    if(analysisStore.analysis.wordcloud.length > 0){
+        return analysisStore.analysis.wordcloud;
     }
     return '';
 })

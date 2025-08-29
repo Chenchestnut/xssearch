@@ -2,12 +2,32 @@
 import Navbar from './Navbar.vue';
 import CacheCard from './CacheCard.vue';
 import { useSearchStore } from '../stores/useSearchStore';
-import { useWordCloudStore } from '../stores/useWordCloudStore';
+import { useIndexStore } from '../stores/useIndexStore';
+import { useAnalysisStore } from '../stores/useAnalysisStore';
 const searchStore = useSearchStore();
-const wordCloudStore = useWordCloudStore();
+const indexStore = useIndexStore();
+const analysisStore = useAnalysisStore();
 
-function getWordCloudIndex(index){
-  wordCloudStore.setWordCloudIndex(index);
+// function getIdIndex(index){
+//   indexStore.setIndex(index);
+// }
+
+function handleAnalysis(index){
+  // getIdIndex(index);
+  //接分析
+  axios.post('https://api.xssearch.brid.pw/api/analysis/',{"keyword":searchStore.search_keyword,"product_id": searchStore.matched_products[index].id},{
+      headers: {
+        'Content-Type': 'application/json',
+      },
+  })
+  .then(function(response){
+    const data = response.data;
+    console.log(data);
+    analysisStore.saveAnalysisResults(data);
+  })
+  .catch(function(error){
+    console.error(error);
+  });
 }
 </script>
 
@@ -15,7 +35,7 @@ function getWordCloudIndex(index){
   <div class="searchPageCache">
     <Navbar />
     <div class="productCache">
-        <CacheCard v-for="(item,index) in searchStore.matched_products_count" :key="index" @click="getWordCloudIndex(index)"/>
+        <CacheCard v-for="(item,index) in searchStore.matched_products_count" :key="index" @click="handleAnalysis(index)"/>
     </div>
     
   </div>

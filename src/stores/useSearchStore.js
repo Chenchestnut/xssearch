@@ -4,25 +4,30 @@ export const useSearchStore = defineStore("searchResults", {
   state: () => ({
     search_keyword: "",
     matched_products_count: 0,
-    matched_products: [],
-    analysis: {
-      summary: "",
-      advantage: [],
-      disadvantage: [],
-      wordcloud: [
-        {
-          name: "",
-          image_base64: "",
-        },
-      ],
+    matched_products: {
+      id: "",
+      name: "",
+      img: "",
+      spec: [],
     },
-    all_reviews: [
-      {
-        source_product: "",
-        source_platform: "",
-        comment: "",
-      },
-    ],
+    // analysis: {
+    //   summary: "",
+    //   advantage: [],
+    //   disadvantage: [],
+    //   wordcloud: [
+    //     {
+    //       name: "",
+    //       image_base64: "",
+    //     },
+    //   ],
+    // },
+    // all_reviews: [
+    //   {
+    //     source_product: "",
+    //     source_platform: "",
+    //     comment: "",
+    //   },
+    // ],
   }),
   persist: true, // Enable persistence
   getters: {
@@ -72,21 +77,32 @@ export const useSearchStore = defineStore("searchResults", {
     // setReview(newAllReview) {
     //   this.all_reviews = newAllReview;
     // },
+    splitSpecString(data) {
+      if (typeof data.matched_products.spec === "string") {
+        this.matched_products.spec = data.matched_products.spec.split("\n");
+      } else {
+        this.matched_products.spec = ["暫無規格"];
+      }
+    },
     saveSearchResults(data) {
       this.search_keyword = data.keyword;
       this.matched_products_count = data.matched_products_count;
-      this.matched_products = data.matched_products;
-      this.analysis = {
-        summary: data.analysis.summary,
-        advantage: data.analysis.positive_keywords,
-        disadvantage: data.analysis.negative_keywords,
-        wordcloud: data.analysis.word_cloud_data,
+      this.matched_products = {
+        id: data.matched_products.id,
+        name: data.matched_products.name,
+        img: data.matched_products.img,
       };
-      this.all_reviews = data.all_reviews.map((review) => ({
-        source_product: review.source_product,
-        source_platform: review.source_platform,
-        comment: review.comment,
-      }));
+      // this.analysis = {
+      //   summary: data.analysis.summary,
+      //   advantage: data.analysis.positive_keywords,
+      //   disadvantage: data.analysis.negative_keywords,
+      //   wordcloud: data.analysis.word_cloud_data,
+      // };
+      // this.all_reviews = data.all_reviews.map((review) => ({
+      //   source_product: review.source_product,
+      //   source_platform: review.source_platform,
+      //   comment: review.comment,
+      // }));
     },
   },
 });

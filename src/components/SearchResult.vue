@@ -49,7 +49,7 @@ const setSectionRefs=(el,index)=>{
                 <SpecificationSection :ref="el=>{if(el) sectionRefs.value[3] = el}"/> -->
                 <GoodBadSection :ref="el=>setSectionRefs(el,0)"/>
                 <WordcloudSection :ref="el=>setSectionRefs(el,1)"/>
-                <CommendSection :ref="el=>setSectionRefs(el,2)"/>
+                <!-- <CommendSection :ref="el=>setSectionRefs(el,2)"/> -->
                 <SpecificationSection :ref="el=>setSectionRefs(el,3)"/>
             </section>
         </div>

@@ -1,6 +1,6 @@
 <script setup>
-import { useSearchStore } from '../stores/useSearchStore';
-const searchStore = useSearchStore();
+import { useAnalysisStore } from '../stores/useAnalysisStore';
+const analysisStore = useAnalysisStore();
 </script>
 
 <template>
@@ -10,13 +10,13 @@ const searchStore = useSearchStore();
             <div class="advantage">
                 <h2>優點<i class="fa-solid fa-thumbs-up"></i></h2>
                 <ul>
-                    <li v-for="(item,index) in searchStore.analysis.advantage" :key="index">{{ item }}</li>
+                    <li v-for="(item,index) in analysisStore.analysis.advantage" :key="index">{{ item }}</li>
                 </ul>
             </div>
             <div class="disadvantage">
                 <h2>缺點<i class="fa-solid fa-thumbs-down"></i></h2>
                 <ul>
-                    <li v-for="(item,index) in searchStore.analysis.disadvantage" :key="index">{{ item }}</li>
+                    <li v-for="(item,index) in analysisStore.analysis.disadvantage" :key="index">{{ item }}</li>
                 </ul>
             </div>
         </div>

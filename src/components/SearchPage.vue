@@ -28,15 +28,12 @@ function handleSearch(){
     headers: {
       'Content-Type': 'application/json',
     },
-    // onUploadProgress: (progressEvent) => {
-    //     const percent = Math.round((progressEvent.loaded / progressEvent.total) * 100);
-    //     updateLoading(percent);
-    // }
-  })
+    })
     .then(function(response){
         const data = response.data;
         console.log(data);
         searchStore.saveSearchResults(data);
+        searchStore.splitSpecString(data);
         closeLoading()
         // 將搜尋結果存入store後，跳轉到searchPageCache
         router.push('/searchPagecache')

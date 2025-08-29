@@ -42,7 +42,7 @@ const setSectionRefs=(el,index)=>{
                 <ReasonSection :ref="el=>setSectionRefs(el,0)"/>
                 <GoodBadSection :ref="el=>setSectionRefs(el,1)"/>
                 <WordcloudSection :ref="el=>setSectionRefs(el,2)"/>
-                <CommendSection :ref="el=>setSectionRefs(el,3)"/>
+                <!-- <CommendSection :ref="el=>setSectionRefs(el,3)"/> -->
                 <SpecificationSection :ref="el=>setSectionRefs(el,4)"/>
             </section>
         </div>
