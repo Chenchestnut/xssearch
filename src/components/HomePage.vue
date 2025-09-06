@@ -101,6 +101,7 @@ background-attachment: fixed;
 top: 0;
 left: 0;
 color: $word-color;
+overflow-x: hidden;
     header {
         display: flex;
         justify-content: space-between;
