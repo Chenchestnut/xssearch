@@ -236,7 +236,7 @@ overflow-x: hidden;
         align-items: center;
         flex-wrap: wrap;
         .startBtn{
-            margin-top: 8rem;
+            margin-top: 5rem;
             padding: 1rem 5rem;
             width: 45%;
             min-width: 260px;
@@ -247,6 +247,9 @@ overflow-x: hidden;
             border-radius: 45px;
             transition: all 0.3s ease;
             color: $word-color;
+            @media screen and (max-width: 768px){
+                margin-top: 8rem;
+            }
             &:hover{
                 transform: scale(1.05);
                 background-color: #D4B2A8;
