@@ -92,7 +92,7 @@ $word-color:#2F2F2F;
         }
         p{
             font-size: 1rem;
-            margin: 0.25rem 0;
+            // margin: 0.25rem 0;
             @media screen and (max-width: 520px) {
                 font-size: 0.8rem;
             }
