@@ -15,14 +15,16 @@ const changeToResult = () => {
 <template>
 
   <div class="cacheCard" @click="changeToResult">
-    <div class="imgBox">
-        <img :src="props.img" alt="商品圖片">
-    </div>
-    <div class="content">
-        <p class="title">iPhone16</p>
-        <p>螢幕：6.1吋</p>
-        <p>重量：170克</p>
-        <p>晶片：A18晶片</p>
+    <div class="box">
+        <div class="imgBox">
+            <img :src="props.img" alt="商品圖片">
+        </div>
+        <div class="content">
+            <p class="title">iPhone16</p>
+            <p>螢幕：6.1吋</p>
+            <p>重量：170克</p>
+            <p>晶片：A18晶片</p>
+        </div>
     </div>
   </div>
 </template>
@@ -31,17 +33,12 @@ const changeToResult = () => {
 <style lang="scss" scoped>
 $word-color:#2F2F2F;
 .cacheCard{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
     width: 30%;
-    // max-width: 700px;
     min-width: 350px;
     min-height: 300px;
     margin: 2.5rem 2.5rem;
     background-color: #B5B8A3;
     border-radius: 25px;
-    justify-content: flex-start;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
     &:hover{
@@ -53,52 +50,60 @@ $word-color:#2F2F2F;
         min-height: 250px;
         margin: 2.5rem 0.5rem;
     }
-    .imgBox{
+    .box{
         display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40%;
-        min-height: 35%;
-        max-height: 80%;
-        border-radius: 25px;
-        overflow: hidden;
-        margin: 2rem 0 0 2rem;
-        img{
-        width: 100%;
-        height: auto;
-        border-radius: 25px;
-        }
-    }
-    .content{
-        display: table-cell;
-        // flex-direction: column;
-        vertical-align: baseline;
-        // width: 80%;
-        justify-content: flex-start;
-        text-align: left;
-        color: $word-color;
-        padding: 2.5rem 0;
-        margin: 0 2rem;
-        @media screen and (max-width: 520px) {
-            padding: 2rem 0;
-            margin:  0 1rem 0 1.5rem;
-        }
-        p.title{
-            font-size: 1.5rem;
-            font-weight: 600;
-            padding: 0 0 2rem 0;
-            @media screen and (max-width: 520px) {
-                font-size: 1.2rem;
-                
+        flex-direction: row;
+        align-items: flex-start;
+        margin: 4rem 2.5rem;
+        justify-content: start;
+        .imgBox{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            min-height: 35%;
+            max-height: 80%;
+            border-radius: 25px;
+            overflow: hidden;
+            margin: 2rem 0 0 2rem;
+            img{
+            width: 100%;
+            height: auto;
+            border-radius: 25px;
             }
         }
-        p{
-            font-size: 1rem;
-            // margin: 0.25rem 0;
+        .content{
+            display: table-cell;
+            // flex-direction: column;
+            vertical-align: baseline;
+            // width: 80%;
+            justify-content: flex-start;
+            text-align: left;
+            color: $word-color;
+            padding: 2.5rem 0;
+            margin: 0 2rem;
             @media screen and (max-width: 520px) {
-                font-size: 0.8rem;
+                padding: 2rem 0;
+                margin:  0 1rem 0 1.5rem;
+            }
+            p.title{
+                font-size: 1.5rem;
+                font-weight: 600;
+                padding: 0 0 2rem 0;
+                @media screen and (max-width: 520px) {
+                    font-size: 1.2rem;
+                    
+                }
+            }
+            p{
+                font-size: 1rem;
+                // margin: 0.25rem 0;
+                @media screen and (max-width: 520px) {
+                    font-size: 0.8rem;
+                }
             }
         }
     }
+    
 }
 </style>
