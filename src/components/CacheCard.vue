@@ -62,6 +62,7 @@ $word-color:#2F2F2F;
         border-radius: 25px;
         overflow: hidden;
         margin: 2rem 0 0 2rem;
+        border-radius: 30%;
         img{
         width: 100%;
         height: auto;
