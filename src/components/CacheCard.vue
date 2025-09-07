@@ -70,7 +70,7 @@ $word-color:#2F2F2F;
     .content{
         display: table-cell;
         // flex-direction: column;
-        vertical-align: top;
+        vertical-align: baseline;
         // width: 80%;
         justify-content: flex-start;
         text-align: left;
