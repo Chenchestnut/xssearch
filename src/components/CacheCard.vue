@@ -31,8 +31,9 @@ const changeToResult = () => {
 <style lang="scss" scoped>
 $word-color:#2F2F2F;
 .cacheCard{
-    display: flex;
-    flex-direction: row;
+    display: table-cell;
+    // flex-direction: row;
+    vertical-align: top;
     width: 30%;
     // max-width: 700px;
     min-width: 350px;
