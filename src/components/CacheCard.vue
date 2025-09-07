@@ -33,6 +33,7 @@ $word-color:#2F2F2F;
 .cacheCard{
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     width: 30%;
     // max-width: 700px;
     min-width: 350px;
