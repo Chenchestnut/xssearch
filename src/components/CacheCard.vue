@@ -3,6 +3,10 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
+const props = defineProps({
+    img:String,
+})
+
 const changeToResult = () => {
   router.push('/searchResult');
 };
@@ -12,7 +16,7 @@ const changeToResult = () => {
 
   <div class="cacheCard" @click="changeToResult">
     <div class="imgBox">
-        <img src="../assets/iphone.jpg" alt="商品圖片">
+        <img :src="props.img" alt="商品圖片">
     </div>
     <div class="content">
         <p class="title">iPhone16</p>

@@ -37,7 +37,7 @@ function handleAnalysis(index){
   <div class="searchPageCache">
     <Navbar />
     <div class="productCache">
-        <CacheCard v-for="(item,index) in searchStore.matched_products_count" :key="index" @click="handleAnalysis(index)"/>
+        <CacheCard v-for="(item,index) in searchStore.matched_products_count" :key="index"  :img="searchStore.matched_products[index].img" @click="handleAnalysis(index)"/>
     </div>
     
   </div>
