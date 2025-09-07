@@ -65,7 +65,7 @@ $word-color:#2F2F2F;
         img{
         width: 100%;
         height: auto;
-        border-radius: 30%;
+        border-radius: 25px;
         }
     }
     .content{
