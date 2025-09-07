@@ -54,7 +54,7 @@ $word-color:#2F2F2F;
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        margin: 4rem 0rem;
+        margin: 4rem 0rem 4rem 1rem;
         justify-content: start;
         .imgBox{
             display: flex;
