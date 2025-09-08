@@ -101,7 +101,7 @@ overflow-y: auto;
         flex-wrap: wrap;
         flex: 0 1 auto;
         justify-content: space-evenly;
-        align-items: center;
+        align-items: flex-start;
         margin: 5rem 2rem;
         @media screen and (max-width: 900px) {
             margin: 3rem 0;
