@@ -143,7 +143,12 @@ overflow-y: auto;
                 }
             }
             ul{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
                 list-style: none;
+
                 li{
                     font-size: 1.2rem;
                     padding: 0.5rem 0;
