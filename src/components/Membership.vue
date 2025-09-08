@@ -116,7 +116,7 @@ overflow-y: auto;
             justify-content: flex-start;
             width: 20%;
             min-width: 280px;
-            height: 75%;
+            height: 500px;
             background-color: #D2D5DA;
             border-radius: 35px;
             padding:2rem 2rem;
