@@ -145,7 +145,7 @@ overflow-y: auto;
             ul{
                 list-style: none;
                 text-align: left;
-                transform: translateX(-10%);
+                transform: translateX(-5%);
                 li{
                     font-size: 1.2rem;
                     padding: 0.5rem 0;
