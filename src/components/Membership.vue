@@ -146,8 +146,7 @@ overflow-y: auto;
                 list-style: none;
                 text-align: left;
                 li{
-                    display: flex;
-                    align-items: center;
+                    transform: translateY(-10%);
                     font-size: 1.2rem;
                     padding: 0.5rem 0;
                     i{
