@@ -143,10 +143,6 @@ overflow-y: auto;
                 }
             }
             ul{
-                display: flex;
-                flex-direction: column;
-                // align-items: center;
-                justify-content: start;
                 list-style: none;
                 text-align: left;
                 li{
