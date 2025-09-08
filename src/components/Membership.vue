@@ -148,11 +148,10 @@ overflow-y: auto;
                 align-items: center;
                 justify-content: start;
                 list-style: none;
-
+                text-align: left;
                 li{
                     font-size: 1.2rem;
                     padding: 0.5rem 0;
-                    text-align: left;
                     i{
                         color: #CC5F5A;
                         padding-right: 0.5rem;
