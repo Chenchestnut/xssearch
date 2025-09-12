@@ -120,11 +120,11 @@ hr{
                     width: 100%;
                     // min-width: 300px;
                     padding: 0.5rem 4rem 0.5rem 1.5rem;
-                    background-color: #EFECE9;
-                    border: 2px solid #B5B8A3;
+                    // background-color: #EFECE9;
+                    // border: 2px solid #B5B8A3;
                     border-radius: 150px;
                     font-size: 1.2rem;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                     @media screen and (max-width: 630px) {
                         padding: 0.3rem 2.5rem 0.3rem 1rem;
                         font-size: 0.8rem;
@@ -133,6 +133,8 @@ hr{
                         display: flex;
                         align-items: center;
                         justify-content: start;
+                        background-color: #EFECE9;
+                        border: 2px solid #B5B8A3;
                         div.number{
                             font-size: 1.2rem;
                             padding: 0.5rem 0.3rem 0.5rem 2rem;
