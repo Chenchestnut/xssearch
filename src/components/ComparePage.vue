@@ -139,8 +139,8 @@ hr{
                         border-radius: 30px;
                         div.number{
                             font-size: 1.2rem;
-                            padding: 0.5rem 0.3rem 0.5rem 2rem;
-                            width: 20%;
+                            padding: 0.5rem 0.3rem 0.5rem 1rem;
+                            width: 40%;
                             @media screen and (max-width: 800px) {
                                 font-size: 1rem;
                                 padding: 0.5rem 0.3rem 0.3rem 1rem;
@@ -157,12 +157,12 @@ hr{
                             }
                         }
                         input.searchInput{
-                            padding: 1.25rem 4rem 1.25rem 1.5rem;
+                            padding: 1.25rem 2rem 1.25rem 1.5rem;
                             width: 100%;
                             background-color: #EFECE9;
                             // border: 2px solid #B5B8A3;
                             border: none;
-                            border-radius: 30px;
+                            border-radius: 50px;
                             font-size: 1.2rem;
                             // margin-top: 0.5rem;
                             @media screen and (max-width: 800px) {
@@ -190,12 +190,11 @@ hr{
                         background-color: #d9bcb3;
                         border: #FFFFFF solid 1px;
                         border-radius: 50%;
-                        padding: 2rem 2.1rem;
+                        padding: 2rem 2.2rem;
                         cursor: pointer;
                         font-size: 1.5rem;
                         transition: all 0.3s ease;
-                        box-shadow:    
-                        8px 8px 8px rgba(0, 0, 0, 0.1),
+                        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
                         // -8px -8px 8px rgba(255, 255, 255, 0.7);
                         // inset -8px -8px 8px rgba(255, 255, 255, 0.7);
                         &:hover{
