@@ -132,6 +132,7 @@ hr{
                         align-items: center;
                         padding: 0.3rem 2.5rem 0.3rem 1rem;
                         font-size: 0.8rem;
+                        margin:2rem 0
                     }
                     div.item{
                         display: flex;
@@ -205,6 +206,9 @@ hr{
                         box-shadow: inset 8px 8px 8px rgba(0, 0, 0, 0.1),
                                     inset -4px -4px 8px rgba(255, 255, 255, 0.7);
                         background-color: #d4b2a8;
+                        }
+                        @media screen and (max-width: 780px){
+                            padding: 1.5rem 1.7rem;
                         }
                     }
                 }
