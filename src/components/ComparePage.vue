@@ -112,6 +112,7 @@ hr{
                 display: flex;
                 width: 100%;
                 // transform: translateX(2%);
+                margin-top: 2rem;
                 .searchBar{
                     display: flex;
                     flex-direction: row;
@@ -185,6 +186,7 @@ hr{
                         // right: 10px;
                         // top: 60%;
                         // transform: translateY(-90%);
+                        font-size: 2rem;
                         background-color: #d9bcb3;
                         border: #FFFFFF solid 1px;
                         border-radius: 50%;
