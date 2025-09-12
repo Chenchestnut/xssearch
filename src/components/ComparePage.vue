@@ -135,7 +135,7 @@ hr{
                         justify-content: start;
                         background-color: #EFECE9;
                         border: 2px solid #B5B8A3;
-                        border-radius: 30%;
+                        border-radius: 30px;
                         div.number{
                             font-size: 1.2rem;
                             padding: 0.5rem 0.3rem 0.5rem 2rem;
@@ -186,8 +186,9 @@ hr{
                         // top: 60%;
                         // transform: translateY(-90%);
                         background-color: #d9bcb3;
-                        border: #FFFFFF;
+                        border: #FFFFFF solid 1px;
                         border-radius: 50%;
+                        padding: 2rem;
                         cursor: pointer;
                         font-size: 1.5rem;
                         transition: all 0.3s ease;
