@@ -190,7 +190,7 @@ hr{
                         background-color: #d9bcb3;
                         border: #FFFFFF solid 1px;
                         border-radius: 50%;
-                        padding: 2rem;
+                        padding: 2rem 2.5rem;
                         cursor: pointer;
                         font-size: 1.5rem;
                         transition: all 0.3s ease;
