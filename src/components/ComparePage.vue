@@ -196,7 +196,7 @@ hr{
                         transition: all 0.3s ease;
                         box-shadow:    
                         8px 8px 8px rgba(0, 0, 0, 0.1),
-                        -8px -8px 8px rgba(255, 255, 255, 0.7);
+                        // -8px -8px 8px rgba(255, 255, 255, 0.7);
                         // inset -8px -8px 8px rgba(255, 255, 255, 0.7);
                         &:hover{
                         box-shadow: inset 8px 8px 8px rgba(0, 0, 0, 0.1),
