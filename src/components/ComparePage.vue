@@ -39,26 +39,24 @@ function showCompareItem() {
         <Navbar />
         <p >又陷入二選一的難題了嗎？</p>
         <div class="container">
-            <div class="content">
                 <form @submit.prevent="handleSearch">
                     <div class="searchBar">
                         <div class="item">
                             <div class="number">商品一</div>
                             <input v-model="searchQuery" type="text" placeholder="請輸入商品型號" class="searchInput">
                         </div>
-                        <hr>
+                        <button type="submit">VS</button>
                         <div class="item">
                             <div class="number">商品二</div>
                             <input v-model="searchQuery" type="text" placeholder="請輸入商品型號" class="searchInput">
                         </div>
-                        <button type="submit">
+                        <!-- <button type="submit">
                             <i class="fa-solid fa-magnifying-glass submit"></i>
-                        </button>
+                        </button> -->
                     </div>
                 </form>
-                <i class="fa-solid fa-bars hamburger" @click="showCompareItem"></i>
-            </div>
-            <CompareItem v-if="showItem" />
+                <!-- <i class="fa-solid fa-bars hamburger" @click="showCompareItem"></i> -->
+            <!-- <CompareItem v-if="showItem" /> -->
         </div>
         
     </div>
@@ -103,23 +101,24 @@ hr{
         align-items: center;
         justify-content: center;
         width: 100%;
-        div.content{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            margin-top: 1.5rem;
+        // div.content{
+        //     display: flex;
+        //     flex-direction: row;
+        //     align-items: center;
+        //     justify-content: center;
+        //     width: 100%;
+        //     margin-top: 1.5rem;
             form{
                 display: flex;
-                justify-content: center;
-                align-items: center;
                 width: 60%;
-                transform: translateX(2%);
+                // transform: translateX(2%);
                 .searchBar{
-                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
                     width: 100%;
-                    min-width: 300px;
+                    // min-width: 300px;
                     padding: 0.5rem 4rem 0.5rem 1.5rem;
                     background-color: #EFECE9;
                     border: 2px solid #B5B8A3;
@@ -159,7 +158,7 @@ hr{
                             background-color: #EFECE9;
                             // border: 2px solid #B5B8A3;
                             border: none;
-                            border-radius: 50px;
+                            border-radius: 30px;
                             font-size: 1.2rem;
                             // margin-top: 0.5rem;
                             @media screen and (max-width: 800px) {
@@ -179,23 +178,25 @@ hr{
                         }
                     }
                     button{
-                        position: absolute;
-                        right: 10px;
-                        top: 60%;
-                        transform: translateY(-90%);
-                        background-color: transparent;
-                        border: none;
+                        // position: absolute;
+                        // right: 10px;
+                        // top: 60%;
+                        // transform: translateY(-90%);
+                        background-color: #d9bcb3;
+                        border: #FFFFFF;
+                        border-radius: 50%;
                         cursor: pointer;
                         font-size: 1.5rem;
                         transition: all 0.3s ease;
-                        i{
-                            color: #7E90A7;
-                            border-radius: 50%;
-                            &:hover{
-                            background-color: rgba(154, 167, 184, 0.3);
-                            }
+                        box-shadow:    
+                        8px 8px 8px rgba(0, 0, 0, 0.1),
+                        -8px -8px 8px rgba(255, 255, 255, 0.7),
+                        inset -8px -8px 8px rgba(255, 255, 255, 0.7);
+                        &:hover{
+                        box-shadow: inset 8px 8px 8px rgba(0, 0, 0, 0.1),
+                                    inset -8px -8px 8px rgba(255, 255, 255, 0.7);
+                        background-color: #d4b2a8;
                         }
-                        
                     }
                 }
             }
@@ -210,7 +211,7 @@ hr{
                     border-radius: 50%;
                 }
             }
-        }
+        // }
     }
     
     
