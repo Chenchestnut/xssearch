@@ -126,7 +126,10 @@ hr{
                     // border-radius: 150px;
                     font-size: 1.2rem;
                     // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    @media screen and (max-width: 630px) {
+                    @media screen and (max-width: 780px) {
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
                         padding: 0.3rem 2.5rem 0.3rem 1rem;
                         font-size: 0.8rem;
                     }
@@ -194,8 +197,8 @@ hr{
                         cursor: pointer;
                         font-size: 1.5rem;
                         transition: all 0.3s ease;
-                        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
-                        // -8px -8px 8px rgba(255, 255, 255, 0.7);
+                        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1),
+                        -4px -4px 8px rgba(255, 255, 255, 0.7);
                         // inset -8px -8px 8px rgba(255, 255, 255, 0.7);
                         &:hover{
                         box-shadow: inset 8px 8px 8px rgba(0, 0, 0, 0.1),
