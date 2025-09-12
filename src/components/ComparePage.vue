@@ -189,6 +189,7 @@ hr{
                         // right: 10px;
                         // top: 60%;
                         // transform: translateY(-90%);
+                        margin: 0 2rem;
                         font-size: 2rem;
                         background-color: #d9bcb3;
                         border: #FFFFFF solid 1px;
@@ -202,7 +203,7 @@ hr{
                         // inset -8px -8px 8px rgba(255, 255, 255, 0.7);
                         &:hover{
                         box-shadow: inset 8px 8px 8px rgba(0, 0, 0, 0.1),
-                                    inset -8px -8px 8px rgba(255, 255, 255, 0.7);
+                                    inset -4px -4px 8px rgba(255, 255, 255, 0.7);
                         background-color: #d4b2a8;
                         }
                     }
