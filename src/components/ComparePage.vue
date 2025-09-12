@@ -209,6 +209,7 @@ hr{
                         }
                         @media screen and (max-width: 780px){
                             padding: 1.5rem 1.7rem;
+                            margin: 2rem 0;
                         }
                     }
                 }
