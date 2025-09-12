@@ -110,19 +110,19 @@ hr{
         //     margin-top: 1.5rem;
             form{
                 display: flex;
-                width: 60%;
+                width: 100%;
                 // transform: translateX(2%);
                 .searchBar{
                     display: flex;
                     flex-direction: row;
-                    justify-content: space-between;
+                    justify-content: space-around;
                     align-items: center;
                     width: 100%;
                     // min-width: 300px;
                     padding: 0.5rem 4rem 0.5rem 1.5rem;
                     // background-color: #EFECE9;
                     // border: 2px solid #B5B8A3;
-                    border-radius: 150px;
+                    // border-radius: 150px;
                     font-size: 1.2rem;
                     // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                     @media screen and (max-width: 630px) {
@@ -135,6 +135,7 @@ hr{
                         justify-content: start;
                         background-color: #EFECE9;
                         border: 2px solid #B5B8A3;
+                        border-radius: 30%;
                         div.number{
                             font-size: 1.2rem;
                             padding: 0.5rem 0.3rem 0.5rem 2rem;
@@ -192,8 +193,8 @@ hr{
                         transition: all 0.3s ease;
                         box-shadow:    
                         8px 8px 8px rgba(0, 0, 0, 0.1),
-                        -8px -8px 8px rgba(255, 255, 255, 0.7),
-                        inset -8px -8px 8px rgba(255, 255, 255, 0.7);
+                        -8px -8px 8px rgba(255, 255, 255, 0.7);
+                        // inset -8px -8px 8px rgba(255, 255, 255, 0.7);
                         &:hover{
                         box-shadow: inset 8px 8px 8px rgba(0, 0, 0, 0.1),
                                     inset -8px -8px 8px rgba(255, 255, 255, 0.7);
