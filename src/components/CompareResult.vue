@@ -1,6 +1,8 @@
 <script setup>
 import Navbar from './Navbar.vue';
 import CompareProductCard from './CompareProductCard.vue';
+import CompareConclusion from './CompareConclusion.vue';
+import ComparePoint from './ComparePoint.vue';
 import Specification from './Specification.vue';
 import { onMounted, reactive, ref } from 'vue';
 import { useAnimations } from '../composables/useAnimations';
@@ -41,6 +43,8 @@ function handleScroll(index){
                     <li v-for="(title,index) in compareTitle" :key="index" @click="handleScroll(index)" class="navItem">{{ title }}</li>
                 </ul>
             </div>
+            <CompareConclusion />
+            <ComparePoint />
             <div class="compareInfo" id="section0">
                 <div class="title">
                     <h2>{{ compareTitle[0] }}</h2>
