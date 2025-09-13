@@ -70,7 +70,7 @@ function cardClick(index){
                 普通查詢
             </div>
             <div class="cardBack">
-                試著輸入你要找的商品型號吧！
+                試著輸入你要找的商品型號吧！！！
             </div>
         </div>
 
