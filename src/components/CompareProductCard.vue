@@ -4,6 +4,7 @@
 <template>
     <div class="compareProductCard">
         <div class="container">
+            <Icon icon="solar:medal-ribbons-star-bold-duotone" />
             <div class="imgBox">
                 <img src="../assets/iphone.jpg" alt="商品圖片">
             </div>
@@ -11,6 +12,9 @@
                 <h2>iphone 15 pro max</h2>
                 <p class="star"><i class="fa-regular fa-star"></i>4.0</p>
             </div>
+        </div>
+        <div class="vs">
+            VS
         </div>
         <div class="container">
             <div class="imgBox">
@@ -32,8 +36,9 @@
 $word-color: #2F2F2F;
 .compareProductCard {
     display: flex;
-    flex-wrap: wrap;
-    flex: 0 1 auto;
+    // flex-wrap: wrap;
+    // flex: 0 1 auto;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     color: $word-color;
@@ -83,6 +88,16 @@ $word-color: #2F2F2F;
                     color: #CC5F5A;
                 }
             }
+        }
+    }
+    div.vs{
+        font-size: 2rem;
+        background-color: #a4aebd;
+        border: #7e90a7 solid 1px;
+        border-radius: 50px;
+        margin: 0 1.5rem;
+        @media screen and (max-width: 520px) {
+            font-size: 1.5rem;
         }
     }
 }
