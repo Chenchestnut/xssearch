@@ -94,7 +94,7 @@ $word-color: #2F2F2F;
         font-size: 2rem;
         background-color: #a4aebd;
         border: #7e90a7 solid 1px;
-        border-radius: 50%;
+        border-radius: 50px;
         margin: 0 1.5rem;
         @media screen and (max-width: 520px) {
             font-size: 1.5rem;
