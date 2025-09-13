@@ -94,9 +94,9 @@ function cardClick(index){
             <div class="cardBack">
                 還在煩惱要選擇哪一個嗎？
                 <br>
-                你可以輸入兩個商品的型號
+                你可以輸入兩個同類別商品的型號
                 <br>
-                來比較他們的評價
+                對他們進行全方位的比較
             </div>
         </div>
     </div>
