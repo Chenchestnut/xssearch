@@ -38,11 +38,11 @@ function handleScroll(index){
             <CompareProductCard />
         </section>
         <section class="content">
-            <div class="navBar">
+            <!-- <div class="navBar">
                 <ul>
                     <li v-for="(title,index) in compareTitle" :key="index" @click="handleScroll(index)" class="navItem">{{ title }}</li>
                 </ul>
-            </div>
+            </div> -->
             <CompareConclusion />
             <ComparePoint />
             <div class="compareInfo" id="section0">
