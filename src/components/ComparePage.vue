@@ -112,7 +112,7 @@ hr{
                 display: flex;
                 width: 100%;
                 // transform: translateX(2%);
-                margin-top: 2rem;
+                margin-top: 5rem;
                 .searchBar{
                     display: flex;
                     flex-direction: row;
