@@ -1,5 +1,5 @@
 <script setup>
-console.log("renew")
+import { Icon } from '@iconify/vue';
 </script>
 
 <template>
