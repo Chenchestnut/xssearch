@@ -126,7 +126,7 @@ hr{
                     // border-radius: 150px;
                     font-size: 1.2rem;
                     // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    @media screen and (max-width: 780px) {
+                    @media screen and (max-width: 800px) {
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
@@ -150,15 +150,15 @@ hr{
                                 padding: 0.5rem 0.3rem 0.3rem 1rem;
                                 
                             }
-                            @media screen and (max-width: 630px) {
-                                font-size: 0.7rem;
-                                padding: 0.3rem 0.3rem 0.2rem 0.8rem;
+                            // @media screen and (max-width: 630px) {
+                            //     font-size: 0.7rem;
+                            //     padding: 0.3rem 0.3rem 0.2rem 0.8rem;
                                 
-                            }
-                            @media screen and (max-width: 420px) {
-                                display: none;
+                            // }
+                            // @media screen and (max-width: 420px) {
+                            //     display: none;
                                 
-                            }
+                            // }
                         }
                         input.searchInput{
                             padding: 1.25rem 2rem 1.25rem 1.5rem;
@@ -174,10 +174,10 @@ hr{
                                 font-size: 1rem;
                                 
                             }
-                            @media screen and (max-width: 630px) {
-                                padding: 0.8rem 1.5rem 0.8rem 1.25rem;
-                                font-size: 0.8rem;
-                            }
+                            // @media screen and (max-width: 630px) {
+                            //     padding: 0.8rem 1.5rem 0.8rem 1.25rem;
+                            //     font-size: 0.8rem;
+                            // }
                             @media screen and (max-width: 420px) {
                                 padding: 0.5rem 1rem 0.5rem 0;
                                 margin-left: 1rem;
