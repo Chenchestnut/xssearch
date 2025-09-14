@@ -47,7 +47,7 @@ onMounted(() => {
         </div>
     </header>
     <section class="content">
-        <h1>快速整合3C商品評價</h1>
+        <h1>快速整合3C商品評價?</h1>
         <div class="cardContainter">
             <card />
         </div>
