@@ -5,7 +5,7 @@ import { Icon } from '@iconify/vue';
 <template>
     <div class="compareProductCard">
         <div class="container">
-            <Icon icon="solar:medal-ribbons-star-bold-duotone" :width="48" :height="48" color="#eab308"/>
+            <Icon icon="solar:medal-ribbons-star-bold-duotone" :width="48" :height="48" color="#eab308" class="medal"/>
             <div class="imgBox">
                 <img src="../assets/iphone.jpg" alt="商品圖片">
             </div>
@@ -26,15 +26,17 @@ import { Icon } from '@iconify/vue';
                 <p class="star"><i class="fa-regular fa-star"></i>4.0</p>
             </div>
         </div>
-        
     </div>
-
+    <hr>
 
 </template>
 
 
 <style lang="scss" scoped>
 $word-color: #2F2F2F;
+hr{
+    width: 85%;
+}
 .compareProductCard {
     display: flex;
     // flex-wrap: wrap;
@@ -54,7 +56,13 @@ $word-color: #2F2F2F;
         border-radius: 20px;
         // width: 30%;
         max-width: 600px;
-        padding: 1rem   ;
+        padding: 1rem 0;
+        margin: 1.5rem 0;
+        .medal{
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
         div.imgBox{
             width: 100%;
             height: 400px;

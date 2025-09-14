@@ -25,10 +25,14 @@
             </div>
         </section>
     </div>
+    <hr>
 </template>
 
 
 <style lang="scss" scoped>
+hr{
+    width: 85%;
+}
 .compareConclusion{
     display: flex;
     flex-direction: row;

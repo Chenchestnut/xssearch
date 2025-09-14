@@ -9,10 +9,14 @@
             <p>經過多方面的分析後，由iphone 15 pro max勝出，這款手機在性能、相機和電池續航方面表現出色，是一款值得推薦的產品。</p>
         </div>
     </div>
+    <hr>
 </template>
 
 
 <style lang="scss" scoped>
+hr{
+    width: 85%;
+}
 .compareConclusion{
     display: flex;
     flex-direction: column;
