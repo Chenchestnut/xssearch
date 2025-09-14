@@ -15,7 +15,7 @@ import { Icon } from '@iconify/vue';
             </div>
         </div>
         <div class="vs">
-            VS
+            VS1
         </div>
         <div class="container">
             <div class="imgBox">
