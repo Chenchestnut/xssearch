@@ -62,8 +62,10 @@ hr{
         margin: 1.5rem 0;
         .medal{
             position: absolute;
-            top: 1rem;
-            left: 1rem;
+            top: 0rem;
+            left: 0rem;
+            font-size: 8rem;
+            rotate: -20deg;
             color: #FFD43B;
         }
         div.imgBox{
