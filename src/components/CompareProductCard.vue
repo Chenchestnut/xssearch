@@ -57,7 +57,7 @@ hr{
         border-radius: 20px;
         // width: 30%;
         max-width: 600px;
-        padding: 1rem 0;
+        padding: 1rem;
         margin: 1.5rem 0;
         .medal{
             position: absolute;
