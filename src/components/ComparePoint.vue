@@ -49,10 +49,10 @@
         div.winnerContent{
             background-color: #7E90A7;
             background: hsla(25, 28%, 88%, 1);
-            background: linear-gradient(135deg, hsla(25, 28%, 88%, 1) 0%, hsla(14, 34%, 75%, 1) 100%);
-            background: -moz-linear-gradient(135deg, hsla(25, 28%, 88%, 1) 0%, hsla(14, 34%, 75%, 1) 100%);
-            background: -webkit-linear-gradient(135deg, hsla(25, 28%, 88%, 1) 0%, hsla(14, 34%, 75%, 1) 100%);
-            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E9DFD8", endColorstr="#D4B2A8", GradientType=1 );
+            // background: linear-gradient(135deg, hsla(25, 28%, 88%, 1) 0%, hsla(14, 34%, 75%, 1) 100%);
+            // background: -moz-linear-gradient(135deg, hsla(25, 28%, 88%, 1) 0%, hsla(14, 34%, 75%, 1) 100%);
+            // background: -webkit-linear-gradient(135deg, hsla(25, 28%, 88%, 1) 0%, hsla(14, 34%, 75%, 1) 100%);
+            // filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E9DFD8", endColorstr="#D4B2A8", GradientType=1 );
             width: 80%;
             padding: 1.5rem 2rem;
             border-radius: 35px;
