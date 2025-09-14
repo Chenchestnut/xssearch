@@ -23,6 +23,7 @@ hr{
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 1rem 0;
     h2.title{
         font-size: 2rem;
         font-weight: bold;
