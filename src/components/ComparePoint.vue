@@ -48,8 +48,7 @@
                 // padding-top:1.5rem ;
         }
         div.winnerContent{
-            background: linear-gradient(135deg, hsla(25, 28%, 88%, 1) 0%, hsla(14, 34%, 75%, 1) 100%);
-            background: hsla(25, 28%, 88%, 1);
+            background: linear-gradient(135deg, rgb(239,236,233) 0%, rgb(210,119,114) 100%);
             width: 80%;
             padding: 1.5rem 2rem;
             border-radius: 35px;
