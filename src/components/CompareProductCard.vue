@@ -70,7 +70,7 @@ hr{
             position: absolute;
             top: 0rem;
             left: 0rem;
-            font-size: 8rem;
+            font-size: 4.5rem;
             rotate: -20deg;
             color: #FFEE8D;
         }
