@@ -1,10 +1,14 @@
 <script setup>
 // import { Icon } from '@iconify/vue';
+import { useAnimations } from '../composables/useAnimations';
+
+const { winnerAnimation, delayedAnimation} = useAnimations();
+delayedAnimation(() => winnerAnimation('.medal'), 500);
 </script>
 
 <template>
     <div class="compareProductCard">
-        <div class="container">
+        <div class="winnerContainer">
             <i class="fa-solid fa-medal medal"></i>
             <!-- <Icon icon="solar:medal-ribbons-star-bold-duotone" :width="48" :height="48" color="#eab308" class="medal"/> -->
             <div class="imgBox">
@@ -48,7 +52,7 @@ hr{
     color: $word-color;
     margin-top: 2rem;
     gap: 2rem;
-    div.container{
+    div.container, div.winnerContainer{
         position: relative;
         display: flex;
         background-color: white;

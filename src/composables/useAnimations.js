@@ -115,12 +115,25 @@ export function useAnimations() {
       }, delay);
     });
   };
+  //贏家動畫
+  const winnerAnimation = (selector, options = {}) => {
+    const defaultOptions = {
+      translateY: [-20, 0],
+      opacity: [0, 1],
+      duration: 1000,
+      easing: "easeInOutSine",
+      delay: 0,
+    };
+
+    return animate(selector, { ...defaultOptions, ...options });
+  };
 
   return {
     fadeIn,
     fadeIn2,
     searchBoxAnimation,
     textSplitAnimation,
+    winnerAnimation,
     slideIn,
     bounce,
     scale,
