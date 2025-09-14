@@ -9,7 +9,7 @@ onMounted(async () => {
     await delayedAnimation(() => winnerAnimation('.winnerContainer'), 500);
     
     // winnerContainer 動畫完成後，立即開始 medal 動畫
-    delayedAnimation(() => medalAnimation('.medal'), 100);
+    delayedAnimation(() => medalAnimation('.medal'), 50);
 });
 </script>
 
