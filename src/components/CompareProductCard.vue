@@ -1,11 +1,11 @@
 <script setup>
-// import { Icon } from '@iconify/vue';
+import { Icon } from '@iconify/vue';
 </script>
 
 <template>
     <div class="compareProductCard">
         <div class="container">
-            <!-- <Icon icon="solar:medal-ribbons-star-bold-duotone" /> -->
+            <Icon icon="solar:medal-ribbons-star-bold-duotone" />
             <div class="imgBox">
                 <img src="../assets/iphone.jpg" alt="商品圖片">
             </div>
