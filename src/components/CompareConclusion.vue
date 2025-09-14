@@ -16,7 +16,7 @@
 .compareConclusion{
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     width: 100%;
     h2.title{
         font-size: 2rem;
