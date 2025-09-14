@@ -76,7 +76,7 @@ hr{
             width: 40%;
             min-height: 35%;
             max-height: 80%;
-            border-radius: 25px;
+            border-radius: 50px;
             overflow: hidden;
             // width: 100%;
             // height: 400px;
