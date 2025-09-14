@@ -1,11 +1,12 @@
 <script setup>
-import { Icon } from '@iconify/vue';
+// import { Icon } from '@iconify/vue';
 </script>
 
 <template>
     <div class="compareProductCard">
         <div class="container">
-            <Icon icon="solar:medal-ribbons-star-bold-duotone" :width="48" :height="48" color="#eab308" class="medal"/>
+            <i class="fa-solid fa-trophy medal"></i>
+            <!-- <Icon icon="solar:medal-ribbons-star-bold-duotone" :width="48" :height="48" color="#eab308" class="medal"/> -->
             <div class="imgBox">
                 <img src="../assets/iphone.jpg" alt="商品圖片">
             </div>
@@ -63,6 +64,7 @@ hr{
             position: absolute;
             top: 1rem;
             left: 1rem;
+            color: #FFD43B;
         }
         div.imgBox{
             width: 100%;
