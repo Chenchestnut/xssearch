@@ -5,7 +5,7 @@ import { Icon } from '@iconify/vue';
 <template>
     <div class="compareProductCard">
         <div class="container">
-            <Icon icon="solar:medal-ribbons-star-bold-duotone" />
+            <Icon icon="solar:medal-ribbons-star-bold-duotone" :width="48" :height="48" color="#eab308"/>
             <div class="imgBox">
                 <img src="../assets/iphone.jpg" alt="商品圖片">
             </div>
