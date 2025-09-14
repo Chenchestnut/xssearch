@@ -132,10 +132,13 @@ export function useAnimations() {
   //獎牌動畫
   const medalAnimation = (selector, options = {}) => {
     const defaultOptions = {
-      translateY: [-20, 0],
       opacity: [0, 1],
+      scale: [0, 1.2, 1], // 先放大再縮小，創造彈跳效果
+      translateY: [-30, 10, 0], // 從上方掉落
+      rotate: [-45, -10, -20], // 旋轉效果
+      visibility: "visible", // 顯示元素
       duration: 1000,
-      easing: "easeInOutSine",
+      easing: "easeOutBounce",
       delay: 0,
     };
 

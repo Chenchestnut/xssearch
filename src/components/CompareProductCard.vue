@@ -3,8 +3,13 @@
 import { useAnimations } from '../composables/useAnimations';
 
 const { medalAnimation, winnerAnimation, delayedAnimation} = useAnimations();
-delayedAnimation(() => winnerAnimation('.winnerContainer'), 500);
-delayedAnimation(() => medalAnimation('.medal'), 2300);
+onMounted(async () => {
+    // 等待 winnerContainer 動畫完成
+    await delayedAnimation(() => winnerAnimation('.winnerContainer'), 500);
+    
+    // winnerContainer 動畫完成後，立即開始 medal 動畫
+    delayedAnimation(() => medalAnimation('.medal'), 100);
+});
 </script>
 
 <template>
