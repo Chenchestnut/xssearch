@@ -2,8 +2,9 @@
 // import { Icon } from '@iconify/vue';
 import { useAnimations } from '../composables/useAnimations';
 
-const { winnerAnimation, delayedAnimation} = useAnimations();
-delayedAnimation(() => winnerAnimation('.medal'), 500);
+const { medalAnimation, winnerAnimation, delayedAnimation} = useAnimations();
+delayedAnimation(() => winnerAnimation('.winnerContainer'), 500);
+delayedAnimation(() => medalAnimation('.medal'), 500);
 </script>
 
 <template>

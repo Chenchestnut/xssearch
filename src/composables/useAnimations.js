@@ -118,6 +118,19 @@ export function useAnimations() {
   //贏家動畫
   const winnerAnimation = (selector, options = {}) => {
     const defaultOptions = {
+      rotate: [
+        { to: -20, duration: 500, ease: "easeOutQuad" },
+        { to: 20, duration: 500, ease: "easeInQuad" },
+        { to: -20, duration: 500, ease: "easeOutQuad" },
+        { to: 20, duration: 500, ease: "easeInQuad" },
+      ],
+      delay: 0,
+    };
+    return animate(selector, { ...defaultOptions, ...options });
+  };
+  //獎牌動畫
+  const medalAnimation = (selector, options = {}) => {
+    const defaultOptions = {
       translateY: [-20, 0],
       opacity: [0, 1],
       duration: 1000,
@@ -134,6 +147,7 @@ export function useAnimations() {
     searchBoxAnimation,
     textSplitAnimation,
     winnerAnimation,
+    medalAnimation,
     slideIn,
     bounce,
     scale,
