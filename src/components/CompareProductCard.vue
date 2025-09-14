@@ -90,9 +90,6 @@ hr{
             // min-width: 160px;
             overflow: hidden;
             border-radius: 50%;
-            @media screen and (max-width: 620px) {
-                height: 300px;
-            }
             img{
                 width: 100%;
                 height: 100%;
@@ -130,7 +127,7 @@ hr{
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        margin: 0 4rem;
+        margin: 0 5rem;
         @media screen and (max-width: 520px) {
             font-size: 1.5rem;
         }
