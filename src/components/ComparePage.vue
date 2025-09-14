@@ -207,7 +207,7 @@ hr{
                                     inset -4px -4px 8px rgba(255, 255, 255, 0.7);
                         background-color: #d4b2a8;
                         }
-                        @media screen and (max-width: 800px){
+                        @media screen and (max-width: 810px){
                             padding: 1.5rem 1.7rem;
                             margin: 2rem 0;
                         }
