@@ -5,7 +5,7 @@
 <template>
     <div class="compareProductCard">
         <div class="container">
-            <i class="fa-solid fa-trophy medal"></i>
+            <i class="fa-solid fa-medal medal"></i>
             <!-- <Icon icon="solar:medal-ribbons-star-bold-duotone" :width="48" :height="48" color="#eab308" class="medal"/> -->
             <div class="imgBox">
                 <img src="../assets/iphone.jpg" alt="商品圖片">
