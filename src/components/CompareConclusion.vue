@@ -30,7 +30,7 @@
         width: 80%;
         padding: 1.5rem 2rem;
         border-radius: 35px;
-        margin: 1.5rem auto;
+        margin: 1.5rem 0;
         p{
             font-size: 1rem;
             text-align: left;
