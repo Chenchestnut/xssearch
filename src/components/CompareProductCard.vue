@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="vs">
-            VS1
+            VS
         </div>
         <div class="container">
             <div class="imgBox">
