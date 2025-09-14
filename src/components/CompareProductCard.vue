@@ -73,26 +73,18 @@ hr{
             color: #FFEE8D;
         }
         div.imgBox{
-            width: 40%;
-            min-height: 35%;
-            max-height: 80%;
-            border-radius: 50px;
-            overflow: hidden;
-            // width: 100%;
-            // height: 400px;
+            width: 200px;
+            height: 200px;
             // min-width: 160px;
-            // overflow: hidden;
-            // border-radius: 20px;
-            // @media screen and (max-width: 620px) {
-            //     height: 300px;
-            // }
+            overflow: hidden;
+            border-radius: 50%;
+            @media screen and (max-width: 620px) {
+                height: 300px;
+            }
             img{
-                // width: 100%;
-                // height: 100%;
-                // object-fit: cover;
                 width: 100%;
-                height: auto;
-                border-radius: 25px;
+                height: 100%;
+                object-fit: cover;
             }
         }
         div.info{
