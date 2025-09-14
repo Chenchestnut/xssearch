@@ -66,7 +66,7 @@ hr{
             left: 0rem;
             font-size: 8rem;
             rotate: -20deg;
-            color: #E6BB33;
+            color: #FFEE8D;
         }
         div.imgBox{
             width: 100%;
