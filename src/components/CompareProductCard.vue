@@ -61,6 +61,7 @@ hr{
         align-items: center;
         border-radius: 20px;
         // width: 30%;
+        min-width: 250px;
         max-width: 600px;
         padding: 1rem;
         margin: 1.5rem 0;
