@@ -80,6 +80,9 @@ hr{
             font-size: 4.5rem;
             rotate: -20deg;
             color: #FFEE8D;
+            opacity: 0;
+            transform: translateY(-30px) scale(0);
+            visibility: hidden; // 完全隱藏
         }
         div.imgBox{
             width: 200px;
