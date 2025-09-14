@@ -51,14 +51,15 @@ hr{
 }
 .compareProductCard {
     display: flex;
-    // flex-wrap: wrap;
-    // flex: 0 1 auto;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     color: $word-color;
     margin-top: 2rem;
     gap: 2rem;
+    @media screen and (max-width: 680px) {
+        flex-direction: column;
+    }
     div.container, div.winnerContainer{
         position: relative;
         display: flex;
