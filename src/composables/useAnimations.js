@@ -136,7 +136,7 @@ export function useAnimations() {
       opacity: [0, 1],
       duration: 1000,
       easing: "easeInOutSine",
-      delay: 1400,
+      delay: 0,
     };
 
     return animate(selector, { ...defaultOptions, ...options });
