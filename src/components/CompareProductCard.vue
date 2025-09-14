@@ -1,6 +1,7 @@
 <script setup>
 // import { Icon } from '@iconify/vue';
 import { useAnimations } from '../composables/useAnimations';
+import { onMounted } from 'vue';
 
 const { medalAnimation, winnerAnimation, delayedAnimation} = useAnimations();
 onMounted(async () => {
