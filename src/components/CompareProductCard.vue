@@ -130,7 +130,7 @@ hr{
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        margin: 0 2.5rem;
+        margin: 0 4rem;
         @media screen and (max-width: 520px) {
             font-size: 1.5rem;
         }
