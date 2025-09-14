@@ -3,7 +3,7 @@
 import { useAnimations } from '../composables/useAnimations';
 
 const { medalAnimation, winnerAnimation, delayedAnimation} = useAnimations();
-await delayedAnimation(() => winnerAnimation('.winnerContainer'), 500);
+delayedAnimation(() => winnerAnimation('.winnerContainer'), 500);
 delayedAnimation(() => medalAnimation('.medal'), 800);
 </script>
 
