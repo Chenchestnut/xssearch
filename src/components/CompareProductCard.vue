@@ -42,7 +42,7 @@ hr{
     // flex-wrap: wrap;
     // flex: 0 1 auto;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     color: $word-color;
     margin-top: 2rem;
