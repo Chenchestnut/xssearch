@@ -123,6 +123,7 @@ export function useAnimations() {
         { to: 20, duration: 500, ease: "easeInQuad" },
         { to: -20, duration: 500, ease: "easeOutQuad" },
         { to: 20, duration: 500, ease: "easeInQuad" },
+        { to: 0, duration: 500, ease: "easeInQuad" },
       ],
       delay: 0,
     };
