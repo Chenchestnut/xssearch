@@ -65,6 +65,7 @@ hr{
         max-width: 600px;
         padding: 1rem;
         margin: 1.5rem 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         .medal{
             position: absolute;
             top: 0rem;
