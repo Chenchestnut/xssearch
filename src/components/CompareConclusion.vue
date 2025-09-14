@@ -14,6 +14,9 @@
 
 <style lang="scss" scoped>
 .compareConclusion{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
     h2.title{
         font-size: 2rem;
         font-weight: bold;
