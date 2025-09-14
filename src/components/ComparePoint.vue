@@ -36,7 +36,7 @@ hr{
 .compareConclusion{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     flex: 0 1 auto;
     gap: 2rem;
