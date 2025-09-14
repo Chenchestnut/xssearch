@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
+    width: 100%;
     h2.title{
         font-size: 2rem;
         font-weight: bold;

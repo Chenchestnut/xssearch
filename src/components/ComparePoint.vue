@@ -36,6 +36,7 @@
     flex-wrap: wrap;
     flex: 0 1 auto;
     gap: 2rem;
+    width: 100%;
     section{
         display: flex;
         flex-direction: column;
