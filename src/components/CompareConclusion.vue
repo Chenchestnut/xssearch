@@ -37,6 +37,7 @@ hr{
         padding: 1.5rem 2rem;
         border-radius: 35px;
         margin: 1.5rem 0;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
         p{
             font-size: 1rem;
             text-align: left;
