@@ -95,6 +95,8 @@ $word-color: #2F2F2F;
         font-size: 2rem;
         background-color: #a4aebd;
         border: #7e90a7 solid 1px;
+        width: 60px;
+        height: 60px;
         border-radius: 45%;
         margin: 0 1.5rem;
         @media screen and (max-width: 520px) {

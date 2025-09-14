@@ -17,11 +17,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
     h2.title{
         font-size: 2rem;
         font-weight: bold;
-        text-align: center;
+        text-align: left;
         // padding-top:1.5rem ;
     }
     div.content{
