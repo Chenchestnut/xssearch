@@ -53,7 +53,7 @@ hr{
         }
         div.winnerContent{
             background: linear-gradient(135deg, rgb(239,236,233) 0%, rgb(210,119,114) 100%);
-            width: 80%;
+            min-width: 300px;
             padding: 1.5rem 2rem;
             border-radius: 35px;
             margin: 1.5rem 0;
@@ -64,8 +64,8 @@ hr{
         }
         div.content{
             background-color: #7E90A7;
+            min-width: 300px;
             color: white;
-            width: 80%;
             padding: 1.5rem 2rem;
             border-radius: 35px;
             margin: 1.5rem 0;
