@@ -70,7 +70,7 @@ $word-color: #2F2F2F;
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    // overflow-x: hidden;
     color: $word-color;
     background: transparent;
 }
