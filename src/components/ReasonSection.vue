@@ -22,7 +22,7 @@ hr{
     flex-direction: column;
     justify-content: center;
     width: 80%;
-    // align-items: center;
+    align-items: center;
     h2.title{
         font-size: 2rem;
         font-weight: bold;
