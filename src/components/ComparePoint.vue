@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="compareConclusion">
+    <div class="comparePoint">
         <section class="win">
             <h2 class="title">他贏在哪</h2>
             <div class="winnerContent">
@@ -33,14 +33,14 @@
 hr{
     width: 85%;
 }
-.compareConclusion{
+.comparePoint{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-wrap: wrap;
     flex: 0 1 auto;
     gap: 2rem;
-    width: 100%;
+    width: 80%;
     margin: 1rem 0;
     section{
         display: flex;
