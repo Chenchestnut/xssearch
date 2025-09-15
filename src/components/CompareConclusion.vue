@@ -28,6 +28,7 @@ hr{
     div.box{
         width: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: start;
         h2.title{
             font-size: 2rem;
