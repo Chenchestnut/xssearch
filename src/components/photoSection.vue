@@ -13,8 +13,8 @@
                 <p class="star">綜合星等：4.5<i class="fa-regular fa-star"></i></p>
             </div>
         </div>
-        <hr>
     </section>
+    <hr>
 </template>
 
 
