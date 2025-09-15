@@ -42,10 +42,10 @@ section{
     margin-left: 15px;
     .keyPointBox{
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
         flex: 0 1 auto;
         justify-content: space-evenly;
-        text-align: left;
         // gap: 2rem;
         width: 80%;
         div.advantage, div.disadvantage{
@@ -71,6 +71,7 @@ section{
                 li{
                     font-size: 1.15rem;
                     margin: 0.5rem 0;
+                    text-align: left;
                 }
             }
         }
