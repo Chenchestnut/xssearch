@@ -31,7 +31,8 @@ hr{
 }
 h2.title{
     font-size: 2rem;
-    font-weight: bold;
+    // font-weight: bold;
+    font-weight: 500;
     text-align: center;
     padding-top:1.5rem ;
     @media screen and (max-width: 520px) {
