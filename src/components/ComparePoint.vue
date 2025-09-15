@@ -36,7 +36,7 @@ hr{
 .comparePoint{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     flex: 0 1 auto;
     gap: 2rem;
