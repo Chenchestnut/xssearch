@@ -16,7 +16,7 @@
         </section>
         <section class="lose">
             <h2 class="title">雖然輸了仍有亮點</h2>
-            <div class="content">
+            <div class="loserContent">
                 <ul>
                     <li>設計時尚，外觀吸引人</li>
                     <li>價格相對較低，性價比高</li>
@@ -43,7 +43,7 @@ hr{
     width: 100%;
     margin: 1rem 0;
     section.lose{
-        backdrop-filter: blur(5px);
+        
     }
     section{
         display: flex;
@@ -66,8 +66,9 @@ hr{
                 text-align: left;
             }
         }
-        div.content{
+        div.loserContent{
             background-color: #7E90A7;
+            backdrop-filter: blur(5px);
             min-width: 250px;
             color: white;
             padding: 1.5rem 2rem;
