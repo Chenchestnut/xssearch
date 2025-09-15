@@ -123,7 +123,7 @@ hr{
         align-items: center;
         font-size: 2rem;
         background: rgba(126, 144, 167, 0.3);
-        border: #caccd3 solid 1px;
+        border: #b7bdc8 solid 1px;
         width: 60px;
         height: 60px;
         border-radius: 50%;

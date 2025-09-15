@@ -36,8 +36,8 @@ function updateActive(){
         activeBtn.value = 'recommend';
     } else if(currentPath.includes('/compare')) {
         activeBtn.value = 'compare';
-    } else if(currentPath.includes('/membership')) {
-        activeBtn.value = 'membership';
+    } else if(currentPath.includes('/compare')) {
+        activeBtn.value = 'compare';
     }
 }
 
@@ -59,7 +59,7 @@ onMounted(()=>{
                     <router-link to="/search" class="search" @click="setActive('search')" :class="{active: activeBtn === 'search'}">普通查詢</router-link>
                     <router-link to="/recommend" class="recommend" @click="setActive('recommend')" :class="{active: activeBtn === 'recommend'}">個人化推薦</router-link>
                     <!-- <router-link to="/compare" class="compare">好物比拼<i class="fa-solid fa-crown"></i></router-link>   -->
-                    <router-link to="/membership" class="compare" @click="setActive('membership')" :class="{active: activeBtn === 'membership'}">好物比拼<i class="fa-solid fa-crown"></i></router-link>
+                    <router-link to="/compare" class="compare" @click="setActive('compare')" :class="{active: activeBtn === 'compare'}">好物比拼<i class="fa-solid fa-crown"></i></router-link>
                 </div>
                 <div class="personal">
                     <div class="avatar">
@@ -235,5 +235,6 @@ div.wholeNavbar{
 .active{
     background-color: #C4C5B5;
     border: #B5B8A3 1px solid;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 </style>
