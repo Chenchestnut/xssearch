@@ -6,9 +6,9 @@
     <div class="compareConclusion">
         <div class="box">
             <h2 class="title">結論</h2>
-        </div>
-        <div class="content">
-            <p>經過多方面的分析後，由iphone 15 pro max勝出，這款手機在性能、相機和電池續航方面表現出色，是一款值得推薦的產品。</p>
+            <div class="content">
+                <p>經過多方面的分析後，由iphone 15 pro max勝出，這款手機在性能、相機和電池續航方面表現出色，是一款值得推薦的產品。</p>
+            </div>
         </div>
     </div>
     <hr>
@@ -36,18 +36,18 @@ hr{
             text-align: left;
             // padding-top:1.5rem ;
         }
-    }
-    div.content{
-        background-color: #7E90A7;
-        color: white;
-        width: 80%;
-        padding: 1.5rem 2rem;
-        border-radius: 35px;
-        margin: 1.5rem 0;
-        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-        p{
-            font-size: 1rem;
-            text-align: left;
+        div.content{
+            background-color: #7E90A7;
+            color: white;
+            width: 80%;
+            padding: 1.5rem 2rem;
+            border-radius: 35px;
+            margin: 1.5rem 0;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+            p{
+                font-size: 1rem;
+                text-align: left;
+            }
         }
     }
 }
