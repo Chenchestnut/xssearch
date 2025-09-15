@@ -45,7 +45,7 @@ section{
         flex-direction: row;
         flex-wrap: wrap;
         flex: 0 1 auto;
-        justify-content: space-evenly;
+        justify-content: space-around;
         // gap: 2rem;
         width: 80%;
         div.advantage, div.disadvantage{

@@ -49,10 +49,10 @@ hr{
         width: 15%;
         min-width: 350px;
         h2.title{
-                font-size: 2rem;
-                font-weight: bold;
-                text-align: left;
-                // padding-top:1.5rem ;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: left;
+            // padding-top:1.5rem ;
         }
         div.winnerContent{
             background: linear-gradient(135deg, rgb(239,236,233) 0%, rgb(210,119,114) 100%);
