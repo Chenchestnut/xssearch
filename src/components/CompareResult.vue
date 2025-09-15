@@ -168,7 +168,7 @@ $word-color: #2F2F2F;
         div.specificationInfo{
             display: flex;
             flex-direction: column;
-            width: 75%;
+            width: 80%;
             div.discriptionFormat{
                 display: flex;
                 flex-direction: row;
