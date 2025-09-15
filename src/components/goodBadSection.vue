@@ -40,7 +40,7 @@ h2.title{
 }
 section{
     flex-shrink: 0;
-    width: 800%;
+    width: 80%;
     // margin-left: 15px;
     .keyPointBox{
         display: flex;
