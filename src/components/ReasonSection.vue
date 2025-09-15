@@ -30,6 +30,7 @@ div.reason{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         h2.title{
         font-size: 2rem;
         font-weight: bold;
