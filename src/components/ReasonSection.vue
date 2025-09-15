@@ -21,22 +21,21 @@ hr{
 }
 div.reason{
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    width: 100%;
+    align-items: center;
+    width: 80%;
     div.box{
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        width: 80%;
         h2.title{
         font-size: 2rem;
         font-weight: bold;
-        text-align: center;
+        // text-align: center;
         // padding-top:1.5rem ;
         }
-        .reasonContent{
+        div.reasonContent{
             background-color: #7E90A7;
             color: white;
             width: 100%;
