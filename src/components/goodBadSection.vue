@@ -47,7 +47,7 @@ section{
         flex-wrap: wrap;
         flex: 0 1 auto;
         justify-content: space-between;
-        // gap: 2rem;
+        gap: 2rem;
         width: 100%;
         div.advantage, div.disadvantage{
             width: 15%;
@@ -91,6 +91,7 @@ section{
         .keyPointBox{
             justify-content: center;
             align-items: center;
+            gap: 0;
             div{
                 width: 15%;
                 min-width: 290px;
