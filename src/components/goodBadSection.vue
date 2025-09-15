@@ -47,6 +47,7 @@ section{
         justify-content: space-evenly;
         text-align: left;
         gap: 5rem;
+        width: 80%;
         div{
             width: 15%;
             min-width: 350px;
