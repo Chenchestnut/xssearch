@@ -60,7 +60,7 @@ section{
                 display: inline-block;
                 max-width: 100%;
                 font-size: 1.75rem;
-                font-weight: 500;
+                font-weight: 350;
                 i{
                     color: #d88f8a;
                     margin: 1rem;
