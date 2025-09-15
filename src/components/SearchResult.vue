@@ -80,5 +80,11 @@ $word-color:#2F2F2F;
     overflow-x: hidden;
     color: $word-color;      
 }
+section.result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 </style>
