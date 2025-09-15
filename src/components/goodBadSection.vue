@@ -48,7 +48,7 @@ section{
         flex: 0 1 auto;
         justify-content: space-between;
         // gap: 2rem;
-        width: 80%;
+        width: 100%;
         div.advantage, div.disadvantage{
             width: 15%;
             min-width: 350px;
