@@ -20,11 +20,14 @@ hr{
     width: 85%;
 }
 .reason{
+    display: flex;
+    justify-content: center;
     width: 80%;
     div.box{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         width: 100%;
         h2.title{
         font-size: 2rem;
