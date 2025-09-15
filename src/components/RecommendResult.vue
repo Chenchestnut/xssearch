@@ -74,10 +74,4 @@ $word-color: #2F2F2F;
     color: $word-color;
     background: transparent;
 }
-section.result{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 </style>

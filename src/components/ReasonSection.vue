@@ -38,9 +38,6 @@ div.reason{
         // padding-top:1.5rem ;
         }
         div.reasonContent{
-            display: flex;
-            justify-content: center;
-            align-items: center;
             background-color: #7E90A7;
             color: white;
             width: 100%;
@@ -49,7 +46,7 @@ div.reason{
             margin: 1.5rem 0;
             p{
                 font-size: 1rem;
-                // text-align: left;
+                text-align: left;
             }
         }
     }
