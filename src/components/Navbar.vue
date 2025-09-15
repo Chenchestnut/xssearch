@@ -130,7 +130,7 @@ div.wholeNavbar{
                 background-color: #D2D5DA;
                 padding: 0.5rem 1.5rem;
                 border-radius: 35px;
-
+                box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
                 .search, .recommend, .compare{
                     margin: 0 1rem;
                     padding: 0.5rem 1rem;
