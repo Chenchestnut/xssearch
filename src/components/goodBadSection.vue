@@ -48,11 +48,10 @@ section{
         text-align: left;
         // gap: 2rem;
         width: 80%;
-        div{
+        div.advantage, div.disadvantage{
             width: 15%;
             min-width: 350px;
             // text-align: center;
-            background-color: #dddcd3;
             border-radius: 35px;
             margin: 2rem 0;
             padding: 1.5rem 0 1.5rem 2rem;
@@ -77,6 +76,9 @@ section{
         }
         div.disadvantage{
             background-color: #caccd3;
+        }
+        div.advantage{
+            background-color: #dddcd3;
         }
     }
 }
