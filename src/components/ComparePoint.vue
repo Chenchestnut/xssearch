@@ -57,11 +57,10 @@ hr{
         }
         div.winnerContent{
             background: linear-gradient(135deg, rgb(239,236,233) 0%, rgb(210,119,114) 100%);
-            box-shadow: 1.5px 1.5px 5px rgba(222, 167, 162, 0.5);
+            box-shadow: 1.5px 1.5px 5px rgba(204, 95, 90, 0.8);
             min-width: 250px;
             padding: 1.5rem 2rem;
             border-block-start: #d4b2a8 solid 1px;
-            border-block-start-style: dotted;
             border-radius: 35px;
             margin: 1.5rem 0;
             p{
