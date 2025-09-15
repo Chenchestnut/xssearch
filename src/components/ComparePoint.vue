@@ -50,7 +50,7 @@ hr{
         min-width: 350px;
         h2.title{
                 font-size: 2rem;
-                font-weight: bold;
+                font-weight: 500;
                 text-align: left;
                 // padding-top:1.5rem ;
         }
@@ -98,7 +98,7 @@ hr{
             section.win,section.lose{
                 min-width: 290px;
                 h2{
-                    font-size: 1.5rem;
+                    font-size: 1.8rem;
                 }
                 ul{
                     li{
