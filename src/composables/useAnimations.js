@@ -119,11 +119,11 @@ export function useAnimations() {
   const winnerAnimation = (selector, options = {}) => {
     const defaultOptions = {
       rotate: [
-        { to: -20, duration: 400, ease: "easeOutQuad" },
-        { to: 20, duration: 400, ease: "easeInQuad" },
-        { to: -20, duration: 400, ease: "easeOutQuad" },
-        { to: 20, duration: 400, ease: "easeInQuad" },
-        { to: 0, duration: 200, ease: "easeInQuad" },
+        { to: -20, duration: 150, ease: "easeOutQuad" },
+        { to: 20, duration: 150, ease: "easeInQuad" },
+        { to: -20, duration: 150, ease: "easeOutQuad" },
+        { to: 20, duration: 150, ease: "easeInQuad" },
+        { to: 0, duration: 150, ease: "easeInQuad" },
       ],
       delay: 0,
     };

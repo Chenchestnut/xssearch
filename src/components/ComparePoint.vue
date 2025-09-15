@@ -42,6 +42,9 @@ hr{
     gap: 2rem;
     width: 100%;
     margin: 1rem 0;
+    section.lose{
+        backdrop-filter: blur(5px);
+    }
     section{
         display: flex;
         flex-direction: column;
