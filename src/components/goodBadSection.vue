@@ -40,13 +40,13 @@ h2.title{
 }
 section{
     flex-shrink: 0;
-    margin-left: 15px;
+    // margin-left: 15px;
     .keyPointBox{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         flex: 0 1 auto;
-        justify-content: space-around;
+        justify-content: space-between;
         // gap: 2rem;
         width: 80%;
         div.advantage, div.disadvantage{
