@@ -38,6 +38,9 @@ div.reason{
         // padding-top:1.5rem ;
         }
         div.reasonContent{
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-color: #7E90A7;
             color: white;
             width: 100%;
