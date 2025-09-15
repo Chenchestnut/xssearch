@@ -32,9 +32,11 @@ hr{
         justify-content: start;
         h2.title{
             font-size: 2rem;
-            font-weight: bold;
+            font-weight: 500;
             text-align: left;
-            // padding-top:1.5rem ;
+            @media screen and (max-width: 520px) {
+                font-size: 1.8rem;
+            }
         }
         div.content{
             background-color: #7E90A7;
