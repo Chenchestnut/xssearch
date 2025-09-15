@@ -56,7 +56,7 @@ hr{
         }
         div.winnerContent{
             background: linear-gradient(135deg, rgb(239,236,233) 0%, rgb(210,119,114) 100%);
-            box-shadow: 5px 5px 5px rgba(204, 95, 90, 0.8);
+            box-shadow: 5px 5px 5px rgba(210, 119, 114, 0.8);
             padding: 1.5rem 2rem;
             // border-block-start: #d4b2a8 solid 1px;
             border-radius: 35px;
@@ -95,7 +95,7 @@ hr{
             justify-content: center;
             align-items: center;
             gap: 0;
-            section{
+            section.win,section.lose{
                 min-width: 290px;
                 h2{
                     font-size: 1.5rem;
