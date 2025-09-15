@@ -45,7 +45,7 @@ function handleScroll(index){
             </div> -->
             <CompareConclusion />
             <ComparePoint />
-            <div class="compareInfo" id="section0">
+            <!-- <div class="compareInfo" id="section0">
                 <div class="title">
                     <h2>{{ compareTitle[0] }}</h2>
                     <h3>相機</h3>
@@ -53,7 +53,7 @@ function handleScroll(index){
                         <p>這裡是對比資訊的內容</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="specificationInfo" id="section1">
                 <div class="title">
                     <h2>{{ compareTitle[1] }}</h2>
@@ -63,14 +63,14 @@ function handleScroll(index){
                     <Specification />
                 </div>
             </div>
-            <div class="other" id="section2">
+            <!-- <div class="other" id="section2">
                 <div class="title">
                     <h2>{{ compareTitle[2] }}</h2>
                     <div class="discription">
                         <p>這裡是其他評價的內容</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </section>
     </div>
 

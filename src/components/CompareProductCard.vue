@@ -122,7 +122,7 @@ hr{
         justify-content: center;
         align-items: center;
         font-size: 2rem;
-        background-color: #a4aebd;
+        background: rgba(126, 144, 167, 0.3);
         border: #7e90a7 solid 1px;
         width: 60px;
         height: 60px;
