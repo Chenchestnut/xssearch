@@ -23,13 +23,13 @@ div.reason{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 80%;
+    width: 100%;
     div.box{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: 80%;
         h2.title{
         font-size: 2rem;
         font-weight: bold;
@@ -42,7 +42,7 @@ div.reason{
             width: 100%;
             padding: 1.5rem 2rem;
             border-radius: 35px;
-            margin: 1.5rem auto;
+            margin: 1.5rem 0;
             p{
                 font-size: 1rem;
                 text-align: left;
