@@ -39,7 +39,7 @@ hr{
         div.content{
             background-color: #7E90A7;
             color: white;
-            width: 80%;
+            width: 100%;
             padding: 1.5rem 2rem;
             border-radius: 35px;
             margin: 1.5rem 0;
