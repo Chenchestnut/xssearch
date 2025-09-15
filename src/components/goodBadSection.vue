@@ -46,7 +46,7 @@ section{
         flex: 0 1 auto;
         justify-content: space-evenly;
         text-align: left;
-        gap: 5rem;
+        gap: 2rem;
         width: 80%;
         div{
             width: 15%;
