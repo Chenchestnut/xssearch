@@ -46,6 +46,8 @@ hr{
         display: flex;
         flex-direction: column;
         justify-content: start;
+        width: 15%;
+        min-width: 350px;
         h2.title{
                 font-size: 2rem;
                 font-weight: bold;
@@ -55,7 +57,6 @@ hr{
         div.winnerContent{
             background: linear-gradient(135deg, rgb(239,236,233) 0%, rgb(210,119,114) 100%);
             box-shadow: 5px 5px 5px rgba(204, 95, 90, 0.8);
-            min-width: 250px;
             padding: 1.5rem 2rem;
             // border-block-start: #d4b2a8 solid 1px;
             border-radius: 35px;
@@ -68,7 +69,8 @@ hr{
         div.loserContent{
             background-color: #7E90A7;
             box-shadow: 5px 5px 5px rgba(126, 144, 167, 0.8);
-            min-width: 250px;
+            width: 15%;
+            min-width: 350px;
             color: white;
             padding: 1.5rem 2rem;
             border-radius: 35px;
@@ -87,5 +89,23 @@ hr{
         }
     }
 }
-    
+
+@media screen and (max-width: 520px) {
+    .compareConclusion{
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            section{
+                min-width: 290px;
+                h2{
+                    font-size: 1.5rem;
+                }
+                ul{
+                    li{
+                        font-size: 1rem;
+                    }
+                }
+        }
+    }
+}
 </style>
