@@ -67,7 +67,7 @@ hr{
             }
         }
         div.loserContent{
-            background-color: #7E90A7;
+            // background-color: #7E90A7;
             backdrop-filter: blur(5px);
             min-width: 250px;
             color: white;
