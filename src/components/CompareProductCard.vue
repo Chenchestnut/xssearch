@@ -102,7 +102,7 @@ hr{
             margin-top: 1rem;
             h2{
                 font-size: 1.5rem;
-                font-weight: 500;
+                font-weight: bold;
                 @media screen and (max-width: 740px) {
                     font-size: 1.2rem;
                 }

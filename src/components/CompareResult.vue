@@ -104,7 +104,7 @@ $word-color: #2F2F2F;
         justify-content: center;
         h2{
             font-size: 2rem;
-            font-weight: 500;
+            font-weight: bold;
             text-align: left;
             margin-top: 2rem;
             @media screen and (max-width: 520px) {
