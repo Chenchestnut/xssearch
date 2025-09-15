@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <section class="reason">
+    <div class="reason">
         <div class="box">
             <h2 class="title">推薦理由</h2>
             <div class="reasonContent">
@@ -11,7 +11,7 @@
             </div>
         </div>
         <hr>
-    </section>
+    </div>
 </template>
 
 
@@ -19,7 +19,7 @@
 hr{
     width: 85%;
 }
-.reason{
+div.reason{
     display: flex;
     flex-direction: column;
     justify-content: center;
