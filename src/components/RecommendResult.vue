@@ -66,6 +66,9 @@ $word-color: #2F2F2F;
     z-index: -100;
 }
 .recommendResult {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     min-height: 100vh;
     width: 100%;
     margin: 0;
