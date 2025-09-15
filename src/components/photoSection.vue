@@ -26,6 +26,7 @@ hr{
     text-align: center;
     margin: 2.5rem;
     flex-shrink: 0; // 防止側邊欄被壓縮
+    width: 80%;
     .stickyWrap{
         position: sticky;
         top: 135px;
