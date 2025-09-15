@@ -20,8 +20,8 @@ const wordCloudImg = computed(()=>{
                 <p>暫無文字雲圖片</p>
             </div>
         </div>
-        <hr>
     </section>
+    <hr>
 </template>
 
 

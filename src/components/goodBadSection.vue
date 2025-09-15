@@ -20,8 +20,8 @@ const analysisStore = useAnalysisStore();
                 </ul>
             </div>
         </div>
-        <hr>
     </section>
+    <hr>
 </template>
 
 
@@ -40,7 +40,7 @@ h2.title{
 }
 section{
     flex-shrink: 0;
-    width: 80%;
+    width: 800%;
     // margin-left: 15px;
     .keyPointBox{
         display: flex;
