@@ -140,7 +140,7 @@ hr{
                         justify-content: start;
                         background-color: #EFECE9;
                         border: 2px solid #B5B8A3;
-                        border-radius: 30px;
+                        border-radius: 50px;
                         div.number{
                             font-size: 1.2rem;
                             padding: 0.5rem 0.3rem 0.5rem 1rem;
@@ -166,7 +166,7 @@ hr{
                             background-color: #EFECE9;
                             // border: 2px solid #B5B8A3;
                             border: none;
-                            border-radius: 50%;
+                            border-radius: 50px;
                             font-size: 1.2rem;
                             // margin-top: 0.5rem;
                             @media screen and (max-width: 800px) {
