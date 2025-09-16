@@ -1,6 +1,6 @@
 <script setup>
 import Navbar from './Navbar.vue'
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import CompareItem from './CompareItem.vue';
 import { useAnimations } from '../composables/useAnimations';
@@ -11,7 +11,9 @@ const searchQuery = ref('');
 const router = useRouter();
 const showItem = ref(false);
 
-searchBoxAnimation('.item')
+onMounted(()=>{
+    searchBoxAnimation('.item')
+})
 
 function handleSearch(){
     if(searchQuery.value.trim() === '') {
