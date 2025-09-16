@@ -80,9 +80,11 @@ section{
         }
         div.disadvantage{
             background-color: #caccd3;
+            box-shadow: 5px 5px 5px rgba(126, 144, 167, 0.8);
         }
         div.advantage{
             background-color: #dddcd3;
+            box-shadow: 5px 5px 5px rgba(201, 202, 187, 0.8);
         }
     }
 }
