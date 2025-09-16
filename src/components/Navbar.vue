@@ -90,7 +90,7 @@ div.wholeNavbar{
     top: 0;
     z-index: 1000;
     min-width: 320px;
-    overflow: hidden;
+    overflow: visible;
     header.navbar{
     $word-color: #2F2F2F;
         nav{
