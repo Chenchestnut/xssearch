@@ -89,10 +89,10 @@ hr{
         font-weight: 450;
         text-align: center;
         color: $word-color;
-        @media screen and (max-width: 900px) {
+        @media screen and (max-width: 800px) {
             font-size: 2rem;
         }
-        @media screen and (max-width: 520px) {
+        @media screen and (max-width: 420px) {
             font-size: 1.5rem;
             // margin-top: 4rem;
         }
