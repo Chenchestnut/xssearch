@@ -42,6 +42,7 @@ h2.title{
     width: 100%;
     display: flex;
     justify-content: center;
+    margin: 2rem 0;
     img{
         width: 75%;
         max-width: 800px;

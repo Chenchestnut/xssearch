@@ -43,7 +43,7 @@ div.reason{
             width: 100%;
             padding: 1.5rem 2rem;
             border-radius: 35px;
-            margin: 1.5rem 0;
+            margin: 2rem 0;
             p{
                 font-size: 1rem;
                 text-align: left;

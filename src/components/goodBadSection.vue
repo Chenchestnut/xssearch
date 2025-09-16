@@ -50,6 +50,7 @@ section{
         justify-content: space-between;
         gap: 2rem;
         width: 100%;
+        margin: 2rem 0;
         div.advantage, div.disadvantage{
             width: 15%;
             min-width: 350px;
