@@ -40,7 +40,7 @@ export function useAnimations() {
   //比較搜尋框動畫
   const compareSearchBoxAnimation = (selector, options = {}) => {
     const defaultOptions = {
-      width: ["5px", "50%"],
+      width: ["5px", "30%"],
       minWidth: ["5px", "200px"], // 動畫開始時允許很小，結束時恢復到300px限制
       duration: 1500,
       easing: "easeOutExpo",
