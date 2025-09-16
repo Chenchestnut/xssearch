@@ -81,7 +81,7 @@ hr{
     top: 0;
     left: 0;
     p{
-        margin-top: 2.5rem;
+        margin-top: 8rem;
         margin-bottom: 1rem;
         font-size: 2.5rem;
         font-weight: 450;
@@ -91,7 +91,7 @@ hr{
             font-size: 2rem;
         }
         @media screen and (max-width: 520px) {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             // margin-top: 4rem;
         }
     }
@@ -112,7 +112,7 @@ hr{
                 display: flex;
                 width: 100%;
                 // transform: translateX(2%);
-                margin-top: 5rem;
+                margin-top: 2rem;
                 .searchBar{
                     display: flex;
                     flex-direction: row;
