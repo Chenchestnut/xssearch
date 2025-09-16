@@ -37,6 +37,18 @@ export function useAnimations() {
 
     return animate(selector, { ...defaultOptions, ...options });
   };
+  //比較搜尋框動畫
+  const compareSearchBoxAnimation = (selector, options = {}) => {
+    const defaultOptions = {
+      width: ["5px", "50%"],
+      minWidth: ["5px", "200px"], // 動畫開始時允許很小，結束時恢復到300px限制
+      duration: 1500,
+      easing: "easeOutExpo",
+      loop: false,
+    };
+
+    return animate(selector, { ...defaultOptions, ...options });
+  };
   // 文字分割動畫
   const textSplitAnimation = (selector, options = {}) => {
     try {
@@ -149,6 +161,7 @@ export function useAnimations() {
     fadeIn,
     fadeIn2,
     searchBoxAnimation,
+    compareSearchBoxAnimation,
     textSplitAnimation,
     winnerAnimation,
     medalAnimation,
