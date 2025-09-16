@@ -84,7 +84,7 @@ section{
         }
         div.advantage{
             background-color: #dddcd3;
-            box-shadow: 5px 5px 5px rgba(201, 202, 187, 0.8);
+            box-shadow: 5px 5px 5px rgba(181, 184, 163, 0.8);
         }
     }
 }
