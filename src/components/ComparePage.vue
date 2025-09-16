@@ -3,13 +3,15 @@ import Navbar from './Navbar.vue'
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import CompareItem from './CompareItem.vue';
-// import { useAnimations } from '../composables/useAnimations';
+import { useAnimations } from '../composables/useAnimations';
 
 // import axios from 'axios';
-// const { searchBoxAnimation } = useAnimations();
+const { searchBoxAnimation } = useAnimations();
 const searchQuery = ref('');
 const router = useRouter();
 const showItem = ref(false);
+
+searchBoxAnimation('.item')
 
 function handleSearch(){
     if(searchQuery.value.trim() === '') {
