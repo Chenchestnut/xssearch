@@ -6,13 +6,13 @@ import CompareItem from './CompareItem.vue';
 import { useAnimations } from '../composables/useAnimations';
 
 // import axios from 'axios';
-const { searchBoxAnimation } = useAnimations();
+const { compareSearchBoxAnimation } = useAnimations();
 const searchQuery = ref('');
 const router = useRouter();
 const showItem = ref(false);
 
 onMounted(()=>{
-    searchBoxAnimation('.item')
+    compareSearchBoxAnimation('.item')
 })
 
 function handleSearch(){
