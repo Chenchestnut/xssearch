@@ -161,6 +161,7 @@ hr{
                             // }
                         }
                         input.searchInput{
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                             padding: 1.25rem 2rem 1.25rem 1.5rem;
                             width: 100%;
                             background-color: #EFECE9;
@@ -170,7 +171,7 @@ hr{
                             font-size: 1.2rem;
                             // margin-top: 0.5rem;
                             @media screen and (max-width: 800px) {
-                                padding: 1rem 4rem 1rem 1.25rem;
+                                padding: 1rem 2rem 1rem 1.25rem;
                                 font-size: 1rem;
                                 
                             }
