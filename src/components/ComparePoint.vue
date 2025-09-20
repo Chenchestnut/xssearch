@@ -40,7 +40,7 @@ hr{
     align-items: center;
     width: auto;
     margin: 1rem 0;
-    section{
+    section.win,section.lose{
         display: flex;
         flex-direction: column;
         justify-content: start;
