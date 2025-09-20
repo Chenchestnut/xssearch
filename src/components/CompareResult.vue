@@ -191,7 +191,7 @@ hr{
             div.discriptionFormat{
                 display: flex;
                 flex-direction: row;
-                align-items: center;
+                align-items: start;
                 justify-content: space-evenly;
             }
 

@@ -46,7 +46,7 @@ $word-color: #2F2F2F;
         ul{
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: start;
             text-align: left;
             list-style: none;
