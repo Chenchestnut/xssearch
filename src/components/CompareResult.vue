@@ -105,7 +105,10 @@ hr{
     width: 100vw;
     color: $word-color;
     section.img{
-        width: 80%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .content{
         display: flex;
