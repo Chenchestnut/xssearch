@@ -104,13 +104,13 @@ hr{
     min-height: 100vh;
     width: 100vw;
     color: $word-color;
-    section.img{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-    }
+    // section.img{
+    //     width: 100%;
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: space-around;
+    //     align-items: center;
+    // }
     .content{
         display: flex;
         flex-direction: column;

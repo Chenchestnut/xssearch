@@ -52,8 +52,9 @@ hr{
 .compareProductCard {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    // align-items: center;
     color: $word-color;
     margin-top: 2rem;
     @media screen and (max-width: 680px) {
