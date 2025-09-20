@@ -114,7 +114,9 @@ hr{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            gap: 2rem;
+            gap: 4rem;
+            flex-wrap: wrap;
+            flex: 0 1 auto;
         }
         h2{
             font-size: 2rem;
