@@ -7,7 +7,7 @@
         <div class="box">
             <h2 class="title">結論</h2>
             <div class="content">
-                <p>經過多方面的分析後，由iphone 15 pro max勝出，這款手機在性能、相機和電池續航方面表現出色，是一款值得推薦的產品。</p>
+                <p>經過多方面的分析後，iphone 15有更優異的表現，這款手機在性能、相機和電池續航方面表現出色，是一款值得推薦的產品。</p>
             </div>
         </div>
     </div>
