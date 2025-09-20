@@ -114,7 +114,7 @@ hr{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            gap: 4rem;
+            gap: 2rem;
             flex-wrap: wrap;
             flex: 0 1 auto;
         }
