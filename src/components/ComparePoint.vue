@@ -86,7 +86,7 @@ hr{
                 font-size: 1.5rem;
                 font-weight: 400;
                 i{
-                    color: #8a9bd8;
+                    color: #d88f8a;
                     margin-left: 1rem;
                 }
             }
