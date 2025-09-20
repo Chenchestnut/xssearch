@@ -1,5 +1,7 @@
 <script setup>
-
+const props = defineProps({
+    img:String,
+})
 </script>
 
 <template>
@@ -7,7 +9,7 @@
         <div class="stickyWrap">
             <div class="img">
                 <div class="imgBox">
-                    <img src="../assets/iphone.jpg" alt="商品圖片">
+                    <img :src="props.img" alt="商品圖片">
                 </div>
                 <p class="productName">iPhone 16</p>
                 <p class="star">綜合星等：4.5<i class="fa-regular fa-star"></i></p>

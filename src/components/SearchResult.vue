@@ -7,11 +7,13 @@ import SpecificationSection from './specificationSection.vue';
 import SideNavBar from './SideNavBar.vue';
 import photoSection from './photoSection.vue';
 import { useAnimations } from '../composables/useAnimations';
-// import { useSearchStore } from '../stores/useSearchStore';
+import { useSearchStore } from '../stores/useSearchStore';
+import { useIndexStore } from '../stores/useIndexStore';
 import { onMounted, ref } from 'vue';
 const { fadeIn } = useAnimations();
 
-// const searchStore = useSearchStore();
+const searchStore = useSearchStore();
+const indexStore = useIndexStore();
 const sections = ref([
     {title:"優缺點"},
     {title:"文字雲"},
@@ -39,7 +41,7 @@ const setSectionRefs=(el,index)=>{
     <Navbar />
     <div class="searchResult">  
         <aside>
-            <photoSection/>
+            <photoSection :img="searchStore.matched_products[indexStore.index].img"/>
         </aside>
         <div class="content">
             <section class="result">
