@@ -117,6 +117,9 @@ hr{
             gap: 2rem;
             flex-wrap: wrap;
             flex: 0 1 auto;
+            @media screen and (max-width: 919px) {
+                justify-content: center;
+            } 
         }
         h2{
             font-size: 2rem;
