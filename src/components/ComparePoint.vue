@@ -5,8 +5,9 @@
 <template>
     <div class="comparePoint">
         <section class="win">
-            <h2 class="title">他贏在哪</h2>
+            <h2 class="title">iphone 15</h2>
             <div class="winnerContent">
+                <h2 class="good">優點<i class="fa-solid fa-thumbs-up"></i></h2>
                 <ul>
                     <li>性能優越，處理速度快</li>
                     <li>相機表現出色，拍照效果佳</li>
@@ -15,8 +16,8 @@
             </div>
         </section>
         <section class="lose">
-            <h2 class="title">雖然輸了仍有亮點</h2>
             <div class="loserContent">
+                <h2 class="bad">缺點<i class="fa-solid fa-thumbs-down"></i></h2>
                 <ul>
                     <li>設計時尚，外觀吸引人</li>
                     <li>價格相對較低，性價比高</li>
@@ -35,11 +36,8 @@ hr{
 }
 .comparePoint{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex: 0 1 auto;
-    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
     width: 80%;
     margin: 1rem 0;
     section{
@@ -48,6 +46,7 @@ hr{
         justify-content: start;
         width: 15%;
         min-width: 350px;
+        margin-top: 1.5rem;
         h2.title{
             font-size: 2rem;
             font-weight: bold;
@@ -55,12 +54,20 @@ hr{
             // padding-top:1.5rem ;
         }
         div.winnerContent{
-            background: linear-gradient(135deg, rgb(239,236,233) 0%, rgb(210,119,114) 100%);
-            box-shadow: 5px 5px 5px rgba(210, 119, 114, 0.8);
+            background-color: #dddcd3;
+            box-shadow: 5px 5px 5px rgba(181, 184, 163, 0.8);
             padding: 1.5rem 2rem;
             // border-block-start: #d4b2a8 solid 1px;
             border-radius: 35px;
             margin: 1.5rem 0;
+            h2.good{
+                font-size: 1.5rem;
+                font-weight: 400;
+                i{
+                    color: #d88f8a;
+                    margin-left: 1rem;
+                }
+            }
             p{
                 font-size: 1rem;
                 text-align: left;
@@ -75,6 +82,14 @@ hr{
             padding: 1.5rem 2rem;
             border-radius: 35px;
             margin: 1.5rem 0;
+            h2.bad{
+                font-size: 1.5rem;
+                font-weight: 400;
+                i{
+                    color: #8a9bd8;
+                    margin-left: 1rem;
+                }
+            }
             p{
                 font-size: 1rem;
                 text-align: left;
@@ -91,7 +106,7 @@ hr{
 }
 
 @media screen and (max-width: 520px) {
-    .compareConclusion{
+    .comparePoint{
             justify-content: center;
             align-items: center;
             gap: 0;

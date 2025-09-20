@@ -44,7 +44,11 @@ function handleScroll(index){
                 </ul>
             </div> -->
             <CompareConclusion />
-            <ComparePoint />
+            <div class="goodBad">
+                <ComparePoint />
+                <ComparePoint />
+            </div>
+            <hr>
             <!-- <div class="compareInfo" id="section0">
                 <div class="title">
                     <h2>{{ compareTitle[0] }}</h2>
@@ -80,6 +84,9 @@ function handleScroll(index){
 
 <style lang="scss" scoped>
 $word-color: #2F2F2F;
+hr{
+    width: 85%;
+}
 .backGround{
     position: fixed;
     width: 100vw;
@@ -102,6 +109,12 @@ $word-color: #2F2F2F;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        div.goodBad{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 2rem;
+        }
         h2{
             font-size: 2rem;
             font-weight: bold;
