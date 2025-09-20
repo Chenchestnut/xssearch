@@ -104,6 +104,9 @@ hr{
     min-height: 100vh;
     width: 100vw;
     color: $word-color;
+    section.img{
+        width: 80%;
+    }
     .content{
         display: flex;
         flex-direction: column;
