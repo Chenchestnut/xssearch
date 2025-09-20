@@ -46,7 +46,7 @@ $word-color: #2F2F2F;
         ul{
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: start;
             text-align: left;
             list-style: none;
@@ -66,7 +66,7 @@ $word-color: #2F2F2F;
             left: 0;
             right: 0;
             width: 100%;
-            height: 8rem;
+            height: 2rem;
             background: linear-gradient(rgba(255, 255, 255, 0), #EFECE9);
         }
     }
