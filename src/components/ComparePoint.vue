@@ -47,6 +47,19 @@ hr{
         width: 15%;
         min-width: 350px;
         margin-top: 1.5rem;
+        @media screen and (max-width: 520px) {
+            section.win,section.lose{
+                min-width: 290px;
+                h2{
+                    font-size: 1.8rem;
+                }
+                ul{
+                    li{
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
         h2.title{
             font-size: 2rem;
             font-weight: bold;
@@ -101,25 +114,6 @@ hr{
                 font-size: 1.15rem;
                 margin: 0.5rem 0;
             }
-        }
-    }
-}
-
-@media screen and (max-width: 520px) {
-    .comparePoint{
-            justify-content: center;
-            align-items: center;
-            gap: 0;
-            section.win,section.lose{
-                min-width: 290px;
-                h2{
-                    font-size: 1.8rem;
-                }
-                ul{
-                    li{
-                        font-size: 1rem;
-                    }
-                }
         }
     }
 }
