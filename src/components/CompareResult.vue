@@ -211,7 +211,7 @@ hr{
                 div.discription{
                     display: flex;
                     align-items: center;
-                    justify-content: start;
+                    justify-content: center;
                     width: 100%;
                     background-color: white;
                     border: #decac2 1px solid;
