@@ -192,7 +192,7 @@ hr{
                 display: flex;
                 flex-direction: row;
                 align-items: start;
-                justify-content: space-evenly;
+                justify-content: space-between;
             }
 
         }
