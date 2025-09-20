@@ -9,6 +9,8 @@ import CommendSection from './commendSection.vue';
 import SpecificationSection from './specificationSection.vue';
 import { onMounted, ref } from 'vue';
 import { useAnimations } from '../composables/useAnimations';
+import { useSearchStore } from '../stores/useSearchStore';
+import { useIndexStore } from '../stores/useIndexStore';
 const sections = ref([
     {title:"推薦理由"},
     {title:"優缺點"},
@@ -17,6 +19,8 @@ const sections = ref([
     {title:"規格"}
 ])
 let sectionRefs = [];
+const searchStore = useSearchStore();
+const indexStore = useIndexStore();
 
 const { fadeIn } = useAnimations();
 onMounted(()=>{
@@ -35,7 +39,7 @@ const setSectionRefs=(el,index)=>{
     <Navbar />
     <div class="recommendResult">
         <aside>
-            <photoSection/>
+            <photoSection :img="searchStore.matched_products[indexStore.index].img"/>
         </aside>
         <div class="content">
             <section class="result">
