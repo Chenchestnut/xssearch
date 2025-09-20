@@ -113,7 +113,7 @@ hr{
             width: 80%;
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: space-around;
             gap: 2rem;
             flex-wrap: wrap;
             flex: 0 1 auto;
@@ -192,7 +192,7 @@ hr{
                 display: flex;
                 flex-direction: row;
                 align-items: start;
-                justify-content: space-between;
+                justify-content: space-around;
             }
 
         }
