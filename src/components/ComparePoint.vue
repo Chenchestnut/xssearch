@@ -38,7 +38,7 @@ hr{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: auto;
     margin: 1rem 0;
     section{
         display: flex;
