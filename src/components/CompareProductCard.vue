@@ -54,7 +54,7 @@ hr{
     flex-direction: row;
     justify-content: space-around;
     gap: 2rem;
-    // align-items: center;
+    align-items: center;
     color: $word-color;
     margin-top: 2rem;
     @media screen and (max-width: 680px) {
