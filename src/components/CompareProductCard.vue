@@ -56,6 +56,7 @@ hr{
     align-items: center;
     color: $word-color;
     margin-top: 2rem;
+    width: 80%;
     @media screen and (max-width: 680px) {
         flex-direction: column;
     }
