@@ -104,10 +104,10 @@ hr{
     z-index: -100;
 }
 .compareResult {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
     min-height: 100vh;
     width: 100%;
     color: $word-color;
