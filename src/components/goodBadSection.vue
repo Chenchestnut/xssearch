@@ -52,11 +52,9 @@ section{
         width: 100%;
         margin: 2rem 0;
         @media screen and (max-width: 520px) {
-            .keyPointBox{
                 justify-content: center;
                 align-items: center;
                 gap: 0;
-            }
         }
         div.advantage, div.disadvantage{
             width: 15%;
