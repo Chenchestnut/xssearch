@@ -41,6 +41,9 @@ $word-color:#2F2F2F;
     border-radius: 25px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+    @media screen and (max-width: 520px) {
+        margin: 1.5rem 0.5rem;
+    }
     &:hover{
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transform: scale(1.05);
