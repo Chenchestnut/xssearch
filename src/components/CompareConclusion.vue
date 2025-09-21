@@ -18,6 +18,7 @@
 <style lang="scss" scoped>
 hr{
     width: 85%;
+    margin: 0;
 }
 .compareConclusion{
     display: flex;
