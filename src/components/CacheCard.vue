@@ -46,7 +46,7 @@ $word-color:#2F2F2F;
         transform: scale(1.05);
     }
     @media screen and (max-width: 520px) {
-        min-width: 300px;
+        min-width: 290px;
         min-height: 250px;
         margin: 2.5rem 0.5rem;
     }
@@ -56,6 +56,9 @@ $word-color:#2F2F2F;
         align-items: flex-start;
         margin: 4rem 0rem 4rem 1rem;
         justify-content: start;
+        @media screen and (max-width: 520px) {
+            margin: 2.5rem 0rem 2.5rem 1rem;
+        }
         .imgBox{
             display: flex;
             align-items: center;
