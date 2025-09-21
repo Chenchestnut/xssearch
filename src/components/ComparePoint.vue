@@ -105,7 +105,7 @@ hr{
             }
         }
         ul{
-            padding: 0 1.5rem;
+            padding: 0 0 0 1.5rem;
             li{
                 font-size: 1.15rem;
                 margin: 0.5rem 0;
