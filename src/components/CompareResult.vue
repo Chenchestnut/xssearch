@@ -86,6 +86,7 @@ function handleScroll(index){
 $word-color: #2F2F2F;
 hr{
     width: 85%;
+    margin: 0;
 }
 .backGround{
     position: fixed;

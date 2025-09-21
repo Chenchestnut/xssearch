@@ -30,9 +30,6 @@
 
 
 <style lang="scss" scoped>
-hr{
-    width: 85%;
-}
 .comparePoint{
     display: flex;
     flex-direction: column;
