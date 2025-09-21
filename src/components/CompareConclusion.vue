@@ -30,6 +30,7 @@
         display: flex;
         flex-direction: column;
         justify-content: start;
+        align-items: center;
         h2.title{
             font-size: 2rem;
             font-weight: 500;
