@@ -37,13 +37,13 @@ function handleScroll(index){
         <section class="img">
             <CompareProductCard />
         </section>
-        <hr>
         <section class="content">
             <!-- <div class="navBar">
                 <ul>
                     <li v-for="(title,index) in compareTitle" :key="index" @click="handleScroll(index)" class="navItem">{{ title }}</li>
                 </ul>
             </div> -->
+            <hr>
             <CompareConclusion />
             <hr>
             <div class="goodBad">
