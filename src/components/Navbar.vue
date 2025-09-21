@@ -95,6 +95,7 @@ div.wholeNavbar{
     header.navbar{
     $word-color: #2F2F2F;
         nav{
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -194,7 +195,9 @@ div.wholeNavbar{
                         width: auto;
                         min-width: 180px;
                         position: absolute;
-                        top: 100%;
+                        top: 0;
+                        right: 0;
+                        left: 0;
                         margin-top: 2rem;
                         z-index: 999;
                         // transform: translateX(20%);
