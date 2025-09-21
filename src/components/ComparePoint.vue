@@ -48,17 +48,7 @@ hr{
         min-width: 350px;
         margin-top: 1.5rem;
         @media screen and (max-width: 520px) {
-            section.win,section.lose{
-                min-width: 290px;
-                h2{
-                    font-size: 1.8rem;
-                }
-                ul{
-                    li{
-                        font-size: 1rem;
-                    }
-                }
-            }
+            min-width: 290px;
         }
         h2.title{
             font-size: 2rem;
@@ -76,6 +66,9 @@ hr{
             h2.good{
                 font-size: 1.5rem;
                 font-weight: 400;
+                @media screen and (max-width: 520px) {
+                    font-size: 1.2rem;
+                }
                 i{
                     color: #d88f8a;
                     margin-left: 1rem;
@@ -98,6 +91,9 @@ hr{
             h2.bad{
                 font-size: 1.5rem;
                 font-weight: 400;
+                @media screen and (max-width: 520px) {
+                    font-size: 1.2rem;
+                }
                 i{
                     color: #d88f8a;
                     margin-left: 1rem;
@@ -113,6 +109,9 @@ hr{
             li{
                 font-size: 1.15rem;
                 margin: 0.5rem 0;
+                @media screen and (max-width: 520px) {
+                    font-size: 1rem;
+                }
             }
         }
     }
