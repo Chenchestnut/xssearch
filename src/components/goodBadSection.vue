@@ -51,6 +51,13 @@ section{
         gap: 2rem;
         width: 100%;
         margin: 2rem 0;
+        @media screen and (max-width: 520px) {
+            .keyPointBox{
+                justify-content: center;
+                align-items: center;
+                gap: 0;
+            }
+        }
         div.advantage, div.disadvantage{
             width: 15%;
             min-width: 350px;
@@ -58,11 +65,17 @@ section{
             border-radius: 35px;
             margin: 2rem 0;
             padding: 1.5rem 0 1.5rem 2rem;
+            @media screen and (max-width: 520px) {
+                min-width: 290px;
+            }
             h2{
                 display: inline-block;
                 max-width: 100%;
                 font-size: 1.75rem;
                 font-weight: 400;
+                @media screen and (max-width: 520px) {
+                    font-size: 1.5rem;
+                }
                 i{
                     color: #d88f8a;
                     margin: 1rem;
@@ -75,6 +88,9 @@ section{
                     font-size: 1.15rem;
                     margin: 0.5rem 0;
                     text-align: left;
+                    @media screen and (max-width: 520px) {
+                        font-size: 1rem;
+                    }
                 }
             }
         }
@@ -90,26 +106,5 @@ section{
 }
 
 
-@media screen and (max-width: 520px) {
-    section{
-        .keyPointBox{
-            justify-content: center;
-            align-items: center;
-            gap: 0;
-            div{
-                width: 15%;
-                min-width: 290px;
-                h2{
-                    font-size: 1.5rem;
-                }
-                ul{
-                    li{
-                        font-size: 1rem;
-                    }
-                }
-            }
-        }
-    }
-    
-}
+
 </style>
