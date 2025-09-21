@@ -82,8 +82,6 @@ hr{
         div.loserContent{
             background-color: #caccd3;
             box-shadow: 5px 5px 5px rgba(126, 144, 167, 0.8);
-            width: 15%;
-            min-width: 350px;
             color: #2F2F2F;
             padding: 1.5rem 2rem;
             border-radius: 35px;
