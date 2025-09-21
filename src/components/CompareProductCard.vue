@@ -39,17 +39,15 @@ onMounted(async () => {
             </div>
         </div>
     </div>
-    <hr>
-
 </template>
 
 
 <style lang="scss" scoped>
 $word-color: #2F2F2F;
-hr{
-    width: 85%;
-    margin: 0;
-}
+// hr{
+//     width: 85%;
+//     margin: 0;
+// }
 .compareProductCard {
     display: flex;
     flex-direction: row;

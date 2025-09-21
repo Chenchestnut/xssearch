@@ -37,6 +37,7 @@ function handleScroll(index){
         <section class="img">
             <CompareProductCard />
         </section>
+        <hr>
         <section class="content">
             <!-- <div class="navBar">
                 <ul>
@@ -44,6 +45,7 @@ function handleScroll(index){
                 </ul>
             </div> -->
             <CompareConclusion />
+            <hr>
             <div class="goodBad">
                 <ComparePoint />
                 <ComparePoint />
