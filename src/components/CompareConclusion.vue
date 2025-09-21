@@ -30,7 +30,9 @@
         display: flex;
         flex-direction: column;
         justify-content: start;
-        align-items: center;
+        @media screen and (max-width: 520px) {
+            min-width: 290px;
+        }
         h2.title{
             font-size: 2rem;
             font-weight: 500;
@@ -47,9 +49,6 @@
             border-radius: 35px;
             margin: 1.5rem 0;
             box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-            @media screen and (max-width: 520px) {
-                min-width: 290px;
-            }
             p{
                 font-size: 1rem;
                 text-align: left;
