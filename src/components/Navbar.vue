@@ -93,10 +93,9 @@ div.wholeNavbar{
     width: 100%;
     overflow: visible;
     header.navbar{
-    position: relative;
     $word-color: #2F2F2F;
         nav{
-            // position: relative;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -161,7 +160,7 @@ div.wholeNavbar{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                // position: relative;
+                position: relative;
                     .avatar{
                         display: flex;
                         align-items: center;
