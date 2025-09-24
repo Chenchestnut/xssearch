@@ -160,7 +160,7 @@ div.wholeNavbar{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                position: relative;
+                // position: relative;
                     .avatar{
                         display: flex;
                         align-items: center;
@@ -195,9 +195,9 @@ div.wholeNavbar{
                         width: auto;
                         min-width: 180px;
                         position: absolute;
-                        top: 10px;
-                        right: 0;
-                        left: 0;
+                        top: 0;
+                        right: 10px;
+                        // left: 0;
                         margin-top: 2rem;
                         z-index: 999;
                         // transform: translateX(20%);
