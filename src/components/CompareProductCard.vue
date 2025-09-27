@@ -91,9 +91,9 @@ $word-color: #2F2F2F;
             top: 85%;
             left: 25%;
             z-index: 10;
-            opacity: 0;
-            transform: translateY(-10px) scale(0.9);
-            animation: starDescriptionFadeIn 0.3s ease-out forwards;
+            // opacity: 0;
+            // transform: translateY(-10px) scale(0.9);
+            // animation: starDescriptionFadeIn 0.3s ease-out forwards;
         }
         .medal{
             position: absolute;
@@ -162,14 +162,14 @@ $word-color: #2F2F2F;
     }
 }
 
-@keyframes starDescriptionFadeIn {
-    from{
-        opacity: 0;
-        transform: translateY(-10px) scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
+// @keyframes starDescriptionFadeIn {
+//     from{
+//         opacity: 0;
+//         transform: translateY(-10px) scale(0.9);
+//     }
+//     to {
+//         opacity: 1;
+//         transform: translateY(0) scale(1);
+//     }
+// }
 </style>

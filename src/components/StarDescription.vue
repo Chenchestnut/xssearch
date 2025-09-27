@@ -15,6 +15,9 @@ div.starDescription{
     padding: 0.5rem;
     background-color: #e9dfd8;
     border-radius: 15px;
+    opacity: 0;
+    transform: translateY(-10px) scale(0.9);
+    animation: starDescriptionFadeIn 0.3s ease-out forwards;
     p{
         font-size: 0.8rem;
         color: #2F2F2F;
@@ -22,6 +25,16 @@ div.starDescription{
         // @media screen and (max-width: 520px) {
         //     font-size: 1rem;
         // }
+    }
+}
+@keyframes starDescriptionFadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(-10px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
 </style>
