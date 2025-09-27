@@ -51,7 +51,6 @@ function hideStarDescription(){
                 <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription"><i class="fa-regular fa-star"></i>4.0<StarDescription class="starDescription" v-if="displayStarDescription" /></p>
             </div>
         </div>
-        
     </div>
 </template>
 
