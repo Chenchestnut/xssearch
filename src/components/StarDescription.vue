@@ -11,7 +11,7 @@
 
 <style lang="scss" scoped>
 div.starDescription{
-    max-width: 120px;
+    max-width: 200px;
     padding: 0.5rem;
     background-color: #e9dfd8;
     border-radius: 15px;
