@@ -34,7 +34,8 @@ function hideStarDescription(){
             </div>
             <div class="info">
                 <h2>iphone 15 pro max</h2>
-                <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription"><i class="fa-regular fa-star"></i>4.0<StarDescription v-if="displayStarDescription" /></p>
+                <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription"><i class="fa-regular fa-star"></i>4.0</p>
+                <StarDescription v-if="displayStarDescription" />
             </div>
         </div>
         <div class="vs">
@@ -46,7 +47,8 @@ function hideStarDescription(){
             </div>
             <div class="info">
                 <h2>iphone 15 pro max</h2>
-                <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription"><i class="fa-regular fa-star"></i>4.0<StarDescription v-if="displayStarDescription" /></p>
+                <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription"><i class="fa-regular fa-star"></i>4.0</p>
+                <StarDescription v-if="displayStarDescription" />
             </div>
         </div>
     </div>
