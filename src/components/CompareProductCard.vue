@@ -90,9 +90,9 @@ $word-color: #2F2F2F;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         .starDescription{
             position: absolute;
-            top: 3.5rem;
+            top: 10%;
             left: 50%;
-            transform: translateX(-50%);
+            // transform: translateX(-50%);
             z-index: 10;
         }
         .medal{
