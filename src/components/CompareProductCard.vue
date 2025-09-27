@@ -91,7 +91,7 @@ $word-color: #2F2F2F;
         .starDescription{
             position: absolute;
             top: 10%;
-            left: 50%;
+            // left: 50%;
             // transform: translateX(-50%);
             z-index: 10;
         }
