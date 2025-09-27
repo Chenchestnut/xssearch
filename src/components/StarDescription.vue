@@ -16,7 +16,7 @@ div.starDescription{
     background-color: #e9dfd8;
     border-radius: 30px;
     p{
-        font-size: 0.5rem;
+        font-size: 0.8rem;
         color: #2F2F2F;
         text-align: center;
         // @media screen and (max-width: 520px) {
