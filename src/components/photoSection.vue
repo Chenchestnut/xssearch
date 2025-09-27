@@ -81,8 +81,8 @@ hr{
             }
             .starDescription{
                 position: absolute;
-                top: 60%;
-                left: 85%;
+                top: 45%;
+                left: 90%;
                 z-index: 10;
             }
         }
