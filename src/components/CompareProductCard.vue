@@ -5,7 +5,7 @@ import { onMounted } from 'vue';
 import StarDescription from './StarDescription.vue';
 import { ref } from 'vue';
 
-const { medalAnimation, winnerAnimation, delayedAnimation} = useAnimations();
+const { medalAnimation, winnerAnimation, delayedAnimation, hoverInfoAnimation } = useAnimations();
 onMounted(async () => {
     // 等待 winnerContainer 動畫完成
     await delayedAnimation(() => winnerAnimation('.winnerContainer'), 500);
@@ -18,6 +18,7 @@ const displayStarDescription = ref(false);
 
 function showStarDescription(){
     displayStarDescription.value = true;
+    hoverInfoAnimation('.star');
 }
 
 function hideStarDescription(){
