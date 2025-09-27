@@ -37,9 +37,9 @@ function hideStarDescription(){
             <div class="info">
                 <h2>iphone 15 pro max</h2>
                 <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription"><i class="fa-regular fa-star"></i>4.0</p>
-                <StarDescription class="starDescription" v-if="displayStarDescription" />
             </div>
         </div>
+        <StarDescription class="starDescription" v-if="displayStarDescription" />
         <div class="vs">
             VS
         </div>
@@ -50,9 +50,9 @@ function hideStarDescription(){
             <div class="info">
                 <h2>iphone 15 pro max</h2>
                 <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription"><i class="fa-regular fa-star"></i>4.0</p>
-                <StarDescription v-if="displayStarDescription" />
             </div>
         </div>
+        <StarDescription class="starDescription" v-if="displayStarDescription" />
     </div>
 </template>
 
@@ -88,6 +88,13 @@ $word-color: #2F2F2F;
         padding: 1rem;
         margin: 1.5rem 0;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .starDescription{
+            position: absolute;
+            top: 3.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
         .medal{
             position: absolute;
             top: 0rem;
