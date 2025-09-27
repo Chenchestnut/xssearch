@@ -112,6 +112,9 @@ $word-color: #2F2F2F;
                 }
             }
             p.star{
+                &:hover{
+                    cursor: pointer;
+                }
                 i{
                     color: #CC5F5A;
                 }
