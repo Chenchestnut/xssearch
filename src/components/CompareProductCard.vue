@@ -5,7 +5,7 @@ import { onMounted } from 'vue';
 import StarDescription from './StarDescription.vue';
 import { ref } from 'vue';
 
-const { medalAnimation, winnerAnimation, delayedAnimation, hoverInfoAnimation } = useAnimations();
+const { medalAnimation, winnerAnimation, delayedAnimation} = useAnimations();
 onMounted(async () => {
     // 等待 winnerContainer 動畫完成
     await delayedAnimation(() => winnerAnimation('.winnerContainer'), 500);
@@ -18,7 +18,7 @@ const displayStarDescription = ref(false);
 
 function showStarDescription(){
     displayStarDescription.value = true;
-    hoverInfoAnimation('.starDescription');
+    // hoverInfoAnimation('.starDescription');
 }
 
 function hideStarDescription(){
@@ -92,6 +92,9 @@ $word-color: #2F2F2F;
             top: 85%;
             left: 25%;
             z-index: 10;
+            opacity: 0;
+            transform: translateY(-10px) scale(0.9);
+            animation: starDescriptionFadeIn 0.3s ease-out forwards;
         }
         .medal{
             position: absolute;
@@ -160,4 +163,14 @@ $word-color: #2F2F2F;
     }
 }
 
+@keyframes starDescriptionFadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(-10px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 </style>
