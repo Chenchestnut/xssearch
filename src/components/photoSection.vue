@@ -24,8 +24,7 @@ function hideStarDescription(){
                     <img :src="props.img" alt="商品圖片">
                 </div>
                 <p class="productName">iPhone 16</p>
-                <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription">綜合星等：4.5<i class="fa-regular fa-star"></i></p>
-                <StarDescription v-if="displayStarDescription"/>
+                <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription">綜合星等：4.5<i class="fa-regular fa-star"></i><StarDescription class="starDescription" v-if="displayStarDescription"/></p>
             </div>
         </div>
     </section>
@@ -65,6 +64,7 @@ hr{
             margin-top: 1rem;
         }
         .star{
+            position: relative;
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -78,6 +78,12 @@ hr{
             i{
                 color: #d88f8a;
                 margin-left: 0.2rem;
+            }
+            .starDescription{
+                position: absolute;
+                top: 85%;
+                left: 25%;
+                z-index: 10;
             }
         }
     }
