@@ -24,7 +24,8 @@ function hideStarDescription(){
                     <img :src="props.img" alt="商品圖片">
                 </div>
                 <p class="productName">iPhone 16</p>
-                <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription">綜合星等：4.5<i class="fa-regular fa-star"></i><StarDescription v-if="displayStarDescription"/></p>
+                <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription">綜合星等：4.5<i class="fa-regular fa-star"></i></p>
+                <StarDescription v-if="displayStarDescription"/>
             </div>
         </div>
     </section>
