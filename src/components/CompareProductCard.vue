@@ -12,6 +12,16 @@ onMounted(async () => {
     // winnerContainer 動畫完成後，立即開始 medal 動畫
     delayedAnimation(() => medalAnimation('.medal'), 50);
 });
+
+const displayStarDescription = ref(false);
+
+function showStarDescription(){
+    displayStarDescription.value = true;
+}
+
+function hideStarDescription(){
+    displayStarDescription.value = false;
+}
 </script>
 
 <template>
@@ -24,7 +34,7 @@ onMounted(async () => {
             </div>
             <div class="info">
                 <h2>iphone 15 pro max</h2>
-                <p class="star"><i class="fa-regular fa-star"></i>4.0<StarDescription /></p>
+                <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription"><i class="fa-regular fa-star"></i>4.0<StarDescription v-if="displayStarDescription" /></p>
             </div>
         </div>
         <div class="vs">
@@ -36,7 +46,7 @@ onMounted(async () => {
             </div>
             <div class="info">
                 <h2>iphone 15 pro max</h2>
-                <p class="star"><i class="fa-regular fa-star"></i>4.0<StarDescription /></p>
+                <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription"><i class="fa-regular fa-star"></i>4.0<StarDescription v-if="displayStarDescription" /></p>
             </div>
         </div>
     </div>
