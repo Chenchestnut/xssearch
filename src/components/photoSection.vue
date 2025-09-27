@@ -1,8 +1,19 @@
 <script setup>
+import { ref } from 'vue';
 import StarDescription from './StarDescription.vue';
 const props = defineProps({
     img:String,
 })
+
+const displayStarDescription = ref(false);
+
+function showStarDescription(){
+    displayStarDescription.value = true;
+}
+
+function hideStarDescription(){
+    displayStarDescription.value = false;
+}
 </script>
 
 <template>
@@ -13,7 +24,7 @@ const props = defineProps({
                     <img :src="props.img" alt="商品圖片">
                 </div>
                 <p class="productName">iPhone 16</p>
-                <p class="star">綜合星等：4.5<i class="fa-regular fa-star"></i><StarDescription /></p>
+                <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription">綜合星等：4.5<i class="fa-regular fa-star"></i><StarDescription v-if="displayStarDescription"/></p>
             </div>
         </div>
     </section>
@@ -60,6 +71,9 @@ hr{
             font-size: 1.3rem;
             margin-top: 0.5rem;
             margin-bottom: 1rem;
+            &:hover{
+                cursor: pointer;
+            }
             i{
                 color: #d88f8a;
                 margin-left: 0.2rem;
