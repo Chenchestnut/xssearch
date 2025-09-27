@@ -2,6 +2,7 @@
 // import { Icon } from '@iconify/vue';
 import { useAnimations } from '../composables/useAnimations';
 import { onMounted } from 'vue';
+import StarDescription from './StarDescription.vue';
 
 const { medalAnimation, winnerAnimation, delayedAnimation} = useAnimations();
 onMounted(async () => {
@@ -23,7 +24,7 @@ onMounted(async () => {
             </div>
             <div class="info">
                 <h2>iphone 15 pro max</h2>
-                <p class="star"><i class="fa-regular fa-star"></i>4.0</p>
+                <p class="star"><i class="fa-regular fa-star"></i>4.0<StarDescription /></p>
             </div>
         </div>
         <div class="vs">
@@ -35,7 +36,7 @@ onMounted(async () => {
             </div>
             <div class="info">
                 <h2>iphone 15 pro max</h2>
-                <p class="star"><i class="fa-regular fa-star"></i>4.0</p>
+                <p class="star"><i class="fa-regular fa-star"></i>4.0<StarDescription /></p>
             </div>
         </div>
     </div>
