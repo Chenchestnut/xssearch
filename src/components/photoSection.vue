@@ -53,6 +53,8 @@ hr{
             margin-top: 1rem;
         }
         .star{
+            display: flex;
+            flex-direction: row;
             font-size: 1.3rem;
             margin-top: 0.5rem;
             margin-bottom: 1rem;
