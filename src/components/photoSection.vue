@@ -1,4 +1,5 @@
 <script setup>
+import StarDescription from './StarDescription.vue';
 const props = defineProps({
     img:String,
 })
@@ -12,7 +13,7 @@ const props = defineProps({
                     <img :src="props.img" alt="商品圖片">
                 </div>
                 <p class="productName">iPhone 16</p>
-                <p class="star">綜合星等：4.5<i class="fa-regular fa-star"></i></p>
+                <p class="star">綜合星等：4.5<i class="fa-regular fa-star"></i><StarDescription /></p>
             </div>
         </div>
     </section>
