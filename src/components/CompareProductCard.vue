@@ -3,6 +3,7 @@
 import { useAnimations } from '../composables/useAnimations';
 import { onMounted } from 'vue';
 import StarDescription from './StarDescription.vue';
+import { ref } from 'vue';
 
 const { medalAnimation, winnerAnimation, delayedAnimation} = useAnimations();
 onMounted(async () => {
