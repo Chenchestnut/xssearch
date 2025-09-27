@@ -88,8 +88,8 @@ $word-color: #2F2F2F;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         .starDescription{
             position: absolute;
-            top: 50%;
-            left: 15%;
+            top: 85%;
+            left: 25%;
             z-index: 10;
         }
         .medal{
