@@ -18,7 +18,6 @@ const displayStarDescription = ref(false);
 
 function showStarDescription(){
     displayStarDescription.value = true;
-    // hoverInfoAnimation('.starDescription');
 }
 
 function hideStarDescription(){
