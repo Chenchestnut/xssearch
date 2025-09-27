@@ -55,6 +55,8 @@ hr{
         .star{
             display: flex;
             flex-direction: row;
+            justify-content: center;
+            align-items: center;
             font-size: 1.3rem;
             margin-top: 0.5rem;
             margin-bottom: 1rem;
