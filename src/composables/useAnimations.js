@@ -156,7 +156,17 @@ export function useAnimations() {
 
     return animate(selector, { ...defaultOptions, ...options });
   };
+  //懸浮資訊動畫
+  const hoverInfoAnimation = (selector, options = {}) => {
+    const defaultOptions = {
+      opacity: [0, 1],
+      duration: 1000,
+      easing: "easeInOutSine",
+      delay: 0,
+    };
 
+    return animate(selector, { ...defaultOptions, ...options });
+  };
   return {
     fadeIn,
     fadeIn2,
@@ -169,5 +179,6 @@ export function useAnimations() {
     bounce,
     scale,
     delayedAnimation,
+    hoverInfoAnimation,
   };
 }
