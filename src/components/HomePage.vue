@@ -248,7 +248,7 @@ overflow-x: hidden;
             transition: all 0.3s ease;
             color: $word-color;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            
+            box-shadow: inset 8px 8px 8px rgba(255, 255, 255, 0.7);
             @media screen and (max-width: 768px){
                 margin-top: 8rem;
             }
