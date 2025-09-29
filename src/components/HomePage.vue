@@ -247,7 +247,7 @@ overflow-x: hidden;
             border-radius: 45px;
             transition: all 0.3s ease;
             color: $word-color;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             box-shadow: inset 4px 4px 8px rgba(255, 255, 255, 0.7),
                         inset -4px -4px 4px rgba(0, 0, 0, 0.1);
             @media screen and (max-width: 768px){
