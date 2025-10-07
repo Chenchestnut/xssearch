@@ -41,7 +41,7 @@ const setSectionRefs=(el,index)=>{
     <Navbar />
     <div class="searchResult">  
         <aside>
-            <photoSection :img="searchStore.matched_products[indexStore.index].img"/>
+            <photoSection :img="searchStore.matched_products[indexStore.index].img" :name="searchStore.matched_products[indexStore.index].name"/>
         </aside>
         <div class="content">
             <section class="result">

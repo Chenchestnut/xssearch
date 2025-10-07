@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import StarDescription from './StarDescription.vue';
 const props = defineProps({
     img:String,
+    name:String,
 })
 
 const displayStarDescription = ref(false);
@@ -23,7 +24,7 @@ function hideStarDescription(){
                 <div class="imgBox">
                     <img :src="props.img" alt="商品圖片">
                 </div>
-                <p class="productName">iPhone 16</p>
+                <p class="productName">{{props.name}}</p>
                 <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription">綜合星等：4.5<i class="fa-regular fa-star"></i><StarDescription class="starDescription" v-if="displayStarDescription"/></p>
             </div>
         </div>
