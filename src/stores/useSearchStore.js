@@ -88,7 +88,7 @@ export const useSearchStore = defineStore("searchResults", {
         img: product.img,
         spec:
           typeof product.spec === "string"
-            ? product.spec.split(" ")
+            ? product.spec.split("+")
             : ["暫無規格"],
       }));
       // this.analysis = {
