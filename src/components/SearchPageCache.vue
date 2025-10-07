@@ -17,7 +17,7 @@ function handleAnalysis(index){
   getIdIndex(index);
   //接分析
   console.log(searchStore.search_keyword, searchStore.matched_products[index].id);
-  axios.post('https://api.xssearch.brid.pw/api/analysis/',{"keyword":searchStore.search_keyword,"product_id": searchStore.matched_products[index].id},{
+  axios.post('https://api-xssearch.brid.pw/api/analysis/',{"keyword":searchStore.search_keyword,"product_id": searchStore.matched_products[index].id},{
       headers: {
         'Content-Type': 'application/json',
       },
