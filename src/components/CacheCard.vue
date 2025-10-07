@@ -69,8 +69,8 @@ $word-color:#2F2F2F;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 200px;
-            min-height: 200px;
+            width: 250px;
+            // min-height: 200px;
             max-height: 250px;
             border-radius: 25px;
             overflow: hidden;
@@ -78,8 +78,8 @@ $word-color:#2F2F2F;
             img{
             width: 100%;
             // height: auto;
-            min-height: 200px;
-            max-height: 250px;
+            // min-height: 200px;
+            max-height: 100vh;
             object-fit: cover;
             border-radius: 25px;
             }
