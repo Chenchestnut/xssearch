@@ -70,16 +70,16 @@ $word-color:#2F2F2F;
             align-items: center;
             justify-content: center;
             width: 200px;
-            min-height: 250px;
-            max-height: 300px;
+            min-height: 200px;
+            max-height: 250px;
             border-radius: 25px;
             overflow: hidden;
             margin: 2rem 0 0 2rem;
             img{
             width: 100%;
             // height: auto;
-            min-height: 250px;
-            max-height: 300px;
+            min-height: 200px;
+            max-height: 250px;
             object-fit: cover;
             border-radius: 25px;
             }
