@@ -9,7 +9,7 @@ const searchStore = useSearchStore();
 const analysisStore = useAnalysisStore();
 // console.log('searchStore.analysis:', searchStore.analysis);
 // console.log('searchStore.analysis.summary:', searchStore.analysis.summary);
-const platform = ref('techbang')
+const platform = ref('mobile01')
 function handlePlatformChange(platformName) {
     platform.value = platformName;
 }
