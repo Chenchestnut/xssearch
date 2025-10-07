@@ -1,10 +1,13 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import { useSearchStore } from '../stores/useSearchStore';
 
 const router = useRouter();
+const searchStore = useSearchStore();
 
 const props = defineProps({
     img:String,
+    name:String,
 })
 
 const changeToResult = () => {
@@ -20,7 +23,7 @@ const changeToResult = () => {
             <img :src="props.img" alt="商品圖片">
         </div>
         <div class="content">
-            <p class="title">iPhone16</p>
+            <p class="title">{{ props.name }}</p>
             <p>螢幕：6.1吋</p>
             <p>重量：170克</p>
             <p>晶片：A18晶片</p>
