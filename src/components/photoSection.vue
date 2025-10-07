@@ -24,9 +24,9 @@ function hideStarDescription(){
                 <div class="imgBox">
                     <img :src="props.img" alt="商品圖片">
                 </div>
-                <p class="productName">{{props.name}}</p>
-                <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription">綜合星等：4.5<i class="fa-regular fa-star"></i><StarDescription class="starDescription" v-if="displayStarDescription"/></p>
             </div>
+            <p class="productName">{{props.name}}</p>
+            <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription">綜合星等：4.5<i class="fa-regular fa-star"></i><StarDescription class="starDescription" v-if="displayStarDescription"/></p>
         </div>
     </section>
     <hr>
