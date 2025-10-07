@@ -78,6 +78,7 @@ $word-color:#2F2F2F;
             img{
             width: 100%;
             height: auto;
+            object-fit: cover;
             border-radius: 25px;
             }
         }
