@@ -77,7 +77,9 @@ $word-color:#2F2F2F;
             margin: 2rem 0 0 2rem;
             img{
             width: 100%;
-            height: auto;
+            // height: auto;
+            min-height: 250px;
+            max-height: 300px;
             object-fit: cover;
             border-radius: 25px;
             }
