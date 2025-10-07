@@ -76,10 +76,10 @@ $word-color:#2F2F2F;
             overflow: hidden;
             margin: 2rem 0 0 2rem;
             img{
-            width: 100%;
+            width: 250px;
             // height: auto;
             // min-height: 200px;
-            max-height: 100vh;
+            max-height: 250px;
             object-fit: cover;
             border-radius: 25px;
             }
