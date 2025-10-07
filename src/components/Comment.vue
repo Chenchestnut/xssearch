@@ -1,12 +1,14 @@
 <script setup>
 import { useSearchStore } from '../stores/useSearchStore';
+import { useAnalysisStore } from '../stores/useAnalysisStore';
 import { ref } from 'vue';
 const searchStore = useSearchStore();
+const analysisStore = useAnalysisStore();
 const isCollapse = ref({});
 const props = defineProps({
     platform: {
         type: String,
-        default: 'momo'
+        default: 'techbang'
     }
 });
 console.log(`${props.platform}Reviews:`, searchStore[`${props.platform}Reviews`]);
@@ -30,7 +32,7 @@ function getCollapseState(index){
 </script>
 
 <template>
-<div class="commentElement" v-for="(i, index) in searchStore[`${props.platform}Reviews`]" :key="index">
+<div class="commentElement" v-for="(i, index) in analysisStore[`${props.platform}Reviews`]" :key="index">
     <div class="avatar"></div>
     <div class="content">
         <p>User：大強</p>

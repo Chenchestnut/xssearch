@@ -2,9 +2,11 @@
 // alert('commendSection 組件開始載入');
 import Comment from './Comment.vue';
 import { useSearchStore } from '../stores/useSearchStore';
+import { useAnalysisStore } from '../stores/useAnalysisStore';
 import { ref } from 'vue';
 // console.log('commendSection 組件載入了');
 const searchStore = useSearchStore();
+const analysisStore = useAnalysisStore();
 // console.log('searchStore.analysis:', searchStore.analysis);
 // console.log('searchStore.analysis.summary:', searchStore.analysis.summary);
 const platform = ref('techbang')
@@ -18,7 +20,7 @@ function handlePlatformChange(platformName) {
         <div class="comment">
             <h2>評論</h2>
             <div class="totalComment">
-                <p>{{ searchStore.analysis.summary}}</p>
+                <p>{{ analysisStore.analysis.summary}}</p>
             </div>
             <div class="commentContent">
                 <ul>
