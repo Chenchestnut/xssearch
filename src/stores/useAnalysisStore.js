@@ -11,35 +11,30 @@ export const useAnalysisStore = defineStore("analysisResults", {
     },
     all_reviews: [
       {
-        star: "",
+        // star: "",
         // source_product: "",
-        // source_platform: "",
+        source_platform: "",
         comment: "",
       },
     ],
   }),
   persist: true, // Enable persistence
   getters: {
-    // momoReviews: (state) => {
-    //   return state.all_reviews
-    //     .filter((review) => review.source_platform === "momo")
-    //     .slice(0, 3);
-    // },
-    // pchomeReviews: (state) => {
-    //   return state.all_reviews
-    //     .filter((review) => review.source_platform === "pchome")
-    //     .slice(0, 3);
-    // },
-    // phone_padReviews: (state) => {
-    //   return state.all_reviews
-    //     .filter((review) => review.source_platform === "phone_pad")
-    //     .slice(0, 3);
-    // },
-    // epriceReviews: (state) => {
-    //   return state.all_reviews
-    //     .filter((review) => review.source_platform === "eprice")
-    //     .slice(0, 3);
-    // },
+    techbangReviews: (state) => {
+      return state.all_reviews
+        .filter((review) => review.source_platform === "techbang")
+        .slice(0, 3);
+    },
+    mobile01Reviews: (state) => {
+      return state.all_reviews
+        .filter((review) => review.source_platform === "mobile01")
+        .slice(0, 3);
+    },
+    epriceReviews: (state) => {
+      return state.all_reviews
+        .filter((review) => review.source_platform === "eprice")
+        .slice(0, 3);
+    },
   },
   actions: {
     saveAnalysisResults(data) {
@@ -52,9 +47,9 @@ export const useAnalysisStore = defineStore("analysisResults", {
       };
       this.all_reviews = data.all_reviews.map((review) => ({
         // source_product: review.source_product,
-        // source_platform: review.source_platform,
+        source_platform: review.source_platform,
         comment: review.comment,
-        star: review.star,
+        // star: review.star,
       }));
     },
   },

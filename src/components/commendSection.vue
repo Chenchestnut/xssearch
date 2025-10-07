@@ -7,7 +7,7 @@ import { ref } from 'vue';
 const searchStore = useSearchStore();
 // console.log('searchStore.analysis:', searchStore.analysis);
 // console.log('searchStore.analysis.summary:', searchStore.analysis.summary);
-const platform = ref('momo')
+const platform = ref('techbang')
 function handlePlatformChange(platformName) {
     platform.value = platformName;
 }
@@ -22,9 +22,8 @@ function handlePlatformChange(platformName) {
             </div>
             <div class="commentContent">
                 <ul>
-                    <li @click="handlePlatformChange('momo')"><span :class="{active:platform === 'momo'}">Momo</span></li>
-                    <li @click="handlePlatformChange('pchome')"><span :class="{active:platform === 'pchome'}">PChome</span></li>
-                    <li @click="handlePlatformChange('phone_pad')"><span :class="{active:platform === 'phone_pad'}">T客邦</span></li>
+                    <li @click="handlePlatformChange('techbang')"><span :class="{active:platform === 'techbang'}">techbang</span></li>
+                    <li @click="handlePlatformChange('mobile01')"><span :class="{active:platform === 'mobile01'}">mobile01</span></li>
                     <li class="noBorder" @click="handlePlatformChange('eprice')"><span :class="{active:platform === 'eprice'}">eprice</span></li>
                     <!-- <li><span>Momo</span></li>
                     <li><span>PChome</span></li>
