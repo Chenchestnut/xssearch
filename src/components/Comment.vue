@@ -8,7 +8,7 @@ const isCollapse = ref({});
 const props = defineProps({
     platform: {
         type: String,
-        default: 'techbang'
+        default: 'mobile01'
     }
 });
 console.log(`${props.platform}Reviews:`, searchStore[`${props.platform}Reviews`]);

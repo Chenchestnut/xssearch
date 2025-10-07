@@ -24,8 +24,8 @@ function handlePlatformChange(platformName) {
             </div>
             <div class="commentContent">
                 <ul>
-                    <li @click="handlePlatformChange('techbang')"><span :class="{active:platform === 'techbang'}">techbang</span></li>
                     <li @click="handlePlatformChange('mobile01')"><span :class="{active:platform === 'mobile01'}">mobile01</span></li>
+                    <li @click="handlePlatformChange('techbang')"><span :class="{active:platform === 'techbang'}">techbang</span></li>
                     <li class="noBorder" @click="handlePlatformChange('eprice')"><span :class="{active:platform === 'eprice'}">eprice</span></li>
                     <!-- <li><span>Momo</span></li>
                     <li><span>PChome</span></li>
