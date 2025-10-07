@@ -24,7 +24,7 @@ function handleSearch(){
     }
     showLoading('努力搜尋中...')
     // 串接普通查詢api
-    axios.post('https://api.xssearch.brid.pw/api/search/',{"keyword":searchQuery.value},{
+    axios.post('https://api-xssearch.brid.pw/api/search/',{"keyword":searchQuery.value},{
     headers: {
       'Content-Type': 'application/json',
     },
