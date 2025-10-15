@@ -26,7 +26,7 @@ function hideStarDescription(){
                 </div>
             </div>
             <p class="productName">{{props.name}}</p>
-            <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription">綜合星等：4.5<i class="fa-regular fa-star"></i><StarDescription class="starDescription" v-if="displayStarDescription"/></p>
+            <!-- <p class="star" @mouseenter="showStarDescription" @mouseleave="hideStarDescription">綜合星等：4.5<i class="fa-regular fa-star"></i><StarDescription class="starDescription" v-if="displayStarDescription"/></p> -->
         </div>
     </section>
     <hr>
