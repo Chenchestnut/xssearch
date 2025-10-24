@@ -66,7 +66,7 @@ $word-color: #2F2F2F;
             left: 0;
             right: 0;
             width: 100%;
-            height: 2rem;
+            height: 5rem;
             background: linear-gradient(rgba(255, 255, 255, 0), #EFECE9);
         }
     }
