@@ -5,7 +5,7 @@ import { useSearchStore } from '../stores/useSearchStore';
 const router = useRouter();
 const searchStore = useSearchStore();
 
-const keywords = ['RAM','百萬畫素(主攝像頭)','解析度']
+const keywords = ['RAM','百萬畫素（主攝像頭）','解析度']
 
 const props = defineProps({
     img:String,
