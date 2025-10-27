@@ -4,7 +4,7 @@ import { useSearchStore } from '../stores/useSearchStore';
 
 const router = useRouter();
 const searchStore = useSearchStore();
-const source = parseSpecifications(props.spe);
+
 const keywords = ['RAM','百萬畫素(主攝像頭)','解析度']
 
 const props = defineProps({
@@ -13,6 +13,7 @@ const props = defineProps({
     spe:Array,
 })
 
+const source = parseSpecifications(props.spe);
 const changeToResult = () => {
   router.push('/searchResult');
 };
