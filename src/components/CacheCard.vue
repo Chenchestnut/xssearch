@@ -4,15 +4,24 @@ import { useSearchStore } from '../stores/useSearchStore';
 
 const router = useRouter();
 const searchStore = useSearchStore();
+const source = parseSpecifications(props.spe);
+const keywords = ['RAM','百萬畫素(主攝像頭)','解析度']
 
 const props = defineProps({
     img:String,
     name:String,
+    spe:Array,
 })
 
 const changeToResult = () => {
   router.push('/searchResult');
 };
+
+function parseSpecifications(spe){
+    return result = spe.filter(item => 
+        keywords.some(keyword=>item.toLowerCase().includes(keyword.toLowerCase()))
+    );
+}
 </script>
 
 <template>
@@ -24,9 +33,7 @@ const changeToResult = () => {
         </div>
         <div class="content">
             <p class="title">{{ props.name }}</p>
-            <p>螢幕：6.1吋</p>
-            <p>重量：170克</p>
-            <p>晶片：A18晶片</p>
+            <p v-for="value in source" :key="value">螢幕：{{ value }}</p>
         </div>
     </div>
   </div>
