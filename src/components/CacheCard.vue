@@ -34,7 +34,7 @@ function parseSpecifications(spe){
         </div>
         <div class="content">
             <p class="title">{{ props.name }}</p>
-            <p v-for="value in source" :key="value">螢幕：{{ value }}</p>
+            <p v-for="value in source" :key="value">{{ value }}</p>
         </div>
     </div>
   </div>
