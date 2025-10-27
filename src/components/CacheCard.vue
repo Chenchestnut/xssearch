@@ -19,7 +19,7 @@ const changeToResult = () => {
 };
 
 function parseSpecifications(spe){
-    return result = spe.filter(item => 
+    return spe.filter(item => 
         keywords.some(keyword=>item.toLowerCase().includes(keyword.toLowerCase()))
     );
 }
