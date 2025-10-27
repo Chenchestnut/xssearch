@@ -101,7 +101,7 @@ $word-color:#2F2F2F;
             text-align: left;
             color: $word-color;
             padding: 2.5rem 0;
-            margin: 0 2rem;
+            margin: 0 0 0 2rem;
             @media screen and (max-width: 520px) {
                 padding: 2rem 0;
                 margin:  0 1rem 0 1.5rem;
