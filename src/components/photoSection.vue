@@ -1,10 +1,26 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import StarDescription from './StarDescription.vue';
 const props = defineProps({
     img:String,
     name:String,
 })
+
+function changeURL(url){
+    return url.replace('originals','236x')
+}
+const imageError = (event) => {
+    event.target.src = changeURL(props.img);
+    event.target.alt = '暫無商品圖片';
+}
+
+const imgUrl = computed(()=>{
+    if(!props.img || props.img === '' || props.img === '商品圖片'){
+        return defaultImage;
+    }else{
+        return props.img;
+    }
+});
 
 const displayStarDescription = ref(false);
 
@@ -22,7 +38,7 @@ function hideStarDescription(){
         <div class="stickyWrap">
             <div class="img">
                 <div class="imgBox">
-                    <img :src="props.img" alt="商品圖片">
+                    <img :src="props.img" alt="商品圖片" @error="imageError">
                 </div>
             </div>
             <p class="productName">{{props.name}}</p>
