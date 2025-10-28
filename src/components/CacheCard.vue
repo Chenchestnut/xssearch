@@ -15,11 +15,12 @@ const props = defineProps({
     spe:Array,
 })
 
+function changeURL(url){
+    return url.replace('originals','236x')
+}
 const imageError = (event) => {
-    if (event.target.src !== defaultImage) {
-        event.target.src = defaultImage;
-        event.target.alt = '暫無商品圖片';
-    }
+    event.target.src = changeURL(props.img);
+    event.target.alt = '暫無商品圖片';
 }
 
 const imgUrl = computed(()=>{
