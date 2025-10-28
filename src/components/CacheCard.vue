@@ -30,7 +30,7 @@ function parseSpecifications(spe){
   <div class="cacheCard" @click="changeToResult">
     <div class="box">
         <div class="imgBox">
-            <img src="../assets/暫時沒有圖片.png" alt="商品圖片" v-if="!props.img || props.img === ''">
+            <img src="../assets/暫時沒有圖片.png" alt="暫無商品圖片" v-if="!props.img || props.img === '' || props.img === '商品圖片'">
             <img :src="props.img" alt="商品圖片" v-else>
         </div>
         <div class="content">
