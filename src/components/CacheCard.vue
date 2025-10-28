@@ -30,7 +30,8 @@ function parseSpecifications(spe){
   <div class="cacheCard" @click="changeToResult">
     <div class="box">
         <div class="imgBox">
-            <img :src="props.img" alt="商品圖片">
+            <img src="../assets/暫時沒有圖片.png" alt="商品圖片" v-if="!props.img">
+            <img :src="props.img" alt="商品圖片" v-else>
         </div>
         <div class="content">
             <p class="title">{{ props.name }}</p>
