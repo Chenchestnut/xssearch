@@ -1,6 +1,8 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import { useSearchStore } from '../stores/useSearchStore';
+import defaultImage from '../assets/暫時沒有圖片.png';
+import { handleError } from 'vue';
 
 const router = useRouter();
 const searchStore = useSearchStore();
@@ -12,6 +14,21 @@ const props = defineProps({
     name:String,
     spe:Array,
 })
+
+const imageError = (event) => {
+    if (event.target.src !== defaultImage) {
+        event.target.src = defaultImage;
+        event.target.alt = '暫無商品圖片';
+    }
+}
+
+const imgUrl = computed(()=>{
+    if(!props.img || props.img === '' || props.img === '商品圖片'){
+        return defaultImage;
+    }else{
+        return props.img;
+    }
+});
 
 const source = parseSpecifications(props.spe);
 const changeToResult = () => {
@@ -30,8 +47,7 @@ function parseSpecifications(spe){
   <div class="cacheCard" @click="changeToResult">
     <div class="box">
         <div class="imgBox">
-            <img src="../assets/暫時沒有圖片.png" alt="暫無商品圖片" v-if="!props.img || props.img === '' || props.img === '商品圖片'">
-            <img :src="props.img" alt="商品圖片" v-else>
+            <img :src="props.img" alt="商品圖片" @error="imageError">
         </div>
         <div class="content">
             <p class="title">{{ props.name }}</p>
