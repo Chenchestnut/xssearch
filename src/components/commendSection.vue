@@ -159,14 +159,15 @@ div.comment{
                         width: 100%;
                         padding: 0.8rem 1.5rem;
                         border-bottom: black 0.5px solid;
+                        background-color: linear-gradient(to top, #d7d7d7, #efece9);
                         @media screen and (max-width: 520px) {
                             border: black 2px solid;
                             border-radius: 35px;
                         }
-                        &:hover{
-                        background-color: #D3D2C7;
-                        border-radius: 35px;
-                        }
+                        // &:hover{
+                        // background-color: #D3D2C7;
+                        // border-radius: 35px;
+                        // }
                     }
                 }
             }
@@ -181,11 +182,11 @@ div.comment{
                     background-color: #D3D2C7;
                     color: #2F2F2F;
                     box-shadow: 0 0 0 0 #2F2F2F;
-                    :hover{
-                        background-color: #B5B8A3;
-                        color: #2F2F2F;
-                    }
                     cursor: pointer;
+                }
+                :hover{
+                    background-color: #B5B8A3;
+                    color: #2F2F2F;
                 }
             }
         }
@@ -201,8 +202,8 @@ div.comment{
         }
     }
 }
-.active{
-    background-color: #D3D2C7;
-    border-radius: 35px;
-}
+// .active{
+//     background-color: #D3D2C7;
+//     border-radius: 35px;
+// }
 </style>
