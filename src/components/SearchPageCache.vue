@@ -4,6 +4,7 @@ import CacheCard from './CacheCard.vue';
 import { useSearchStore } from '../stores/useSearchStore';
 import { useIndexStore } from '../stores/useIndexStore';
 import { useAnalysisStore } from '../stores/useAnalysisStore';
+const { showLoading} = useAlert();
 import axios from 'axios';
 const searchStore = useSearchStore();
 const indexStore = useIndexStore();
@@ -17,6 +18,7 @@ function handleAnalysis(index){
   getIdIndex(index);
   //接分析
   console.log(searchStore.search_keyword, searchStore.matched_products[index].id);
+  showLoading('努力搜尋中...')
   axios.post('https://api-xssearch.brid.pw/api/analysis/',{"keyword":searchStore.search_keyword,"product_id": searchStore.matched_products[index].id},{
       headers: {
         'Content-Type': 'application/json',

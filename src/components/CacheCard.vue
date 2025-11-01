@@ -3,6 +3,7 @@ import { useRouter } from 'vue-router';
 import { useSearchStore } from '../stores/useSearchStore';
 import defaultImage from '../assets/暫時沒有圖片.png';
 import { computed } from 'vue';
+const { closeLoading} = useAlert();
 
 const router = useRouter();
 const searchStore = useSearchStore();
@@ -33,6 +34,7 @@ const imgUrl = computed(()=>{
 
 const source = parseSpecifications(props.spe);
 const changeToResult = () => {
+    closeLoading();
   router.push('/searchResult');
 };
 
