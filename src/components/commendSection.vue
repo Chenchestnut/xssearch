@@ -65,11 +65,7 @@ onMounted(() => {
                         <li><span>T客邦</span></li>
                         <li class="noBorder"><span>eprice</span></li> -->
                     </ul>
-                    <div class="changebtn">
-                        <button @click="changeComment">其他評論</button>
-                    </div>
-                </div>
-                
+                    <div class="changebtn" @click="changeComment">其他評論</div>
                 <div class="commentList">
                     <Comment :platform="platform" :comments="comments"/>
                 </div>
@@ -171,24 +167,15 @@ div.comment{
             }
             div.changebtn{
                 padding: 0.5rem;
+                font-size: 0.8rem;
                 border-radius: 35px;
                 border-bottom: black 0.5px solid;
                 background-color: #D3D2C7;
+                color: #2F2F2F;
                 box-shadow: 0 0 0 0 #2F2F2F;
                 cursor: pointer;
-                button{
-                    border: none;
-                    background-color: #D3D2C7;
-                    font-size: 0.8rem;
-                    color: #2F2F2F;
-                    :hover{
-                    background-color: #B5B8A3;
-                    color: #2F2F2F;
-                }
-                }
                 :hover{
                     background-color: #B5B8A3;
-                    color: #2F2F2F;
                 }
             }
         }
