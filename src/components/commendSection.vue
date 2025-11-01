@@ -159,7 +159,7 @@ div.comment{
                         width: 100%;
                         padding: 0.8rem 1.5rem;
                         border-bottom: black 0.5px solid;
-                        background-color: linear-gradient(to top, #d7d7d7, #efece9);
+                        background-color: linear-gradient(to top, #e5e0db, #efece9);
                         @media screen and (max-width: 520px) {
                             border: black 2px solid;
                             border-radius: 35px;
