@@ -15,6 +15,8 @@ const platform = ref('mobile01')
 // }
 const mobile01Reviews = analysisStore.mobile01Reviews;
 const max = mobile01Reviews.length;
+console.log('mobile01Reviews:', mobile01Reviews);
+console.log('評論總數:', max);
 const count = 3;
 function randomNumber(count,max){
     const number = []
@@ -36,6 +38,12 @@ function changeComment(){
     });
     comments.value = selectComments;
 }
+
+onMounted(() => {
+    if (max > 0) {
+        changeComment();
+    } 
+});
 </script>
 
 <template>
@@ -119,7 +127,7 @@ div.comment{
         div.button{
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            // justify-content: center;
             align-items: center;
             ul{
                 display: flex;
@@ -162,7 +170,7 @@ div.comment{
             div.changebtn{
                 button{
                     padding: 0.5rem;
-                    border-radius: 25px;
+                    border-radius: 5px;
                     font-size: 1rem;
                     background-color: #D3D2C7;
                     color: #2F2F2F;
