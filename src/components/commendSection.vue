@@ -66,6 +66,7 @@ onMounted(() => {
                         <li class="noBorder"><span>eprice</span></li> -->
                     </ul>
                     <div class="changebtn" @click="changeComment">其他評論</div>
+                </div>
                 <div class="commentList">
                     <Comment :platform="platform" :comments="comments"/>
                 </div>
