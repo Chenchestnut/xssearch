@@ -170,16 +170,16 @@ div.comment{
                 }
             }
             div.changebtn{
+                padding: 0.5rem;
+                border-radius: 35px;
                 border-bottom: black 0.5px solid;
+                background-color: #D3D2C7;
+                box-shadow: 0 0 0 0 #2F2F2F;
+                cursor: pointer;
                 button{
-                    padding: 0.5rem;
-                    border-radius: 35px;
                     border: none;
                     font-size: 0.8rem;
-                    background-color: #D3D2C7;
                     color: #2F2F2F;
-                    box-shadow: 0 0 0 0 #2F2F2F;
-                    cursor: pointer;
                 }
                 :hover{
                     background-color: #B5B8A3;
