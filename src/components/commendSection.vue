@@ -178,7 +178,7 @@ div.comment{
                     color: #2F2F2F;
                     box-shadow: 0 0 0 0 #2F2F2F;
                     cursor: pointer;
-                    :hover{
+                    &:hover{
                         background-color: #B5B8A3;
                     }
                 }
