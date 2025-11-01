@@ -120,6 +120,7 @@ div.comment{
             display: flex;
             flex-direction: row;
             justify-content: center;
+            align-items: center;
             ul{
                 display: flex;
                 justify-content: center;
@@ -128,10 +129,10 @@ div.comment{
                 li{
                     font-size: 1.5rem;
                     font-weight: 300;
-                    cursor: pointer;
+                    // cursor: pointer;
                     padding: 1rem 3rem;
-                    border-bottom: black 1px solid;
-                    border-right: #2F2F2F 1px solid;
+                    // border-bottom: black 1px solid;
+                    // border-right: #2F2F2F 1px solid;
                     @media screen and (max-width: 950px) {
                         padding: 1rem 1.5rem;
                     }
@@ -157,23 +158,20 @@ div.comment{
                         }
                     }
                 }
-                .noBorder{
-                    border-right: none;
-                }
             }
             div.changebtn{
                 button{
-                    padding: 1rem;
-                    border-radius: 35px;
+                    padding: 0.5rem;
+                    border-radius: 25px;
                     font-size: 1rem;
-                    background-color: #a5bfaf;
+                    background-color: #D3D2C7;
                     color: #2F2F2F;
                     box-shadow: 0 0 0 0 #2F2F2F;
                     :hover{
-                        cursor: pointer;
-                        background-color: #6bbd9f;
+                        background-color: #B5B8A3;
                         color: #2F2F2F;
                     }
+                    cursor: pointer;
                 }
             }
         }
