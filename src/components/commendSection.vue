@@ -159,9 +159,8 @@ div.comment{
                         width: 100%;
                         padding: 0.8rem 1.5rem;
                         border-bottom: black 0.5px solid;
-                        background-color: linear-gradient(to top, #e5e0db, #efece9);
                         @media screen and (max-width: 520px) {
-                            border: black 2px solid;
+                            border: black 0.5px solid;
                             border-radius: 35px;
                         }
                         // &:hover{
@@ -173,7 +172,7 @@ div.comment{
             }
             div.changebtn{
                 position: absolute;
-                right: 500px;
+                left: 0px;
                 button{
                     padding: 0.5rem;
                     border-radius: 10px;
