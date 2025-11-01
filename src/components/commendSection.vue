@@ -172,7 +172,7 @@ div.comment{
             }
             div.changebtn{
                 position: absolute;
-                right: 350px;
+                right: 305px;
                 button{
                     padding: 0.5rem;
                     border-radius: 10px;
