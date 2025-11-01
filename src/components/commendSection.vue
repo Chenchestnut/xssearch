@@ -126,9 +126,10 @@ div.comment{
         width: 80%;
         margin-top: 1.5rem;
         div.button{
+            position: relative;
             display: flex;
             flex-direction: row;
-            // justify-content: center;
+            justify-content: center;
             align-items: center;
             ul{
                 display: flex;
@@ -169,6 +170,8 @@ div.comment{
                 }
             }
             div.changebtn{
+                position: absolute;
+                right: 0;
                 button{
                     padding: 0.5rem;
                     border-radius: 5px;
