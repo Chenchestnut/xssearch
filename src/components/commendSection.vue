@@ -3,7 +3,8 @@
 import Comment from './Comment.vue';
 import { useSearchStore } from '../stores/useSearchStore';
 import { useAnalysisStore } from '../stores/useAnalysisStore';
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted } from 'vue';
+
 // console.log('commendSection 組件載入了');
 const searchStore = useSearchStore();
 const analysisStore = useAnalysisStore();
