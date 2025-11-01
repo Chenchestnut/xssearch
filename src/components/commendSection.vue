@@ -175,6 +175,7 @@ div.comment{
                 button{
                     padding: 0.5rem;
                     border-radius: 10px;
+                    border: oldlace 0.5px solid;
                     font-size: 0.8rem;
                     background-color: #D3D2C7;
                     color: #2F2F2F;
