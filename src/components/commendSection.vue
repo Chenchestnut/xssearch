@@ -174,7 +174,7 @@ div.comment{
                 right: 500px;
                 button{
                     padding: 0.5rem;
-                    border-radius: 30%;
+                    border-radius: 10px;
                     font-size: 0.8rem;
                     background-color: #D3D2C7;
                     color: #2F2F2F;
