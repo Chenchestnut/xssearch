@@ -140,7 +140,7 @@ div.comment{
                     font-size: 1.5rem;
                     font-weight: 300;
                     // cursor: pointer;
-                    padding: 1rem 3rem;
+                    padding: 1.5rem 5rem;
                     // border-bottom: black 1px solid;
                     // border-right: #2F2F2F 1px solid;
                     @media screen and (max-width: 950px) {
@@ -171,10 +171,10 @@ div.comment{
             }
             div.changebtn{
                 position: absolute;
-                right: 50px;
+                right: 500px;
                 button{
                     padding: 0.5rem;
-                    border-radius: 15%;
+                    border-radius: 30%;
                     font-size: 0.8rem;
                     background-color: #D3D2C7;
                     color: #2F2F2F;
