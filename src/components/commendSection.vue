@@ -159,7 +159,7 @@ div.comment{
                         padding: 0.8rem 1.5rem;
                         border-bottom: black 0.5px solid;
                         @media screen and (max-width: 520px) {
-                            border: black 0.5px solid;
+                            border-bottom: black 0.5px solid;
                             border-radius: 35px;
                         }
                         // &:hover{
@@ -173,7 +173,7 @@ div.comment{
                 button{
                     padding: 0.5rem;
                     border-radius: 35px;
-                    border-bottom: #2F2F2F 0.5px solid;
+                    border-bottom: black 0.5px solid;
                     font-size: 0.8rem;
                     background-color: #D3D2C7;
                     color: #2F2F2F;
