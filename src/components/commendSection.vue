@@ -46,18 +46,21 @@ function changeComment(){
                 <p>{{ analysisStore.analysis.summary}}</p>
             </div>
             <div class="commentContent">
-                <ul>
-                    <li><span :class="{active:platform === 'mobile01'}">mobile01</span></li>
-                    <!-- <li @click="handlePlatformChange('techbang')"><span :class="{active:platform === 'techbang'}">techbang</span></li>
-                    <li class="noBorder" @click="handlePlatformChange('eprice')"><span :class="{active:platform === 'eprice'}">eprice</span></li> -->
-                    <!-- <li><span>Momo</span></li>
-                    <li><span>PChome</span></li>
-                    <li><span>T客邦</span></li>
-                    <li class="noBorder"><span>eprice</span></li> -->
-                </ul>
-                <div class="changebtn">
-                    <button @click="changeComment">其他評論</button>
+                <div class="button">
+                    <ul>
+                        <li><span :class="{active:platform === 'mobile01'}">mobile01</span></li>
+                        <!-- <li @click="handlePlatformChange('techbang')"><span :class="{active:platform === 'techbang'}">techbang</span></li>
+                        <li class="noBorder" @click="handlePlatformChange('eprice')"><span :class="{active:platform === 'eprice'}">eprice</span></li> -->
+                        <!-- <li><span>Momo</span></li>
+                        <li><span>PChome</span></li>
+                        <li><span>T客邦</span></li>
+                        <li class="noBorder"><span>eprice</span></li> -->
+                    </ul>
+                    <div class="changebtn">
+                        <button @click="changeComment">其他評論</button>
+                    </div>
                 </div>
+                
                 <div class="commentList">
                     <Comment :platform="platform" :comments="comments"/>
                 </div>
@@ -113,48 +116,68 @@ div.comment{
     .commentContent{
         width: 80%;
         margin-top: 1.5rem;
-        ul{
+        div.button{
             display: flex;
+            flex-direction: row;
             justify-content: center;
-            list-style: none;
-            padding: 0;
-            li{
-                font-size: 1.5rem;
-                font-weight: 300;
-                cursor: pointer;
-                padding: 1rem 3rem;
-                border-bottom: black 1px solid;
-                border-right: #2F2F2F 1px solid;
-                @media screen and (max-width: 950px) {
-                    padding: 1rem 1.5rem;
-                }
-                @media screen and (max-width: 650px) {
-                    font-size: 1.2rem;
-                    padding: 0.75rem 1rem;
-                }
-                @media screen and (max-width: 520px) {
-                    font-size: 1rem;
-                    padding: 0.5rem 0.2rem;
-                    border: none;
-                }
-                span{
-                    width: 100%;
-                    padding: 0.1rem 0.3rem;
+            ul{
+                display: flex;
+                justify-content: center;
+                list-style: none;
+                padding: 0;
+                li{
+                    font-size: 1.5rem;
+                    font-weight: 300;
+                    cursor: pointer;
+                    padding: 1rem 3rem;
+                    border-bottom: black 1px solid;
+                    border-right: #2F2F2F 1px solid;
+                    @media screen and (max-width: 950px) {
+                        padding: 1rem 1.5rem;
+                    }
+                    @media screen and (max-width: 650px) {
+                        font-size: 1.2rem;
+                        padding: 0.75rem 1rem;
+                    }
                     @media screen and (max-width: 520px) {
-                        border: #B5B8A3 1px solid;
-                        border-radius: 35px;
+                        font-size: 1rem;
+                        padding: 0.5rem 0.2rem;
+                        border: none;
                     }
-                    &:hover{
-                    background-color: #D3D2C7;
-                    border-radius: 35px;
+                    span{
+                        width: 100%;
+                        padding: 0.1rem 0.3rem;
+                        @media screen and (max-width: 520px) {
+                            border: #B5B8A3 1px solid;
+                            border-radius: 35px;
+                        }
+                        &:hover{
+                        background-color: #D3D2C7;
+                        border-radius: 35px;
+                        }
                     }
                 }
-                
+                .noBorder{
+                    border-right: none;
+                }
             }
-            .noBorder{
-                border-right: none;
+            div.changebtn{
+                button{
+                    padding: 1rem;
+                    border-radius: 35px;
+                    font-size: 1rem;
+                    background-color: #a5bfaf;
+                    color: #2F2F2F;
+                    box-shadow: 0 0 0 0 #2F2F2F;
+                    :hover{
+                        cursor: pointer;
+                        background-color: #6bbd9f;
+                        color: #2F2F2F;
+                    }
+                }
             }
         }
+        
         .commentList{
             margin-top: 1.5rem;
             display: flex;
