@@ -13,7 +13,7 @@ const props = defineProps({
     },
     comments:{
         type: Array,
-        default: () => []
+        default: () => [0,1,2]
     }
 });
 // console.log(`${props.platform}Reviews:`, searchStore[`${props.platform}Reviews`]);
