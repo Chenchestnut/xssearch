@@ -3,8 +3,8 @@ import { useRouter } from 'vue-router';
 import { useSearchStore } from '../stores/useSearchStore';
 import defaultImage from '../assets/暫時沒有圖片.png';
 import { computed } from 'vue';
-import { useAlert } from '../SweetAlert';
-const { closeLoading} = useAlert();
+// import { useAlert } from '../SweetAlert';
+// const { closeLoading} = useAlert();
 
 const router = useRouter();
 const searchStore = useSearchStore();
@@ -34,10 +34,10 @@ const imgUrl = computed(()=>{
 });
 
 const source = parseSpecifications(props.spe);
-const changeToResult = () => {
-    closeLoading();
-  router.push('/searchResult');
-};
+// const changeToResult = () => {
+//     closeLoading();
+//   router.push('/searchResult');
+// };
 
 function parseSpecifications(spe){
     return spe.filter(item => 
@@ -48,7 +48,7 @@ function parseSpecifications(spe){
 
 <template>
 
-  <div class="cacheCard" @click="changeToResult">
+  <div class="cacheCard">
     <div class="box">
         <div class="imgBox">
             <img :src="props.img" alt="商品圖片" @error="imageError">

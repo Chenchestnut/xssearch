@@ -5,7 +5,9 @@ import { useSearchStore } from '../stores/useSearchStore';
 import { useIndexStore } from '../stores/useIndexStore';
 import { useAnalysisStore } from '../stores/useAnalysisStore';
 import { useAlert } from '../SweetAlert';
-const { showLoading} = useAlert();
+import { useRouter } from 'vue-router';
+const router = useRouter();
+const { showLoading, closeLoading} = useAlert();
 import axios from 'axios';
 const searchStore = useSearchStore();
 const indexStore = useIndexStore();
@@ -19,7 +21,7 @@ function handleAnalysis(index){
   getIdIndex(index);
   //接分析
   console.log(searchStore.search_keyword, searchStore.matched_products[index].id);
-  showLoading('努力搜尋中...')
+  showLoading('努力分析中...')
   axios.post('https://api-xssearch.brid.pw/api/analysis/',{"keyword":searchStore.search_keyword,"product_id": searchStore.matched_products[index].id},{
       headers: {
         'Content-Type': 'application/json',
@@ -29,6 +31,8 @@ function handleAnalysis(index){
     const data = response.data;
     console.log(data);
     analysisStore.saveAnalysisResults(data);
+    closeLoading();
+    router.push('/searchResult');
   })
   .catch(function(error){
     console.error(error);
