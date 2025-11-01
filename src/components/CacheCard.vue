@@ -3,6 +3,7 @@ import { useRouter } from 'vue-router';
 import { useSearchStore } from '../stores/useSearchStore';
 import defaultImage from '../assets/暫時沒有圖片.png';
 import { computed } from 'vue';
+import { useAlert } from '../SweetAlert';
 const { closeLoading} = useAlert();
 
 const router = useRouter();

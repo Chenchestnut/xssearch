@@ -4,6 +4,7 @@ import CacheCard from './CacheCard.vue';
 import { useSearchStore } from '../stores/useSearchStore';
 import { useIndexStore } from '../stores/useIndexStore';
 import { useAnalysisStore } from '../stores/useAnalysisStore';
+import { useAlert } from '../SweetAlert';
 const { showLoading} = useAlert();
 import axios from 'axios';
 const searchStore = useSearchStore();
