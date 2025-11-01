@@ -5,14 +5,19 @@ import { ref } from 'vue';
 const searchStore = useSearchStore();
 const analysisStore = useAnalysisStore();
 const isCollapse = ref({});
+// const mobile01Reviews = analysisStore.mobile01Reviews;
 const props = defineProps({
     platform: {
         type: String,
         default: 'mobile01'
+    },
+    comments:{
+        type: Array,
+        default: () => []
     }
 });
-console.log(`${props.platform}Reviews:`, searchStore[`${props.platform}Reviews`]);
-console.log('platform 值:', props.platform);
+// console.log(`${props.platform}Reviews:`, searchStore[`${props.platform}Reviews`]);
+// console.log('platform 值:', props.platform);
 const textLimit = 300;
 function showMask(comment){
     return comment.length > textLimit;
@@ -32,7 +37,7 @@ function getCollapseState(index){
 </script>
 
 <template>
-<div class="commentElement" v-for="(i, index) in analysisStore[`${props.platform}Reviews`]" :key="index">
+<div class="commentElement" v-for="(comment, index) in props.comments" :key="index">
     <div class="avatar"></div>
     <div class="content">
         <p>User：大強</p>
@@ -41,9 +46,9 @@ function getCollapseState(index){
             <i class="fa-regular fa-star"></i>
             <i class="fa-regular fa-star"></i>
         </div>
-        <div class="maskDistrict" :class="{collapse: getCollapseState(index) && showMask(i.comment)}">
-            <p @click="toggleCollapsed(index)">{{ i.comment }}</p>
-            <div v-if="getCollapseState(index) && showMask(i.comment)" class="mask" @click="toggleCollapsed(index)"></div>
+        <div class="maskDistrict" :class="{collapse: getCollapseState(index) && showMask(comment)}">
+            <p @click="toggleCollapsed(index)">{{ comment }}</p>
+            <div v-if="getCollapseState(index) && showMask(comment)" class="mask" @click="toggleCollapsed(index)"></div>
         </div>
     </div>
 </div>

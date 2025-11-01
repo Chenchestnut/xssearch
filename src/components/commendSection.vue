@@ -3,15 +3,38 @@
 import Comment from './Comment.vue';
 import { useSearchStore } from '../stores/useSearchStore';
 import { useAnalysisStore } from '../stores/useAnalysisStore';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 // console.log('commendSection 組件載入了');
 const searchStore = useSearchStore();
 const analysisStore = useAnalysisStore();
 // console.log('searchStore.analysis:', searchStore.analysis);
 // console.log('searchStore.analysis.summary:', searchStore.analysis.summary);
 const platform = ref('mobile01')
-function handlePlatformChange(platformName) {
-    platform.value = platformName;
+// function handlePlatformChange(platformName) {
+//     platform.value = platformName;
+// }
+const mobile01Reviews = analysisStore.mobile01Reviews;
+const max = mobile01Reviews.length;
+const count = 3;
+function randomNumber(count,max){
+    const number = []
+    while(number.length < count){
+        const randomIndex = Math.floor(Math.random() * max);
+        if(!number.includes(randomIndex)){
+            number.push(randomIndex);
+        }
+    }
+    return number;
+}
+const comments = ref([]);
+function changeComment(){
+    const selectComments = [];
+    const randomComments = randomNumber(count,max);
+    console.log('randomComments:', randomComments);
+    randomComments.forEach((index) => {
+        selectComments.push(mobile01Reviews[index].comment);
+    });
+    comments.value = selectComments;
 }
 </script>
 
@@ -24,16 +47,19 @@ function handlePlatformChange(platformName) {
             </div>
             <div class="commentContent">
                 <ul>
-                    <li @click="handlePlatformChange('mobile01')"><span :class="{active:platform === 'mobile01'}">mobile01</span></li>
-                    <li @click="handlePlatformChange('techbang')"><span :class="{active:platform === 'techbang'}">techbang</span></li>
-                    <li class="noBorder" @click="handlePlatformChange('eprice')"><span :class="{active:platform === 'eprice'}">eprice</span></li>
+                    <li><span :class="{active:platform === 'mobile01'}">mobile01</span></li>
+                    <!-- <li @click="handlePlatformChange('techbang')"><span :class="{active:platform === 'techbang'}">techbang</span></li>
+                    <li class="noBorder" @click="handlePlatformChange('eprice')"><span :class="{active:platform === 'eprice'}">eprice</span></li> -->
                     <!-- <li><span>Momo</span></li>
                     <li><span>PChome</span></li>
                     <li><span>T客邦</span></li>
                     <li class="noBorder"><span>eprice</span></li> -->
                 </ul>
+                <div class="changebtn">
+                    <button @click="changeComment">其他評論</button>
+                </div>
                 <div class="commentList">
-                    <Comment :platform="platform"/>
+                    <Comment :platform="platform" :comments="comments"/>
                 </div>
             </div>
         </div>

@@ -20,21 +20,21 @@ export const useAnalysisStore = defineStore("analysisResults", {
   }),
   persist: true, // Enable persistence
   getters: {
-    techbangReviews: (state) => {
-      return state.all_reviews
-        .filter((review) => review.source_platform === "techbang")
-        .slice(0, 3);
-    },
+    // techbangReviews: (state) => {
+    //   return state.all_reviews
+    //     .filter((review) => review.source_platform === "techbang")
+    //     .slice(0, 3);
+    // },
     mobile01Reviews: (state) => {
-      return state.all_reviews
-        .filter((review) => review.source_platform === "mobile01")
-        .slice(0, 3);
+      return state.all_reviews.filter(
+        (review) => review.source_platform === "mobile01"
+      );
     },
-    epriceReviews: (state) => {
-      return state.all_reviews
-        .filter((review) => review.source_platform === "eprice")
-        .slice(0, 3);
-    },
+    // epriceReviews: (state) => {
+    //   return state.all_reviews
+    //     .filter((review) => review.source_platform === "eprice")
+    //     .slice(0, 3);
+    // },
   },
   actions: {
     saveAnalysisResults(data) {
