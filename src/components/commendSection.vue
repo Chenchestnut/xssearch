@@ -178,8 +178,13 @@ div.comment{
                 cursor: pointer;
                 button{
                     border: none;
+                    background-color: #D3D2C7;
                     font-size: 0.8rem;
                     color: #2F2F2F;
+                    :hover{
+                    background-color: #B5B8A3;
+                    color: #2F2F2F;
+                }
                 }
                 :hover{
                     background-color: #B5B8A3;
