@@ -196,7 +196,7 @@ div.wholeNavbar{
                         min-width: 180px;
                         position: absolute;
                         top: 55px;
-                        right: -46px;
+                        right: -50px;
                         // left: 0;
                         margin-top: 2rem;
                         z-index: 999;
