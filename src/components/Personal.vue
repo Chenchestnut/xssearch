@@ -50,6 +50,8 @@ $word-color: #2F2F2F;
 .personal{
     section.opt{
         display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: rgba(210, 213, 218, 0.8);
         width: auto;
         max-width: 180px;
