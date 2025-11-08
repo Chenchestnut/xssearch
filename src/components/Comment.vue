@@ -40,12 +40,7 @@ function getCollapseState(index){
 <div class="commentElement" v-for="(comment, index) in props.comments" :key="index">
     <div class="avatar"></div>
     <div class="content">
-        <p>User：大強</p>
-        <div class="star">
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-        </div>
+        <p>User：使用者</p>
         <div class="maskDistrict" :class="{collapse: getCollapseState(index) && showMask(comment)}">
             <p @click="toggleCollapsed(index)">{{ comment }}</p>
             <div v-if="getCollapseState(index) && showMask(comment)" class="mask" @click="toggleCollapsed(index)"></div>
