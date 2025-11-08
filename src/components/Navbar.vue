@@ -192,8 +192,8 @@ div.wholeNavbar{
                     }
                     div.component{
                         display: flex;
-                        width: 150px;
-                        min-width: 180px;
+                        width: auto;
+                        min-width: 100px;
                         position: absolute;
                         top: 55px;
                         right: -40px;
