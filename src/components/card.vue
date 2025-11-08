@@ -87,7 +87,7 @@ function cardClick(index){
             </div>
         </div>
 
-        <div class="card" :class="{flipped : isFlipped3}" @click="cardClick(3)" @mouseenter="cardHover(3)" @mouseleave="cardHover(3)">
+        <!-- <div class="card" :class="{flipped : isFlipped3}" @click="cardClick(3)" @mouseenter="cardHover(3)" @mouseleave="cardHover(3)">
             <div class="cardFront">
                 好物比拚
             </div>
@@ -98,7 +98,7 @@ function cardClick(index){
                 <br>
                 對他們進行全方位的比較
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 

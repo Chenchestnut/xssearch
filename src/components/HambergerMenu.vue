@@ -36,10 +36,10 @@ onUnmounted(() => {
 
 let menu = computed(()=>{
     if(token.value){
-        return ['首頁', '普通搜尋','個人化推薦', '好物比拚', '升級方案', '登出']
+        return ['首頁', '普通搜尋','個人化推薦','登出']
     }
     else{
-        return ['首頁', '普通搜尋','個人化推薦', '好物比拚', '升級方案', '登入']
+        return ['首頁', '普通搜尋','個人化推薦','登入']
     }
 })
 function changePage(item){
@@ -53,17 +53,17 @@ function changePage(item){
         case '個人化推薦':
             router.push('/recommend');
             break;
-        case '好物比拚':
-            if(token.value){
-                router.push('/compare');
-            }
-            else{
-                router.push('/login');
-            }
-            break;
-        case '升級方案':
-            router.push('/membership');
-            break;
+        // case '好物比拚':
+        //     if(token.value){
+        //         router.push('/compare');
+        //     }
+        //     else{
+        //         router.push('/login');
+        //     }
+        //     break;
+        // case '升級方案':
+        //     router.push('/membership');
+        //     break;
         case '登出':
             inputStore.removeToken();
             router.push('/');
