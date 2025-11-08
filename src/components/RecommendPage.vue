@@ -83,6 +83,9 @@ form{
             padding: 1rem 4rem 1rem 1.25rem;
             font-size: 1rem;
         }
+        &:focus{
+            outline: none;
+        }
         }
         button{
             position: absolute;
