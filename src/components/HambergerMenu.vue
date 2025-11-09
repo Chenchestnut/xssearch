@@ -64,13 +64,13 @@ function changePage(item){
         // case '升級方案':
         //     router.push('/membership');
         //     break;
-        case '登出':
-            inputStore.removeToken();
-            router.push('/');
-            break;
-        case '登入':
-            router.push('/login');
-            break;
+        // case '登出':
+        //     inputStore.removeToken();
+        //     router.push('/');
+        //     break;
+        // case '登入':
+        //     router.push('/login');
+        //     break;
     }
 }
 </script>
