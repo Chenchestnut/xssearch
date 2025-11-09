@@ -134,7 +134,6 @@ overflow-x: hidden;
             justify-content: center;
             align-items: center;
             position: relative;
-            cursor: pointer;
             .avatar {
                 display: flex;
                 align-items: center;
