@@ -13,7 +13,6 @@ function handleToRecommendResult(){
         </div>
         <div class="briefDescription">
             <h2>華碩 ASUS ROG Strix G15</h2>
-            <h3>綜合星等：4.5<i class="fa-regular fa-star"></i></h3>
             <p>理由：我買了ASUS ROG Strix G15覺得超值，跑大型遊戲像是《LOL》和《APEX》都很順不卡，鍵盤RGB燈效也很帥，散熱做得不錯，打遊戲時機身不會過熱影響操作，螢幕更新率高，看起來超順眼，對喜歡玩遊戲的人來說真的很夠用，CP值很高，推薦給想要入門電競筆電的人。</p>
             <i class="fa-brands fa-adversal ad"></i>
         </div>
