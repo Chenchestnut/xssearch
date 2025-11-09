@@ -182,7 +182,6 @@ div.wholeNavbar{
                         }
                         i{
                             color: white;
-                            cursor: pointer;
                         }
                     }
                     i{
