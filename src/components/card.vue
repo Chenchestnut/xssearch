@@ -169,6 +169,7 @@ $word-color:#2F2F2F;
             }
         }
         .cardBack{
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -183,6 +184,8 @@ $word-color:#2F2F2F;
                 
             }
             .gopage{
+                position:absolute;
+                bottom: 1rem;
                 margin-top: 1.5rem;
                 padding: 0.5rem 1rem;
                 background-color: #B5B8A3;
