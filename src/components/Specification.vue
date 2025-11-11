@@ -5,10 +5,15 @@ import { useIndexStore } from '../stores/useIndexStore';
 const searchStore = useSearchStore();
 const indexStore = useIndexStore();
 let isCollapsed = ref(true);
+
+const props = defineProps({
+    flag:Array
+});
+
 function toggleCollapsed(){
     isCollapsed.value = !isCollapsed.value;
     console.log(isCollapsed);
-    console.log(searchStore.matched_products[indexStore.index].spec);
+    console.log(props.flag);
 }
 </script>
 
@@ -16,7 +21,7 @@ function toggleCollapsed(){
 <div class="specification">
     <div class="description" :class="{ collapsed: isCollapsed }">
         <ul>
-            <li v-for="(item,index) in searchStore.matched_products[indexStore.index].spec" :key="index">{{ item }}</li>
+            <li v-for="(item,index) in props.flag" :key="index">{{ item }}</li>
         </ul>
         <div v-if="isCollapsed" class="mask"></div>
     </div>

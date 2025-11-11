@@ -52,7 +52,7 @@ const setSectionRefs=(el,index)=>{
                 <GoodBadSection :ref="el=>setSectionRefs(el,0)"/>
                 <WordcloudSection :ref="el=>setSectionRefs(el,1)"/>
                 <CommendSection :ref="el=>setSectionRefs(el,2)"/>
-                <SpecificationSection :ref="el=>setSectionRefs(el,3)"/>
+                <SpecificationSection :ref="el=>setSectionRefs(el,3)" :flag="searchStore.matched_products[indexStore.index].spec"/>
             </section>
         </div>
     </div>
