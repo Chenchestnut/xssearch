@@ -1,12 +1,10 @@
 <script setup>
 // alert('commendSection 組件開始載入');
 import Comment from './Comment.vue';
-import { useSearchStore } from '../stores/useSearchStore';
 import { useAnalysisStore } from '../stores/useAnalysisStore';
 import { computed, ref, onMounted } from 'vue';
 
 // console.log('commendSection 組件載入了');
-const searchStore = useSearchStore();
 const analysisStore = useAnalysisStore();
 // console.log('searchStore.analysis:', searchStore.analysis);
 // console.log('searchStore.analysis.summary:', searchStore.analysis.summary);

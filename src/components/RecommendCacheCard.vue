@@ -1,24 +1,42 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import { computed } from 'vue';
 const router = useRouter();
-function handleToRecommendResult(){
-    router.push('/recommendResult');
+
+const props = defineProps({
+    name:String,
+    img:String,
+    reason:String,
+})
+
+function changeURL(url){
+    return url.replace('originals','236x')
 }
+const imageError = (event) => {
+    event.target.src = changeURL(props.img);
+    event.target.alt = '暫無商品圖片';
+}
+
+const imgUrl = computed(()=>{
+    if(!props.img || props.img === '' || props.img === '商品圖片'){
+        return defaultImage;
+    }else{
+        return props.img;
+    }
+});
 </script>
 
 <template>
-    <div class="recommendCacheCard" @click="handleToRecommendResult">
+    <div class="recommendCacheCard">
         <div class="imgBox">
-            <img src="../assets/asus.jpg" alt="商品圖片">
+            <img :src="props.img" alt="商品圖片" @error="imageError">
         </div>
         <div class="briefDescription">
-            <h2>華碩 ASUS ROG Strix G15</h2>
-            <p>理由：我買了ASUS ROG Strix G15覺得超值，跑大型遊戲像是《LOL》和《APEX》都很順不卡，鍵盤RGB燈效也很帥，散熱做得不錯，打遊戲時機身不會過熱影響操作，螢幕更新率高，看起來超順眼，對喜歡玩遊戲的人來說真的很夠用，CP值很高，推薦給想要入門電競筆電的人。</p>
-            <i class="fa-brands fa-adversal ad"></i>
+            <h2>{{props.name}}</h2>
+            <p>{{ props.reason }}</p>
+            <!-- <i class="fa-brands fa-adversal ad"></i> -->
         </div>
-        
     </div>
-
 </template>
 
 

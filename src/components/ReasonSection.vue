@@ -1,5 +1,11 @@
 <script setup>
-
+import { useRecommendStore } from '../stores/useRecommendStore';
+import { useIndexStore } from '../stores/useIndexStore';
+import { useAnalysisStore } from '../stores/useAnalysisStore';
+    
+const recommendStore = useRecommendStore();
+const analysisStore = useAnalysisStore();
+const indexStore = useIndexStore();
 </script>
 
 <template>
@@ -7,7 +13,7 @@
         <div class="box">
             <h2 class="title">推薦理由</h2>
             <div class="reasonContent">
-                <p>這款手機擁有出色的性能和優雅的設計，無論是拍照還是遊戲都能輕鬆應對。</p>
+                <p>{{ recommendStore.recommendation[indexStore.index].reason }}</p>
             </div>
         </div>
     </div>

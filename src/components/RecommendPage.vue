@@ -1,10 +1,13 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import Navbar from './Navbar.vue';
+import { useAlert } from '../SweetAlert';
+import axios from 'axios';
 import { useRouter } from 'vue-router';
 import { useAnimations } from '../composables/useAnimations';
 const searchQuery = ref('');
 const router = useRouter();
+const { showLoading, closeLoading, showWarning} = useAlert();
 const {  searchBoxAnimation } = useAnimations();
 
 onMounted(()=>{
@@ -12,10 +15,30 @@ onMounted(()=>{
 })
 function handleSearch(){
     if(searchQuery.value.trim()===''){
-        alert('請輸入商品型號或關鍵字');
+        showWarning('請輸入商品需求');
         return;
     }
-    router.push('/recommendPageCache');
+    showLoading('努力搜尋中...')
+    // 串接推薦查詢api
+    axios.post('https://api-xssearch.brid.pw/api/recommend/',{"detail":searchQuery.value},{
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    })
+    .then(function(response){
+        const data = response.data;
+        console.log(data);
+        searchStore.saveRecommendResults(data);
+        closeLoading()
+        // 將搜尋結果存入store後，跳轉到recommendPageCache
+        router.push('/recommendPageCache');
+    })
+    .catch(function(error){
+        console.error(error);
+        closeLoading()
+        showWarning("QQ 沒找到相關資訊!", "請檢查您的輸入是否有拼寫錯誤，或嘗試使用不同的關鍵詞進行搜索。")
+    })
+    
 }
 
 </script>

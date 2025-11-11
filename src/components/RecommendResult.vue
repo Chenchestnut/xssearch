@@ -9,17 +9,17 @@ import CommendSection from './commendSection.vue';
 import SpecificationSection from './specificationSection.vue';
 import { onMounted, ref } from 'vue';
 import { useAnimations } from '../composables/useAnimations';
-import { useSearchStore } from '../stores/useSearchStore';
+import { useRecommendStore } from '../stores/useRecommendStore';
 import { useIndexStore } from '../stores/useIndexStore';
 const sections = ref([
     {title:"推薦理由"},
     {title:"優缺點"},
-    {title:"文字雲"},
+    // {title:"文字雲"},
     {title:"評論"},
     {title:"規格"}
 ])
 let sectionRefs = [];
-const searchStore = useSearchStore();
+const recommendStore = useRecommendStore();
 const indexStore = useIndexStore();
 
 const { fadeIn } = useAnimations();
@@ -39,15 +39,15 @@ const setSectionRefs=(el,index)=>{
     <Navbar />
     <div class="recommendResult">
         <aside>
-            <photoSection :img="searchStore.matched_products[indexStore.index].img"/>
+            <photoSection :img="recommendStore.recommendation[indexStore.index].img"/>
         </aside>
         <div class="content">
             <section class="result">
                 <ReasonSection :ref="el=>setSectionRefs(el,0)"/>
                 <GoodBadSection :ref="el=>setSectionRefs(el,1)"/>
-                <WordcloudSection :ref="el=>setSectionRefs(el,2)"/>
-                <!-- <CommendSection :ref="el=>setSectionRefs(el,3)"/> -->
-                <SpecificationSection :ref="el=>setSectionRefs(el,4)"/>
+                <!-- <WordcloudSection :ref="el=>setSectionRefs(el,2)"/> -->
+                <CommendSection :ref="el=>setSectionRefs(el,2)"/>
+                <SpecificationSection :ref="el=>setSectionRefs(el,3)"/>
             </section>
         </div>
     </div>    
