@@ -20,7 +20,7 @@ function handleSearch(){
     }
     showLoading('努力搜尋中...')
     // 串接推薦查詢api
-    axios.post('https://api-xssearch.brid.pw/api/recommend/',{"detail":searchQuery.value},{
+    axios.post('https://api-xssearch.brid.pw/api/recommend/',{"query":searchQuery.value},{
     headers: {
       'Content-Type': 'application/json',
     },
