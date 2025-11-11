@@ -5,6 +5,8 @@ import { useAlert } from '../SweetAlert';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 import { useAnimations } from '../composables/useAnimations';
+import { useRecommendStore } from '../stores/useRecommendStore';
+const recommendStore = useRecommendStore();
 const searchQuery = ref('');
 const router = useRouter();
 const { showLoading, closeLoading, showWarning} = useAlert();
@@ -28,7 +30,7 @@ function handleSearch(){
     .then(function(response){
         const data = response.data;
         console.log(data);
-        searchStore.saveRecommendResults(data);
+        recommendStore.saveRecommendResults(data);
         closeLoading()
         // 將搜尋結果存入store後，跳轉到recommendPageCache
         router.push('/recommendPageCache');
