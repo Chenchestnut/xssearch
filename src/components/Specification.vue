@@ -5,7 +5,7 @@ import { useIndexStore } from '../stores/useIndexStore';
 const searchStore = useSearchStore();
 const indexStore = useIndexStore();
 let isCollapsed = ref(true);
-
+console.log('成功渲染');
 const props = defineProps({
     flag:Array
 });
