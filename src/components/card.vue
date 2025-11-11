@@ -70,7 +70,11 @@ function cardClick(index){
                 普通查詢
             </div>
             <div class="cardBack">
-                試著輸入你要找的商品型號吧！
+                試著輸入你要找的商品名稱
+                <br>
+                讓我們幫你分析他的優缺點
+                <br>
+                做出評論總結
                 <div class="gopage">
                     馬上體驗
                 </div>
