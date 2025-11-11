@@ -21,6 +21,8 @@ function handleSearch(){
         return;
     }
     showLoading('努力搜尋中...')
+    const requestData = {"query": searchQuery.value};
+    console.log('發送的請求資料:', requestData);
     // 串接推薦查詢api
     axios.post('https://api-xssearch.brid.pw/api/recommend/',{"query":searchQuery.value},{
     headers: {
@@ -36,7 +38,11 @@ function handleSearch(){
         router.push('/recommendPageCache');
     })
     .catch(function(error){
-        console.error(error);
+        console.error('錯誤詳情:', error);
+        console.error('錯誤回應:', error.response); // 重要：查看後端返回的錯誤訊息
+        console.error('錯誤資料:', error.response?.data);
+        console.error('錯誤狀態碼:', error.response?.status);
+        // console.error(error);
         closeLoading()
         showWarning("QQ 沒找到相關資訊!", "請檢查您的輸入是否有拼寫錯誤，或嘗試使用不同的關鍵詞進行搜索。")
     })
