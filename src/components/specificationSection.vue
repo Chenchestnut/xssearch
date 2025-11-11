@@ -1,12 +1,15 @@
 <script setup>
 import Specification from './Specification.vue'
+const props = defineProps({
+    flag:Array
+});
 </script>
 
 <template>
     <section>
         <div class="specification">
             <h2>規格</h2>
-            <Specification />
+            <Specification :flag="props.flag"/>
         </div>
     </section>
 </template>

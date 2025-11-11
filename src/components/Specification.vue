@@ -1,20 +1,13 @@
 <script setup>
 import { ref } from 'vue';
-import { useSearchStore } from '../stores/useSearchStore';
-import { useIndexStore } from '../stores/useIndexStore';
-const searchStore = useSearchStore();
-const indexStore = useIndexStore();
 let isCollapsed = ref(true);
-console.log('成功渲染');
-const props = defineProps({
-    flag:Array
-});
-console.log('接收到的 flag:', props.flag);
 function toggleCollapsed(){
     isCollapsed.value = !isCollapsed.value;
     console.log(isCollapsed);
-    console.log(props.flag);
 }
+const props = defineProps({
+    flag:Array
+});
 </script>
 
 <template>
