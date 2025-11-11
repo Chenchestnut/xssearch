@@ -9,6 +9,7 @@ export const useRecommendStore = defineStore("recommendResults", {
         name: "",
         img: "",
         reason: "",
+        spec: [],
       },
     ],
     // analysis: {
@@ -39,6 +40,10 @@ export const useRecommendStore = defineStore("recommendResults", {
         name: product.product_name,
         img: product.img,
         reason: product.summary,
+        spec:
+          typeof product.spec === "string"
+            ? product.spec.split("+")
+            : ["暫無規格"],
       }));
     },
   },
