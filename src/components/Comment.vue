@@ -77,7 +77,7 @@ $word-color:#2F2F2F;
         p{
             font-size: 1rem;
             padding: 0.5rem 0;
-            cursor: pointer;
+            // cursor: pointer;
             @media screen and (max-width: 520px) {
                 font-size: 0.9rem;
             }
