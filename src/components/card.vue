@@ -140,7 +140,7 @@ $word-color:#2F2F2F;
         .cardFront,.cardBack{
             position: absolute;
             width: 100%;
-            height: 70%;
+            height: 85%;
             border-radius: 35px;
             display: flex;
             align-items: center;
