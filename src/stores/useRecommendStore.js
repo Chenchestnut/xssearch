@@ -35,7 +35,7 @@ export const useRecommendStore = defineStore("recommendResults", {
   actions: {
     saveRecommendResults(data) {
       this.matched_products_count = data.length;
-      this.recommendation = data.map((product) => ({
+      this.recommendation = data.recommendation.map((product) => ({
         id: product.id,
         name: product.product_name,
         img: product.img,
