@@ -71,6 +71,7 @@ function cardClick(index){
             </div>
             <div class="cardBack">
                 試著輸入你要找的商品型號吧！
+                <br>
                 <div class="gopage">
                     馬上體驗
                 </div>
@@ -87,6 +88,7 @@ function cardClick(index){
                 你可以試試輸入你的需求
                 <br>
                 EX:我想要一台可以打電動的筆電
+                <br>
                 <div class="gopage">
                     馬上體驗
                 </div>
