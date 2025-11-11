@@ -14,15 +14,15 @@ import CompareResult from "./components/CompareResult.vue";
 
 const routes = [
   { path: "/", component: HomePage },
-  { path: "/login", component: LogIn },
-  { path: "/register", component: Register },
+  // { path: "/login", component: LogIn },
+  // { path: "/register", component: Register },
   { path: "/search", component: SearchPage },
   { path: "/searchPagecache", component: SearchPageCache },
   { path: "/searchResult", component: SearchResult },
   { path: "/recommend", component: RecommendPage },
   { path: "/recommendPageCache", component: RecommendPageCache },
   { path: "/recommendResult", component: RecommendResult },
-  { path: "/membership", component: Membership },
+  // { path: "/membership", component: Membership },
   { path: "/compare", component: ComparePage },
   { path: "/compareResult", component: CompareResult },
 ];

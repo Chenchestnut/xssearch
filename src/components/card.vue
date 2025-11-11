@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue';
-
+import { useRouter } from 'vue-router';
+const router = useRouter();
 const isFlipped1 = ref(false);
 const isFlipped2 = ref(false);
 const isFlipped3 = ref(false);
@@ -75,7 +76,7 @@ function cardClick(index){
                 讓我們幫你分析他的優缺點
                 <br>
                 做出評論總結
-                <div class="gopage">
+                <div class="gopage" @click="router.push('/search')">
                     馬上體驗
                 </div>
             </div>
@@ -91,7 +92,7 @@ function cardClick(index){
                 你可以試試輸入你的需求
                 <br>
                 EX:我想要一台可以打電動的筆電
-                <div class="gopage">
+                <div class="gopage" @click="router.push('/recommend')">
                     馬上體驗
                 </div>
             </div>
