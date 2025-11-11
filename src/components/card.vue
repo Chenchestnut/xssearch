@@ -71,6 +71,9 @@ function cardClick(index){
             </div>
             <div class="cardBack">
                 試著輸入你要找的商品型號吧！
+                <div class="gopage">
+                    馬上體驗
+                </div>
             </div>
         </div>
 
@@ -84,6 +87,9 @@ function cardClick(index){
                 你可以試試輸入你的需求
                 <br>
                 EX:我想要一台可以打電動的筆電
+                <div class="gopage">
+                    馬上體驗
+                </div>
             </div>
         </div>
 
@@ -172,6 +178,21 @@ $word-color:#2F2F2F;
             @media screen and (max-width: 520px) {
                 font-size: 1rem;
                 
+            }
+            .gopage{
+                margin-top: 1.5rem;
+                padding: 0.5rem 1rem;
+                background-color: #6bbd9f;
+                box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px;
+                border: none;
+                border-radius: 20px;
+                font-size: 1rem;
+                color: $word-color;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                &:hover{
+                    background-color: darken(#6bbd9f, 5%);
+                }
             }
         }
     }
