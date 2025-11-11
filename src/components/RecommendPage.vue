@@ -31,7 +31,7 @@ function handleSearch(){
     })
     .then(function(response){
         const data = response.data;
-        console.log(data);
+        console.log('recommend:',data);
         recommendStore.saveRecommendResults(data);
         closeLoading()
         // 將搜尋結果存入store後，跳轉到recommendPageCache

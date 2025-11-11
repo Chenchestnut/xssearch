@@ -9,7 +9,7 @@ let isCollapsed = ref(true);
 const props = defineProps({
     flag:Array
 });
-
+console.log('接收到的 flag:', props.flag);
 function toggleCollapsed(){
     isCollapsed.value = !isCollapsed.value;
     console.log(isCollapsed);
