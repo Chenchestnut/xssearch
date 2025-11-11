@@ -3,10 +3,15 @@ import Navbar from './Navbar.vue';
 import RecommendCacheCard from './RecommendCacheCard.vue';
 import { useAlert } from '../SweetAlert';
 import axios from 'axios';
+import { useRouter } from 'vue-router';
+import{ useIndexStore } from '../stores/useIndexStore';
 import { useRecommendStore } from '../stores/useRecommendStore';
+import { useAnalysisStore } from '../stores/useAnalysisStore';
 const { showLoading, closeLoading} = useAlert();
 const recommendStore = useRecommendStore();
-
+const indexStore = useIndexStore();
+const analysisStore = useAnalysisStore();
+const router = useRouter();
 
 function getIdIndex(index){
   indexStore.setIndex(index);
