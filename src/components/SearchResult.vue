@@ -26,6 +26,7 @@ onMounted(()=>{
     window.scrollTo({ top: 0, behavior: 'instant' });
     sectionRefs = new Array(sections.value.length).fill(null)
     fadeIn('.searchResult')
+    window.scrollTo({ top: 0, behavior: 'instant' });
 })
 const setSectionRefs=(el,index)=>{
     // el是組件實例，$el是組件的根元素
