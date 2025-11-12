@@ -184,16 +184,13 @@ $word-color:#2F2F2F;
             border-radius: 35px;
             transform: rotateY(180deg);
             @media screen and (max-width: 520px) {
-                font-size: 1rem;
+                font-size: 0.9rem;
                 
             }
             div.text{
-                // display: flex;
-                // flex-direction: column;
-                // justify-content: center;
                 font-size: 1.25rem;
                 text-align: center;
-                line-height: 1.3;
+                line-height: 1.4;
             }
             .gopage{
                 position:absolute;
