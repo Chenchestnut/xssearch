@@ -59,9 +59,10 @@ section{
             flex-direction: column;    
             justify-content: center;
             align-items: center;
-            gap: 1;
+            gap: 1rem;
         }
         div.advantage, div.disadvantage{
+            width: calc(50% - 1rem);
             width: 100%;
             max-width: 350px;
             // text-align: center;
