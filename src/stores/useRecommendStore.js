@@ -1,5 +1,15 @@
 import { defineStore } from "pinia";
 
+function removeTextBeforeColon(text) {
+  if (text.includes(":")) {
+    return text.split(":").slice(1).join(":").trim();
+  }
+  if (text.includes("：")) {
+    return text.split("：").slice(1).join("：").trim();
+  }
+  return text;
+}
+
 export const useRecommendStore = defineStore("recommendResults", {
   state: () => ({
     matched_products_count: 0,
@@ -39,7 +49,7 @@ export const useRecommendStore = defineStore("recommendResults", {
         id: product.id,
         name: product.product_name,
         img: product.img,
-        reason: product.summary,
+        reason: removeTextBeforeColon(product.summary),
         spec:
           typeof product.spec === "string"
             ? product.spec.split("+")
