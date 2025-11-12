@@ -23,6 +23,7 @@ const sections = ref([
 // const sectionRefs = ref(new Array(sections.value.length).fill(null));
 let sectionRefs = [];
 onMounted(()=>{
+    window.scrollTo({ top: 0, behavior: 'instant' });
     sectionRefs = new Array(sections.value.length).fill(null)
     fadeIn('.searchResult')
 })

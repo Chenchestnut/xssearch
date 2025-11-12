@@ -13,6 +13,7 @@ const offset = ref(0);
 const { fadeIn } = useAnimations();
 
 onMounted(()=>{
+    window.scrollTo({ top: 0, behavior: 'instant' });
     fadeIn('.compareResult');
     const navbarElement = document.querySelector('.navbar');
     if(navbarElement){
