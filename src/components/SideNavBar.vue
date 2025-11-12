@@ -89,6 +89,7 @@ $word-color: #2F2F2F;
         padding: 0.3rem 0;
         padding-left: 0.5rem;
         li{
+            width: auto;
             list-style: none;
             padding: 0.3rem 0.2rem;
             border-bottom: 1px solid #ccc;
