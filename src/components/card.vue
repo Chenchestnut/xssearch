@@ -143,7 +143,7 @@ $word-color:#2F2F2F;
         cursor: pointer;
         margin: 0.5rem 3rem;
         @media screen and (max-width: 500px) {
-            margin: 0.5rem 0rem;
+            margin: 0.3rem 0rem;
         }
         
         .cardFront,.cardBack{

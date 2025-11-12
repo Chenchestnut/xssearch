@@ -250,7 +250,7 @@ overflow-x: hidden;
             box-shadow: inset 4px 4px 8px rgba(255, 255, 255, 0.7),
                         inset -4px -4px 4px rgba(0, 0, 0, 0.1);
             @media screen and (max-width: 768px){
-                margin-top: 8rem;
+                margin-top: 4rem;
             }
             &:hover{
                 transform: scale(1.05);
