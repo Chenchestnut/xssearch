@@ -252,6 +252,9 @@ overflow-x: hidden;
             @media screen and (max-width: 768px){
                 margin-top: 4rem;
             }
+            @media screen and (max-width: 520px){
+                font-size: 1.2rem;
+            }
             &:hover{
                 transform: scale(1.05);
                 background-color: #D4B2A8;
