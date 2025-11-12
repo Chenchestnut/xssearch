@@ -17,7 +17,7 @@ onMounted(()=>{
     searchBoxAnimation('.searchBar')
 })
 
-function handleSearch(){
+async function handleSearch(){
     if(searchQuery.value.trim() === '') {
         showWarning('請輸入商品型號或關鍵字', '搜尋欄位不能為空！');
         return;
