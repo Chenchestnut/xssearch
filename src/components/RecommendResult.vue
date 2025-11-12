@@ -14,7 +14,7 @@ import { useIndexStore } from '../stores/useIndexStore';
 const sections = ref([
     {title:"推薦理由"},
     {title:"優缺點"},
-    // {title:"文字雲"},
+    {title:"文字雲"},
     {title:"評論"},
     {title:"規格"}
 ])
@@ -45,7 +45,7 @@ const setSectionRefs=(el,index)=>{
             <section class="result">
                 <ReasonSection :ref="el=>setSectionRefs(el,0)"/>
                 <GoodBadSection :ref="el=>setSectionRefs(el,1)"/>
-                <!-- <WordcloudSection :ref="el=>setSectionRefs(el,2)"/> -->
+                <WordcloudSection :ref="el=>setSectionRefs(el,2)"/>
                 <CommendSection :ref="el=>setSectionRefs(el,2)"/>
                 <SpecificationSection :ref="el=>setSectionRefs(el,3)" :flag="recommendStore.recommendation[indexStore.index].spec"/>
             </section>
