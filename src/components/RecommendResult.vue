@@ -46,8 +46,8 @@ const setSectionRefs=(el,index)=>{
                 <ReasonSection :ref="el=>setSectionRefs(el,0)"/>
                 <GoodBadSection :ref="el=>setSectionRefs(el,1)"/>
                 <WordcloudSection :ref="el=>setSectionRefs(el,2)"/>
-                <CommendSection :ref="el=>setSectionRefs(el,2)"/>
-                <SpecificationSection :ref="el=>setSectionRefs(el,3)" :flag="recommendStore.recommendation[indexStore.index].spec"/>
+                <CommendSection :ref="el=>setSectionRefs(el,3)"/>
+                <SpecificationSection :ref="el=>setSectionRefs(el,4)" :flag="recommendStore.recommendation[indexStore.index].spec"/>
             </section>
         </div>
     </div>    
