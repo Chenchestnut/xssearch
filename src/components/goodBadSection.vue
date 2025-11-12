@@ -39,6 +39,9 @@ h2.title{
     }
 }
 section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex-shrink: 0;
     width: 100%;
     // margin-left: 15px;
