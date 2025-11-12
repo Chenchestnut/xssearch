@@ -51,7 +51,7 @@ section{
         flex-direction: row;
         flex-wrap: wrap;
         flex: 0 1 auto;
-        justify-content: space-between;
+        justify-content: center;
         gap: 2rem;
         width: 80%;
         margin: 2rem 0;
@@ -62,7 +62,6 @@ section{
             gap: 1rem;
         }
         div.advantage, div.disadvantage{
-            width: calc(50% - 1rem);
             width: 100%;
             max-width: 350px;
             // text-align: center;
