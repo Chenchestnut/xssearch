@@ -18,7 +18,7 @@ const sections = ref([
     {title:"評論"},
     {title:"規格"}
 ])
-let sectionRefs = [];
+let sectionRefs = ref([]);
 const recommendStore = useRecommendStore();
 const indexStore = useIndexStore();
 
