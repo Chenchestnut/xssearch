@@ -24,7 +24,7 @@ const indexStore = useIndexStore();
 
 const { fadeIn } = useAnimations();
 onMounted(()=>{
-    sectionRefs = new Array(sections.value.length).fill(null)
+    sectionRefs.value = new Array(sections.value.length).fill(null)
     fadeIn('.recommendResult')
 })
 const setSectionRefs=(el,index)=>{
