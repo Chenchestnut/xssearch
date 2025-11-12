@@ -29,7 +29,7 @@ onMounted(()=>{
 })
 const setSectionRefs=(el,index)=>{
     // el是組件實例，$el是組件的根元素
-    if(el) sectionRefs[index] = el.$el
+    if(el) sectionRefs.value[index] = el.$el
 }
 </script>
 
