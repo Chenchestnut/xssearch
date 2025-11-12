@@ -62,7 +62,7 @@ section{
             gap: 1;
         }
         div.advantage, div.disadvantage{
-            width: 15%;
+            width: 100%;
             max-width: 350px;
             // text-align: center;
             border-radius: 35px;
