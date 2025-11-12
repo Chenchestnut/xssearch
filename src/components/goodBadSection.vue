@@ -41,6 +41,7 @@ h2.title{
 section{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     flex-shrink: 0;
     width: 100%;
