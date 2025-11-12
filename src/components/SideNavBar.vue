@@ -90,7 +90,7 @@ $word-color: #2F2F2F;
         padding-left: 0.5rem;
         li{
             list-style: none;
-            padding: 0.3rem;
+            padding: 0.3rem 0.2rem;
             border-bottom: 1px solid #ccc;
             text-decoration: none;
             color: $word-color;
@@ -106,7 +106,6 @@ $word-color: #2F2F2F;
         li.active{
             background-color: #B5B8A3;
             border-radius: 35px;
-            padding: 0.3rem 0.3rem 0.3rem 0.5rem;
         }
     }
 }
