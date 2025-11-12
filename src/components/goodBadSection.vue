@@ -56,9 +56,10 @@ section{
         width: 80%;
         margin: 2rem 0;
         @media screen and (max-width: 520px) {
-                justify-content: center;
-                align-items: center;
-                gap: 0;
+            flex-direction: column;    
+            justify-content: center;
+            align-items: center;
+            gap: 0;
         }
         div.advantage, div.disadvantage{
             width: 15%;
