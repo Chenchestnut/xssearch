@@ -180,6 +180,7 @@ $word-color:#2F2F2F;
             justify-content: center;
             font-size: 1.25rem;
             text-align: center;
+            line-height: 1.5;
             background-color: #d3d2c7;
             box-shadow: #B5B8A3 -0.5rem 0.5rem;
             border-radius: 35px;
