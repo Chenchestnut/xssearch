@@ -204,6 +204,10 @@ $word-color:#2F2F2F;
                 &:hover{
                     background-color: darken(#B5B8A3, 5%);
                 }
+                @media screen and (max-width: 520px) {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.8rem;
+                }
             }
         }
     }
