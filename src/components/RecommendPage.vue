@@ -15,38 +15,55 @@ const {  searchBoxAnimation } = useAnimations();
 onMounted(()=>{
     searchBoxAnimation('.searchBar')
 })
-function handleSearch(){
+async function handleSearch(){
     if(searchQuery.value.trim()===''){
         showWarning('請輸入商品需求');
         return;
     }
     showLoading('努力搜尋中...')
-    const requestData = {"query": searchQuery.value};
-    console.log('發送的請求資料:', requestData);
-    // 串接推薦查詢api
-    axios.post('https://api-xssearch.brid.pw/api/recommend/',{"query":searchQuery.value},{
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    })
-    .then(function(response){
+    try{
+        updateLoading(5);
+        const response = await axios.post(
+            'https://api-xssearch.brid.pw/api/recommend/',
+            {"keyword":searchQuery.value},
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                onDownloadProgress: (progressEvent) => {
+                    if (progressEvent.total) {
+                        // 將下載進度映射到 10% - 80%
+                        const percentCompleted = Math.round(
+                            (progressEvent.loaded * 70) / progressEvent.total + 10
+                        );
+                        updateLoading(percentCompleted);
+                        console.log('下載進度:', percentCompleted);
+                    } else {
+                        // 如果沒有 total，使用假進度
+                        updateLoading(50);
+                    }
+                }
+            }
+        );
+
         const data = response.data;
-        console.log('recommend:',data);
+        console.log(data);
+        updateLoading(85);  // 資料處理中
         recommendStore.saveRecommendResults(data);
+        updateLoading(95);
+        // 稍微延遲，讓進度條到達 100%
+        await new Promise(resolve => setTimeout(resolve, 200));
+        updateLoading(100);
+        
+        // 再延遲一下讓使用者看到 100%
+        await new Promise(resolve => setTimeout(resolve, 300));
         closeLoading()
-        // 將搜尋結果存入store後，跳轉到recommendPageCache
-        router.push('/recommendPageCache');
-    })
-    .catch(function(error){
-        console.error('錯誤詳情:', error);
-        console.error('錯誤回應:', error.response); // 重要：查看後端返回的錯誤訊息
-        console.error('錯誤資料:', error.response?.data);
-        console.error('錯誤狀態碼:', error.response?.status);
-        // console.error(error);
+        router.push('/recommendPageCache')
+    }catch(error){
+        console.error(error);
         closeLoading()
         showWarning("QQ 沒找到相關資訊!", "請檢查您的輸入是否有拼寫錯誤，或嘗試使用不同的關鍵詞進行搜索。")
-    })
-    
+    }
 }
 
 </script>
