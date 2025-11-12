@@ -59,14 +59,14 @@ section{
             flex-direction: column;    
             justify-content: center;
             align-items: center;
-            gap: 0;
+            gap: 1;
         }
         div.advantage, div.disadvantage{
             width: 15%;
-            min-width: 350px;
+            max-width: 350px;
             // text-align: center;
             border-radius: 35px;
-            margin: 2rem 0;
+            // margin: 2rem 0;
             padding: 1.5rem 0 1.5rem 2rem;
             @media screen and (max-width: 520px) {
                 min-width: 290px;
