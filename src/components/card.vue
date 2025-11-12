@@ -188,12 +188,12 @@ $word-color:#2F2F2F;
                 
             }
             div.text{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+                // display: flex;
+                // flex-direction: column;
+                // justify-content: center;
                 font-size: 1.25rem;
                 text-align: center;
-                line-height: 1.5;
+                line-height: 1.3;
             }
             .gopage{
                 position:absolute;
