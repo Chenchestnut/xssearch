@@ -46,7 +46,7 @@ const setSectionRefs=(el,index)=>{
     <Navbar />
     <div class="recommendResult">
         <aside>
-            <photoSection :img="recommendStore.recommendation[indexStore.index].img"/>
+            <photoSection :img="recommendStore.recommendation[indexStore.index].img" :name="recommendStore.recommendation[indexStore.index].name"/>
         </aside>
         <div class="content">
             <section class="result">
