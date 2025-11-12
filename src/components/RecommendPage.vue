@@ -9,7 +9,7 @@ import { useRecommendStore } from '../stores/useRecommendStore';
 const recommendStore = useRecommendStore();
 const searchQuery = ref('');
 const router = useRouter();
-const { showLoading, closeLoading, showWarning} = useAlert();
+const { showLoading, closeLoading, showWarning, updateLoading } = useAlert();
 const {  searchBoxAnimation } = useAnimations();
 
 onMounted(()=>{
