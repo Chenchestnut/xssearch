@@ -52,7 +52,7 @@ section{
         flex-wrap: wrap;
         flex: 0 1 auto;
         justify-content: center;
-        gap: 2rem;
+        gap: 5rem;
         width: 80%;
         margin: 2rem 0;
         @media screen and (max-width: 520px) {
