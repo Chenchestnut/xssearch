@@ -13,7 +13,6 @@ function sectionToIndex(index){
     const target = props.sectionRefs[index]
     isScrolling.value = true
     activeIndex.value = index
-    console.log(activeIndex.value,index);
     window.scrollTo({
         top: target.offsetTop - 150, // Adjust for fixed navbar height
         behavior: 'smooth'
@@ -21,6 +20,7 @@ function sectionToIndex(index){
     setTimeout(()=>{
         isScrolling.value = false;
     },1000)
+    console.log(target.offsetTop)
 }
 
 function scroll(){
