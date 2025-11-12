@@ -49,7 +49,7 @@ section{
         flex: 0 1 auto;
         justify-content: space-between;
         gap: 2rem;
-        width: 100%;
+        width: 80%;
         margin: 2rem 0;
         @media screen and (max-width: 520px) {
                 justify-content: center;

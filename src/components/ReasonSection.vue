@@ -46,7 +46,7 @@ section.reason{
         div.reasonContent{
             background-color: #7E90A7;
             color: white;
-            width: 100%;
+            width: 80%;
             padding: 1.5rem 2rem;
             border-radius: 35px;
             margin: 2rem 0;
