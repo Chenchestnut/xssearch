@@ -71,11 +71,13 @@ function cardClick(index){
                 普通查詢
             </div>
             <div class="cardBack">
-                試著輸入你要找的商品名稱
-                <br>
-                讓我們幫你分析他的優缺點
-                <br>
-                做出評論總結
+                <div class="text">
+                    試著輸入你要找的商品名稱
+                    <br>
+                    讓我們幫你分析他的優缺點
+                    <br>
+                    做出評論總結
+                </div>
                 <div class="gopage" @click="router.push('/search')">
                     馬上體驗
                 </div>
@@ -87,11 +89,13 @@ function cardClick(index){
                 個人化推薦
             </div>
             <div class="cardBack">
-                如果你還沒有目標
-                <br>
-                你可以試試輸入你的需求
-                <br>
-                EX:我想要一台可以打電動的筆電
+                <div class="text">
+                    如果你還沒有目標
+                    <br>
+                    你可以試試輸入你的需求
+                    <br>
+                    EX:我想要一台可以打電動的筆電
+                </div>
                 <div class="gopage" @click="router.push('/recommend')">
                     馬上體驗
                 </div>
@@ -152,7 +156,6 @@ $word-color:#2F2F2F;
             justify-content: center;
             color: $word-color;
             backface-visibility: hidden;
-            line-height: 1.5;
             @media screen and (max-width: 520px) {
                 width: 90%;
                 height: 70%;
@@ -164,13 +167,11 @@ $word-color:#2F2F2F;
             box-shadow: #B6BEC9 -0.5rem 0.5rem;
             border-radius: 35px;
             transition: all 0.3s ease;
-            
             &:hover{
                 transform: scale(1.05);
             }
             @media screen and (max-width: 520px) {
                 font-size: 2rem;
-                
             }
         }
         .cardBack{
@@ -178,8 +179,6 @@ $word-color:#2F2F2F;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            font-size: 1.25rem;
-            text-align: center;
             background-color: #d3d2c7;
             box-shadow: #B5B8A3 -0.5rem 0.5rem;
             border-radius: 35px;
@@ -187,6 +186,14 @@ $word-color:#2F2F2F;
             @media screen and (max-width: 520px) {
                 font-size: 1rem;
                 
+            }
+            div.text{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                font-size: 1.25rem;
+                text-align: center;
+                line-height: 1.5;
             }
             .gopage{
                 position:absolute;
