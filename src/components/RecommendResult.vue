@@ -29,7 +29,14 @@ onMounted(()=>{
 })
 const setSectionRefs=(el,index)=>{
     // el是組件實例，$el是組件的根元素
-    if(el) sectionRefs.value[index] = el.$el
+    if(el.$el) {
+        sectionRefs.value[index] = el.$el
+        console.log(`Section ${index} 使用 $el:`, el.$el);
+    }
+    else{
+        sectionRefs.value[index] = el;
+        console.log(`Section ${index} 直接使用 el:`, el);
+    }
 }
 </script>
 
