@@ -30,7 +30,7 @@ section.reason{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 100%;
     div.box{
         width: 100%;
         display: flex;

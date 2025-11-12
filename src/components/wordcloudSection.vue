@@ -29,37 +29,41 @@ const wordCloudImg = computed(()=>{
 hr{
     width: 85%;
 }
-h2.title{
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    padding-top:1.5rem ;
-    @media screen and (max-width: 520px) {
-        font-size: 1.8rem;
-    }
-}
- div.wordcloud{
+section{
     width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 2rem 0;
-    img{
-        width: 75%;
-        max-width: 800px;
-        min-width: 280px;
-        height: auto;
-        object-fit: cover; /* 把圖片撐滿容器且不變形 */
-        display: block;    /* 消除底部多餘空隙 */
-        border-radius: 20px;
+    h2.title{
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        padding-top:1.5rem ;
+        @media screen and (max-width: 520px) {
+            font-size: 1.8rem;
+        }
     }
-    .no-image{
+    div.wordcloud{
+        width: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
-        p{
-            font-size: 1.5rem;
-            color: #2F2F2F;
+        margin: 2rem 0;
+        img{
+            width: 75%;
+            max-width: 800px;
+            min-width: 280px;
+            height: auto;
+            object-fit: cover; /* 把圖片撐滿容器且不變形 */
+            display: block;    /* 消除底部多餘空隙 */
+            border-radius: 20px;
+        }
+        .no-image{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p{
+                font-size: 1.5rem;
+                color: #2F2F2F;
+            }
         }
     }
 }
+
 </style>
