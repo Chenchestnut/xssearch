@@ -36,13 +36,13 @@ export const useAlert = () => {
         // 初始化
         barInstance = new ldBar("#myBar");
         fakeProgress = 0;
-        timers = setInterval(() => {
-          fakeProgress += Math.random() * 5;
-          if (fakeProgress > 90) {
-            fakeProgress = 90;
-          }
-          barInstance.set(fakeProgress);
-        }, 300);
+        // timers = setInterval(() => {
+        //   fakeProgress += Math.random() * 5;
+        //   if (fakeProgress > 90) {
+        //     fakeProgress = 90;
+        //   }
+        //   barInstance.set(fakeProgress);
+        // }, 300);
       },
     });
   };
