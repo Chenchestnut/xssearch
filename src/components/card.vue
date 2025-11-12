@@ -171,7 +171,7 @@ $word-color:#2F2F2F;
                 transform: scale(1.05);
             }
             @media screen and (max-width: 520px) {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
         }
         .cardBack{
