@@ -9,14 +9,14 @@ const indexStore = useIndexStore();
 </script>
 
 <template>
-    <div class="reason">
+    <section class="reason">
         <div class="box">
             <h2 class="title">推薦理由</h2>
             <div class="reasonContent">
                 <p>{{ recommendStore.recommendation[indexStore.index].reason }}</p>
             </div>
         </div>
-    </div>
+    </section>
     <hr>
 </template>
 
@@ -25,7 +25,7 @@ const indexStore = useIndexStore();
 hr{
     width: 85%;
 }
-div.reason{
+section.reason{
     display: flex;
     flex-direction: column;
     justify-content: center;
