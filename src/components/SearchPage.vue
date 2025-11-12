@@ -10,7 +10,7 @@ import { useAnimations } from '../composables/useAnimations';
 const searchQuery = ref('');
 const router = useRouter();
 const searchStore = useSearchStore();
-const { showLoading, closeLoading, showWarning} = useAlert();
+const { showLoading, closeLoading, showWarning, updateLoading } = useAlert();
 const {  searchBoxAnimation} = useAnimations();
 
 onMounted(()=>{
@@ -23,25 +23,49 @@ function handleSearch(){
         return;
     }
     showLoading('努力搜尋中...')
-    // 串接普通查詢api
-    axios.post('https://api-xssearch.brid.pw/api/search/',{"keyword":searchQuery.value},{
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    })
-    .then(function(response){
+    try{
+        updateLoading(5);
+        const response = await axios.post(
+            'https://api-xssearch.brid.pw/api/search/',
+            {"keyword":searchQuery.value},
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                onDownloadProgress: (progressEvent) => {
+                    if (progressEvent.total) {
+                        // 將下載進度映射到 10% - 80%
+                        const percentCompleted = Math.round(
+                            (progressEvent.loaded * 70) / progressEvent.total + 10
+                        );
+                        updateLoading(percentCompleted);
+                        console.log('下載進度:', percentCompleted);
+                    } else {
+                        // 如果沒有 total，使用假進度
+                        updateLoading(50);
+                    }
+                }
+            }
+        );
+
         const data = response.data;
         console.log(data);
+        updateLoading(85);  // 資料處理中
         searchStore.saveSearchResults(data);
+        updateLoading(95);
+        // 稍微延遲，讓進度條到達 100%
+        await new Promise(resolve => setTimeout(resolve, 200));
+        updateLoading(100);
+        
+        // 再延遲一下讓使用者看到 100%
+        await new Promise(resolve => setTimeout(resolve, 300));
         closeLoading()
-        // 將搜尋結果存入store後，跳轉到searchPageCache
         router.push('/searchPagecache')
-    })
-    .catch(function(error){
+    }catch(error){
         console.error(error);
         closeLoading()
         showWarning("QQ 沒找到相關資訊!", "請檢查您的輸入是否有拼寫錯誤，或嘗試使用不同的關鍵詞進行搜索。")
-    })
+    }
 }
 
 

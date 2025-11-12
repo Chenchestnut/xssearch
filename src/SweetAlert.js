@@ -36,23 +36,23 @@ export const useAlert = () => {
         // 初始化
         barInstance = new ldBar("#myBar");
         fakeProgress = 0;
-        timers = setInterval(() => {
-          fakeProgress += Math.random() * 5;
-          if (fakeProgress > 90) {
-            fakeProgress = 90;
-          }
-          barInstance.set(fakeProgress);
-        }, 300);
+        // timers = setInterval(() => {
+        //   fakeProgress += Math.random() * 5;
+        //   if (fakeProgress > 90) {
+        //     fakeProgress = 90;
+        //   }
+        //   barInstance.set(fakeProgress);
+        // }, 300);
       },
     });
   };
 
-  // const updateLoading = (percent) => {
-  //   if (barInstance) {
-  //     console.log("updateLoading: ", percent);
-  //     barInstance.set(percent);
-  //   }
-  // };
+  const updateLoading = (percent) => {
+    if (barInstance) {
+      console.log("updateLoading: ", percent);
+      barInstance.set(percent);
+    }
+  };
   const closeLoading = () => {
     clearInterval(timers);
     barInstance.set(100);
@@ -74,6 +74,6 @@ export const useAlert = () => {
     showLoading,
     closeLoading,
     showWarning,
-    // updateLoading,
+    updateLoading,
   };
 };
