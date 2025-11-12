@@ -16,8 +16,8 @@ const indexStore = useIndexStore();
                 <p>{{ recommendStore.recommendation[indexStore.index].reason }}</p>
             </div>
         </div>
+        <hr>
     </section>
-    <hr>
 </template>
 
 

@@ -20,8 +20,8 @@ const analysisStore = useAnalysisStore();
                 </ul>
             </div>
         </div>
+        <hr>
     </section>
-    <hr>
 </template>
 
 
