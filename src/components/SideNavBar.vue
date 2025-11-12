@@ -67,7 +67,7 @@ $word-color: #2F2F2F;
     top: 100px;
     left: 0;
     min-width: 90px;
-    max-width: 90px;
+    width: auto;
     background-color: rgba(210, 213, 218, 0.8);
     border-bottom-right-radius: 35px;
     border-top-right-radius: 35px;
@@ -89,7 +89,6 @@ $word-color: #2F2F2F;
         padding: 0.3rem 0;
         padding-left: 0.5rem;
         li{
-            width: auto;
             list-style: none;
             padding: 0.3rem;
             border-bottom: 1px solid #ccc;
