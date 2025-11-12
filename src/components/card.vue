@@ -154,8 +154,7 @@ $word-color:#2F2F2F;
             backface-visibility: hidden;
             @media screen and (max-width: 520px) {
                 width: 90%;
-                height: 60%;
-                
+                height: 70%;
             }
         }
         .cardFront{
