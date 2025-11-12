@@ -171,7 +171,7 @@ $word-color:#2F2F2F;
                 transform: scale(1.05);
             }
             @media screen and (max-width: 520px) {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
         }
         .cardBack{
@@ -185,12 +185,14 @@ $word-color:#2F2F2F;
             transform: rotateY(180deg);
             @media screen and (max-width: 520px) {
                 font-size: 0.9rem;
-                
             }
             div.text{
                 font-size: 1.25rem;
                 text-align: center;
                 line-height: 1.4;
+                @media screen and (max-width: 520px) {
+                font-size: 0.8rem; 
+                }
             }
             .gopage{
                 position:absolute;
