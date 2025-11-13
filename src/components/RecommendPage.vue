@@ -21,8 +21,22 @@ async function handleSearch(){
         return;
     }
     showLoading('努力搜尋中...')
+    let currentProgress = 5;
+    let progressInterval = null;
+    
+    const startSimulatedProgress = () => {
+        progressInterval = setInterval(() => {
+            if (currentProgress < 70) {
+                // 使用緩動函數，越接近 70% 增長越慢
+                const increment = (70 - currentProgress) * 0.1;
+                currentProgress += Math.max(increment, 0.5);
+                updateLoading(Math.floor(currentProgress));
+            }
+        }, 200);
+    };
     try{
         updateLoading(5);
+        startSimulatedProgress();
         const response = await axios.post(
             'https://api-xssearch.brid.pw/api/recommend/',
             {"query":searchQuery.value},
@@ -32,34 +46,52 @@ async function handleSearch(){
                 },
                 onDownloadProgress: (progressEvent) => {
                     if (progressEvent.total) {
+                        if (progressInterval) {
+                            clearInterval(progressInterval);
+                            progressInterval = null;
+                        }
                         // 將下載進度映射到 10% - 80%
                         const percentCompleted = Math.round(
                             (progressEvent.loaded * 70) / progressEvent.total + 10
                         );
+                        currentProgress = percentCompleted;
                         updateLoading(percentCompleted);
                         console.log('下載進度:', percentCompleted);
                     } else {
                         // 如果沒有 total，使用假進度
-                        updateLoading(50);
+                        console.log('使用模擬進度，當前:', Math.floor(currentProgress));
                     }
                 }
             }
         );
-
+        // 清除模擬進度
+        if (progressInterval) {
+            clearInterval(progressInterval);
+            progressInterval = null;
+        }
         const data = response.data;
         console.log(data);
+        updateLoading(75);  // 資料處理中
+        await new Promise(resolve => setTimeout(resolve, 100));
+
         updateLoading(85);  // 資料處理中
         recommendStore.saveRecommendResults(data);
-        updateLoading(95);
-        // 稍微延遲，讓進度條到達 100%
-        await new Promise(resolve => setTimeout(resolve, 200));
-        updateLoading(100);
+        await new Promise(resolve => setTimeout(resolve, 100));
         
-        // 再延遲一下讓使用者看到 100%
+        updateLoading(95);
+        await new Promise(resolve => setTimeout(resolve, 150));
+
+        // 稍微延遲，讓進度條到達 100%
+        updateLoading(100);
         await new Promise(resolve => setTimeout(resolve, 300));
+        
         closeLoading()
         router.push('/recommendPageCache')
     }catch(error){
+        if (progressInterval) {
+            clearInterval(progressInterval);
+            progressInterval = null;
+        }
         console.error(error);
         closeLoading()
         showWarning("QQ 沒找到相關資訊!", "請檢查您的輸入是否有拼寫錯誤，或嘗試使用不同的關鍵詞進行搜索。")
