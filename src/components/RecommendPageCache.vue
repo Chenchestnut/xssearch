@@ -28,10 +28,10 @@ async function handleAnalysis(index){
     
     const startSimulatedProgress = () => {
         progressInterval = setInterval(() => {
-            if (currentProgress < 70) {
-                // 使用緩動函數，越接近 70% 增長越慢
-                const increment = (70 - currentProgress) * 0.1;
-                currentProgress += Math.max(increment, 0.5);
+            if (currentProgress < 95) {
+                // 使用緩動函數，越接近 95% 增長越慢
+                const increment = (95 - currentProgress) * 0.05;
+                currentProgress += Math.max(increment, 0.3);
                 updateLoading(Math.floor(currentProgress));
             }
         }, 200);
