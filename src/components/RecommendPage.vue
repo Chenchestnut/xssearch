@@ -28,8 +28,8 @@ async function handleSearch(){
         progressInterval = setInterval(() => {
             if (currentProgress < 95) {
                 // 使用緩動函數，越接近 95% 增長越慢
-                const increment = (95 - currentProgress) * 0.05;
-                currentProgress += Math.max(increment, 0.3);
+                const increment = (95 - currentProgress) * 0.01;
+                currentProgress += Math.max(increment, 0.5);
                 updateLoading(Math.floor(currentProgress));
             }
         }, 200);
