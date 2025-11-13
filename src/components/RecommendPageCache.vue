@@ -17,7 +17,7 @@ function getIdIndex(index){
   indexStore.setIndex(index);
 }
 
-function handleAnalysis(index){
+async function handleAnalysis(index){
   getIdIndex(index);
   //接分析
   console.log(recommendStore.recommendation[index].name, recommendStore.recommendation[index].id);

@@ -17,7 +17,7 @@ function getIdIndex(index){
   indexStore.setIndex(index);
 }
 
-function handleAnalysis(index){
+async function handleAnalysis(index){
   getIdIndex(index);
   console.log(searchStore.search_keyword, searchStore.matched_products[index].id);
   showLoading('努力分析中...')
