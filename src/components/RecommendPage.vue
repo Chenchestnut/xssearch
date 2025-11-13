@@ -26,9 +26,9 @@ async function handleSearch(){
     
     const startSimulatedProgress = () => {
         progressInterval = setInterval(() => {
-            if (currentProgress < 70) {
-                // 使用緩動函數，越接近 70% 增長越慢
-                const increment = (70 - currentProgress) * 0.1;
+            if (currentProgress < 95) {
+                // 使用緩動函數，越接近 95% 增長越慢
+                const increment = (95 - currentProgress) * 0.1;
                 currentProgress += Math.max(increment, 0.5);
                 updateLoading(Math.floor(currentProgress));
             }
@@ -51,7 +51,7 @@ async function handleSearch(){
                             progressInterval = null;
                         }
                         const percentCompleted = Math.round(
-                            (progressEvent.loaded * 95) / progressEvent.total + 10
+                            (progressEvent.loaded * 70) / progressEvent.total + 10
                         );
                         currentProgress = percentCompleted;
                         updateLoading(percentCompleted);
