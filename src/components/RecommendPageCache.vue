@@ -7,7 +7,7 @@ import { useRouter } from 'vue-router';
 import{ useIndexStore } from '../stores/useIndexStore';
 import { useRecommendStore } from '../stores/useRecommendStore';
 import { useAnalysisStore } from '../stores/useAnalysisStore';
-const { showLoading, closeLoading} = useAlert();
+const { showLoading, closeLoading, updateLoading, showWarning } = useAlert();
 const recommendStore = useRecommendStore();
 const indexStore = useIndexStore();
 const analysisStore = useAnalysisStore();
