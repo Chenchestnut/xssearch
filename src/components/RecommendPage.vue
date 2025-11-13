@@ -50,9 +50,8 @@ async function handleSearch(){
                             clearInterval(progressInterval);
                             progressInterval = null;
                         }
-                        // 將下載進度映射到 10% - 80%
                         const percentCompleted = Math.round(
-                            (progressEvent.loaded * 70) / progressEvent.total + 10
+                            (progressEvent.loaded * 95) / progressEvent.total + 10
                         );
                         currentProgress = percentCompleted;
                         updateLoading(percentCompleted);
@@ -71,14 +70,9 @@ async function handleSearch(){
         }
         const data = response.data;
         console.log(data);
-        updateLoading(75);  // 資料處理中
-        await new Promise(resolve => setTimeout(resolve, 100));
 
-        updateLoading(85);  // 資料處理中
+        updateLoading(98);
         recommendStore.saveRecommendResults(data);
-        await new Promise(resolve => setTimeout(resolve, 100));
-        
-        updateLoading(95);
         await new Promise(resolve => setTimeout(resolve, 150));
 
         // 稍微延遲，讓進度條到達 100%
