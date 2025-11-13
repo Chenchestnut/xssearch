@@ -7,7 +7,7 @@ import { useAnalysisStore } from '../stores/useAnalysisStore';
 import { useAlert } from '../SweetAlert';
 import { useRouter } from 'vue-router';
 const router = useRouter();
-const { showLoading, closeLoading} = useAlert();
+const { showLoading, closeLoading, updateLoading} = useAlert();
 import axios from 'axios';
 const searchStore = useSearchStore();
 const indexStore = useIndexStore();
@@ -19,24 +19,53 @@ function getIdIndex(index){
 
 function handleAnalysis(index){
   getIdIndex(index);
-  //接分析
   console.log(searchStore.search_keyword, searchStore.matched_products[index].id);
   showLoading('努力分析中...')
-  axios.post('https://api-xssearch.brid.pw/api/analysis/',{"keyword":searchStore.search_keyword,"product_id": searchStore.matched_products[index].id},{
-      headers: {
-        'Content-Type': 'application/json',
-      },
-  })
-  .then(function(response){
-    const data = response.data;
-    console.log(data);
-    analysisStore.saveAnalysisResults(data);
-    closeLoading();
-    router.push('/searchResult');
-  })
-  .catch(function(error){
-    console.error(error);
-  });
+  //接分析
+  try{
+        updateLoading(5);
+        const response = await axios.post(
+            'https://api-xssearch.brid.pw/api/analysis/',
+            {"keyword":searchStore.search_keyword,
+            "product_id": searchStore.matched_products[index].id},
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                onDownloadProgress: (progressEvent) => {
+                    if (progressEvent.total) {
+                        // 將下載進度映射到 10% - 80%
+                        const percentCompleted = Math.round(
+                            (progressEvent.loaded * 70) / progressEvent.total + 10
+                        );
+                        updateLoading(percentCompleted);
+                        console.log('下載進度:', percentCompleted);
+                    } else {
+                        // 如果沒有 total，使用假進度
+                        updateLoading(50);
+                    }
+                }
+            }
+        );
+
+        const data = response.data;
+        console.log(data);
+        updateLoading(85);  // 資料處理中
+        analysisStore.saveAnalysisResults(data);
+        updateLoading(95);
+        // 稍微延遲，讓進度條到達 100%
+        await new Promise(resolve => setTimeout(resolve, 200));
+        updateLoading(100);
+        
+        // 再延遲一下讓使用者看到 100%
+        await new Promise(resolve => setTimeout(resolve, 300));
+        closeLoading()
+        router.push('/searchResult')
+    }catch(error){
+        console.error(error);
+        closeLoading()
+        showWarning("資訊載入錯誤，請重新嘗試");
+    }
 }
 </script>
 

@@ -24,7 +24,7 @@ const indexStore = useIndexStore();
 
 const { fadeIn } = useAnimations();
 onMounted(()=>{
-        window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
     sectionRefs.value = new Array(sections.value.length).fill(null)
     fadeIn('.recommendResult')
 })

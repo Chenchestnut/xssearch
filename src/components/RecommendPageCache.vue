@@ -22,21 +22,50 @@ function handleAnalysis(index){
   //接分析
   console.log(recommendStore.recommendation[index].name, recommendStore.recommendation[index].id);
   showLoading('努力分析中...')
-  axios.post('https://api-xssearch.brid.pw/api/analysis/',{"keyword":recommendStore.recommendation[index].name,"product_id": recommendStore.recommendation[index].id},{
-      headers: {
-        'Content-Type': 'application/json',
-      },
-  })
-  .then(function(response){
-    const data = response.data;
-    console.log(data);
-    analysisStore.saveAnalysisResults(data);
-    closeLoading();
-    router.push('/recommendResult');
-  })
-  .catch(function(error){
-    console.error(error);
-  });
+  try{
+        updateLoading(5);
+        const response = await axios.post(
+            'https://api-xssearch.brid.pw/api/analysis/',
+            {"keyword":recommendStore.recommendation[index].name,
+            "product_id": recommendStore.recommendation[index].id},
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                onDownloadProgress: (progressEvent) => {
+                    if (progressEvent.total) {
+                        // 將下載進度映射到 10% - 80%
+                        const percentCompleted = Math.round(
+                            (progressEvent.loaded * 70) / progressEvent.total + 10
+                        );
+                        updateLoading(percentCompleted);
+                        console.log('下載進度:', percentCompleted);
+                    } else {
+                        // 如果沒有 total，使用假進度
+                        updateLoading(50);
+                    }
+                }
+            }
+        );
+
+        const data = response.data;
+        console.log(data);
+        updateLoading(85);  // 資料處理中
+        analysisStore.saveAnalysisResults(data);
+        updateLoading(95);
+        // 稍微延遲，讓進度條到達 100%
+        await new Promise(resolve => setTimeout(resolve, 200));
+        updateLoading(100);
+        
+        // 再延遲一下讓使用者看到 100%
+        await new Promise(resolve => setTimeout(resolve, 300));
+        closeLoading()
+        router.push('/recommendResult')
+    }catch(error){
+        console.error(error);
+        closeLoading()
+        showWarning("資訊載入錯誤，請重新嘗試");
+    }
 }
 </script>
 
