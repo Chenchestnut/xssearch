@@ -26,12 +26,12 @@ const inputStore = useInputStore();
     return JSON.parse(jsonPayload);
     }
     // 取得User資料
-    function handleCredentialResponse(response) {
-        const data = parseJwt(response.credential)
-        inputStore.setPicture(data.picture);
-        console.log(data)
-        // window.location.href = '/search';
-    }
+    // function handleCredentialResponse(response) {
+    //     const data = parseJwt(response.credential)
+    //     inputStore.setPicture(data.picture);
+    //     console.log(data)
+    //     window.location.href = '/search';
+    // }
 
     function handleCredentialResponse(response) {
         var id_token = googleUser.getAuthResponse().id_token;
@@ -53,7 +53,8 @@ const inputStore = useInputStore();
             inputStore.setToken(token);
             const userData = parseJwt(token);
             inputStore.setPicture(userData.picture);
-            // window.location.href = '/search';
+            // const data = parseJwt(response.credential)
+            window.location.href = '/search';
         })
     };
 
