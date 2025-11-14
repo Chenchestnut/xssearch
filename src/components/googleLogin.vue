@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, defineProps } from 'vue';
+import { onMounted, defineProps, ref } from 'vue';
 import { useInputStore } from '../stores/useInputStore';
 import { useRouter } from 'vue-router';
 import axios from 'axios';
@@ -7,6 +7,7 @@ import { useAlert } from '../SweetAlert';
 const {showWarning} = useAlert();
 const router = useRouter();
 const inputStore = useInputStore();
+const isGoogleLoaded = ref(false);
 
 const props =defineProps({
     width:{
