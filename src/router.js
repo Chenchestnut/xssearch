@@ -14,7 +14,7 @@ import CompareResult from "./components/CompareResult.vue";
 
 const routes = [
   { path: "/", component: HomePage },
-  // { path: "/login", component: LogIn },
+  { path: "/login", component: LogIn },
   // { path: "/register", component: Register },
   { path: "/search", component: SearchPage },
   { path: "/searchPagecache", component: SearchPageCache },

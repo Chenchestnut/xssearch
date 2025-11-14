@@ -41,7 +41,7 @@ onMounted(() => {
             </div>
             <div class="logIn" v-if="isClicked">
                 <router-link to="/login" class="loginBtn">登入</router-link>
-                <!-- <router-link to="/register" class="registerBtn">註冊</router-link>   -->
+                <router-link to="/register" class="registerBtn">註冊</router-link>  
                 <Personal :token="hasToken"/>
             </div>
         </div>
