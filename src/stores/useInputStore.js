@@ -4,6 +4,9 @@ export const useInputStore = defineStore("input", {
   state: () => ({
     token: "",
     picture: "",
+    name: "",
+    email: "",
+    id: "",
   }),
   persist: true, // Enable persistence
   actions: {
@@ -12,6 +15,11 @@ export const useInputStore = defineStore("input", {
     },
     setPicture(newPicture) {
       this.picture = newPicture;
+    },
+    setUserInfo(userInfo) {
+      this.name = userInfo.name || "";
+      this.email = userInfo.email || "";
+      this.id = userInfo.id || "";
     },
     removeToken() {
       this.token = "";
