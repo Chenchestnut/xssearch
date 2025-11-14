@@ -170,6 +170,7 @@ div.wholeNavbar{
                         border-radius: 50%;
                         margin-right: 0.5rem;
                         background-color: #B5B8A3;
+                        cursor: pointer;
                         // p{
                         //     color: $word-color;
                         //     text-align: center;
