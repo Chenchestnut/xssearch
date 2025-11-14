@@ -156,7 +156,7 @@ async function handleCredentialResponse(response) {
     //     // window.location.href = '/search';
     // }
 
-    onMounted(()=>{
+    onMounted(async()=>{
         // if (!window.google) {
         // console.error('Google API 尚未載入');
         // return;
