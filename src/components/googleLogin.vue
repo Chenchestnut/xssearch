@@ -7,16 +7,118 @@ const {showWarning} = useAlert();
 
 const inputStore = useInputStore();
 
-    const props =defineProps({
-        width:{
-            type: String,
-            default: 'null'
-        },
-        height:{
-            type: String,
-            default: 'null'
+const props =defineProps({
+    width:{
+        type: String,
+        default: 'null'
+    },
+    height:{
+        type: String,
+        default: 'null'
+    }
+})
+
+// ✅ 等待 Google API 載入
+function waitForGoogleAPI() {
+    return new Promise((resolve, reject) => {
+        let attempts = 0;
+        const maxAttempts = 50;
+        
+        const checkGoogle = setInterval(() => {
+            attempts++;
+            
+            if (window.google && window.google.accounts) {
+                clearInterval(checkGoogle);
+                isGoogleLoaded.value = true;
+                resolve();
+            } else if (attempts >= maxAttempts) {
+                clearInterval(checkGoogle);
+                reject(new Error('Google API 載入超時'));
+            }
+        }, 100);
+    });
+}
+
+// ✅ 處理 Google 登入回調
+async function handleCredentialResponse(response) {
+    // showLoading('登入中...');
+    
+    try {
+        console.log('發送 Google token 到後端...');
+        
+        // ✅ 根據後端 API 文件格式發送請求
+        const backendResponse = await axios.post(
+            'https://api-xssearch.brid.pw/api/auth/google/login/',
+            {
+                google_token: response.credential  // ✅ 符合後端格式
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                timeout: 10000
+            }
+        );
+
+        console.log('後端回應:', backendResponse.data);
+        
+        // ✅ 根據後端回應格式處理
+        if (backendResponse.data.success) {
+            const { token, user } = backendResponse.data.data;
+            
+            // 儲存 JWT token
+            inputStore.setToken(token);
+            
+            // 儲存使用者資訊
+            inputStore.setUserInfo({
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                permission: user.permission
+            });
+            
+            // ✅ 如果後端有回傳頭像，儲存頭像
+            if (user.picture || user.avatar) {
+                inputStore.setPicture(user.picture || user.avatar);
+            } else {
+                // 如果後端沒有回傳，從 Google token 中解析
+                const googleUserData = parseJwt(response.credential);
+                inputStore.setPicture(googleUserData.picture);
+            }
+            
+            console.log('登入成功:', user);
+            
+            closeLoading();
+            
+            // 跳轉到搜尋頁
+            router.push('/search');
+        } else {
+            throw new Error('登入失敗');
         }
-    })
+        
+    } catch (error) {
+        console.error('登入失敗:', error);
+        console.error('錯誤詳情:', error.response?.data);
+        
+        // closeLoading();
+        
+        let errorMessage = '登入失敗，請稍後再試';
+        
+        if (error.code === 'ECONNABORTED') {
+            errorMessage = '請求超時，請檢查網路連線';
+        } else if (error.response) {
+            errorMessage = error.response.data?.message || 
+                          error.response.data?.error || 
+                          `伺服器錯誤 (${error.response.status})`;
+        } else if (error.request) {
+            errorMessage = '無法連接到伺服器，請檢查網路';
+        }
+        
+        showWarning('登入錯誤', errorMessage);
+    }
+}
+
+
     //這個function是要將拿到的User資料(Base64)轉成js的物件型態方便取用
     function parseJwt (token) {
         inputStore.setToken(token);
@@ -28,54 +130,6 @@ const inputStore = useInputStore();
 
     return JSON.parse(jsonPayload);
     }
-
-    // ✅ 處理 Google 登入回調
-async function handleCredentialResponse(response) {
-    // showLoading('登入中...');
-    
-    try {
-        // 方案 1：將 Google token 發送到後端驗證
-        const backendResponse = await axios.post(
-            '/api/auth/google/login/',  // ✅ 替換成你的後端 API
-            {
-                "google_token": response.credential
-            },
-            {
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            }
-        );
-
-        // ✅ 處理後端回應
-        const { token, user } = backendResponse.data;
-        
-        // 儲存後端返回的 JWT token
-        inputStore.setToken(token);
-        
-        // 儲存使用者資訊
-        inputStore.setPicture(user.picture);
-        inputStore.setUserInfo({
-            email: user.email,
-            name: user.name,
-            id: user.id
-        });
-        
-        console.log('登入成功:', user);
-        
-        // closeLoading();
-        
-        // 跳轉到首頁或搜尋頁
-        router.push('/search');
-        
-    } catch (error) {
-        console.error('登入失敗:', error);
-        // closeLoading();
-        
-        const errorMessage = error.response?.data?.message || '登入失敗，請稍後再試';
-        showWarning('登入錯誤', errorMessage);
-    }
-}
 
     // 取得User資料
     // function handleCredentialResponse(response) {
