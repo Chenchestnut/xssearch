@@ -1,10 +1,11 @@
 <script setup>
 import { onMounted, defineProps } from 'vue';
 import { useInputStore } from '../stores/useInputStore';
+import { useRouter } from 'vue-router';
 import axios from 'axios';
 import { useAlert } from '../SweetAlert';
 const {showWarning} = useAlert();
-
+const router = useRouter();
 const inputStore = useInputStore();
 
 const props =defineProps({
@@ -17,6 +18,25 @@ const props =defineProps({
         default: 'null'
     }
 })
+
+function parseJwt(token) {
+    try {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(
+            atob(base64)
+                .split('')
+                .map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                })
+                .join('')
+        );
+        return JSON.parse(jsonPayload);
+    } catch (error) {
+        console.error('解析 JWT 失敗:', error);
+        return null;
+    }
+}
 
 // ✅ 等待 Google API 載入
 function waitForGoogleAPI() {
@@ -44,8 +64,13 @@ async function handleCredentialResponse(response) {
     // showLoading('登入中...');
     
     try {
-        console.log('發送 Google token 到後端...');
+        console.log('=== Google 登入開始 ===');
+        console.log('Google Token:', response.credential);
         
+        const googleUserData = parseJwt(response.credential);
+        console.log('Google 使用者資料:', googleUserData);
+
+        console.log('發送 Google token 到後端...');
         // ✅ 根據後端 API 文件格式發送請求
         const backendResponse = await axios.post(
             'https://api-xssearch.brid.pw/api/auth/google/login/',
@@ -60,12 +85,16 @@ async function handleCredentialResponse(response) {
             }
         );
 
-        console.log('後端回應:', backendResponse.data);
+        console.log('後端完整回應:', backendResponse);
+        console.log('後端回應資料:', backendResponse.data);
         
         // ✅ 根據後端回應格式處理
         if (backendResponse.data.success) {
             const { token, user } = backendResponse.data.data;
             
+            console.log('JWT Token:', token);
+            console.log('使用者資料:', user);
+
             // 儲存 JWT token
             inputStore.setToken(token);
             
@@ -118,18 +147,6 @@ async function handleCredentialResponse(response) {
     }
 }
 
-
-    //這個function是要將拿到的User資料(Base64)轉成js的物件型態方便取用
-    function parseJwt (token) {
-        inputStore.setToken(token);
-        const base64Url = token.split('.')[1];
-        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-
-    return JSON.parse(jsonPayload);
-    }
 
     // 取得User資料
     // function handleCredentialResponse(response) {
