@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, defineProps } from 'vue';
 import { useInputStore } from '../stores/useInputStore';
+import axios from 'axios';
 const inputStore = useInputStore();
 
     const props =defineProps({
@@ -31,6 +32,32 @@ const inputStore = useInputStore();
         console.log(data)
         // window.location.href = '/search';
     }
+
+    function handleCredentialResponse(response) {
+        var id_token = googleUser.getAuthResponse().id_token;
+        axios.post(
+            'https://api-xssearch.brid.pw/api/google_login/',
+            {google_token: response.credential},
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            }
+        )
+        console.log('後端回應狀態:', backendResponse.status);
+        console.log('後端回應資料:', backendResponse.data);
+
+        then((response)=>{
+            console.log(response.data);
+            const token = response.data.token;
+            inputStore.setToken(token);
+            const userData = parseJwt(token);
+            inputStore.setPicture(userData.picture);
+            // window.location.href = '/search';
+        })
+    };
+
+
 
     onMounted(()=>{
         window.google.accounts.id.initialize({
