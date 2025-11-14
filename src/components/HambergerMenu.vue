@@ -36,10 +36,10 @@ onUnmounted(() => {
 
 let menu = computed(()=>{
     if(token.value){
-        return ['首頁', '普通搜尋','個人化推薦']
+        return ['首頁', '普通搜尋','個人化推薦', '登出']
     }
     else{
-        return ['首頁', '普通搜尋','個人化推薦']
+        return ['首頁', '普通搜尋','個人化推薦', '登入']
     }
 })
 function changePage(item){
@@ -64,13 +64,13 @@ function changePage(item){
         // case '升級方案':
         //     router.push('/membership');
         //     break;
-        // case '登出':
-        //     inputStore.removeToken();
-        //     router.push('/');
-        //     break;
-        // case '登入':
-        //     router.push('/login');
-        //     break;
+        case '登出':
+            inputStore.removeToken();
+            router.push('/');
+            break;
+        case '登入':
+            router.push('/login');
+            break;
     }
 }
 </script>
