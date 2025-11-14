@@ -157,22 +157,65 @@ async function handleCredentialResponse(response) {
     // }
 
     onMounted(()=>{
-        if (!window.google) {
-        console.error('Google API 尚未載入');
-        return;
-        }
+        // if (!window.google) {
+        // console.error('Google API 尚未載入');
+        // return;
+        // }
 
+        // window.google.accounts.id.initialize({
+        //     client_id: '119893423798-4ukrf82d1k5sn59sqqrvp8kg7qejd8i2.apps.googleusercontent.com',
+        //     callback: handleCredentialResponse,
+        //     auto_select: false,
+        //     cancel_on_tap_outside: false,
+        // });
+
+        // window.google.accounts.id.renderButton(
+        //     document.getElementById('google-sign-in-button'),
+        //     { theme: 'outline', size: 'large', width: props.width, height: props.height }
+        // );
+
+        try {
+        console.log('=== 初始化 Google 登入 ===');
+        
+        // 等待 Google API 載入
+        await waitForGoogleAPI();
+        console.log('Google API 已載入');
+        
+        // ✅ 初始化 Google Sign-In（使用 popup 模式解決 COOP 問題）
         window.google.accounts.id.initialize({
             client_id: '119893423798-4ukrf82d1k5sn59sqqrvp8kg7qejd8i2.apps.googleusercontent.com',
             callback: handleCredentialResponse,
             auto_select: false,
-            cancel_on_tap_outside: false,
+            cancel_on_tap_outside: true,
+            ux_mode: 'popup',  // ✅ 關鍵：使用 popup 模式
+            context: 'signin',
+            itp_support: true
         });
 
-        window.google.accounts.id.renderButton(
-            document.getElementById('google-sign-in-button'),
-            { theme: 'outline', size: 'large', width: props.width, height: props.height }
-        );
+        // 渲染按鈕
+        const buttonElement = document.getElementById('google-sign-in-button');
+        if (buttonElement) {
+            window.google.accounts.id.renderButton(
+                buttonElement,
+                { 
+                    theme: 'outline', 
+                    size: 'large', 
+                    width: props.width, 
+                    height: props.height,
+                    text: 'signin_with',
+                    shape: 'rectangular',
+                    logo_alignment: 'left'
+                }
+            );
+            console.log('Google 登入按鈕已渲染');
+        } else {
+            console.error('找不到 google-sign-in-button 元素');
+        }
+        
+    } catch (error) {
+        console.error('初始化失敗:', error);
+        showWarning('載入錯誤', 'Google 登入服務載入失敗');
+    }
     })
 </script>
 
