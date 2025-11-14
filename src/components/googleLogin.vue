@@ -2,6 +2,9 @@
 import { onMounted, defineProps } from 'vue';
 import { useInputStore } from '../stores/useInputStore';
 import axios from 'axios';
+import { useAlert } from '../SweetAlert';
+const {showWarning} = useAlert();
+
 const inputStore = useInputStore();
 
     const props =defineProps({
