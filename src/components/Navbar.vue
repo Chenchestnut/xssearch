@@ -66,7 +66,7 @@ onMounted(()=>{
                         <img :src="avatar" alt="google avatar" v-if="token">
                         <i class="fa-regular fa-user" v-else></i>
                     </div>
-                    <!-- <i class="fa-solid fa-chevron-down" @click="togglePersonalMenu"></i> -->
+                    <i class="fa-solid fa-chevron-down" @click="togglePersonalMenu"></i>
                     <div class="component" v-if="isPersonalMenuOpen">
                         <Personal :token="hasToken"/>
                     </div>
