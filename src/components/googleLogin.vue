@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, defineProps } from 'vue';
 import { useInputStore } from '../stores/useInputStore';
+import axios from 'axios';
 const inputStore = useInputStore();
 
     const props =defineProps({
