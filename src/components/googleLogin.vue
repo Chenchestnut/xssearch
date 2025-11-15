@@ -31,6 +31,26 @@ async function handleCredentialResponse(response) {
         const googleUserData = parseJwt(response.credential);
         console.log('Google 使用者資料:', googleUserData);
         inputStore.setPicture(googleUserData.picture);
+
+        // 驗證 Google Token 的基本資訊
+        if (!googleUserData) {
+            throw new Error('無法解析 Google Token');
+        }
+        
+        if (googleUserData.aud !== '119893423798-4ukrf82d1k5sn59sqqrvp8kg7qejd8i2.apps.googleusercontent.com') {
+            console.warn('⚠️ Client ID 不匹配:', googleUserData.aud);
+        }
+        
+        // 檢查 Token 是否過期
+        const now = Math.floor(Date.now() / 1000);
+        if (googleUserData.exp && googleUserData.exp < now) {
+            throw new Error('Google Token 已過期');
+        }
+        
+        console.log('📤 發送 Google Token 到後端驗證...');
+        console.log('Token 長度:', response.credential.length);
+        console.log('Token 前 50 字元:', response.credential.substring(0, 50) + '...');
+
         //然後把token傳到後端
         const backendResponse = await axios.post(
             'https://api-xssearch.brid.pw/api/auth/google/login/',
@@ -60,7 +80,7 @@ async function handleCredentialResponse(response) {
             id: user.id,
             name: user.name,
             email: user.email,
-            permissions: user.permissions || []
+            permissions: user.permission || []
         })
 
         //跳轉頁面
