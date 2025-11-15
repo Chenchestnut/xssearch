@@ -35,7 +35,7 @@ return JSON.parse(jsonPayload);
 async function handleCredentialResponse(response) {
     try{
         const backendResponse = await axios.post(
-            'https://api-xssearch.brid.pw/api/google_login/',
+            'https://api-xssearch.brid.pw/api/auth/google/login/',
             {google_token: response.credential},
             {
                 headers: {
