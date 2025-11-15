@@ -32,7 +32,7 @@ return JSON.parse(jsonPayload);
 //     window.location.href = '/search';
 // }
 
-function handleCredentialResponse(response) {
+async function handleCredentialResponse(response) {
     try{
         const backendResponse = await axios.post(
             'https://api-xssearch.brid.pw/api/google_login/',
