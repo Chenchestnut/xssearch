@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { use } from "react";
 
 export const useInputStore = defineStore("input", {
   state: () => ({

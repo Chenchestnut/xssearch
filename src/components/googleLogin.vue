@@ -17,7 +17,6 @@ const props =defineProps({
 })
 //這個function是要將拿到的User資料(Base64)轉成js的物件型態方便取用
 function parseJwt (token) {
-    // inputStore.setToken(token);
     const base64Url = token.split('.')[1];
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
@@ -26,14 +25,6 @@ function parseJwt (token) {
 
 return JSON.parse(jsonPayload);
 }
-// 取得User資料
-// function handleCredentialResponse(response) {
-//     const data = parseJwt(response.credential)
-//     inputStore.setPicture(data.picture);
-//     console.log(data)
-//     window.location.href = '/search';
-// }
-
 async function handleCredentialResponse(response) {
     try{
         //取得google給的token，查看資訊
