@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, defineProps,ref } from 'vue';
+import { onMounted, defineProps} from 'vue';
 import { useInputStore } from '../stores/useInputStore';
 import axios from 'axios';
 const inputStore = useInputStore();
@@ -33,28 +33,33 @@ return JSON.parse(jsonPayload);
 // }
 
 function handleCredentialResponse(response) {
-    const backendResponse = await axios.post(
-        'https://api-xssearch.brid.pw/api/google_login/',
-        {google_token: response.credential},
-        {
-            headers: {
-                'Content-Type': 'application/json',
-            },
+    try{
+        const backendResponse = await axios.post(
+            'https://api-xssearch.brid.pw/api/google_login/',
+            {google_token: response.credential},
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            }
+        )
+        console.log('後端回應狀態:', backendResponse.status);
+        console.log('後端回應資料:', backendResponse.data);
+        // 處理後端成功回應
+        const token = backendResponse.data.token;
+        if (token) {
+            inputStore.setToken(token);
+            const userData = parseJwt(token); // 解析系統的 JWT
+            inputStore.setPicture(userData.picture);
+            
+            // 登入成功，導向新頁面
+            window.location.href = '/search';
+        } else {
+            console.error('後端未回傳系統 Token，登入失敗。');
+            // 處理錯誤，例如給用戶提示
         }
-    )
-    console.log('後端回應狀態:', backendResponse.status);
-    console.log('後端回應資料:', backendResponse.data);
-    // 處理後端成功回應
-    const token = backendResponse.data.token;
-    if (token) {
-        inputStore.setToken(token);
-        const userData = parseJwt(token); // 解析系統的 JWT
-        inputStore.setPicture(userData.picture);
-        
-        // 登入成功，導向新頁面
-        window.location.href = '/search';
-    } else {
-        console.error('後端未回傳系統 Token，登入失敗。');
+    } catch (error) {
+        console.error('與後端通訊時發生錯誤:', error);
         // 處理錯誤，例如給用戶提示
     }
 };
