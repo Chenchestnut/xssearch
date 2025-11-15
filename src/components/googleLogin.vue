@@ -2,6 +2,8 @@
 import { onMounted, defineProps} from 'vue';
 import { useInputStore } from '../stores/useInputStore';
 import axios from 'axios';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 const inputStore = useInputStore();
 const props =defineProps({
     width:{
@@ -15,7 +17,7 @@ const props =defineProps({
 })
 //這個function是要將拿到的User資料(Base64)轉成js的物件型態方便取用
 function parseJwt (token) {
-    inputStore.setToken(token);
+    // inputStore.setToken(token);
     const base64Url = token.split('.')[1];
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
@@ -46,14 +48,14 @@ async function handleCredentialResponse(response) {
         console.log('後端回應狀態:', backendResponse.status);
         console.log('後端回應資料:', backendResponse.data);
         // 處理後端成功回應
-        const token = backendResponse.data.token;
+        const { token, user } = backendResponse.data.data;
         if (token) {
             inputStore.setToken(token);
             const userData = parseJwt(token); // 解析系統的 JWT
             inputStore.setPicture(userData.picture);
             
             // 登入成功，導向新頁面
-            window.location.href = '/search';
+            router.push('/search');
         } else {
             console.error('後端未回傳系統 Token，登入失敗。');
             // 處理錯誤，例如給用戶提示
@@ -72,6 +74,7 @@ onMounted(()=>{
         callback: handleCredentialResponse,
         auto_select: false,
         cancel_on_tap_outside: false,
+        ux_mode: 'popup'
     });
 
     window.google.accounts.id.renderButton(
