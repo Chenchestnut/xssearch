@@ -1,12 +1,16 @@
 import { defineStore } from "pinia";
+import { use } from "react";
 
 export const useInputStore = defineStore("input", {
   state: () => ({
     token: "",
     picture: "",
-    name: "",
-    email: "",
-    id: "",
+    userInfo: {
+      name: "",
+      email: "",
+      id: "",
+      permissions: "",
+    },
   }),
   persist: true, // Enable persistence
   actions: {
@@ -20,6 +24,7 @@ export const useInputStore = defineStore("input", {
       this.name = userInfo.name || "";
       this.email = userInfo.email || "";
       this.id = userInfo.id || "";
+      this.permissions = userInfo.permissions || "";
     },
     removeToken() {
       this.token = "";

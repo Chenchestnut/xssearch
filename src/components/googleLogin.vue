@@ -36,6 +36,11 @@ return JSON.parse(jsonPayload);
 
 async function handleCredentialResponse(response) {
     try{
+        //取得google給的token，查看資訊
+        const googleUserData = parseJwt(response.credential);
+        console.log('Google 使用者資料:', googleUserData);
+        inputStore.setPicture(googleUserData.picture);
+        //然後把token傳到後端
         const backendResponse = await axios.post(
             'https://api-xssearch.brid.pw/api/auth/google/login/',
             {google_token: response.credential},
@@ -47,22 +52,37 @@ async function handleCredentialResponse(response) {
         )
         console.log('後端回應狀態:', backendResponse.status);
         console.log('後端回應資料:', backendResponse.data);
-        // 處理後端成功回應
-        const { token, user } = backendResponse.data.data;
-        if (token) {
-            inputStore.setToken(token);
-            const userData = parseJwt(token); // 解析系統的 JWT
-            inputStore.setPicture(userData.picture);
-            
-            // 登入成功，導向新頁面
-            router.push('/search');
-        } else {
-            console.error('後端未回傳系統 Token，登入失敗。');
-            // 處理錯誤，例如給用戶提示
+
+        // 處理後端回應的JWT
+        if (!backendResponse.data.success) {
+            throw new Error('後端回應失敗');
         }
-    } catch (error) {
-        console.error('與後端通訊時發生錯誤:', error);
-        // 處理錯誤，例如給用戶提示
+
+        const { token, user } = backendResponse.data.data;
+        console.log('👤 使用者資料 (從後端):', user);
+
+        //儲存JWT Token，後面api請求會用到
+        inputStore.setToken(token);
+        
+        //儲存使用者資訊
+        inputStore.setUserInfo({
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            permissions: user.permissions || []
+        })
+
+        //跳轉頁面
+        router.push('/search');
+    }catch (error) {
+        console.error('❌ 登入錯誤:', error);
+        
+        if (error.response) {
+            console.error('後端回應錯誤:', {
+                status: error.response.status,
+                data: error.response.data
+            });
+        }
     }
 };
 
