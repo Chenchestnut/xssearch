@@ -80,26 +80,90 @@ async function handleCredentialResponse(response) {
             id: user.id,
             name: user.name,
             email: user.email,
-            permissions: user.permission || []
+            permission: user.permission || []
         })
 
         //跳轉頁面
         router.push('/search');
     }catch (error) {
-        console.error('❌ 登入錯誤:', error);
+        console.error('=== ❌ 登入錯誤詳細資訊 ===');
+        console.error('錯誤類型:', error.constructor.name);
+        console.error('錯誤訊息:', error.message);
         
         if (error.response) {
-            console.error('後端回應錯誤:', {
-                status: error.response.status,
-                data: error.response.data
-            });
+            // 後端有回應但狀態碼錯誤
+            console.error('📛 後端回應錯誤:');
+            console.error('  - 狀態碼:', error.response.status);
+            console.error('  - 狀態文字:', error.response.statusText);
+            console.error('  - 回應資料:', error.response.data);
+            console.error('  - 回應 headers:', error.response.headers);
+            
+            // ✅ 顯示後端的詳細錯誤訊息
+            if (error.response.data) {
+                console.error('📋 後端錯誤詳情:');
+                console.error(JSON.stringify(error.response.data, null, 2));
+                
+                // 如果有 message 或 error 欄位
+                if (error.response.data.message) {
+                    console.error('  - 錯誤訊息:', error.response.data.message);
+                }
+                if (error.response.data.error) {
+                    console.error('  - 錯誤:', error.response.data.error);
+                }
+                if (error.response.data.detail) {
+                    console.error('  - 詳情:', error.response.data.detail);
+                }
+            }
+        } else if (error.request) {
+            console.error('📛 請求已發送但無回應');
+        } else {
+            console.error('📛 請求設定錯誤:', error.message);
         }
+        
+        console.error('==============================');
+        
+        closeLoading();
+        
+        // 顯示錯誤訊息給使用者
+        let errorTitle = '登入錯誤';
+        let errorMessage = '登入失敗，請稍後再試';
+        
+        if (error.response?.status === 401) {
+            errorTitle = 'Google 登入驗證失敗';
+            const data = error.response.data;
+            
+            // 根據後端回應構建錯誤訊息
+            if (data.message) {
+                errorMessage = data.message;
+            } else if (data.error) {
+                errorMessage = data.error;
+            } else {
+                errorMessage = '後端無法驗證 Google Token\n\n' +
+                              '請檢查：\n' +
+                              '• 後端 GOOGLE_CLIENT_ID 是否正確\n' +
+                              '• Google Cloud Console 設定是否正確\n' +
+                              '• 後端日誌中的詳細錯誤';
+            }
+            
+            if (data.detail) {
+                errorMessage += '\n\n詳情: ' + data.detail;
+            }
+        } else if (error.code === 'ECONNABORTED') {
+            errorTitle = '連線超時';
+            errorMessage = '請求超時，請檢查網路連線';
+        } else if (!error.response) {
+            errorTitle = '連線失敗';
+            errorMessage = '無法連接到伺服器';
+        }
+        
+        showWarning(errorTitle, errorMessage);
     }
 };
 
 
 
-onMounted(()=>{
+onMounted(async ()=>{
+    await waitForGoogleAPI();
     window.google.accounts.id.initialize({
         client_id: '119893423798-4ukrf82d1k5sn59sqqrvp8kg7qejd8i2.apps.googleusercontent.com',
         callback: handleCredentialResponse,

@@ -8,7 +8,7 @@ export const useInputStore = defineStore("input", {
       name: "",
       email: "",
       id: "",
-      permissions: "",
+      permission: "",
     },
   }),
   persist: true, // Enable persistence
@@ -23,7 +23,7 @@ export const useInputStore = defineStore("input", {
       this.name = userInfo.name || "";
       this.email = userInfo.email || "";
       this.id = userInfo.id || "";
-      this.permissions = userInfo.permissions || "";
+      this.permission = userInfo.permission || "";
     },
     removeToken() {
       this.token = "";
