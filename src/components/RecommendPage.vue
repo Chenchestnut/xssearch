@@ -151,6 +151,7 @@ async function handleSearch(){
                     
                     return;  // ✅ 加上 return，中止執行
                 }
+            }
             
             // 檢查是否為認證錯誤
             if (error.response.status === 401) {
