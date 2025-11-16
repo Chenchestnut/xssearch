@@ -16,6 +16,18 @@ const {  searchBoxAnimation } = useAnimations();
 
 onMounted(()=>{
     searchBoxAnimation('.searchBar')
+    if (!inputStore.token) {
+        console.log('❌ 使用者未登入，跳轉到登入頁');
+        showWarning(
+            '請先登入',
+            '您需要登入才能使用搜尋功能'
+        );
+        setTimeout(() => {
+            router.push('/login');
+        }, 2000);
+    } else {
+        console.log('✅ 使用者已登入:', inputStore.userInfo.name);
+    }
 })
 async function handleSearch(){
     if(searchQuery.value.trim()===''){
