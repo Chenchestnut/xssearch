@@ -22,7 +22,7 @@ const routes = [
   { path: "/recommend", component: RecommendPage },
   { path: "/recommendPageCache", component: RecommendPageCache },
   { path: "/recommendResult", component: RecommendResult },
-  // { path: "/membership", component: Membership },
+  { path: "/membership", component: Membership },
   // { path: "/compare", component: ComparePage },
   // { path: "/compareResult", component: CompareResult },
 ];

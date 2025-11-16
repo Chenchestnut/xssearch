@@ -106,6 +106,7 @@ async function handleSearch(){
         console.log(data);
         if(data.success === false){
             showWarning("QQ 這是付費用戶功能窩!", "請升級為付費用戶以使用此功能。")
+            router.push('/membership')
         }
         updateLoading(98);
         recommendStore.saveRecommendResults(recommendData);
