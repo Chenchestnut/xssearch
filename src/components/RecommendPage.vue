@@ -72,6 +72,31 @@ async function handleSearch(){
             progressInterval = null;
         }
         const data = response.data;
+        if (!data) {
+            throw new Error('後端沒有回應資料');
+        }
+        
+        // ✅ 如果後端回應格式是 { success: true, data: [...] }
+        let recommendData;
+        if (data.success && Array.isArray(data.data)) {
+            recommendData = data.data;
+        } 
+        // ✅ 如果後端直接回應陣列
+        else if (Array.isArray(data)) {
+            recommendData = data;
+        }
+        // ✅ 如果後端回應其他格式
+        else {
+            console.error('未預期的資料格式:', data);
+            throw new Error('資料格式錯誤');
+        }
+        
+        console.log('✅ 推薦資料:', recommendData);
+        
+        // ✅ 檢查是否有資料
+        if (!Array.isArray(recommendData) || recommendData.length === 0) {
+            throw new Error('沒有找到相關商品');
+        }
         console.log(data);
 
         updateLoading(98);
