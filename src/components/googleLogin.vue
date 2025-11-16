@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const inputStore = useInputStore();
+const isGoogleLoaded = ref(false);
 const props =defineProps({
     width:{
         type: String,
@@ -143,7 +144,6 @@ async function handleCredentialResponse(response) {
         
         console.error('==============================');
         
-        closeLoading();
         
         // 顯示錯誤訊息給使用者
         let errorTitle = '登入錯誤';
@@ -176,8 +176,6 @@ async function handleCredentialResponse(response) {
             errorTitle = '連線失敗';
             errorMessage = '無法連接到伺服器';
         }
-        
-        showWarning(errorTitle, errorMessage);
     }
 };
 
