@@ -136,6 +136,7 @@ async function handleSearch(){
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </div>
+            
             <div class="turnstile-container">
                 <div id="turnstile-widget"></div>
             </div>
@@ -173,6 +174,7 @@ p{
 }
 form{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     .searchBar{
@@ -228,10 +230,19 @@ form{
     .turnstile-container {
         display: flex;
         justify-content: center;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
         
         #turnstile-widget {
             transform: scale(0.9);
+            transform-origin: center;
+        }
+        
+        @media screen and (max-width: 520px) {
+            margin-top: 1rem;
+            
+            #turnstile-widget {
+                transform: scale(0.8);
+            }
         }
     }
 }

@@ -248,6 +248,7 @@ p{
 }
 form{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     .searchBar{
@@ -303,21 +304,22 @@ form{
     }
 }
 
-.turnstile-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    
-    #turnstile-widget-recommend {
-        transform: scale(0.9);
-        transform-origin: center;
-    }
-    
-    @media screen and (max-width: 520px) {
+    .turnstile-container {
+        display: flex;
+        justify-content: center;
         margin-top: 1.5rem;
         
         #turnstile-widget-recommend {
-            transform: scale(0.8);
+            transform: scale(0.9);
+            transform-origin: center;
+        }
+        
+        @media screen and (max-width: 520px) {
+            margin-top: 1rem;
+            
+            #turnstile-widget-recommend {
+                transform: scale(0.8);
+            }
         }
     }
 }
