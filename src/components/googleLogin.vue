@@ -102,7 +102,7 @@ async function handleCredentialResponse(response) {
             id: user.id,
             name: user.name,
             email: user.email,
-            permission: user.permission || []
+            permission: user.permission || false
         })
 
         //跳轉頁面
@@ -184,10 +184,10 @@ async function handleCredentialResponse(response) {
 onMounted(async ()=>{
     await waitForGoogleAPI();
     window.google.accounts.id.initialize({
-        client_id: '119893423798-4ukrf82d1k5sn59sqqrvp8kg7qejd8i2.apps.googleusercontent.com',
+        client_id: '662832463958-rqc7cm2esgstvens4iitsmptgiph62hh.apps.googleusercontent.com',
         callback: handleCredentialResponse,
         auto_select: false,
-        cancel_on_tap_outside: false,
+        cancel_on_tap_outside: true,
         ux_mode: 'popup'
     });
 
