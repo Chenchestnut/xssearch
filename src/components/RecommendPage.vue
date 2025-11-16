@@ -128,8 +128,7 @@ async function handleSearch(){
             console.log('HTTP 錯誤回應:', errorData);
             
             // 檢查是否為權限不足錯誤
-            if (error.response.status === 403 && 
-                !errorData.success ) {
+            if (error.response.status === 403) {
                 showWarning("QQ 這是付費限定功能，您沒有開通，因此不能使用。");
                 setTimeout(() => {
                     router.push('/membership');
