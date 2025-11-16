@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, defineProps} from 'vue';
+import { onMounted, defineProps, ref} from 'vue';
 import { useInputStore } from '../stores/useInputStore';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
