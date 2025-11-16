@@ -1,11 +1,13 @@
 <script setup>
 import { onMounted, defineProps, ref} from 'vue';
 import { useInputStore } from '../stores/useInputStore';
+import { useTurnstile } from '../composables/useTurnstile';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const inputStore = useInputStore();
 const isGoogleLoaded = ref(false);
+const { getCurrentToken } = useTurnstile();
 const props =defineProps({
     width:{
         type: String,
@@ -73,10 +75,19 @@ async function handleCredentialResponse(response) {
         console.log('Token 長度:', response.credential.length);
         console.log('Token 前 50 字元:', response.credential.substring(0, 50) + '...');
 
+        //取得 Turnstile token
+        const turnstileToken = getCurrentToken();
+        if (!turnstileToken) {
+            throw new Error('缺少 Turnstile 驗證 token');
+        }
+        
         //然後把token傳到後端
         const backendResponse = await axios.post(
             'https://api-xssearch.brid.pw/api/auth/google/login/',
-            {google_token: response.credential},
+            {
+                google_token: response.credential,
+                turnstile_token: turnstileToken
+            },
             {
                 headers: {
                     'Content-Type': 'application/json',

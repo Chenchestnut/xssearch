@@ -7,20 +7,19 @@ import { useRouter } from 'vue-router';
 import { useAnimations } from '../composables/useAnimations';
 import { useRecommendStore } from '../stores/useRecommendStore';
 import { useInputStore } from '../stores/useInputStore';
-import { useRecaptcha } from '../composables/useRecaptcha';
+import { useTurnstile } from '../composables/useTurnstile';
 const recommendStore = useRecommendStore();
 const inputStore = useInputStore();
 const searchQuery = ref('');
 const router = useRouter();
 const { showLoading, closeLoading, showWarning, updateLoading } = useAlert();
 const {  searchBoxAnimation } = useAnimations();
-const { executeRecommendRecaptcha, initRecaptcha, isRecaptchaReady } = useRecaptcha();
+const { renderTurnstile, initTurnstile, hasValidToken, getCurrentToken } = useTurnstile();
+const turnstileWidgetId = ref(null);
+const canSubmit = ref(false);
 
 onMounted(async ()=>{
     searchBoxAnimation('.searchBar')
-    
-    // 初始化 reCAPTCHA
-    await initRecaptcha();
     
     if (!inputStore.token) {
         console.log('❌ 使用者未登入，跳轉到登入頁');
@@ -33,6 +32,22 @@ onMounted(async ()=>{
         }, 2000);
     } else {
         console.log('✅ 使用者已登入:', inputStore.userInfo.name);
+        
+        // 初始化 Turnstile
+        await initTurnstile();
+        
+        // 渲染 Turnstile 小工具
+        turnstileWidgetId.value = await renderTurnstile(
+            'turnstile-widget-recommend',
+            (token) => {
+                canSubmit.value = true;
+                console.log('✅ Turnstile 驗證成功');
+            },
+            (error) => {
+                canSubmit.value = false;
+                console.error('❌ Turnstile 驗證失敗:', error);
+            }
+        );
     }
 })
 
@@ -42,6 +57,12 @@ async function handleSearch(){
         showWarning('請輸入商品需求');
         return;
     }
+    
+    if (!canSubmit.value) {
+        showWarning('請先完成安全驗證', '需要通過 Turnstile 驗證才能搜尋');
+        return;
+    }
+    
     showLoading('努力搜尋中...')
     let currentProgress = 5;
     let progressInterval = null;
@@ -59,29 +80,19 @@ async function handleSearch(){
     try{
         updateLoading(5);
         
-        // 執行 reCAPTCHA 驗證
-        let recaptchaToken = null;
-        if (isRecaptchaReady.value) {
-            console.log('🔐 執行 reCAPTCHA 驗證...');
-            recaptchaToken = await executeRecommendRecaptcha();
-            if (!recaptchaToken) {
-                console.warn('⚠️  reCAPTCHA token 取得失敗，繼續執行推薦');
-            }
-        }
+        // 取得 Turnstile token
+        const turnstileToken = getCurrentToken();
         
         updateLoading(10);
         startSimulatedProgress();
         
         // 準備請求資料
         const requestData = {
-            "query": searchQuery.value
+            "query": searchQuery.value,
+            "turnstile_token": turnstileToken
         };
         
-        // 如果有 reCAPTCHA token，則加入請求中
-        if (recaptchaToken) {
-            requestData.recaptcha_token = recaptchaToken;
-            console.log('✅ 已包含 reCAPTCHA token 在推薦請求中');
-        }
+        console.log('✅ 已包含 Turnstile token 在推薦請求中');
         
         const response = await axios.post(
             'https://api-xssearch.brid.pw/api/recommend/',
@@ -191,9 +202,18 @@ async function handleSearch(){
         <form @submit.prevent="handleSearch">
             <div class="searchBar">
                 <input v-model="searchQuery" type="text" placeholder="可以打電動的筆電" class="searchInput">
-                <button type="submit">
+                <button 
+                    type="submit"
+                    :class="{ 'disabled': !canSubmit }"
+                    :disabled="!canSubmit"
+                >
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
+            </div>
+            
+            <!-- Turnstile 驗證小工具 -->
+            <div class="turnstile-container">
+                <div id="turnstile-widget-recommend"></div>
             </div>
         </form>
     </div>
@@ -262,13 +282,44 @@ form{
             cursor: pointer;
             font-size: 1.5rem;
             transition: all 0.3s ease;
-            &:hover{
+            
+            &:not(.disabled):hover{
                 background-color: rgba(154, 167, 184, 0.1);
             }
+            
+            &.disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+                
+                i {
+                    color: #ccc !important;
+                }
+            }
+            
             i{
                 color: #7E90A7;
             }
         }
+    }
+}
+
+.turnstile-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    
+    #turnstile-widget-recommend {
+        transform: scale(0.9);
+        transform-origin: center;
+    }
+    
+    @media screen and (max-width: 520px) {
+        margin-top: 1.5rem;
+        
+        #turnstile-widget-recommend {
+            transform: scale(0.8);
+        }
+    }
     }
 }
 

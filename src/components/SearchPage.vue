@@ -6,19 +6,34 @@ import { useSearchStore } from '../stores/useSearchStore';
 import { useAlert } from '../SweetAlert';
 import axios from 'axios';
 import { useAnimations } from '../composables/useAnimations';
-import { useRecaptcha } from '../composables/useRecaptcha';
+import { useTurnstile } from '../composables/useTurnstile';
 
 const searchQuery = ref('');
 const router = useRouter();
 const searchStore = useSearchStore();
 const { showLoading, closeLoading, showWarning, updateLoading } = useAlert();
 const {  searchBoxAnimation} = useAnimations();
-const { executeSearchRecaptcha, initRecaptcha, isRecaptchaReady } = useRecaptcha();
+const { renderTurnstile, initTurnstile, hasValidToken, getCurrentToken } = useTurnstile();
+const turnstileWidgetId = ref(null);
+const canSubmit = ref(false);
 
 onMounted(async ()=>{
     searchBoxAnimation('.searchBar')
-    // 初始化 reCAPTCHA
-    await initRecaptcha();
+    // 初始化 Turnstile
+    await initTurnstile();
+    
+    // 渲染 Turnstile 小工具
+    turnstileWidgetId.value = await renderTurnstile(
+        'turnstile-widget',
+        (token) => {
+            canSubmit.value = true;
+            console.log('✅ Turnstile 驗證成功');
+        },
+        (error) => {
+            canSubmit.value = false;
+            console.error('❌ Turnstile 驗證失敗:', error);
+        }
+    );
 })
 
 async function handleSearch(){
@@ -26,34 +41,28 @@ async function handleSearch(){
         showWarning('請輸入商品型號或關鍵字', '搜尋欄位不能為空！');
         return;
     }
+    
+    if (!canSubmit.value) {
+        showWarning('請先完成安全驗證', '需要通過 Turnstile 驗證才能搜尋');
+        return;
+    }
+    
     showLoading('努力搜尋中...')
     try{
         updateLoading(5);
         
-        // 執行 reCAPTCHA 驗證
-        let recaptchaToken = null;
-        if (isRecaptchaReady.value) {
-            console.log('🔐 執行 reCAPTCHA 驗證...');
-            recaptchaToken = await executeSearchRecaptcha();
-            if (!recaptchaToken) {
-                console.warn('⚠️  reCAPTCHA token 取得失敗，繼續執行搜尋');
-            }
-        } else {
-            console.warn('⚠️  reCAPTCHA 未準備就緒，跳過驗證');
-        }
+        // 取得 Turnstile token
+        const turnstileToken = getCurrentToken();
         
         updateLoading(15);
         
         // 準備請求資料
         const requestData = {
-            "keyword": searchQuery.value
+            "keyword": searchQuery.value,
+            "turnstile_token": turnstileToken
         };
         
-        // 如果有 reCAPTCHA token，則加入請求中
-        if (recaptchaToken) {
-            requestData.recaptcha_token = recaptchaToken;
-            console.log('✅ 已包含 reCAPTCHA token 在搜尋請求中');
-        }
+        console.log('✅ 已包含 Turnstile token 在搜尋請求中');
         
         const response = await axios.post(
             'https://api-xssearch.brid.pw/api/search/',
@@ -95,10 +104,10 @@ async function handleSearch(){
         console.error('搜尋錯誤:', error);
         closeLoading();
         
-        // 檢查是否為 reCAPTCHA 相關錯誤
+        // 檢查是否為 Turnstile 相關錯誤
         if (error.response && error.response.status === 403) {
             const errorData = error.response.data;
-            if (errorData.error && errorData.error.includes('reCAPTCHA')) {
+            if (errorData.error && errorData.error.includes('Turnstile')) {
                 showWarning(
                     "🤖 安全驗證失敗", 
                     "為了防止機器人攻擊，請稍後再試。如果問題持續發生，請聯絡客服。"
@@ -123,9 +132,12 @@ async function handleSearch(){
         <form @submit.prevent="handleSearch">
             <div class="searchBar">
                 <input v-model="searchQuery" type="text" placeholder="請輸入商品型號或關鍵字" class="searchInput">
-                <button type="submit">
+                <button type="submit" :disabled="!canSubmit" :class="{ disabled: !canSubmit }">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
+            </div>
+            <div class="turnstile-container">
+                <div id="turnstile-widget"></div>
             </div>
         </form>
     </div>
@@ -201,6 +213,25 @@ form{
             i{
                 color: #7E90A7;
             }
+            
+            &.disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+                
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+    
+    .turnstile-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        
+        #turnstile-widget {
+            transform: scale(0.9);
         }
     }
 }
