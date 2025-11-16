@@ -36,7 +36,13 @@ onUnmounted(() => {
 
 let menu = computed(()=>{
     if(token.value){
-        return ['首頁', '普通搜尋','個人化推薦', '升級方案', '登出']
+        // 已登入：只有權限為false時才顯示升級方案
+        const baseMenu = ['首頁', '普通搜尋','個人化推薦'];
+        if (!inputStore.userInfo.permission) {
+            baseMenu.push('升級方案');
+        }
+        baseMenu.push('登出');
+        return baseMenu;
     }
     else{
         return ['首頁', '普通搜尋','個人化推薦', '登入' , '註冊']

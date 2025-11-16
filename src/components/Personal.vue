@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useAlert } from '../SweetAlert';
 import { useInputStore } from '../stores/useInputStore';
 
@@ -11,12 +11,12 @@ const props = defineProps({
     token:String,
 })
 
-const options = [
-    { title: '升級方案' ,icon:'fa-regular fa-circle-up',action:'update',show:props.token},
+const options = computed(() => [
+    { title: '升級方案' ,icon:'fa-regular fa-circle-up',action:'update',show: props.token && !inputStore.userInfo.permission},
     { title: '登出',icon:'fa-solid fa-arrow-right-from-bracket',action:'logout' ,show:props.token},
     { title:'登入',icon:'fa-solid fa-arrow-right-to-bracket',action:'login' ,show:!props.token},
     { title:'註冊',icon:'fa-solid fa-user-plus',action:'login' ,show:!props.token}
-];
+]);
 
 function handleClick(action){
     switch(action){
@@ -62,7 +62,7 @@ $word-color: #2F2F2F;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 35px;
         ul{
-            width: 135.2px;
+            width: 155px;
             height: 100%;
             padding: 0.5rem 1.5rem;
             list-style: none;
