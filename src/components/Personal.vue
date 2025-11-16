@@ -19,9 +19,9 @@ const options = [
 
 function handleClick(action){
     switch(action){
-        // case 'update':
-        //     router.push('/membership');
-        //     break;
+        case 'update':
+            router.push('/membership');
+            break;
         case 'logout':
             inputStore.removeToken();
             window.google.accounts.id.disableAutoSelect(); // 取消自動登入
