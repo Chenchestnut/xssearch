@@ -15,7 +15,7 @@ async function upgradeToPro() {
     showLoading('正在升級會員...');
     
     try {
-        const response = await axios.post(
+        await axios.post(
             `https://api-xssearch.brid.pw/api/users/${inputStore.userInfo.id}/permission/`,
             {"permission": true}
         );
