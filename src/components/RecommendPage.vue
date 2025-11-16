@@ -30,6 +30,7 @@ onMounted(()=>{
     }
 })
 
+
 async function handleSearch(){
     if(searchQuery.value.trim()===''){
         showWarning('請輸入商品需求');
