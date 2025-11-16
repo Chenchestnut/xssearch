@@ -39,8 +39,13 @@ export function useTurnstile() {
         try {
             isTurnstileLoading.value = true;
             
+            console.log('🚀 開始渲柔 Turnstile 小工具...');
+            console.log('🔑 Site Key:', siteKey);
+            console.log('🌍 當前域名:', window.location.hostname);
+            
             // 確保 Turnstile 已載入
             if (!isTurnstileReady.value) {
+                console.log('⏳ 等待 Turnstile 載入...');
                 await waitForTurnstile();
             }
             
@@ -49,18 +54,37 @@ export function useTurnstile() {
                 throw new Error('Turnstile 未載入');
             }
             
-            // 渲染 Turnstile 小工具
-            const widgetId = window.turnstile.render(containerId, {
+            console.log('✅ Turnstile API 已載入');
+            
+            // 渲染 Turnstile 小工具 (需要傳遞 CSS 選擇器或 HTMLElement)
+            const container = document.getElementById(containerId);
+            if (!container) {
+                throw new Error(`找不到容器元素: ${containerId}`);
+            }
+            
+            console.log('📺 找到容器元素:', container);
+            
+            console.log('🎨 渲柔 Turnstile 小工具...');
+            
+            const widgetId = window.turnstile.render(container, {
                 sitekey: siteKey,
                 callback: (token) => {
                     turnstileToken.value = token;
-                    console.log('✅ Turnstile 驗證成功');
+                    console.log('✅ Turnstile 驗證成功!');
+                    console.log('🎫 Token 長度:', token.length);
+                    console.log('🔑 Token 前綴:', token.substring(0, 50) + '...');
                     if (onSuccess) onSuccess(token);
                 },
-                'error-callback': (error) => {
-                    console.error('❌ Turnstile 驗證失敗:', error);
+                'error-callback': (errorCode) => {
+                    console.error('❌ Turnstile 驗證錯誤代碼:', errorCode);
+                    console.error('📄 錯誤詳情:', {
+                        errorCode,
+                        siteKey: siteKey,
+                        hostname: window.location.hostname,
+                        userAgent: navigator.userAgent
+                    });
                     turnstileToken.value = null;
-                    if (onError) onError(error);
+                    if (onError) onError(errorCode);
                 },
                 'expired-callback': () => {
                     console.warn('⚠️ Turnstile token 已過期');
@@ -70,10 +94,14 @@ export function useTurnstile() {
                 size: 'normal'
             });
             
+            console.log('🎯 Widget ID:', widgetId);
+            
+            console.log('✨ Turnstile 小工具渲柔成功!');
             return widgetId;
             
         } catch (error) {
-            console.error('❌ Turnstile 渲染錯誤:', error);
+            console.error('❌ Turnstile 渲柔錯誤:', error);
+            console.error('📄 錯誤堆疊:', error.stack);
             if (onError) onError(error);
             return null;
         } finally {
