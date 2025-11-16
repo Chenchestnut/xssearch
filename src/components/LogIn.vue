@@ -13,10 +13,13 @@ function handleLogin(){
 
 <template>
 <section class="registerPage">
-    <div class="google">
+    <div class="login">
+        <div class="google">
         登入
+        </div>
+        <googleLogin />
     </div>
-    <googleLogin />
+    
 </section>
     
 </template>
@@ -35,14 +38,21 @@ section.registerPage{
     left: 0;
     box-sizing: border-box;
     color: $word-color;
-    div.google{
+    div.login{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        font-size: 2.5rem;
-        padding: 3rem 0 0 0;
+        div.google{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            padding: 3rem 0 0 0;
+        }
     }
+    
 }
 
 </style>
