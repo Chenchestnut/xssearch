@@ -7,39 +7,12 @@ const email = ref('');
 const password = ref('');
 
 function handleLogin(){
-    if(!(email.value && password.value)) {
-        alert('請填寫所有欄位');
-        return;
-    }
     router.push('/search');
 }
 </script>
 
 <template>
 <div class="registerPage">
-    <section class="register">
-        <h2>登入</h2>
-        <hr>
-        <form @submit.prevent="handleLogin">
-            <label for="Email">Email</label>
-            <br>
-            <input v-model="email" type="text" placeholder="Email" required class="email">
-            <br>
-            <label for="password">Password</label>
-            <br>
-            <input v-model="password" type="password" required class="password">
-            <button type="submit" class="submitBtn">登入</button>
-        </form>
-    </section>
-    <section class="login">
-        <router-link to="/register" class="loginBtn">立即註冊</router-link>
-    </section>
-    <section class="other">
-        <div class="wrapper">
-            <div class="line"><hr></div>
-            <div>或</div>
-            <div class="line"><hr></div>
-        </div>
         <div class="google">
             <googleLogin />
         </div>
