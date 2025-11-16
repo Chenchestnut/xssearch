@@ -37,6 +37,7 @@ section.registerPage{
     color: $word-color;
         div.google{
             display: flex;
+            display: block;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
