@@ -51,8 +51,13 @@ function changePage(item){
             router.push('/search');
             break;
         case '個人化推薦':
-            router.push('/recommend');
-            break;
+            if(token.value){
+                 router.push('/recommend');
+             }
+            else{
+                 router.push('/login');
+             }
+            break;            
         // case '好物比拚':
         //     if(token.value){
         //         router.push('/compare');

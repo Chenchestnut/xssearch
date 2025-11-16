@@ -23,8 +23,8 @@ const routes = [
   { path: "/recommendPageCache", component: RecommendPageCache },
   { path: "/recommendResult", component: RecommendResult },
   // { path: "/membership", component: Membership },
-  { path: "/compare", component: ComparePage },
-  { path: "/compareResult", component: CompareResult },
+  // { path: "/compare", component: ComparePage },
+  // { path: "/compareResult", component: CompareResult },
 ];
 
 const router = createRouter({
