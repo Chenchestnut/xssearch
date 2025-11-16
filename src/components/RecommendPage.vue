@@ -92,7 +92,7 @@ async function handleSearch(){
         console.log('data.data:', data.data);
         console.log('data.data.recommendation:', data.data.recommendation);
         //驗證後端回應
-        if (!data||!data.success) {
+        if (!data) {
             throw new Error('後端回應失敗');
         }
         const recommendData = data.data.recommendation;
