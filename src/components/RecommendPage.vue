@@ -104,12 +104,6 @@ async function handleSearch(){
             throw new Error('沒有找到相關商品');
         }
         console.log(data);
-        if(data.success === false){
-            showWarning("QQ 這是付費用戶功能窩!", "請升級為付費用戶以使用此功能。")
-            setTimeout(() => {
-                router.push('/membership');
-            }, 2000);
-        }
         updateLoading(98);
         recommendStore.saveRecommendResults(recommendData);
         await new Promise(resolve => setTimeout(resolve, 150));
@@ -135,13 +129,11 @@ async function handleSearch(){
             
             // 檢查是否為權限不足錯誤
             if (error.response.status === 403 && 
-                errorData && 
-                !errorData.success && 
-                errorData.error && 
-                errorData.error.includes('Not Authorized')) {
-                
+                !errorData.success ) {
                 showWarning("QQ 這是付費限定功能，您沒有開通，因此不能使用。");
-                return;
+                setTimeout(() => {
+                    router.push('/membership');
+                }, 2000);
             }
             
             // 檢查是否為認證錯誤
