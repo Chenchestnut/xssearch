@@ -3,6 +3,7 @@ import { useRouter } from 'vue-router';
 import { ref, onMounted } from 'vue';
 import googleLogin from './googleLogin.vue';
 import { useTurnstile } from '../composables/useTurnstile';
+import Navbar from './Navbar.vue';
 
 const router = useRouter();
 const email = ref('');
@@ -74,10 +75,11 @@ onMounted(async () => {
 </script>
 
 <template>
+<Navbar />
 <section class="registerPage">
     <div class="login">
         <div class="google">
-            登入
+            登入即註冊
         </div>
         
         <!-- Turnstile 驗證小工具 -->

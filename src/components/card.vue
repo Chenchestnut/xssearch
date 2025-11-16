@@ -94,7 +94,7 @@ function cardClick(index){
                     <br>
                     你可以試試輸入你的需求
                     <br>
-                    EX:我想要一台可以打電動的筆電
+                    EX:我想要一台可以打電動的筆電，適合拍照的手機
                 </div>
                 <div class="gopage" @click="router.push('/recommend')">
                     馬上體驗

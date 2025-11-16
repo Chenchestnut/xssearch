@@ -12,9 +12,10 @@ const props = defineProps({
 })
 
 const options = [
-    { title: '升級方案' ,icon:'fa-regular fa-circle-up',action:'update',show:true},
+    { title: '升級方案' ,icon:'fa-regular fa-circle-up',action:'update',show:props.token},
     { title: '登出',icon:'fa-solid fa-arrow-right-from-bracket',action:'logout' ,show:props.token},
-    { title:'登入',icon:'fa-solid fa-arrow-right-to-bracket',action:'login' ,show:!props.token}
+    { title:'登入',icon:'fa-solid fa-arrow-right-to-bracket',action:'login' ,show:!props.token},
+    { title:'註冊',icon:'fa-solid fa-user-plus',action:'login' ,show:!props.token}
 ];
 
 function handleClick(action){
@@ -26,6 +27,8 @@ function handleClick(action){
             inputStore.removeToken();
             window.google.accounts.id.disableAutoSelect(); // 取消自動登入
             router.push('/');
+            // 刷新頁面以確保介面狀態更新
+            window.location.reload();
             break;
         case 'login':
             router.push('/login');
@@ -59,7 +62,8 @@ $word-color: #2F2F2F;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 35px;
         ul{
-            width: 100%;
+            width: 135.2px;
+            height: 100%;
             padding: 0.5rem 1.5rem;
             list-style: none;
             text-align: left;
