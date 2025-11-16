@@ -72,7 +72,11 @@ async function handleSearch(){
             progressInterval = null;
         }
         const data = response.data;
-
+        console.log('=== 後端完整回應 ===');
+        console.log('data:', data);
+        console.log('data.success:', data.success);
+        console.log('data.data:', data.data);
+        console.log('data.data.recommendation:', data.data.recommendation);
         //驗證後端回應
         if (!data||!data.success) {
             throw new Error('後端回應失敗');
