@@ -7,15 +7,21 @@ import { useRouter } from 'vue-router';
 import { useAnimations } from '../composables/useAnimations';
 import { useRecommendStore } from '../stores/useRecommendStore';
 import { useInputStore } from '../stores/useInputStore';
+import { useRecaptcha } from '../composables/useRecaptcha';
 const recommendStore = useRecommendStore();
 const inputStore = useInputStore();
 const searchQuery = ref('');
 const router = useRouter();
 const { showLoading, closeLoading, showWarning, updateLoading } = useAlert();
 const {  searchBoxAnimation } = useAnimations();
+const { executeRecommendRecaptcha, initRecaptcha, isRecaptchaReady } = useRecaptcha();
 
-onMounted(()=>{
+onMounted(async ()=>{
     searchBoxAnimation('.searchBar')
+    
+    // 初始化 reCAPTCHA
+    await initRecaptcha();
+    
     if (!inputStore.token) {
         console.log('❌ 使用者未登入，跳轉到登入頁');
         showWarning(
@@ -52,10 +58,34 @@ async function handleSearch(){
     };
     try{
         updateLoading(5);
+        
+        // 執行 reCAPTCHA 驗證
+        let recaptchaToken = null;
+        if (isRecaptchaReady.value) {
+            console.log('🔐 執行 reCAPTCHA 驗證...');
+            recaptchaToken = await executeRecommendRecaptcha();
+            if (!recaptchaToken) {
+                console.warn('⚠️  reCAPTCHA token 取得失敗，繼續執行推薦');
+            }
+        }
+        
+        updateLoading(10);
         startSimulatedProgress();
+        
+        // 準備請求資料
+        const requestData = {
+            "query": searchQuery.value
+        };
+        
+        // 如果有 reCAPTCHA token，則加入請求中
+        if (recaptchaToken) {
+            requestData.recaptcha_token = recaptchaToken;
+            console.log('✅ 已包含 reCAPTCHA token 在推薦請求中');
+        }
+        
         const response = await axios.post(
             'https://api-xssearch.brid.pw/api/recommend/',
-            {"query":searchQuery.value},
+            requestData,
             {
                 headers: {
                     'Content-Type': 'application/json',
