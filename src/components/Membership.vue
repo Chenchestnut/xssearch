@@ -9,7 +9,7 @@ const inputStore = useInputStore();
 // let avatar = inputStore.picture;
 const router = useRouter();
 function changeToCompare() {
-    router.push('/compare');
+    router.push('/recommend');
 }
 
 function goBack() {
