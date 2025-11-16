@@ -15,8 +15,8 @@ function handleLogin(){
 <section class="registerPage">
     <div class="google">
         登入
-        <googleLogin />
     </div>
+    <googleLogin />
 </section>
     
 </template>
