@@ -15,6 +15,7 @@ function handleLogin(){
 <div class="registerPage">
     <section>
         <div class="google">
+            登入
             <googleLogin />
         </div>
     </section>
@@ -36,6 +37,15 @@ $word-color:#2F2F2F;
     left: 0;
     box-sizing: border-box;
     color: $word-color;
+    section{
+        div.google{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-top: 5rem;
+        }
+    }
     .register{
         display: flex;
         flex-direction: column;
