@@ -40,7 +40,7 @@ section.registerPage{
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin-top: 3rem;
     }
 }
