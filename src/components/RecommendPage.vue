@@ -29,6 +29,7 @@ onMounted(()=>{
         console.log('✅ 使用者已登入:', inputStore.userInfo.name);
     }
 })
+
 async function handleSearch(){
     if(searchQuery.value.trim()===''){
         showWarning('請輸入商品需求');
