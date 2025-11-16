@@ -133,9 +133,37 @@ async function handleSearch(){
             clearInterval(progressInterval);
             progressInterval = null;
         }
-        console.error(error);
-        closeLoading()
-        showWarning("QQ 沒找到相關資訊!", "請檢查您的輸入是否有拼寫錯誤，或嘗試使用不同的關鍵詞進行搜索。")
+        console.error('完整錯誤物件:', error);
+        closeLoading();
+        
+        // 檢查是否為 HTTP 錯誤回應
+        if (error.response) {
+            const errorData = error.response.data;
+            console.log('HTTP 錯誤回應:', errorData);
+            
+            // 檢查是否為權限不足錯誤
+            if (error.response.status === 403 && 
+                errorData && 
+                !errorData.success && 
+                errorData.error && 
+                errorData.error.includes('Not Authorized')) {
+                
+                showWarning("QQ 這是付費限定功能，您沒有開通，因此不能使用。");
+                return;
+            }
+            
+            // 檢查是否為認證錯誤
+            if (error.response.status === 401) {
+                showWarning("登入已過期", "請重新登入後再試");
+                setTimeout(() => {
+                    router.push('/login');
+                }, 2000);
+                return;
+            }
+        }
+        
+        // 其他錯誤顯示一般錯誤訊息
+        showWarning("QQ 沒找到相關資訊!", "請檢查您的輸入是否有拼寫錯誤，或嘗試使用不同的關鍵詞進行搜索。");
     }
 }
 
