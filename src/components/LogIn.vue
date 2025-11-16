@@ -41,7 +41,7 @@ section.registerPage{
         align-items: center;
         justify-content: center;
         font-size: 2.5rem;
-        margin-top: 3rem;
+        padding: 3rem 0 0 0;
     }
 }
 
