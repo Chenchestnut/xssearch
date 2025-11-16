@@ -125,15 +125,32 @@ async function handleSearch(){
         // 檢查是否為 HTTP 錯誤回應
         if (error.response) {
             const errorData = error.response.data;
+            const status = error.response.status;
             console.log('HTTP 錯誤回應:', errorData);
             
             // 檢查是否為權限不足錯誤
-            if (error.response.status === 403) {
-                showWarning("QQ 這是付費限定功能，您沒有開通，因此不能使用。");
-                setTimeout(() => {
-                    router.push('/membership');
-                }, 2000);
-            }
+            if (status === 403) {
+                const errorMsg = errorData?.error || '';
+                
+                // 檢查是否為付費功能錯誤
+                if (errorMsg.includes('Not Authorized') || 
+                    errorMsg.includes('Premium') || 
+                    errorMsg.includes('subscription')) {
+                    
+                    console.log('✅ 檢測到付費功能錯誤');
+                    
+                    showWarning(
+                        "QQ 這是付費限定功能", 
+                        "您沒有開通付費功能，因此不能使用。"
+                    );
+                    
+                    setTimeout(() => {
+                        console.log('⏰ 2秒後跳轉到會員頁面');
+                        router.push('/membership');
+                    }, 2000);
+                    
+                    return;  // ✅ 加上 return，中止執行
+                }
             
             // 檢查是否為認證錯誤
             if (error.response.status === 401) {
