@@ -79,19 +79,19 @@ async function handleSearch(){
         }
         const recommendData = data.data.recommendation;
         console.log('recommend資料:', recommendData);
-        // ✅ 如果後端回應格式是 { success: true, data: [...] }
-        if (data.success && Array.isArray(data.data)) {
-            recommendData = data.data;
-        } 
-        // ✅ 如果後端直接回應陣列
-        else if (Array.isArray(data)) {
-            recommendData = data;
-        }
-        // ✅ 如果後端回應其他格式
-        else {
-            console.error('未預期的資料格式:', data);
-            throw new Error('資料格式錯誤');
-        }
+        // // ✅ 如果後端回應格式是 { success: true, data: [...] }
+        // if (data.success && Array.isArray(data.data)) {
+        //     recommendData = data.data;
+        // } 
+        // // ✅ 如果後端直接回應陣列
+        // else if (Array.isArray(data)) {
+        //     recommendData = data;
+        // }
+        // // ✅ 如果後端回應其他格式
+        // else {
+        //     console.error('未預期的資料格式:', data);
+        //     throw new Error('資料格式錯誤');
+        // }
         
         console.log('✅ 推薦資料:', recommendData);
         
