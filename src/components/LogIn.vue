@@ -35,123 +35,12 @@ section.registerPage{
     left: 0;
     box-sizing: border-box;
     color: $word-color;
-        div.google{
-            display: flex;
-            display: block;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-        }
-    .register{
+    div.google{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        h2{
-            margin-top: 5rem;
-            font-size: 3rem;
-            font-weight: 500;
-            @media screen and (max-width: 520px) {
-                font-size: 2rem;
-                
-            }
-        }
-        hr{
-            width: 40%;
-            min-width: 250px;
-            max-width: 450px;
-            border: 0.05rem solid $word-color;
-        }
-        form{
-            width: 40%;
-            min-width: 250px;
-            max-width: 450px;
-            text-align: left;
-            label{
-                font-size: 2rem;
-                text-decoration: solid underline rgba($color: #2F2F2F, $alpha: 0.3) 1.5px;
-                @media screen and (max-width: 520px) {
-                    font-size: 1.5rem;
-                    
-                }
-            }
-            .email,.password{
-                width: 100%;
-                margin: 2rem 0rem;
-                padding: 1rem 0rem 1rem 1rem;
-                border: black 1.5px solid;
-                border-radius: 20px;
-                font-size: 20px;
-                background-color: transparent;
-                @media screen and (max-width: 520px) {
-                    margin: 1rem 0rem;
-                    padding: 0.5rem 0rem 0.5rem 1rem;
-
-                }
-            }
-            .submitBtn{
-                width: 100%;
-                margin: 2rem 0rem;
-                padding: 1rem 0rem;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                border: none;
-                border-radius: 45px;
-                text-decoration: none;
-                font-size: 1.5rem;
-                background-color: #9AA7B8;
-                color: #FFFFFF;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                &:hover{
-                transform: scale(1.05);
-                background-color: #7E90A7;
-                }
-                @media screen and (max-width: 520px) {
-                    font-size: 1.25rem;
-                    padding: 0.5rem 0;
-                }
-            }
-        }
-    }
-    .login{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: $word-color;
-        p{
-            font-size: 1rem;
-            margin-right: 1rem;
-        }
-        .loginBtn{
-            font-size: 1rem;
-            color: $word-color;
-            &:hover{
-                color: black;
-            }
-        }
-    }
-    .other{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        .wrapper{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            margin: 1rem 0;
-            .line{
-                width: 50%;
-                min-width: 140px;
-                hr{
-                    width: 100%;
-                    border: 0.05rem solid $word-color;
-                }
-            }
-        }
+        font-size: 2rem;
     }
 }
 
