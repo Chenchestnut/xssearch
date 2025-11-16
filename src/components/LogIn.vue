@@ -13,7 +13,7 @@ function handleLogin(){
 
 <template>
 <div class="registerPage">
-    </section>
+    <section>
         <div class="google">
             <googleLogin />
         </div>
