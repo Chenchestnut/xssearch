@@ -59,7 +59,7 @@ async function handleCredentialResponse(response) {
             throw new Error('無法解析 Google Token');
         }
         
-        if (googleUserData.aud !== '119893423798-4ukrf82d1k5sn59sqqrvp8kg7qejd8i2.apps.googleusercontent.com') {
+        if (googleUserData.aud !== '662832463958-rqc7cm2esgstvens4iitsmptgiph62hh.apps.googleusercontent.com') {
             console.warn('⚠️ Client ID 不匹配:', googleUserData.aud);
         }
         

@@ -6,7 +6,9 @@ import axios from 'axios';
 import { useRouter } from 'vue-router';
 import { useAnimations } from '../composables/useAnimations';
 import { useRecommendStore } from '../stores/useRecommendStore';
+import { useInputStore } from '../stores/useInputStore';
 const recommendStore = useRecommendStore();
+const inputStore = useInputStore();
 const searchQuery = ref('');
 const router = useRouter();
 const { showLoading, closeLoading, showWarning, updateLoading } = useAlert();
@@ -43,6 +45,7 @@ async function handleSearch(){
             {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${inputStore.token}`  // 使用系統 JWT
                 },
                 onDownloadProgress: (progressEvent) => {
                     if (progressEvent.total) {
