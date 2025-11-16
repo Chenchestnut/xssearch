@@ -12,21 +12,19 @@ function handleLogin(){
 </script>
 
 <template>
-<div class="registerPage">
-    <section>
-        <div class="google">
-            登入
-            <googleLogin />
-        </div>
-    </section>
-</div>
+<section class="registerPage">
+    <div class="google">
+        登入
+        <googleLogin />
+    </div>
+</section>
     
 </template>
 
 
 <style lang="scss" scoped>
 $word-color:#2F2F2F;
-.registerPage{
+section.registerPage{
     background-image: url('../assets/background.png');
     background-size: cover;
     background-position: center;
@@ -37,7 +35,6 @@ $word-color:#2F2F2F;
     left: 0;
     box-sizing: border-box;
     color: $word-color;
-    section{
         div.google{
             display: flex;
             align-items: center;
@@ -45,7 +42,6 @@ $word-color:#2F2F2F;
             font-size: 2rem;
             margin-top: 5rem;
         }
-    }
     .register{
         display: flex;
         flex-direction: column;
