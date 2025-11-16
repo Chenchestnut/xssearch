@@ -49,7 +49,7 @@ section.registerPage{
             align-items: center;
             justify-content: center;
             font-size: 2.5rem;
-            padding: 3rem 0 0 0;
+            padding: 8rem 0 0 0;
         }
     }
     
