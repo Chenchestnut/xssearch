@@ -7,7 +7,7 @@ import { useTurnstile } from '../composables/useTurnstile';
 const router = useRouter();
 const email = ref('');
 const password = ref('');
-const { renderTurnstile, initTurnstile, hasValidToken, resetTurnstile } = useTurnstile();
+const { renderTurnstile, initTurnstile, hasValidToken, resetTurnstile, debugTurnstileState, getCurrentToken } = useTurnstile();
 const turnstileWidgetId = ref(null);
 const canShowGoogleLogin = ref(false);
 const turnstileStatus = ref('等待驗證...');
@@ -18,6 +18,9 @@ function handleLogin(){
 
 // 重新驗證 Turnstile
 function retryTurnstile() {
+    console.log('🔄 重試 Turnstile 驗證...');
+    debugTurnstileState();
+    
     if (turnstileWidgetId.value) {
         resetTurnstile(turnstileWidgetId.value);
         canShowGoogleLogin.value = false;
@@ -38,17 +41,28 @@ function checkTokenStatus() {
 }
 
 onMounted(async () => {
+    console.log('📝 登入頁面 onMounted 被呼叫');
+    
     // 初始化 Turnstile
     await initTurnstile();
+    
+    debugTurnstileState();
     
     // 渲柔 Turnstile 小工具
     turnstileWidgetId.value = await renderTurnstile(
         'turnstile-widget-login',
         (token) => {
             canShowGoogleLogin.value = true;
-            turnstileStatus.value = '驗證成功！';
+            turnstileStatus.value = '驗證成功！現在可以登入';
             console.log('✅ Turnstile 驗證成功，顯示 Google 登入');
             console.log('🎫 新 Token:', token.substring(0, 20) + '...');
+            
+            // 立即檢查 token 是否正確儲存
+            setTimeout(() => {
+                const storedToken = getCurrentToken();
+                console.log('🔍 驗證後檢查 token 狀態:', storedToken ? '已儲存' : '未儲存');
+                debugTurnstileState();
+            }, 100);
         },
         (error) => {
             canShowGoogleLogin.value = false;

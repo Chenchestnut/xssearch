@@ -1,14 +1,16 @@
 import { ref } from 'vue';
 
+// 全局狀態，在所有組件之間共享
+const globalTurnstileToken = ref(null);
+const globalTurnstileReady = ref(false);
+const globalTurnstileLoading = ref(false);
+
 /**
  * Cloudflare Turnstile 的 Vue 3 Composable
  * 處理 Cloudflare Turnstile 驗證
  */
 export function useTurnstile() {
     const siteKey = '0x4AAAAAAA3QtOGlz4UGnf74';
-    const isTurnstileReady = ref(false);
-    const isTurnstileLoading = ref(false);
-    const turnstileToken = ref(null);
     
     /**
      * 等待 Turnstile 載入完成
@@ -18,7 +20,7 @@ export function useTurnstile() {
         return new Promise((resolve) => {
             const checkTurnstile = () => {
                 if (window.turnstile) {
-                    isTurnstileReady.value = true;
+                    globalTurnstileReady.value = true;
                     resolve(true);
                 } else {
                     setTimeout(checkTurnstile, 100);
@@ -37,14 +39,14 @@ export function useTurnstile() {
      */
     const renderTurnstile = async (containerId, onSuccess, onError) => {
         try {
-            isTurnstileLoading.value = true;
+            globalTurnstileLoading.value = true;
             
             console.log('🚀 開始渲柔 Turnstile 小工具...');
             console.log('🔑 Site Key:', siteKey);
             console.log('🌍 當前域名:', window.location.hostname);
             
             // 確保 Turnstile 已載入
-            if (!isTurnstileReady.value) {
+            if (!globalTurnstileReady.value) {
                 console.log('⏳ 等待 Turnstile 載入...');
                 await waitForTurnstile();
             }
@@ -69,10 +71,11 @@ export function useTurnstile() {
             const widgetId = window.turnstile.render(container, {
                 sitekey: siteKey,
                 callback: (token) => {
-                    turnstileToken.value = token;
+                    globalTurnstileToken.value = token;
                     console.log('✅ Turnstile 驗證成功!');
                     console.log('🎫 Token 長度:', token.length);
                     console.log('🔑 Token 前綴:', token.substring(0, 50) + '...');
+                    console.log('💾 儲存 token 到全局狀態');
                     if (onSuccess) onSuccess(token);
                 },
                 'error-callback': (errorCode) => {
@@ -83,12 +86,12 @@ export function useTurnstile() {
                         hostname: window.location.hostname,
                         userAgent: navigator.userAgent
                     });
-                    turnstileToken.value = null;
+                    globalTurnstileToken.value = null;
                     if (onError) onError(errorCode);
                 },
                 'expired-callback': () => {
                     console.warn('⚠️ Turnstile token 已過期');
-                    turnstileToken.value = null;
+                    globalTurnstileToken.value = null;
                 },
                 theme: 'light',
                 size: 'normal'
@@ -105,7 +108,7 @@ export function useTurnstile() {
             if (onError) onError(error);
             return null;
         } finally {
-            isTurnstileLoading.value = false;
+            globalTurnstileLoading.value = false;
         }
     };
     
@@ -117,7 +120,7 @@ export function useTurnstile() {
         try {
             if (window.turnstile && widgetId) {
                 window.turnstile.reset(widgetId);
-                turnstileToken.value = null;
+                globalTurnstileToken.value = null;
                 console.log('🔄 Turnstile 已重置');
             }
         } catch (error) {
@@ -133,8 +136,8 @@ export function useTurnstile() {
         try {
             if (window.turnstile && widgetId) {
                 window.turnstile.remove(widgetId);
-                turnstileToken.value = null;
-                console.log('🗑️ Turnstile 已移除');
+                globalTurnstileToken.value = null;
+                console.log('🗁️ Turnstile 已移除');
             }
         } catch (error) {
             console.error('❌ Turnstile 移除錯誤:', error);
@@ -156,6 +159,20 @@ export function useTurnstile() {
         console.log('🚀 初始化 Turnstile...');
         await waitForTurnstile();
         console.log('✅ Turnstile 初始化完成');
+        console.log('🔍 當前全局 token 狀態:', globalTurnstileToken.value ? '已設置' : '未設置');
+    };
+    
+    /**
+     * 調試函數：顯示當前 Turnstile 狀態
+     */
+    const debugTurnstileState = () => {
+        console.log('=== 🔍 Turnstile 狀態調試 ===');
+        console.log('globalTurnstileReady:', globalTurnstileReady.value);
+        console.log('globalTurnstileLoading:', globalTurnstileLoading.value);
+        console.log('globalTurnstileToken:', globalTurnstileToken.value ? globalTurnstileToken.value.substring(0, 30) + '...' : 'null');
+        console.log('window.turnstile:', !!window.turnstile);
+        console.log('當前 URL:', window.location.href);
+        console.log('===========================');
     };
     
     /**
@@ -163,7 +180,8 @@ export function useTurnstile() {
      * @returns {string|null} 當前的 Turnstile token
      */
     const getCurrentToken = () => {
-        return turnstileToken.value;
+        console.log('🔍 getCurrentToken 被呼叫, 當前 token:', globalTurnstileToken.value ? globalTurnstileToken.value.substring(0, 20) + '...' : 'null');
+        return globalTurnstileToken.value;
     };
     
     /**
@@ -171,14 +189,16 @@ export function useTurnstile() {
      * @returns {boolean} 是否有有效 token
      */
     const hasValidToken = () => {
-        return !!turnstileToken.value;
+        const hasToken = !!globalTurnstileToken.value;
+        console.log('🔍 hasValidToken 被呼叫, 結果:', hasToken);
+        return hasToken;
     };
     
     return {
         // 狀態
-        isTurnstileReady,
-        isTurnstileLoading,
-        turnstileToken,
+        isTurnstileReady: globalTurnstileReady,
+        isTurnstileLoading: globalTurnstileLoading,
+        turnstileToken: globalTurnstileToken,
         siteKey,
         
         // 方法
@@ -189,6 +209,7 @@ export function useTurnstile() {
         initTurnstile,
         waitForTurnstile,
         getCurrentToken,
-        hasValidToken
+        hasValidToken,
+        debugTurnstileState
     };
 }
