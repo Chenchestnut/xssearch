@@ -72,12 +72,14 @@ async function handleSearch(){
             progressInterval = null;
         }
         const data = response.data;
-        if (!data) {
-            throw new Error('後端沒有回應資料');
+
+        //驗證後端回應
+        if (!data||!data.success) {
+            throw new Error('後端回應失敗');
         }
-        
+        const recommendData = data.data.recommendation;
+        console.log('recommend資料:', recommendData);
         // ✅ 如果後端回應格式是 { success: true, data: [...] }
-        let recommendData;
         if (data.success && Array.isArray(data.data)) {
             recommendData = data.data;
         } 
@@ -100,7 +102,7 @@ async function handleSearch(){
         console.log(data);
 
         updateLoading(98);
-        recommendStore.saveRecommendResults(data);
+        recommendStore.saveRecommendResults(recommendData);
         await new Promise(resolve => setTimeout(resolve, 150));
 
         // 稍微延遲，讓進度條到達 100%
