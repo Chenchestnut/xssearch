@@ -28,5 +28,8 @@ export const useInputStore = defineStore("input", {
     removeToken() {
       this.token = "";
     },
+    updatePermission(newPermission) {
+      this.userInfo.permission = newPermission;
+    },
   },
 });

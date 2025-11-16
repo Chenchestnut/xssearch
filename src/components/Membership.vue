@@ -3,13 +3,37 @@ import { useRouter } from 'vue-router';
 import { useInputStore } from '../stores/useInputStore';
 import { useAnimations } from '../composables/useAnimations';
 import { onMounted } from 'vue';
+import axios from 'axios';
+import { useAlert } from '../SweetAlert';
+const { showLoading, closeLoading, showWarning} = useAlert();
 const { fadeIn2 } = useAnimations();
 const inputStore = useInputStore();
 // let name = inputStore.text.slice(1);
 // let avatar = inputStore.picture;
 const router = useRouter();
-function changeToCompare() {
-    router.push('/recommend');
+async function upgradeToPro() {
+    showLoading('正在升級會員...');
+    
+    try {
+        const response = await axios.post(
+            `https://api-xssearch.brid.pw/api/users/${inputStore.userInfo.id}/permission/`,
+            {"permission": true}
+        );
+        
+        // ✅ 使用 store 的方法更新
+        inputStore.updatePermission(true);
+        
+        closeLoading();
+        showWarning('升級成功！', '恭喜您成為 Pro 會員');
+        
+        setTimeout(() => {
+            router.push('/recommend');
+        }, 2000);
+        
+    } catch (error) {
+        closeLoading();
+        showWarning('升級失敗', error.message);
+    }
 }
 
 function goBack() {
@@ -49,7 +73,7 @@ onMounted(()=>{
                     <span class="unit">TW/月</span>
                 </div>
                 <hr>
-                <button  @click="changeToCompare">立即取得</button>
+                <button  @click="upgradeToPro">立即取得</button>
                 <ul>
                     <li><i class="fa-solid fa-check"></i>基本查詢</li>
                     <li><i class="fa-solid fa-check"></i>資料分析</li>
