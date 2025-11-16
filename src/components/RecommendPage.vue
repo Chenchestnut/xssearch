@@ -132,7 +132,8 @@ async function handleSearch(){
                 showWarning("QQ 這是付費限定功能，您沒有開通，因此不能使用。");
                 setTimeout(() => {
                     router.push('/membership');
-                }, 2000);
+                }, 1500);
+                return; // 避免執行後續的一般錯誤處理
             }
             
             // 檢查是否為認證錯誤
