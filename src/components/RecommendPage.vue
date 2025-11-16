@@ -320,7 +320,6 @@ form{
             transform: scale(0.8);
         }
     }
-    }
 }
 
 </style>
