@@ -9,11 +9,11 @@ const isGoogleLoaded = ref(false);
 const props =defineProps({
     width:{
         type: String,
-        default: 'null'
+        default: '300px'
     },
     height:{
         type: String,
-        default: 'null'
+        default: '45px'
     }
 })
 //這個function是要將拿到的User資料(Base64)轉成js的物件型態方便取用
@@ -212,6 +212,7 @@ onMounted(async ()=>{
     align-items: center;
     width: 100%;
     height: 100%;
+    margin-top: 3rem;
     :deep(#google-sign-in-button) {
         border-radius: 25px !important; // 調整這個數值來控制圓角程度
         overflow: hidden;
