@@ -25,6 +25,27 @@ function parseJwt (token) {
 
 return JSON.parse(jsonPayload);
 }
+
+function waitForGoogleAPI() {
+    return new Promise((resolve, reject) => {
+        let attempts = 0;
+        const maxAttempts = 50;
+        
+        const checkGoogle = setInterval(() => {
+            attempts++;
+            
+            if (window.google && window.google.accounts) {
+                clearInterval(checkGoogle);
+                isGoogleLoaded.value = true;
+                resolve();
+            } else if (attempts >= maxAttempts) {
+                clearInterval(checkGoogle);
+                reject(new Error('Google API 載入超時'));
+            }
+        }, 100);
+    });
+}
+
 async function handleCredentialResponse(response) {
     try{
         //取得google給的token，查看資訊
