@@ -302,8 +302,7 @@ form{
             }
         }
     }
-}
-
+    
     .turnstile-container {
         display: flex;
         justify-content: center;
