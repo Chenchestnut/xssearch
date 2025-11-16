@@ -20,10 +20,10 @@ export const useInputStore = defineStore("input", {
       this.picture = newPicture;
     },
     setUserInfo(userInfo) {
-      this.name = userInfo.name || "";
-      this.email = userInfo.email || "";
-      this.id = userInfo.id || "";
-      this.permission = userInfo.permission || "";
+      this.userInfo.name = userInfo.name || "";
+      this.userInfo.email = userInfo.email || "";
+      this.userInfo.id = userInfo.id || "";
+      this.userInfo.permission = userInfo.permission || "";
     },
     removeToken() {
       this.token = "";
