@@ -168,6 +168,7 @@ $word-color:#2F2F2F;
         //     transform: translateY(5px);
         // }
         .cardFront{
+            font-size: 2.5rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -176,15 +177,15 @@ $word-color:#2F2F2F;
             box-shadow: #B6BEC9 -0.5rem 0.5rem;
             border-radius: 35px;
             transition: all 0.3s ease;
-            &:hover{
-                transform: scale(1.05);
-            }
-            @media screen and (max-width: 520px) {
-                font-size: 1.5rem;
-            }
             div.moveDown{
                 font-size: 2.5rem;
                 transform: translateY(5px);
+                &:hover{
+                    transform: scale(1.05);
+                }
+                @media screen and (max-width: 520px) {
+                    font-size: 1.5rem;
+                }
             }
             div.recommend{
                 transform: translateY(15px);
