@@ -181,11 +181,12 @@ $word-color:#2F2F2F;
             span.recommend{
                 font-size: 1rem;
                 margin-left: 0.5rem;
-                color: #ceadbe;
+                color: #987c8b;
                 @media screen and (max-width: 520px) {
                     font-size: 0.8rem;
                 }
                 i{
+                    margin-right: 0.5rem;
                     color: #d88f8a;
                 }
             }
