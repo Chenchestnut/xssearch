@@ -69,10 +69,14 @@ hr{
         height: 200px;
         border-radius: 50%;
         overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
             img{
                 width: 100%;
-                height: auto;
+                height: 100%;
                 object-fit: cover;
+                object-position: center;
             }
         }
         .productName{
