@@ -18,12 +18,24 @@ const { renderTurnstile, initTurnstile, hasValidToken, getCurrentToken } = useTu
 const turnstileWidgetId = ref(null);
 const canSubmit = ref(false);
 
+// 備用警告方法，以防 SweetAlert 出現問題
+const safeShowWarning = (title, text) => {
+  try {
+    return showWarning(title, text);
+  } catch (error) {
+    console.error('SweetAlert 錯誤:', error);
+    // 使用原生 alert 作為備用
+    alert(`${title}\n${text}`);
+    return Promise.resolve();
+  }
+};
+
 onMounted(async ()=>{
     searchBoxAnimation('.searchBar')
     
     if (!inputStore.token) {
         console.log('❌ 使用者未登入，跳轉到登入頁');
-        showWarning(
+        await safeShowWarning(
             '請先登入',
             '您需要登入才能使用搜尋功能'
         );
@@ -54,12 +66,12 @@ onMounted(async ()=>{
 
 async function handleSearch(){
     if(searchQuery.value.trim()===''){
-        showWarning('請輸入商品需求');
+        await safeShowWarning('請輸入商品需求', '');
         return;
     }
     
     if (!canSubmit.value) {
-        showWarning('請先完成安全驗證', '需要通過 Turnstile 驗證才能搜尋');
+        await safeShowWarning('請先完成安全驗證', '需要通過 Turnstile 驗證才能搜尋');
         return;
     }
     
@@ -171,13 +183,13 @@ async function handleSearch(){
             
             // 檢查是否為 429 錯誤 (Gemini 忙碌)
             if (error.response.status === 429) {
-                showWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+                await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
                 return;
             }
             
             // 檢查是否為權限不足錯誤
             if (error.response.status === 403) {
-                showWarning("QQ 這是付費限定功能，您沒有開通，因此不能使用。");
+                await safeShowWarning("QQ 這是付費限定功能，您沒有開通，因此不能使用。", '');
                 setTimeout(() => {
                     router.push('/membership');
                 }, 1500);
@@ -186,7 +198,7 @@ async function handleSearch(){
             
             // 檢查是否為認證錯誤
             if (error.response.status === 401) {
-                showWarning("登入已過期", "請重新登入後再試");
+                await safeShowWarning("登入已過期", "請重新登入後再試");
                 setTimeout(() => {
                     router.push('/login');
                 }, 2000);
@@ -195,7 +207,7 @@ async function handleSearch(){
         }
         
         // 其他錯誤顯示一般錯誤訊息
-        showWarning("QQ 沒找到相關資訊!", "請檢查您的輸入是否有拼寫錯誤，或嘗試使用不同的關鍵詞進行搜索。");
+        await safeShowWarning("QQ 沒找到相關資訊!", "請檢查您的輸入是否有拼寫錯誤，或嘗試使用不同的關鍵詞進行搜索。");
     }
 }
 

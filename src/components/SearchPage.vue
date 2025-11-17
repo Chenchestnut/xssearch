@@ -17,6 +17,18 @@ const { renderTurnstile, initTurnstile, hasValidToken, getCurrentToken } = useTu
 const turnstileWidgetId = ref(null);
 const canSubmit = ref(false);
 
+// 備用警告方法，以防 SweetAlert 出現問題
+const safeShowWarning = (title, text) => {
+  try {
+    return showWarning(title, text);
+  } catch (error) {
+    console.error('SweetAlert 錯誤:', error);
+    // 使用原生 alert 作為備用
+    alert(`${title}\n${text}`);
+    return Promise.resolve();
+  }
+};
+
 onMounted(async ()=>{
     searchBoxAnimation('.searchBar')
     // 初始化 Turnstile
@@ -38,12 +50,12 @@ onMounted(async ()=>{
 
 async function handleSearch(){
     if(searchQuery.value.trim() === '') {
-        showWarning('請輸入商品型號或關鍵字，例如：Samsung Galaxy A56 5G', '搜尋欄位不能為空！');
+        await safeShowWarning('請輸入商品型號或關鍵字，例如：Samsung Galaxy A56 5G', '搜尋欄位不能為空！');
         return;
     }
     
     if (!canSubmit.value) {
-        showWarning('請先完成安全驗證', '需要通過 Turnstile 驗證才能搜尋');
+        await safeShowWarning('請先完成安全驗證', '需要通過 Turnstile 驗證才能搜尋');
         return;
     }
     
@@ -106,7 +118,7 @@ async function handleSearch(){
         
         // 檢查是否為 429 錯誤 (Gemini 忙碌)
         if (error.response && error.response.status === 429) {
-            showWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
             return;
         }
         
@@ -114,13 +126,12 @@ async function handleSearch(){
         if (error.response && error.response.status === 403) {
             const errorData = error.response.data;
             if (errorData.error && errorData.error.includes('Turnstile')) {
-                showWarning(
+                await safeShowWarning(
                     "🤖 安全驗證失敗", 
                     "為了防止機器人攻擊，請稍後再試。如果問題持續發生，請刷新網頁。"
-                ).then(() => {
-                    // 使用者點擊確定後刷新網頁
-                    window.location.reload();
-                });
+                );
+                // 使用者點擊確定後刷新網頁
+                window.location.reload();
                 return;
             }
         }
@@ -128,11 +139,11 @@ async function handleSearch(){
         // 檢查錯誤訊息中是否包含 API 錯誤標記
         const errorMessage = error.response?.data?.error || error.message || '';
         if (errorMessage.includes('API 請求頻率過高') || errorMessage.includes('429')) {
-            showWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
             return;
         }
         
-        showWarning("QQ 沒找到相關資訊!", "請檢查您的輸入是否有拼寫錯誤，或嘗試使用不同的關鍵詞進行搜索。")
+        await safeShowWarning("QQ 沒找到相關資訊!", "請檢查您的輸入是否有拼寫錯誤，或嘗試使用不同的關鍵詞進行搜索。");
     }
 }
 

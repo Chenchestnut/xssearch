@@ -7,11 +7,23 @@ import { useAnalysisStore } from '../stores/useAnalysisStore';
 import { useAlert } from '../SweetAlert';
 import { useRouter } from 'vue-router';
 const router = useRouter();
-const { showLoading, closeLoading, updateLoading} = useAlert();
+const { showLoading, closeLoading, updateLoading, showWarning } = useAlert();
 import axios from 'axios';
 const searchStore = useSearchStore();
 const indexStore = useIndexStore();
 const analysisStore = useAnalysisStore();
+
+// 備用警告方法，以防 SweetAlert 出現問題
+const safeShowWarning = (title, text) => {
+  try {
+    return showWarning(title, text);
+  } catch (error) {
+    console.error('SweetAlert 錯誤:', error);
+    // 使用原生 alert 作為備用
+    alert(`${title}\n${text}`);
+    return Promise.resolve();
+  }
+};
 
 function getIdIndex(index){
   indexStore.setIndex(index);
@@ -49,7 +61,16 @@ async function handleAnalysis(index){
         );
 
         const data = response.data;
-        console.log(data);
+        console.log('分析回應資料:', data);
+        
+        // 檢查回應中是否包含 Gemini 繁忙訊息
+        if (data.analysis?.summary?.includes('當前Gemini API 過於繁忙')) {
+            console.log('從回應數據中檢測到 Gemini 繁忙，顯示警告');
+            closeLoading();
+            await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            return;
+        }
+        
         updateLoading(85);  // 資料處理中
         analysisStore.saveAnalysisResults(data);
         updateLoading(95);
@@ -62,23 +83,41 @@ async function handleAnalysis(index){
         closeLoading()
         router.push('/searchResult')
     }catch(error){
-        console.error(error);
+        console.error('=== 錯誤詳細信息 ===');
+        console.error('完整錯誤物件:', error);
+        console.error('錯誤狀態碼:', error.response?.status);
+        console.error('錯誤資料:', error.response?.data);
+        console.error('錯誤訊息:', error.message);
+        console.error('=================');
         closeLoading()
         
         // 檢查是否為 429 錯誤 (Gemini 忙碌)
         if (error.response && error.response.status === 429) {
-            showWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            console.log('✅ 捕獲到 429 錯誤，顯示警告');
+            await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
             return;
         }
         
         // 檢查錯誤訊息中是否包含 API 錯誤標記
         const errorMessage = error.response?.data?.error || error.message || '';
+        console.log('錯誤訊息:', errorMessage);
+        
         if (errorMessage.includes('API 請求頻率過高') || errorMessage.includes('429')) {
-            showWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            console.log('從錯誤訊息中檢測到 429，顯示警告');
+            await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
             return;
         }
         
-        showWarning("資訊載入錯誤，請重新嘗試");
+        // 檢查 summary 中是否包含 Gemini 繁忙訊息
+        const summaryMessage = error.response?.data?.analysis?.summary || '';
+        if (summaryMessage.includes('當前Gemini API 過於繁忙')) {
+            console.log('從摘要中檢測到 Gemini 繁忙，顯示警告');
+            await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            return;
+        }
+        
+        console.log('顯示一般錯誤訊息');
+        await safeShowWarning("資訊載入錯誤，請重新嘗試", '');
     }
 }
 </script>
