@@ -185,18 +185,18 @@ $word-color:#2F2F2F;
             div.moveDown{
                 font-size: 2.5rem;
                 transform: translateY(5px);
-                div.recommend{
-                    transform: translateY(15px);
-                    font-size: 1rem;
-                    margin-left: 0.5rem;
-                    color: darken(#d88f8a, 10%);
-                    @media screen and (max-width: 520px) {
-                        font-size: 0.8rem;
-                    }
-                    i{
-                        margin-right: 0.5rem;
-                        color: #d88f8a;
-                    }
+            }
+            div.recommend{
+                transform: translateY(15px);
+                font-size: 1rem;
+                margin-left: 0.5rem;
+                color: darken(#d88f8a, 10%);
+                @media screen and (max-width: 520px) {
+                    font-size: 0.8rem;
+                }
+                i{
+                    margin-right: 0.5rem;
+                    color: #d88f8a;
                 }
             }
             
