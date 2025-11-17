@@ -85,8 +85,10 @@ function cardClick(index){
         </div>
 
         <div class="card" :class="{flipped : isFlipped2}" @click="cardClick(2)" @mouseenter="cardHover(2)" @mouseleave="cardHover(2)">
-            <div class="cardFront moveDown">
-                個人化推薦
+            <div class="cardFront">
+                <div class="moveDown">
+                    個人化推薦
+                </div>
                 <div class="recommend"><i class="fa-solid fa-crown"></i>付費功能</div>
             </div>
             <div class="cardBack">
@@ -166,11 +168,10 @@ $word-color:#2F2F2F;
         //     transform: translateY(5px);
         // }
         .cardFront{
-            // display: flex;
-            // flex-direction: column;
-            // justify-content: center;
-            // align-items: center;
-            font-size: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             background-color: #D2D5DA;
             box-shadow: #B6BEC9 -0.5rem 0.5rem;
             border-radius: 35px;
@@ -181,19 +182,24 @@ $word-color:#2F2F2F;
             @media screen and (max-width: 520px) {
                 font-size: 1.5rem;
             }
-            span.recommend{
-                transform: translateY(15px);
-                font-size: 1rem;
-                margin-left: 0.5rem;
-                color: darken(#d88f8a, 10%);
-                @media screen and (max-width: 520px) {
-                    font-size: 0.8rem;
-                }
-                i{
-                    margin-right: 0.5rem;
-                    color: #d88f8a;
+            div.moveDown{
+                font-size: 2.5rem;
+                transform: translateY(5px);
+                div.recommend{
+                    transform: translateY(15px);
+                    font-size: 1rem;
+                    margin-left: 0.5rem;
+                    color: darken(#d88f8a, 10%);
+                    @media screen and (max-width: 520px) {
+                        font-size: 0.8rem;
+                    }
+                    i{
+                        margin-right: 0.5rem;
+                        color: #d88f8a;
+                    }
                 }
             }
+            
         }
         .cardBack{
             position: relative;
