@@ -5,7 +5,17 @@ export const useAlert = () => {
   let barInstance = null;
   let fakeProgress = 0;
   let timers = null;
+  
+  // 確保 Swal 可用
+  const getSwal = () => {
+    if (typeof window !== 'undefined' && window.Swal) {
+      return window.Swal;
+    }
+    throw new Error('SweetAlert2 not loaded');
+  };
+  
   const showLoading = (title = "") => {
+    const Swal = getSwal();
     return Swal.fire({
       title: title,
       //   html: `<img src="${loadingImage}" />`,
@@ -55,12 +65,16 @@ export const useAlert = () => {
   };
   const closeLoading = () => {
     clearInterval(timers);
-    barInstance.set(100);
+    if (barInstance) {
+      barInstance.set(100);
+    }
+    const Swal = getSwal();
     Swal.close();
     barInstance = null; // 清除 bar 變數
   };
 
   const showWarning = (title = "", text = "") => {
+    const Swal = getSwal();
     return Swal.fire({
       title: title,
       text: text,

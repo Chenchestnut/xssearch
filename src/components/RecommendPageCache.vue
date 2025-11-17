@@ -13,6 +13,18 @@ const indexStore = useIndexStore();
 const analysisStore = useAnalysisStore();
 const router = useRouter();
 
+// 備用警告方法，以防 SweetAlert 出現問題
+const safeShowWarning = (title, text) => {
+  try {
+    return showWarning(title, text);
+  } catch (error) {
+    console.error('SweetAlert 錯誤:', error);
+    // 使用原生 alert 作為備用
+    alert(`${title}\n${text}`);
+    return Promise.resolve();
+  }
+};
+
 function getIdIndex(index){
   indexStore.setIndex(index);
 }
@@ -79,7 +91,7 @@ async function handleAnalysis(index){
         if (data.analysis?.summary?.includes('當前Gemini API 過於繁忙')) {
             console.log('從回應數據中檢測到 Gemini 繁忙，顯示警告');
             closeLoading();
-            showWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
             return;
         }
 
@@ -113,7 +125,7 @@ async function handleAnalysis(index){
         // 檢查是否為 429 錯誤 (Gemini 忙碌)
         if (error.response && error.response.status === 429) {
             console.log('✅ 捕獲到 429 錯誤，顯示警告');
-            await showWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
             return;
         }
         
@@ -123,7 +135,7 @@ async function handleAnalysis(index){
         
         if (errorMessage.includes('API 請求頻率過高') || errorMessage.includes('429')) {
             console.log('從錯誤訊息中檢測到 429，顯示警告');
-            showWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
             return;
         }
         
@@ -131,12 +143,12 @@ async function handleAnalysis(index){
         const summaryMessage = error.response?.data?.analysis?.summary || '';
         if (summaryMessage.includes('當前Gemini API 過於繁忙')) {
             console.log('從摘要中檢測到 Gemini 繁忙，顯示警告');
-            showWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
             return;
         }
         
         console.log('顯示一般錯誤訊息');
-        showWarning("資訊載入錯誤，請重新嘗試");
+        await safeShowWarning("資訊載入錯誤，請重新嘗試", '');
     }
 }
 </script>
