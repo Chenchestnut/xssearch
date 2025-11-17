@@ -201,7 +201,7 @@ async function handleSearch(){
         <p>我想找一個...</p>
         <form @submit.prevent="handleSearch">
             <div class="searchBar">
-                <input v-model="searchQuery" type="text" placeholder="可以打電動的筆電" class="searchInput">
+                <input v-model="searchQuery" type="text" placeholder="可以打電動的筆電 或 適合拍照的手機" class="searchInput">
                 <button 
                     type="submit"
                     :class="{ 'disabled': !canSubmit }"

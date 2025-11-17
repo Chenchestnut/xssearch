@@ -61,9 +61,7 @@ onMounted(()=>{
                 <hr>
                 <button>目前使用</button>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i>基本查詢</li>
-                    <li><i class="fa-solid fa-check"></i>資料分析</li>
-                    <li><i class="fa-solid fa-check"></i>個人化推薦</li>
+                    <li><i class="fa-solid fa-check"></i>普通查詢</li>
                 </ul>
             </div>
             <div class="member">
@@ -75,10 +73,9 @@ onMounted(()=>{
                 <hr>
                 <button  @click="upgradeToPro">立即取得</button>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i>基本查詢</li>
-                    <li><i class="fa-solid fa-check"></i>資料分析</li>
+                    <li><i class="fa-solid fa-check"></i>普通查詢</li>
                     <li><i class="fa-solid fa-check"></i>個人化推薦</li>
-                    <li><i class="fa-solid fa-check"></i>商品對比</li>
+
                 </ul>
             </div>
         </div>
