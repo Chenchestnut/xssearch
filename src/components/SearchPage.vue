@@ -134,7 +134,7 @@ async function handleSearch(){
         踩雷從此是別人的夜</p>
         <form @submit.prevent="handleSearch">
             <div class="searchBar">
-                <input v-model="searchQuery" type="text" placeholder="請輸入商品型號或關鍵字" class="searchInput">
+                <input v-model="searchQuery" type="text" placeholder="請輸入商品型號或關鍵字，例如：Samsung Galaxy A56 5G" class="searchInput">
                 <button type="submit" :disabled="!canSubmit" :class="{ disabled: !canSubmit }">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
