@@ -87,7 +87,7 @@ function cardClick(index){
         <div class="card" :class="{flipped : isFlipped2}" @click="cardClick(2)" @mouseenter="cardHover(2)" @mouseleave="cardHover(2)">
             <div class="cardFront moveDown">
                 個人化推薦
-                <span class="recommend"><i class="fa-solid fa-crown"></i>付費功能</span>
+                <div class="recommend"><i class="fa-solid fa-crown"></i>付費功能</div>
             </div>
             <div class="cardBack">
                 <div class="text">
@@ -162,14 +162,14 @@ $word-color:#2F2F2F;
                 height: 70%;
             }
         }
-        .moveDown{
-            transform: translateY(5px);
-        }
+        // .moveDown{
+        //     transform: translateY(5px);
+        // }
         .cardFront{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: center;
+            // align-items: center;
             font-size: 2.5rem;
             background-color: #D2D5DA;
             box-shadow: #B6BEC9 -0.5rem 0.5rem;
