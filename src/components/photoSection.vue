@@ -71,7 +71,7 @@ hr{
         overflow: hidden;
             img{
                 width: 100%;
-                height: auto;
+                height: 100vh;
                 object-fit: cover;
             }
         }
