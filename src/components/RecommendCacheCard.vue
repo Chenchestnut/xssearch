@@ -48,7 +48,7 @@ $word-color: #2F2F2F;
     flex-direction: row;
     justify-content: center;
     color: $word-color;
-    margin: 3rem 1rem 0 1rem;
+    margin: 5rem 1rem 0 1rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     max-height: 250px; 
@@ -63,8 +63,9 @@ $word-color: #2F2F2F;
         border-top-left-radius: 35px;
         img{
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
+            object-position: center;
         }
     }
     .briefDescription{
