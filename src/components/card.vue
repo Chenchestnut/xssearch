@@ -163,6 +163,10 @@ $word-color:#2F2F2F;
             }
         }
         .cardFront{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             font-size: 2.5rem;
             background-color: #D2D5DA;
             box-shadow: #B6BEC9 -0.5rem 0.5rem;
