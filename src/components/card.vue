@@ -179,7 +179,7 @@ $word-color:#2F2F2F;
                 font-size: 1.5rem;
             }
             span.recommend{
-                transform: scaleY(5);
+                transform: translateX(5);
                 font-size: 1rem;
                 margin-left: 0.5rem;
                 color: darken(#d88f8a, 20%);
