@@ -57,7 +57,7 @@ onMounted(()=>{
                 </div>
                 <div class="navLinks">
                     <router-link to="/search" class="search" @click="setActive('search')" :class="{active: activeBtn === 'search'}">普通查詢</router-link>
-                    <router-link to="/recommend" class="recommend" @click="setActive('recommend')" :class="{active: activeBtn === 'recommend'}">個人化推薦</router-link>
+                    <router-link to="/recommend" class="recommend" @click="setActive('recommend')" :class="{active: activeBtn === 'recommend'}">個人化推薦<i class="fa-solid fa-crown"></i></router-link>
                     <!-- <router-link to="/compare" class="compare">好物比拼<i class="fa-solid fa-crown"></i></router-link>   -->
                     <!-- <router-link to="/compare" class="compare" @click="setActive('compare')" :class="{active: activeBtn === 'compare'}">好物比拼<i class="fa-solid fa-crown"></i></router-link> -->
                 </div>
