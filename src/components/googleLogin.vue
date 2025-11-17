@@ -1,11 +1,13 @@
 <script setup>
 import { onMounted, defineProps, ref} from 'vue';
 import { useInputStore } from '../stores/useInputStore';
+import { useTurnstile } from '../composables/useTurnstile';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const inputStore = useInputStore();
 const isGoogleLoaded = ref(false);
+const { getCurrentToken } = useTurnstile();
 const props =defineProps({
     width:{
         type: String,
@@ -49,6 +51,8 @@ function waitForGoogleAPI() {
 
 async function handleCredentialResponse(response) {
     try{
+        console.log('🚀 開始 Google 登入流程...');
+        
         //取得google給的token，查看資訊
         const googleUserData = parseJwt(response.credential);
         console.log('Google 使用者資料:', googleUserData);
@@ -73,10 +77,35 @@ async function handleCredentialResponse(response) {
         console.log('Token 長度:', response.credential.length);
         console.log('Token 前 50 字元:', response.credential.substring(0, 50) + '...');
 
+        //取得 Turnstile token
+        let turnstileToken = getCurrentToken();
+        console.log('🎫 當前 Turnstile token:', turnstileToken ? turnstileToken.substring(0, 20) + '...' : 'null');
+        
+        if (!turnstileToken) {
+            console.error('❌ 缺少 Turnstile token，可能原因:');
+            console.error('1. Turnstile 驗證未完成');
+            console.error('2. Token 已過期');
+            console.error('3. 頁面重新載入後 token 丟失');
+            
+            // 嘗試重新檢查 token 狀態
+            console.log('⚠️ 等待 1 秒後重試...');
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            turnstileToken = getCurrentToken();
+            
+            if (!turnstileToken) {
+                throw new Error('請先完成 Turnstile 安全驗證後再登入。如果已經完成驗證，請刷新頁面重試。');
+            } else {
+                console.log('✅ 重試成功，獲取到 token:', turnstileToken.substring(0, 20) + '...');
+            }
+        }
+        
         //然後把token傳到後端
         const backendResponse = await axios.post(
             'https://api-xssearch.brid.pw/api/auth/google/login/',
-            {google_token: response.credential},
+            {
+                google_token: response.credential,
+                turnstile_token: turnstileToken
+            },
             {
                 headers: {
                     'Content-Type': 'application/json',

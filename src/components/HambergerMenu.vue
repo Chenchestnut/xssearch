@@ -36,10 +36,16 @@ onUnmounted(() => {
 
 let menu = computed(()=>{
     if(token.value){
-        return ['首頁', '普通搜尋','個人化推薦', '升級方案', '登出']
+        // 已登入：只有權限為false時才顯示升級方案
+        const baseMenu = ['首頁', '普通搜尋','個人化推薦'];
+        if (!inputStore.userInfo.permission) {
+            baseMenu.push('升級方案');
+        }
+        baseMenu.push('登出');
+        return baseMenu;
     }
     else{
-        return ['首頁', '普通搜尋','個人化推薦', '升級方案','登入']
+        return ['首頁', '普通搜尋','個人化推薦', '登入' , '註冊']
     }
 })
 function changePage(item){
@@ -72,8 +78,13 @@ function changePage(item){
         case '登出':
             inputStore.removeToken();
             router.push('/');
+            // 刷新頁面以確保介面狀態更新
+            window.location.reload();
             break;
         case '登入':
+            router.push('/login');
+            break;
+        case '註冊':
             router.push('/login');
             break;
     }
