@@ -179,7 +179,7 @@ $word-color:#2F2F2F;
             transition: all 0.3s ease;
             div.moveDown{
                 font-size: 2.5rem;
-                transform: translateY(5px);
+                transform: translateY(9px);
                 &:hover{
                     transform: scale(1.05);
                 }
