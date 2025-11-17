@@ -96,6 +96,20 @@ async function handleAnalysis(index){
         }
         console.error(error);
         closeLoading()
+        
+        // 檢查是否為 429 錯誤 (Gemini 忙碌)
+        if (error.response && error.response.status === 429) {
+            showWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            return;
+        }
+        
+        // 檢查錯誤訊息中是否包含 API 錯誤標記
+        const errorMessage = error.response?.data?.error || error.message || '';
+        if (errorMessage.includes('API 請求頻率過高') || errorMessage.includes('429')) {
+            showWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            return;
+        }
+        
         showWarning("資訊載入錯誤，請重新嘗試");
     }
 }

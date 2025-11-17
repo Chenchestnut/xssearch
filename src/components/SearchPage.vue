@@ -104,6 +104,12 @@ async function handleSearch(){
         console.error('搜尋錯誤:', error);
         closeLoading();
         
+        // 檢查是否為 429 錯誤 (Gemini 忙碌)
+        if (error.response && error.response.status === 429) {
+            showWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            return;
+        }
+        
         // 檢查是否為 Turnstile 相關錯誤
         if (error.response && error.response.status === 403) {
             const errorData = error.response.data;
@@ -117,6 +123,13 @@ async function handleSearch(){
                 });
                 return;
             }
+        }
+        
+        // 檢查錯誤訊息中是否包含 API 錯誤標記
+        const errorMessage = error.response?.data?.error || error.message || '';
+        if (errorMessage.includes('API 請求頻率過高') || errorMessage.includes('429')) {
+            showWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
+            return;
         }
         
         showWarning("QQ 沒找到相關資訊!", "請檢查您的輸入是否有拼寫錯誤，或嘗試使用不同的關鍵詞進行搜索。")
