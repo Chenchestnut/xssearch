@@ -38,7 +38,7 @@ onMounted(async ()=>{
 
 async function handleSearch(){
     if(searchQuery.value.trim() === '') {
-        showWarning('請輸入商品型號或關鍵字', '搜尋欄位不能為空！');
+        showWarning('請輸入商品型號或關鍵字，例如：Samsung Galaxy A56 5G', '搜尋欄位不能為空！');
         return;
     }
     
