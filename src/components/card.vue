@@ -87,6 +87,7 @@ function cardClick(index){
         <div class="card" :class="{flipped : isFlipped2}" @click="cardClick(2)" @mouseenter="cardHover(2)" @mouseleave="cardHover(2)">
             <div class="cardFront">
                 個人化推薦
+                <span class="recommend"><i class="fa-solid fa-crown"></i>付費功能</span>
             </div>
             <div class="cardBack">
                 <div class="text">
@@ -172,6 +173,17 @@ $word-color:#2F2F2F;
             }
             @media screen and (max-width: 520px) {
                 font-size: 1.5rem;
+            }
+            span.recommend{
+                font-size: 1rem;
+                margin-left: 0.5rem;
+                color: #d4b2a8;
+                @media screen and (max-width: 520px) {
+                    font-size: 0.8rem;
+                }
+                i{
+                    color: #d88f8a;
+                }
             }
         }
         .cardBack{
