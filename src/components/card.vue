@@ -85,7 +85,7 @@ function cardClick(index){
         </div>
 
         <div class="card" :class="{flipped : isFlipped2}" @click="cardClick(2)" @mouseenter="cardHover(2)" @mouseleave="cardHover(2)">
-            <div class="cardFront">
+            <div class="cardFront moveDown">
                 個人化推薦
                 <span class="recommend"><i class="fa-solid fa-crown"></i>付費功能</span>
             </div>
@@ -162,6 +162,9 @@ $word-color:#2F2F2F;
                 height: 70%;
             }
         }
+        .moveDown{
+            transform: translateY(5px);
+        }
         .cardFront{
             display: flex;
             flex-direction: column;
@@ -182,7 +185,7 @@ $word-color:#2F2F2F;
                 transform: translateY(15px);
                 font-size: 1rem;
                 margin-left: 0.5rem;
-                color: darken(#d88f8a, 20%);
+                color: darken(#d88f8a, 10%);
                 @media screen and (max-width: 520px) {
                     font-size: 0.8rem;
                 }
