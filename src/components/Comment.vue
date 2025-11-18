@@ -47,7 +47,7 @@ function getCollapseState(index){
         </div>
     </div>
     <div class="content" v-if="props.comments.length === 0">
-        暫時沒有相關評論
+        <p>暫時沒有相關評論</p>
     </div>
 </div>
 </template>
