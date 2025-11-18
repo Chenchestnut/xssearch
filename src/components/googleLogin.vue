@@ -18,6 +18,54 @@ const props =defineProps({
         default: '45px'
     }
 })
+
+// 暴露測試帳號登入方法給父組件
+defineExpose({
+    loginWithTestAccount
+})
+
+// 測試帳號登入方法
+async function loginWithTestAccount(testAccount, turnstileToken) {
+    console.log('🧪 開始測試帳號登入:', testAccount.email);
+    
+    // 創建假的 Google JWT token
+    const fakeGoogleToken = createFakeGoogleToken(testAccount);
+    
+    // 模擬 Google 登入回應
+    await handleCredentialResponse({
+        credential: fakeGoogleToken
+    });
+}
+
+// 創建假的 Google JWT token 用於測試
+function createFakeGoogleToken(testAccount) {
+    const header = {
+        "alg": "RS256",
+        "kid": "test_kid_12345",
+        "typ": "JWT"
+    };
+    
+    const payload = {
+        "iss": "https://accounts.google.com",
+        "azp": "662832463958-rqc7cm2esgstvens4iitsmptgiph62hh.apps.googleusercontent.com",
+        "aud": "662832463958-rqc7cm2esgstvens4iitsmptgiph62hh.apps.googleusercontent.com",
+        "sub": testAccount.google_id,
+        "email": testAccount.email,
+        "email_verified": true,
+        "name": testAccount.name,
+        "picture": "https://via.placeholder.com/96x96.png?text=Test",
+        "given_name": testAccount.name.split(' ')[0],
+        "family_name": testAccount.name.split(' ').slice(1).join(' '),
+        "iat": Math.floor(Date.now() / 1000),
+        "exp": Math.floor(Date.now() / 1000) + 3600
+    };
+    
+    const encodedHeader = btoa(unescape(encodeURIComponent(JSON.stringify(header))));
+    const encodedPayload = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+    const fakeSignature = btoa("fake_signature_for_test_account");
+    
+    return `${encodedHeader}.${encodedPayload}.${fakeSignature}`;
+}
 //這個function是要將拿到的User資料(Base64)轉成js的物件型態方便取用
 function parseJwt (token) {
     const base64Url = token.split('.')[1];
@@ -53,24 +101,44 @@ async function handleCredentialResponse(response) {
     try{
         console.log('🚀 開始 Google 登入流程...');
         
-        //取得google給的token，查看資訊
-        const googleUserData = parseJwt(response.credential);
+        // 檢查是否為測試帳號的假 token
+        let googleUserData;
+        let isTestAccount = false;
+        
+        try {
+            googleUserData = parseJwt(response.credential);
+            // 檢查是否為測試帳號
+            if (googleUserData.email && googleUserData.email.includes('@yuntech.dev')) {
+                isTestAccount = true;
+                console.log('🧪 檢測到測試帳號:', googleUserData.email);
+            }
+        } catch (e) {
+            console.log('🧪 無法解析 JWT，可能是測試帳號的假 token');
+            isTestAccount = true;
+            // 對於測試帳號，我們不需要解析 token 內容
+            googleUserData = { picture: 'https://via.placeholder.com/96x96.png?text=Test' };
+        }
+        
         console.log('Google 使用者資料:', googleUserData);
         inputStore.setPicture(googleUserData.picture);
 
-        // 驗證 Google Token 的基本資訊
-        if (!googleUserData) {
-            throw new Error('無法解析 Google Token');
-        }
-        
-        if (googleUserData.aud !== '662832463958-rqc7cm2esgstvens4iitsmptgiph62hh.apps.googleusercontent.com') {
-            console.warn('⚠️ Client ID 不匹配:', googleUserData.aud);
-        }
-        
-        // 檢查 Token 是否過期
-        const now = Math.floor(Date.now() / 1000);
-        if (googleUserData.exp && googleUserData.exp < now) {
-            throw new Error('Google Token 已過期');
+        // 驗證 Google Token 的基本資訊（跳過測試帳號）
+        if (!isTestAccount) {
+            if (!googleUserData) {
+                throw new Error('無法解析 Google Token');
+            }
+            
+            if (googleUserData.aud !== '662832463958-rqc7cm2esgstvens4iitsmptgiph62hh.apps.googleusercontent.com') {
+                console.warn('⚠️ Client ID 不匹配:', googleUserData.aud);
+            }
+            
+            // 檢查 Token 是否過期
+            const now = Math.floor(Date.now() / 1000);
+            if (googleUserData.exp && googleUserData.exp < now) {
+                throw new Error('Google Token 已過期');
+            }
+        } else {
+            console.log('🧪 跳過測試帳號的 Google Token 驗證');
         }
         
         console.log('📤 發送 Google Token 到後端驗證...');
