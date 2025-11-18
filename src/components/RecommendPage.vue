@@ -37,11 +37,9 @@ onMounted(async ()=>{
         console.log('❌ 使用者未登入，跳轉到登入頁');
         await safeShowWarning(
             '請先登入',
-            '您需要登入才能使用搜尋功能'
+            '您需要登入才能使用個人化推薦功能'
         );
-        setTimeout(() => {
-            router.push('/login');
-        }, 2000);
+        router.push('/login');
     } else {
         console.log('✅ 使用者已登入:', inputStore.userInfo.name);
         
@@ -203,18 +201,14 @@ async function handleSearch(){
             // 檢查是否為權限不足錯誤
             if (error.response.status === 403) {
                 await safeShowWarning("QQ 這是付費限定功能，您沒有開通，因此不能使用。", '');
-                setTimeout(() => {
-                    router.push('/membership');
-                }, 1500);
+                router.push('/membership');
                 return; // 避免執行後續的一般錯誤處理
             }
             
             // 檢查是否為認證錯誤
             if (error.response.status === 401) {
                 await safeShowWarning("登入已過期", "請重新登入後再試");
-                setTimeout(() => {
-                    router.push('/login');
-                }, 2000);
+                router.push('/login');
                 return;
             }
             
