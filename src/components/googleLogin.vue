@@ -53,7 +53,7 @@ function createFakeGoogleToken(testAccount) {
         "email": testAccount.email,
         "email_verified": true,
         "name": testAccount.name,
-        "picture": "https://via.placeholder.com/96x96.png?text=Test",
+        "picture": "https://avatars.githubusercontent.com/u/48978583?v=4&size=96",
         "given_name": testAccount.name.split(' ')[0],
         "family_name": testAccount.name.split(' ').slice(1).join(' '),
         "iat": Math.floor(Date.now() / 1000),
@@ -116,7 +116,7 @@ async function handleCredentialResponse(response) {
             console.log('🧪 無法解析 JWT，可能是測試帳號的假 token');
             isTestAccount = true;
             // 對於測試帳號，我們不需要解析 token 內容
-            googleUserData = { picture: 'https://via.placeholder.com/96x96.png?text=Test' };
+            googleUserData = { picture: 'https://avatars.githubusercontent.com/u/48978583?v=4&size=96' };
         }
         
         console.log('Google 使用者資料:', googleUserData);
