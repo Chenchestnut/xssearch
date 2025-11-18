@@ -68,11 +68,14 @@ onMounted(() => {
                         <li class="noBorder"><span>eprice</span></li> -->
                     </ul>
                     <div class="changebtn">
-                        <span @click="changeComment" v-if="shouldShowButton">其他評論</span>
+                        <span @click="changeComment" v-if="shouldShowButton">下一頁</span>
                     </div>
                 </div>
                 <div class="commentList">
                     <Comment :platform="platform" :comments="comments"/>
+                </div>
+                <div class="changebtn">
+                        <span @click="changeComment" v-if="shouldShowButton">下一頁</span>
                 </div>
             </div>
         </div>
