@@ -142,7 +142,7 @@ overflow-y: auto;
             justify-content: flex-start;
             width: 20%;
             min-width: 280px;
-            height: 500px;
+            height: 380px;
             background-color: #D2D5DA;
             border-radius: 35px;
             padding:2rem 2rem;
