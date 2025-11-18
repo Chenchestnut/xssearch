@@ -12,6 +12,9 @@ const recommendStore = useRecommendStore();
 const indexStore = useIndexStore();
 const analysisStore = useAnalysisStore();
 const router = useRouter();
+import { useInputStore } from '../stores/useInputStore';
+
+const inputStore = useInputStore();
 
 // 備用警告方法，以防 SweetAlert 出現問題
 const safeShowWarning = (title, text) => {
@@ -58,6 +61,7 @@ async function handleAnalysis(index){
             {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${inputStore.token}`
                 },
                 onDownloadProgress: (progressEvent) => {
                     if (progressEvent.total) {

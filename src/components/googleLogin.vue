@@ -177,6 +177,7 @@ async function handleCredentialResponse(response) {
             {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${inputStore.token}`  // 使用 JWT
                 },
             }
         )

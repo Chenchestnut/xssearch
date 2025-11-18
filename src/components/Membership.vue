@@ -18,6 +18,11 @@ async function upgradeToPro() {
         await axios.post(
             `https://api-xssearch.brid.pw/api/users/${inputStore.userInfo.id}/permission/`,
             {"permission": true}
+            {
+                headers: {
+                    'Authorization': `Bearer ${inputStore.token}`
+                }
+            }
         );
         
         // ✅ 使用 store 的方法更新
