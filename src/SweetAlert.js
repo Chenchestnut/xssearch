@@ -5,15 +5,15 @@ export const useAlert = () => {
   let barInstance = null;
   let fakeProgress = 0;
   let timers = null;
-  
+
   // 確保 Swal 可用
   const getSwal = () => {
-    if (typeof window !== 'undefined' && window.Swal) {
+    if (typeof window !== "undefined" && window.Swal) {
       return window.Swal;
     }
-    throw new Error('SweetAlert2 not loaded');
+    throw new Error("SweetAlert2 not loaded");
   };
-  
+
   const showLoading = (title = "") => {
     const Swal = getSwal();
     return Swal.fire({
@@ -84,10 +84,22 @@ export const useAlert = () => {
     });
   };
 
+  const showSuccess = (title = "", text = "") => {
+    const Swal = getSwal();
+    return Swal.fire({
+      title: title,
+      text: text,
+      icon: "success",
+      confirmButtonText: "確定",
+      confirmButtonColor: "#B5B8A3",
+    });
+  };
+
   return {
     showLoading,
     closeLoading,
     showWarning,
     updateLoading,
+    showSuccess,
   };
 };

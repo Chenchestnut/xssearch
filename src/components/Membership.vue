@@ -5,7 +5,7 @@ import { useAnimations } from '../composables/useAnimations';
 import { onMounted } from 'vue';
 import axios from 'axios';
 import { useAlert } from '../SweetAlert';
-const { showLoading, closeLoading, showWarning} = useAlert();
+const { showLoading, closeLoading, showWarning, showSuccess } = useAlert();
 const { fadeIn2 } = useAnimations();
 const inputStore = useInputStore();
 // let name = inputStore.text.slice(1);
@@ -24,7 +24,7 @@ async function upgradeToPro() {
         inputStore.updatePermission(true);
         
         closeLoading();
-        showWarning('升級成功！', '恭喜您成為 Pro 會員');
+        showSuccess('升級成功！', '恭喜您成為 Pro 會員');
         
         setTimeout(() => {
             router.push('/recommend');
