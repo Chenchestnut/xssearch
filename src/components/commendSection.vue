@@ -39,7 +39,11 @@ function changeComment(){
 }
 
 function noComement(){
-    comments.value = ['目前尚無評論'];
+    if(max === 0){
+        return false;
+    } else {
+        return true;
+    }
 }
 
 onMounted(() => {
