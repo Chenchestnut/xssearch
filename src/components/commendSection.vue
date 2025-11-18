@@ -38,6 +38,10 @@ function changeComment(){
     comments.value = selectComments;
 }
 
+function noComement(){
+    comments.value = ['目前尚無評論'];
+}
+
 onMounted(() => {
     if (max > 0) {
         changeComment();
@@ -64,7 +68,7 @@ onMounted(() => {
                         <li class="noBorder"><span>eprice</span></li> -->
                     </ul>
                     <div class="changebtn">
-                        <span @click="changeComment">其他評論</span>
+                        <span @click="changeComment" v-if="noComement">其他評論</span>
                     </div>
                 </div>
                 <div class="commentList">
