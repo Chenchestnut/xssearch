@@ -17,7 +17,7 @@ async function upgradeToPro() {
     try {
         await axios.post(
             `https://api-xssearch.brid.pw/api/users/${inputStore.userInfo.id}/permission/`,
-            {"permission": true}
+            {"permission": true},
             {
                 headers: {
                     'Authorization': `Bearer ${inputStore.token}`
