@@ -120,9 +120,9 @@ function createFakeGoogleToken(testAccount) {
         "exp": Math.floor(Date.now() / 1000) + 3600 // 1小時後過期
     };
     
-    // 簡單的 base64 編碼（實際的 JWT 有加密簽名，但測試用可以簡化）
-    const encodedHeader = btoa(JSON.stringify(header));
-    const encodedPayload = btoa(JSON.stringify(payload));
+    // 安全的 base64 編碼，支援 UTF-8 字符（包含中文）
+    const encodedHeader = btoa(unescape(encodeURIComponent(JSON.stringify(header))));
+    const encodedPayload = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
     const fakeSignature = btoa("fake_signature_for_test_account");
     
     return `${encodedHeader}.${encodedPayload}.${fakeSignature}`;
