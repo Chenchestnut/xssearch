@@ -38,13 +38,9 @@ function changeComment(){
     comments.value = selectComments;
 }
 
-function noComement(){
-    if(max === 0){
-        return false;
-    } else {
-        return true;
-    }
-}
+const shouldShowButton = computed(()=>{
+    return max > count;
+})
 
 onMounted(() => {
     if (max > 0) {
@@ -72,7 +68,7 @@ onMounted(() => {
                         <li class="noBorder"><span>eprice</span></li> -->
                     </ul>
                     <div class="changebtn">
-                        <span @click="changeComment" v-if="noComement">其他評論</span>
+                        <span @click="changeComment" v-if="shouldShowButton">其他評論</span>
                     </div>
                 </div>
                 <div class="commentList">
