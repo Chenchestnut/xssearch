@@ -186,7 +186,20 @@ async function handleSearch(){
                 await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
                 return;
             }
-            
+            // 檢查是否為 Turnstile 相關錯誤
+            if (error.response && error.response.status === 403) {
+                const errorData = error.response.data;
+                if (errorData.error && errorData.error.includes('Turnstile')) {
+                    await safeShowWarning(
+                        "🤖 安全驗證失敗", 
+                        "為了防止機器人攻擊，請稍後再試。如果問題持續發生，請刷新網頁。"
+                    );
+                    // 使用者點擊確定後刷新網頁
+                    window.location.reload();
+                    return;
+                }
+            }
+
             // 檢查是否為權限不足錯誤
             if (error.response.status === 403) {
                 await safeShowWarning("QQ 這是付費限定功能，您沒有開通，因此不能使用。", '');
@@ -204,6 +217,7 @@ async function handleSearch(){
                 }, 2000);
                 return;
             }
+            
         }
         
         // 其他錯誤顯示一般錯誤訊息
