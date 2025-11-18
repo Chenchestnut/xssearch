@@ -37,6 +37,9 @@ function getCollapseState(index){
 </script>
 
 <template>
+<div class="content" v-if="props.comments.length === 0">
+    <p>暫時沒有相關評論</p>
+</div>
 <div class="commentElement" v-for="(comment, index) in props.comments" :key="index">
     <div class="avatar"></div>
     <div class="content" v-if="props.comments.length > 0">
@@ -45,9 +48,6 @@ function getCollapseState(index){
             <p @click="toggleCollapsed(index)">{{ comment }}</p>
             <div v-if="getCollapseState(index) && showMask(comment)" class="mask" @click="toggleCollapsed(index)"></div>
         </div>
-    </div>
-    <div class="content" v-if="props.comments.length === 0">
-        <p>暫時沒有相關評論</p>
     </div>
 </div>
 </template>
