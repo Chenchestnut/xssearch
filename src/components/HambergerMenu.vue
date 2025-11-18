@@ -79,7 +79,6 @@ function changePage(item){
             inputStore.removeToken();
             router.push('/');
             // 刷新頁面以確保介面狀態更新
-            window.location.reload();
             break;
         case '登入':
             router.push('/login');

@@ -28,7 +28,6 @@ function handleClick(action){
             window.google.accounts.id.disableAutoSelect(); // 取消自動登入
             router.push('/');
             // 刷新頁面以確保介面狀態更新
-            window.location.reload();
             break;
         case 'login':
             router.push('/login');
