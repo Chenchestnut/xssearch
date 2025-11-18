@@ -74,8 +74,19 @@ onMounted(() => {
                 <div class="commentList">
                     <Comment :platform="platform" :comments="comments"/>
                 </div>
-                <div class="changebtn">
+                <div class="button">
+                    <ul>
+                        <li><span :class="{active:platform === 'mobile01'}">mobile01</span></li>
+                        <!-- <li @click="handlePlatformChange('techbang')"><span :class="{active:platform === 'techbang'}">techbang</span></li>
+                        <li class="noBorder" @click="handlePlatformChange('eprice')"><span :class="{active:platform === 'eprice'}">eprice</span></li> -->
+                        <!-- <li><span>Momo</span></li>
+                        <li><span>PChome</span></li>
+                        <li><span>T客邦</span></li>
+                        <li class="noBorder"><span>eprice</span></li> -->
+                    </ul>
+                    <div class="changebtn">
                         <span @click="changeComment" v-if="shouldShowButton">下一頁</span>
+                    </div>
                 </div>
             </div>
         </div>
