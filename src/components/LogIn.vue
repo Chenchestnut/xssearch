@@ -15,6 +15,7 @@ const turnstileWidgetId = ref(null);
 const canShowGoogleLogin = ref(false);
 const turnstileStatus = ref('等待驗證...');
 const googleLoginRef = ref(null);
+const isTestLoginLoading = ref(false);
 
 function handleLogin(){
     router.push('/search');
@@ -27,25 +28,32 @@ async function handleTestLogin() {
         return;
     }
     
-    // 使用固定的Premium測試帳號
-    const testAccount = {
-        google_id: "test_premium_user_12345",
-        name: "測試用戶 Premium",
-        email: "test-premium@yuntech.dev",
-        permission: true
-    };
-    
-    console.log('🧪 使用測試帳號登入:', testAccount.email);
+    // 設置載入狀態
+    isTestLoginLoading.value = true;
     
     try {
+        // 使用固定的Premium測試帳號
+        const testAccount = {
+            google_id: "test_premium_user_12345",
+            name: "測試用戶 Premium",
+            email: "test-premium@yuntech.dev",
+            permission: true
+        };
+        
+        console.log('🧪 使用測試帳號登入:', testAccount.email);
+        
         // 獲取 Turnstile token
         const turnstileToken = getCurrentToken();
         
         // 調用 googleLogin 組件的測試帳號登入方法
         await googleLoginRef.value.loginWithTestAccount(testAccount, turnstileToken);
+        
     } catch (error) {
         console.error('❌ 測試帳號登入錯誤:', error);
         alert(`測試帳號登入失敗：${error.message}`);
+    } finally {
+        // 結束載入狀態
+        isTestLoginLoading.value = false;
     }
 }
 
@@ -126,9 +134,11 @@ onMounted(async () => {
             <!-- 測試帳號登入按鈕 -->
             <div class="test-login-section">
                 <div class="divider">或</div>
-                <button @click="handleTestLogin" class="test-login-btn">
-                    🧪 測試用帳號登入
+                <button @click="handleTestLogin" class="test-login-btn" :disabled="isTestLoginLoading">
+                    <span v-if="!isTestLoginLoading">🧪 測試用帳號登入</span>
+                    <span v-else>⚙️ 登入中...</span>
                 </button>
+                <p v-if="isTestLoginLoading" class="loading-text">登入中，請稍待</p>
             </div>
         </div>
         
@@ -267,14 +277,27 @@ section.registerPage{
                 font-weight: 500;
                 transition: all 0.2s;
                 
-                &:hover {
+                &:hover:not(:disabled) {
                     background-color: #e5e7eb;
                     border-color: #9ca3af;
                 }
                 
-                &:active {
+                &:active:not(:disabled) {
                     background-color: #d1d5db;
                 }
+                
+                &:disabled {
+                    opacity: 0.7;
+                    cursor: not-allowed;
+                    background-color: #f9fafb;
+                }
+            }
+            
+            .loading-text {
+                margin-top: 0.75rem;
+                font-size: 0.85rem;
+                color: #6b7280;
+                font-style: italic;
             }
             
             .test-account-info {
