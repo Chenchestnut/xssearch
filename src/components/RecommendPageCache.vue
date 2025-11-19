@@ -2,7 +2,7 @@
 import Navbar from './Navbar.vue';
 import RecommendCacheCard from './RecommendCacheCard.vue';
 import { useAlert } from '../SweetAlert';
-import axios from 'axios';
+import apiClient from '../utils/axios';
 import { useRouter } from 'vue-router';
 import{ useIndexStore } from '../stores/useIndexStore';
 import { useRecommendStore } from '../stores/useRecommendStore';
@@ -54,14 +54,14 @@ async function handleAnalysis(index){
   try{
         updateLoading(5);
         startSimulatedProgress();
-        const response = await axios.post(
-            'https://api-xssearch.brid.pw/api/analysis/',
+        const response = await apiClient.post(
+            '/api/analysis/',
             {"keyword":recommendStore.recommendation[index].name,
             "product_id": recommendStore.recommendation[index].id},
             {
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${inputStore.token}`
+                    'Content-Type': 'application/json'
+                    // Authorization header 會由 axios 攔截器自動添加
                 },
                 onDownloadProgress: (progressEvent) => {
                     if (progressEvent.total) {

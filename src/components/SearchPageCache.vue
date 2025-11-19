@@ -8,7 +8,7 @@ import { useAlert } from '../SweetAlert';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const { showLoading, closeLoading, updateLoading, showWarning } = useAlert();
-import axios from 'axios';
+import apiClient from '../utils/axios';
 const searchStore = useSearchStore();
 const indexStore = useIndexStore();
 const analysisStore = useAnalysisStore();
@@ -39,14 +39,14 @@ async function handleAnalysis(index){
   //接分析
   try{
         updateLoading(5);
-        const response = await axios.post(
-            'https://api-xssearch.brid.pw/api/analysis/',
+        const response = await apiClient.post(
+            '/api/analysis/',
             {"keyword":searchStore.search_keyword,
             "product_id": searchStore.matched_products[index].id},
             {
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${inputStore.token}`
+                    'Content-Type': 'application/json'
+                    // Authorization header 會由 axios 攔截器自動添加
                 },
                 onDownloadProgress: (progressEvent) => {
                     if (progressEvent.total) {
