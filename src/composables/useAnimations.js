@@ -66,7 +66,7 @@ export function useAnimations() {
 
       return animate(chars, { ...defaultOptions, ...options });
     } catch (error) {
-      console.error("Text split animation failed:", error);
+      // console.error("Text split animation failed:", error);
       return null;
     }
   };

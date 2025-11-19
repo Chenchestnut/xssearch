@@ -41,13 +41,13 @@ export function useTurnstile() {
         try {
             globalTurnstileLoading.value = true;
             
-            console.log('🚀 開始渲柔 Turnstile 小工具...');
-            console.log('🔑 Site Key:', siteKey);
-            console.log('🌍 當前域名:', window.location.hostname);
+            // console.log('🚀 開始渲柔 Turnstile 小工具...');
+            // console.log('🔑 Site Key:', siteKey);
+            // console.log('🌍 當前域名:', window.location.hostname);
             
             // 確保 Turnstile 已載入
             if (!globalTurnstileReady.value) {
-                console.log('⏳ 等待 Turnstile 載入...');
+                // console.log('⏳ 等待 Turnstile 載入...');
                 await waitForTurnstile();
             }
             
@@ -56,7 +56,7 @@ export function useTurnstile() {
                 throw new Error('Turnstile 未載入');
             }
             
-            console.log('✅ Turnstile API 已載入');
+            // console.log('✅ Turnstile API 已載入');
             
             // 渲染 Turnstile 小工具 (需要傳遞 CSS 選擇器或 HTMLElement)
             const container = document.getElementById(containerId);
@@ -64,47 +64,47 @@ export function useTurnstile() {
                 throw new Error(`找不到容器元素: ${containerId}`);
             }
             
-            console.log('📺 找到容器元素:', container);
+            // console.log('📺 找到容器元素:', container);
             
-            console.log('🎨 渲柔 Turnstile 小工具...');
+            // console.log('🎨 渲柔 Turnstile 小工具...');
             
             const widgetId = window.turnstile.render(container, {
                 sitekey: siteKey,
                 callback: (token) => {
                     globalTurnstileToken.value = token;
-                    console.log('✅ Turnstile 驗證成功!');
-                    console.log('🎫 Token 長度:', token.length);
-                    console.log('🔑 Token 前綴:', token.substring(0, 50) + '...');
-                    console.log('💾 儲存 token 到全局狀態');
+                    // console.log('✅ Turnstile 驗證成功!');
+                    // console.log('🎫 Token 長度:', token.length);
+                    // console.log('🔑 Token 前綴:', token.substring(0, 50) + '...');
+                    // console.log('💾 儲存 token 到全局狀態');
                     if (onSuccess) onSuccess(token);
                 },
                 'error-callback': (errorCode) => {
-                    console.error('❌ Turnstile 驗證錯誤代碼:', errorCode);
+                    // console.error('❌ Turnstile 驗證錯誤代碼:', errorCode);
                     console.error('📄 錯誤詳情:', {
                         errorCode,
-                        siteKey: siteKey,
-                        hostname: window.location.hostname,
+                        // siteKey: siteKey,
+                        // hostname: window.location.hostname,
                         userAgent: navigator.userAgent
                     });
                     globalTurnstileToken.value = null;
                     if (onError) onError(errorCode);
                 },
                 'expired-callback': () => {
-                    console.warn('⚠️ Turnstile token 已過期');
+                    // console.warn('⚠️ Turnstile token 已過期');
                     globalTurnstileToken.value = null;
                 },
                 theme: 'light',
                 size: 'normal'
             });
             
-            console.log('🎯 Widget ID:', widgetId);
+            // console.log('🎯 Widget ID:', widgetId);
             
-            console.log('✨ Turnstile 小工具渲柔成功!');
+            // console.log('✨ Turnstile 小工具渲柔成功!');
             return widgetId;
             
         } catch (error) {
-            console.error('❌ Turnstile 渲柔錯誤:', error);
-            console.error('📄 錯誤堆疊:', error.stack);
+            // console.error('❌ Turnstile 渲柔錯誤:', error);
+            // console.error('📄 錯誤堆疊:', error.stack);
             if (onError) onError(error);
             return null;
         } finally {
@@ -121,10 +121,10 @@ export function useTurnstile() {
             if (window.turnstile && widgetId) {
                 window.turnstile.reset(widgetId);
                 globalTurnstileToken.value = null;
-                console.log('🔄 Turnstile 已重置');
+                // console.log('🔄 Turnstile 已重置');
             }
         } catch (error) {
-            console.error('❌ Turnstile 重置錯誤:', error);
+            // console.error('❌ Turnstile 重置錯誤:', error);
         }
     };
     
@@ -137,10 +137,10 @@ export function useTurnstile() {
             if (window.turnstile && widgetId) {
                 window.turnstile.remove(widgetId);
                 globalTurnstileToken.value = null;
-                console.log('🗁️ Turnstile 已移除');
+                // console.log('🗁️ Turnstile 已移除');
             }
         } catch (error) {
-            console.error('❌ Turnstile 移除錯誤:', error);
+            // console.error('❌ Turnstile 移除錯誤:', error);
         }
     };
     
@@ -156,31 +156,31 @@ export function useTurnstile() {
      * 初始化 Turnstile (在組件載入時呼叫)
      */
     const initTurnstile = async () => {
-        console.log('🚀 初始化 Turnstile...');
+        // console.log('🚀 初始化 Turnstile...');
         await waitForTurnstile();
-        console.log('✅ Turnstile 初始化完成');
-        console.log('🔍 當前全局 token 狀態:', globalTurnstileToken.value ? '已設置' : '未設置');
+        // console.log('✅ Turnstile 初始化完成');
+        // console.log('🔍 當前全局 token 狀態:', globalTurnstileToken.value ? '已設置' : '未設置');
     };
     
     /**
      * 調試函數：顯示當前 Turnstile 狀態
      */
-    const debugTurnstileState = () => {
-        console.log('=== 🔍 Turnstile 狀態調試 ===');
-        console.log('globalTurnstileReady:', globalTurnstileReady.value);
-        console.log('globalTurnstileLoading:', globalTurnstileLoading.value);
-        console.log('globalTurnstileToken:', globalTurnstileToken.value ? globalTurnstileToken.value.substring(0, 30) + '...' : 'null');
-        console.log('window.turnstile:', !!window.turnstile);
-        console.log('當前 URL:', window.location.href);
-        console.log('===========================');
-    };
+    // const debugTurnstileState = () => {
+    //     console.log('=== 🔍 Turnstile 狀態調試 ===');
+    //     console.log('globalTurnstileReady:', globalTurnstileReady.value);
+    //     console.log('globalTurnstileLoading:', globalTurnstileLoading.value);
+    //     console.log('globalTurnstileToken:', globalTurnstileToken.value ? globalTurnstileToken.value.substring(0, 30) + '...' : 'null');
+    //     console.log('window.turnstile:', !!window.turnstile);
+    //     console.log('當前 URL:', window.location.href);
+    //     console.log('===========================');
+    // };
     
     /**
      * 取得當前 token
      * @returns {string|null} 當前的 Turnstile token
      */
     const getCurrentToken = () => {
-        console.log('🔍 getCurrentToken 被呼叫, 當前 token:', globalTurnstileToken.value ? globalTurnstileToken.value.substring(0, 20) + '...' : 'null');
+        // console.log('🔍 getCurrentToken 被呼叫, 當前 token:', globalTurnstileToken.value ? globalTurnstileToken.value.substring(0, 20) + '...' : 'null');
         return globalTurnstileToken.value;
     };
     
@@ -190,7 +190,7 @@ export function useTurnstile() {
      */
     const hasValidToken = () => {
         const hasToken = !!globalTurnstileToken.value;
-        console.log('🔍 hasValidToken 被呼叫, 結果:', hasToken);
+        // console.log('🔍 hasValidToken 被呼叫, 結果:', hasToken);
         return hasToken;
     };
     
@@ -210,6 +210,6 @@ export function useTurnstile() {
         waitForTurnstile,
         getCurrentToken,
         hasValidToken,
-        debugTurnstileState
+        // debugTurnstileState
     };
 }

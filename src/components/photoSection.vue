@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue';
-import StarDescription from './StarDescription.vue';
+// import StarDescription from './StarDescription.vue';
 const props = defineProps({
     img:String,
     name:String,

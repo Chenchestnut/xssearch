@@ -3,7 +3,7 @@ import { ref } from 'vue';
 let isCollapsed = ref(true);
 function toggleCollapsed(){
     isCollapsed.value = !isCollapsed.value;
-    console.log(isCollapsed);
+    // console.log(isCollapsed);
 }
 const props = defineProps({
     flag:Array

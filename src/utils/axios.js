@@ -16,7 +16,7 @@ apiClient.interceptors.request.use(
     if (inputStore.token) {
       // 檢查 token 是否過期
       if (inputStore.isTokenExpired()) {
-        console.log('🚫 請求被拒絕：Token 已過期');
+        // console.log('🚫 請求被拒絕：Token 已過期');
         inputStore.removeToken();
         
         // 觸發 token 過期事件
@@ -30,13 +30,13 @@ apiClient.interceptors.request.use(
       
       // 添加 Authorization header
       config.headers.Authorization = `Bearer ${inputStore.token}`;
-      console.log('✅ 已添加 Authorization header');
+      // console.log('✅ 已添加 Authorization header');
     }
     
     return config;
   },
   (error) => {
-    console.error('❌ 請求攔截器錯誤:', error);
+    // console.error('❌ 請求攔截器錯誤:', error);
     return Promise.reject(error);
   }
 );
@@ -51,7 +51,7 @@ apiClient.interceptors.response.use(
     
     // 檢查是否為 401 未授權錯誤
     if (error.response && error.response.status === 401) {
-      console.log('🚫 收到 401 錯誤，自動清除 Token 並跳轉登入');
+      // console.log('🚫 收到 401 錯誤，自動清除 Token 並跳轉登入');
       
       // 清除過期或無效的 token
       inputStore.removeToken();
@@ -59,7 +59,7 @@ apiClient.interceptors.response.use(
       // 觸發 token 過期事件讓 main.js 處理跳轉
       if (typeof window !== 'undefined') {
         window.dispatchEvent(new CustomEvent('token-expired'));
-        console.log('💡 提示：請重新登入');
+        // console.log('💡 提示：請重新登入');
       }
     }
     

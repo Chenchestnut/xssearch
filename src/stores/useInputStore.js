@@ -23,9 +23,9 @@ export const useInputStore = defineStore("input", {
           const payload = JSON.parse(atob(newToken.split('.')[1]));
           // JWT exp 是以秒為單位的 timestamp，轉換為毫秒
           this.tokenExpiry = payload.exp * 1000;
-          console.log('✅ Token 設定成功，過期時間:', new Date(this.tokenExpiry));
+          // console.log('✅ Token 設定成功，過期時間:', new Date(this.tokenExpiry));
         } catch (error) {
-          console.error('❌ 解析 JWT token 失敗:', error);
+          // console.error('❌ 解析 JWT token 失敗:', error);
           // 如果無法解析，設定為 24 小時後過期（備用方案）
           this.tokenExpiry = Date.now() + (24 * 60 * 60 * 1000);
         }
@@ -55,7 +55,7 @@ export const useInputStore = defineStore("input", {
         id: "",
         permission: "",
       };
-      console.log('🗑️ Token 已清除');
+      // console.log('🗑️ Token 已清除');
     },
     
     updatePermission(newPermission) {
@@ -94,7 +94,7 @@ export const useInputStore = defineStore("input", {
     // 檢查並處理 token 過期
     checkTokenValidity() {
       if (this.isTokenExpired()) {
-        console.log('❌ Token 已過期，自動登出');
+        // console.log('❌ Token 已過期，自動登出');
         this.removeToken();
         return false;
       }
@@ -115,11 +115,11 @@ export const useInputStore = defineStore("input", {
       
       const remainingTime = this.getTokenRemainingTime();
       
-      console.log(`⏱️ 開始監控 Token 過期，剩餘時間: ${Math.floor(remainingTime / (1000 * 60))} 分鐘`);
+      // console.log(`⏱️ 開始監控 Token 過期，剩餘時間: ${Math.floor(remainingTime / (1000 * 60))} 分鐘`);
       
       // 設定計時器在 token 過期時自動清除
       this.tokenExpiryTimer = setTimeout(() => {
-        console.log('⏰ Token 監控計時器觸發，自動登出');
+        // console.log('⏰ Token 監控計時器觸發，自動登出');
         this.removeToken();
         
         // 可以選擇性地觸發自定義事件讓組件處理跳轉
@@ -135,7 +135,7 @@ export const useInputStore = defineStore("input", {
       if (this.tokenExpiryTimer) {
         clearTimeout(this.tokenExpiryTimer);
         this.tokenExpiryTimer = null;
-        console.log('⏹️ Token 監控已停止');
+        // console.log('⏹️ Token 監控已停止');
       }
     }
   },

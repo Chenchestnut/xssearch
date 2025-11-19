@@ -26,7 +26,7 @@ defineExpose({
 
 // 測試帳號登入方法
 async function loginWithTestAccount(testAccount, turnstileToken) {
-    console.log('🧪 開始測試帳號登入:', testAccount.email);
+    // console.log('🧪 開始測試帳號登入:', testAccount.email);
     
     // 創建假的 Google JWT token
     const fakeGoogleToken = createFakeGoogleToken(testAccount);
@@ -99,7 +99,7 @@ function waitForGoogleAPI() {
 
 async function handleCredentialResponse(response) {
     try{
-        console.log('🚀 開始 Google 登入流程...');
+        // console.log('🚀 開始 Google 登入流程...');
         
         // 檢查是否為測試帳號的假 token
         let googleUserData;
@@ -110,16 +110,16 @@ async function handleCredentialResponse(response) {
             // 檢查是否為測試帳號
             if (googleUserData.email && googleUserData.email.includes('@yuntech.dev')) {
                 isTestAccount = true;
-                console.log('🧪 檢測到測試帳號:', googleUserData.email);
+                // console.log('🧪 檢測到測試帳號:', googleUserData.email);
             }
         } catch (e) {
-            console.log('🧪 無法解析 JWT，可能是測試帳號的假 token');
+            // console.log('🧪 無法解析 JWT，可能是測試帳號的假 token');
             isTestAccount = true;
             // 對於測試帳號，我們不需要解析 token 內容
             googleUserData = { picture: 'https://avatars.githubusercontent.com/u/48978583?v=4&size=96' };
         }
         
-        console.log('Google 使用者資料:', googleUserData);
+        // console.log('Google 使用者資料:', googleUserData);
         inputStore.setPicture(googleUserData.picture);
 
         // 驗證 Google Token 的基本資訊（跳過測試帳號）
@@ -129,7 +129,7 @@ async function handleCredentialResponse(response) {
             }
             
             if (googleUserData.aud !== '662832463958-rqc7cm2esgstvens4iitsmptgiph62hh.apps.googleusercontent.com') {
-                console.warn('⚠️ Client ID 不匹配:', googleUserData.aud);
+                // console.warn('⚠️ Client ID 不匹配:', googleUserData.aud);
             }
             
             // 檢查 Token 是否過期
@@ -138,32 +138,32 @@ async function handleCredentialResponse(response) {
                 throw new Error('Google Token 已過期');
             }
         } else {
-            console.log('🧪 跳過測試帳號的 Google Token 驗證');
+            // console.log('🧪 跳過測試帳號的 Google Token 驗證');
         }
         
-        console.log('📤 發送 Google Token 到後端驗證...');
-        console.log('Token 長度:', response.credential.length);
-        console.log('Token 前 50 字元:', response.credential.substring(0, 50) + '...');
+        // console.log('📤 發送 Google Token 到後端驗證...');
+        // console.log('Token 長度:', response.credential.length);
+        // console.log('Token 前 50 字元:', response.credential.substring(0, 50) + '...');
 
         //取得 Turnstile token
         let turnstileToken = getCurrentToken();
-        console.log('🎫 當前 Turnstile token:', turnstileToken ? turnstileToken.substring(0, 20) + '...' : 'null');
+        // console.log('🎫 當前 Turnstile token:', turnstileToken ? turnstileToken.substring(0, 20) + '...' : 'null');
         
         if (!turnstileToken) {
-            console.error('❌ 缺少 Turnstile token，可能原因:');
-            console.error('1. Turnstile 驗證未完成');
-            console.error('2. Token 已過期');
-            console.error('3. 頁面重新載入後 token 丟失');
+            // console.error('❌ 缺少 Turnstile token，可能原因:');
+            // console.error('1. Turnstile 驗證未完成');
+            // console.error('2. Token 已過期');
+            // console.error('3. 頁面重新載入後 token 丟失');
             
             // 嘗試重新檢查 token 狀態
-            console.log('⚠️ 等待 1 秒後重試...');
+            // console.log('⚠️ 等待 1 秒後重試...');
             await new Promise(resolve => setTimeout(resolve, 1000));
             turnstileToken = getCurrentToken();
             
             if (!turnstileToken) {
                 throw new Error('請先完成 Turnstile 安全驗證後再登入。如果已經完成驗證，請刷新頁面重試。');
             } else {
-                console.log('✅ 重試成功，獲取到 token:', turnstileToken.substring(0, 20) + '...');
+                // console.log('✅ 重試成功，獲取到 token:', turnstileToken.substring(0, 20) + '...');
             }
         }
         
@@ -181,8 +181,8 @@ async function handleCredentialResponse(response) {
                 },
             }
         )
-        console.log('後端回應狀態:', backendResponse.status);
-        console.log('後端回應資料:', backendResponse.data);
+        // console.log('後端回應狀態:', backendResponse.status);
+        // console.log('後端回應資料:', backendResponse.data);
 
         // 處理後端回應的JWT
         if (!backendResponse.data.success) {
@@ -190,7 +190,7 @@ async function handleCredentialResponse(response) {
         }
 
         const { token, user } = backendResponse.data.data;
-        console.log('👤 使用者資料 (從後端):', user);
+        // console.log('👤 使用者資料 (從後端):', user);
 
         //儲存JWT Token，後面api請求會用到
         inputStore.setToken(token);
@@ -206,41 +206,41 @@ async function handleCredentialResponse(response) {
         //跳轉頁面
         router.push('/search');
     }catch (error) {
-        console.error('=== ❌ 登入錯誤詳細資訊 ===');
-        console.error('錯誤類型:', error.constructor.name);
-        console.error('錯誤訊息:', error.message);
+        // console.error('=== ❌ 登入錯誤詳細資訊 ===');
+        // console.error('錯誤類型:', error.constructor.name);
+        // console.error('錯誤訊息:', error.message);
         
         if (error.response) {
             // 後端有回應但狀態碼錯誤
-            console.error('📛 後端回應錯誤:');
-            console.error('  - 狀態碼:', error.response.status);
-            console.error('  - 狀態文字:', error.response.statusText);
-            console.error('  - 回應資料:', error.response.data);
-            console.error('  - 回應 headers:', error.response.headers);
+            // console.error('📛 後端回應錯誤:');
+            // console.error('  - 狀態碼:', error.response.status);
+            // console.error('  - 狀態文字:', error.response.statusText);
+            // console.error('  - 回應資料:', error.response.data);
+            // console.error('  - 回應 headers:', error.response.headers);
             
             // ✅ 顯示後端的詳細錯誤訊息
             if (error.response.data) {
-                console.error('📋 後端錯誤詳情:');
-                console.error(JSON.stringify(error.response.data, null, 2));
+                // console.error('📋 後端錯誤詳情:');
+                // console.error(JSON.stringify(error.response.data, null, 2));
                 
                 // 如果有 message 或 error 欄位
                 if (error.response.data.message) {
-                    console.error('  - 錯誤訊息:', error.response.data.message);
+                    // console.error('  - 錯誤訊息:', error.response.data.message);
                 }
                 if (error.response.data.error) {
-                    console.error('  - 錯誤:', error.response.data.error);
+                    // console.error('  - 錯誤:', error.response.data.error);
                 }
                 if (error.response.data.detail) {
-                    console.error('  - 詳情:', error.response.data.detail);
+                    // console.error('  - 詳情:', error.response.data.detail);
                 }
             }
         } else if (error.request) {
-            console.error('📛 請求已發送但無回應');
+            // console.error('📛 請求已發送但無回應');
         } else {
-            console.error('📛 請求設定錯誤:', error.message);
+            // console.error('📛 請求設定錯誤:', error.message);
         }
         
-        console.error('==============================');
+        // console.error('==============================');
         
         
         // 顯示錯誤訊息給使用者

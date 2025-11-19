@@ -25,7 +25,7 @@ const safeShowWarning = (title, text) => {
   try {
     return showWarning(title, text);
   } catch (error) {
-    console.error('SweetAlert 錯誤:', error);
+    // console.error('SweetAlert 錯誤:', error);
     // 使用原生 alert 作為備用
     alert(`${title}\n${text}`);
     return Promise.resolve();
@@ -42,11 +42,11 @@ onMounted(async ()=>{
         'turnstile-widget',
         (token) => {
             canSubmit.value = true;
-            console.log('✅ Turnstile 驗證成功');
+            // console.log('✅ Turnstile 驗證成功');
         },
         (error) => {
             canSubmit.value = false;
-            console.error('❌ Turnstile 驗證失敗:', error);
+            // console.error('❌ Turnstile 驗證失敗:', error);
         }
     );
 })
@@ -77,7 +77,7 @@ async function handleSearch(){
             "turnstile_token": turnstileToken
         };
         
-        console.log('✅ 已包含 Turnstile token 在搜尋請求中');
+        // console.log('✅ 已包含 Turnstile token 在搜尋請求中');
         
         const response = await apiClient.post(
             '/api/search/',
@@ -94,7 +94,7 @@ async function handleSearch(){
                             (progressEvent.loaded * 60) / progressEvent.total + 20
                         );
                         updateLoading(percentCompleted);
-                        console.log('下載進度:', percentCompleted);
+                        // console.log('下載進度:', percentCompleted);
                     } else {
                         // 如果沒有 total，使用假進度
                         updateLoading(50);
@@ -104,7 +104,7 @@ async function handleSearch(){
         );
 
         const data = response.data;
-        console.log(data);
+        // console.log(data);
         updateLoading(85);  // 資料處理中
         searchStore.saveSearchResults(data);
         updateLoading(95);
@@ -117,7 +117,7 @@ async function handleSearch(){
         closeLoading()
         router.push('/searchPagecache')
     }catch(error){
-        console.error('搜尋錯誤:', error);
+        // console.error('搜尋錯誤:', error);
         closeLoading();
         
         // 檢查是否為 429 錯誤 (Gemini 忙碌)

@@ -31,10 +31,10 @@ function showCompareItem() {
 // 串接普通查詢api
 // axios.post('https://api.xssearch.brid.pw/api/search/',{"keyword":searchQuery.value})
 // .then(function(response){
-//     console.log(response.data);
+//     // console.log(response.data);
 // })
 // .catch(function(error){
-//     console.error(error);
+//     // console.error(error);
 // })
 </script>
 

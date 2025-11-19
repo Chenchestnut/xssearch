@@ -10,7 +10,7 @@ const router = useRouter();
 const inputStore = useInputStore();
 const email = ref('');
 const password = ref('');
-const { renderTurnstile, initTurnstile, hasValidToken, resetTurnstile, debugTurnstileState, getCurrentToken } = useTurnstile();
+const { renderTurnstile, initTurnstile, hasValidToken, resetTurnstile , getCurrentToken } = useTurnstile();
 const turnstileWidgetId = ref(null);
 const canShowGoogleLogin = ref(false);
 const turnstileStatus = ref('等待驗證...');
@@ -40,7 +40,7 @@ async function handleTestLogin() {
             permission: true
         };
         
-        console.log('🧪 使用測試帳號登入:', testAccount.email);
+        // console.log('🧪 使用測試帳號登入:', testAccount.email);
         
         // 獲取 Turnstile token
         const turnstileToken = getCurrentToken();
@@ -49,7 +49,7 @@ async function handleTestLogin() {
         await googleLoginRef.value.loginWithTestAccount(testAccount, turnstileToken);
         
     } catch (error) {
-        console.error('❌ 測試帳號登入錯誤:', error);
+        // console.error('❌ 測試帳號登入錯誤:', error);
         alert(`測試帳號登入失敗：${error.message}`);
     } finally {
         // 結束載入狀態
@@ -59,8 +59,8 @@ async function handleTestLogin() {
 
 // 重新驗證 Turnstile
 function retryTurnstile() {
-    console.log('🔄 重試 Turnstile 驗證...');
-    debugTurnstileState();
+    // console.log('🔄 重試 Turnstile 驗證...');
+    //debugTurnstileState();
     
     if (turnstileWidgetId.value) {
         resetTurnstile(turnstileWidgetId.value);
@@ -72,9 +72,9 @@ function retryTurnstile() {
 // 檢查 token 狀態
 function checkTokenStatus() {
     const hasToken = hasValidToken();
-    console.log('🔍 檢查 Turnstile token 狀態:', hasToken);
+    // console.log('🔍 檢查 Turnstile token 狀態:', hasToken);
     if (!hasToken && canShowGoogleLogin.value) {
-        console.warn('⚠️ Token 已失效，需要重新驗證');
+        // console.warn('⚠️ Token 已失效，需要重新驗證');
         canShowGoogleLogin.value = false;
         turnstileStatus.value = 'Token 已過期，請重新驗證';
     }
@@ -82,12 +82,12 @@ function checkTokenStatus() {
 }
 
 onMounted(async () => {
-    console.log('📝 登入頁面 onMounted 被呼叫');
+    // console.log('📝 登入頁面 onMounted 被呼叫');
     
     // 初始化 Turnstile
     await initTurnstile();
     
-    debugTurnstileState();
+    //debugTurnstileState();
     
     // 渲柔 Turnstile 小工具
     turnstileWidgetId.value = await renderTurnstile(
@@ -95,20 +95,20 @@ onMounted(async () => {
         (token) => {
             canShowGoogleLogin.value = true;
             turnstileStatus.value = '驗證成功！現在可以登入';
-            console.log('✅ Turnstile 驗證成功，顯示 Google 登入');
-            console.log('🎫 新 Token:', token.substring(0, 20) + '...');
+            // console.log('✅ Turnstile 驗證成功，顯示 Google 登入');
+            // console.log('🎫 新 Token:', token.substring(0, 20) + '...');
             
             // 立即檢查 token 是否正確儲存
             setTimeout(() => {
                 const storedToken = getCurrentToken();
-                console.log('🔍 驗證後檢查 token 狀態:', storedToken ? '已儲存' : '未儲存');
-                debugTurnstileState();
+                // console.log('🔍 驗證後檢查 token 狀態:', storedToken ? '已儲存' : '未儲存');
+                //debugTurnstileState();
             }, 100);
         },
         (error) => {
             canShowGoogleLogin.value = false;
             turnstileStatus.value = '驗證失敗，請重試';
-            console.error('❌ Turnstile 驗證失敗:', error);
+            // console.error('❌ Turnstile 驗證失敗:', error);
         }
     );
 });

@@ -24,13 +24,13 @@ app.mount("#app");
 const inputStore = useInputStore();
 
 // 啟動 token 過期監控
-console.log('🚀 初始化 Token 過期監控');
+// console.log('🚀 初始化 Token 過期監控');
 inputStore.startTokenMonitoring();
 
 // 頁面可見性變化時重新檢查 token（用戶切換到其他分頁後回來）
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden && inputStore.token) {
-    console.log('👁️ 頁面重新可見，檢查 Token 狀態');
+    // console.log('👁️ 頁面重新可見，檢查 Token 狀態');
     if (!inputStore.checkTokenValidity()) {
       // token 已過期，跳轉到登入頁
       router.push('/login');
@@ -40,7 +40,7 @@ document.addEventListener('visibilitychange', () => {
 
 // 監聽 token 過期事件
 window.addEventListener('token-expired', () => {
-  console.log('🚫 收到 Token 過期事件，跳轉到登入頁');
+  // console.log('🚫 收到 Token 過期事件，跳轉到登入頁');
   if (router.currentRoute.value.path !== '/login') {
     router.push('/login');
   }
