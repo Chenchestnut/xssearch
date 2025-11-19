@@ -4,7 +4,7 @@ import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useSearchStore } from '../stores/useSearchStore';
 import { useAlert } from '../SweetAlert';
-import axios from 'axios';
+import apiClient from '../utils/axios';
 import { useAnimations } from '../composables/useAnimations';
 import { useTurnstile } from '../composables/useTurnstile';
 import { useInputStore } from '../stores/useInputStore';
@@ -79,13 +79,13 @@ async function handleSearch(){
         
         console.log('✅ 已包含 Turnstile token 在搜尋請求中');
         
-        const response = await axios.post(
-            'https://api-xssearch.brid.pw/api/search/',
+        const response = await apiClient.post(
+            '/api/search/',
             requestData,
             {
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${inputStore.token}`  // 使用 JWT
+                    'Content-Type': 'application/json'
+                    // Authorization header 會由 axios 攔截器自動添加
                 },
                 onDownloadProgress: (progressEvent) => {
                     if (progressEvent.total) {

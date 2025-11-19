@@ -2,7 +2,7 @@
 import { onMounted, defineProps, ref} from 'vue';
 import { useInputStore } from '../stores/useInputStore';
 import { useTurnstile } from '../composables/useTurnstile';
-import axios from 'axios';
+import apiClient from '../utils/axios';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const inputStore = useInputStore();
@@ -168,8 +168,8 @@ async function handleCredentialResponse(response) {
         }
         
         //然後把token傳到後端
-        const backendResponse = await axios.post(
-            'https://api-xssearch.brid.pw/api/auth/google/login/',
+        const backendResponse = await apiClient.post(
+            '/api/auth/google/login/',
             {
                 google_token: response.credential,
                 turnstile_token: turnstileToken

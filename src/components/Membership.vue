@@ -3,7 +3,7 @@ import { useRouter } from 'vue-router';
 import { useInputStore } from '../stores/useInputStore';
 import { useAnimations } from '../composables/useAnimations';
 import { onMounted } from 'vue';
-import axios from 'axios';
+import apiClient from '../utils/axios';
 import { useAlert } from '../SweetAlert';
 const { showLoading, closeLoading, showWarning, showSuccess } = useAlert();
 const { fadeIn2 } = useAnimations();
@@ -15,14 +15,10 @@ async function upgradeToPro() {
     showLoading('正在升級會員...');
     
     try {
-        await axios.post(
-            `https://api-xssearch.brid.pw/api/users/${inputStore.userInfo.id}/permission/`,
-            {"permission": true},
-            {
-                headers: {
-                    'Authorization': `Bearer ${inputStore.token}`
-                }
-            }
+        await apiClient.post(
+            `/api/users/${inputStore.userInfo.id}/permission/`,
+            {"permission": true}
+            // Authorization header 會由 axios 攔截器自動添加
         );
         
         // ✅ 使用 store 的方法更新
