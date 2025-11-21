@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue';
 import Navbar from './Navbar.vue';
 import { useAlert } from '../SweetAlert';
-import axios from 'axios';
+import apiClient from '../utils/axios';
 import { useRouter } from 'vue-router';
 import { useAnimations } from '../composables/useAnimations';
 import { useRecommendStore } from '../stores/useRecommendStore';
@@ -23,7 +23,7 @@ const safeShowWarning = (title, text) => {
   try {
     return showWarning(title, text);
   } catch (error) {
-    console.error('SweetAlert 錯誤:', error);
+    // console.error('SweetAlert 錯誤:', error);
     // 使用原生 alert 作為備用
     alert(`${title}\n${text}`);
     return Promise.resolve();
@@ -33,15 +33,22 @@ const safeShowWarning = (title, text) => {
 onMounted(async ()=>{
     searchBoxAnimation('.searchBar')
     
-    if (!inputStore.token) {
-        console.log('❌ 使用者未登入，跳轉到登入頁');
+    // 使用新的 token 檢查機制
+    if (!inputStore.token || !inputStore.checkTokenValidity()) {
+        // console.log('❌ 使用者未登入或 Token 已過期，跳轉到登入頁');
         await safeShowWarning(
-            '請先登入',
-            '您需要登入才能使用個人化推薦功能'
+            inputStore.token ? 'Token 已過期' : '請先登入',
+            inputStore.token ? '您的登入已過期，請重新登入' : '您需要登入才能使用個人化推薦功能'
         );
         router.push('/login');
     } else {
-        console.log('✅ 使用者已登入:', inputStore.userInfo.name);
+        // console.log('✅ 使用者已登入:', inputStore.userInfo.name);
+        
+        // 顯示 token 剩餘時間（開發階段除錯用）
+        const tokenInfo = inputStore.tokenInfo;
+        if (tokenInfo) {
+            // console.log(`⏰ Token 剩餘時間: ${tokenInfo.remainingHours} 小時 ${tokenInfo.remainingMinutes % 60} 分鐘`);
+        }
         
         // 初始化 Turnstile
         await initTurnstile();
@@ -51,11 +58,11 @@ onMounted(async ()=>{
             'turnstile-widget-recommend',
             (token) => {
                 canSubmit.value = true;
-                console.log('✅ Turnstile 驗證成功');
+                // console.log('✅ Turnstile 驗證成功');
             },
             (error) => {
                 canSubmit.value = false;
-                console.error('❌ Turnstile 驗證失敗:', error);
+                // console.error('❌ Turnstile 驗證失敗:', error);
             }
         );
     }
@@ -102,15 +109,15 @@ async function handleSearch(){
             "turnstile_token": turnstileToken
         };
         
-        console.log('✅ 已包含 Turnstile token 在推薦請求中');
+        // console.log('✅ 已包含 Turnstile token 在推薦請求中');
         
-        const response = await axios.post(
-            'https://api-xssearch.brid.pw/api/recommend/',
+        const response = await apiClient.post(
+            '/api/recommend/',
             requestData,
             {
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${inputStore.token}`  // 使用系統 JWT
+                    'Content-Type': 'application/json'
+                    // Authorization header 會由 axios 攔截器自動添加
                 },
                 onDownloadProgress: (progressEvent) => {
                     if (progressEvent.total) {
@@ -123,10 +130,10 @@ async function handleSearch(){
                         );
                         currentProgress = percentCompleted;
                         updateLoading(percentCompleted);
-                        console.log('下載進度:', percentCompleted);
+                        // console.log('下載進度:', percentCompleted);
                     } else {
                         // 如果沒有 total，使用假進度
-                        console.log('使用模擬進度，當前:', Math.floor(currentProgress));
+                        // console.log('使用模擬進度，當前:', Math.floor(currentProgress));
                     }
                 }
             }
@@ -137,24 +144,24 @@ async function handleSearch(){
             progressInterval = null;
         }
         const data = response.data;
-        console.log('=== 後端完整回應 ===');
-        console.log('data:', data);
-        console.log('data.success:', data.success);
-        console.log('data.data:', data.data);
-        console.log('data.data.recommendation:', data.data.recommendation);
+        // console.log('=== 後端完整回應 ===');
+        // console.log('data:', data);
+        // console.log('data.success:', data.success);
+        // console.log('data.data:', data.data);
+        // console.log('data.data.recommendation:', data.data.recommendation);
         //驗證後端回應
         if (!data) {
             throw new Error('後端回應失敗');
         }
         const recommendData = data.data.recommendation;
-        console.log('recommend資料:', recommendData);
-        console.log('✅ 推薦資料:', recommendData);
+        // console.log('recommend資料:', recommendData);
+        // console.log('✅ 推薦資料:', recommendData);
         
         // ✅ 檢查是否有資料
         if (!Array.isArray(recommendData) || recommendData.length === 0) {
             throw new Error('沒有找到相關商品');
         }
-        console.log(data);
+        // console.log(data);
         updateLoading(98);
         recommendStore.saveRecommendResults(recommendData);
         await new Promise(resolve => setTimeout(resolve, 150));
@@ -170,14 +177,14 @@ async function handleSearch(){
             clearInterval(progressInterval);
             progressInterval = null;
         }
-        console.error('完整錯誤物件:', error);
+        // console.error('完整錯誤物件:', error);
         closeLoading();
         
         // 檢查是否為 HTTP 錯誤回應
         if (error.response) {
             const errorData = error.response.data;
             const status = error.response.status;
-            console.log('HTTP 錯誤回應:', errorData);
+            // console.log('HTTP 錯誤回應:', errorData);
             
             // 檢查是否為 429 錯誤 (Gemini 忙碌)
             if (error.response.status === 429) {
@@ -207,7 +214,9 @@ async function handleSearch(){
             
             // 檢查是否為認證錯誤
             if (error.response.status === 401) {
-                await safeShowWarning("登入已過期", "請重新登入後再試");
+                // 清除過期的 token
+                inputStore.removeToken();
+                await safeShowWarning("登入已過期", "您的 Token 已過期，請重新登入");
                 router.push('/login');
                 return;
             }

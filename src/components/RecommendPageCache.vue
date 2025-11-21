@@ -2,7 +2,7 @@
 import Navbar from './Navbar.vue';
 import RecommendCacheCard from './RecommendCacheCard.vue';
 import { useAlert } from '../SweetAlert';
-import axios from 'axios';
+import apiClient from '../utils/axios';
 import { useRouter } from 'vue-router';
 import{ useIndexStore } from '../stores/useIndexStore';
 import { useRecommendStore } from '../stores/useRecommendStore';
@@ -12,13 +12,16 @@ const recommendStore = useRecommendStore();
 const indexStore = useIndexStore();
 const analysisStore = useAnalysisStore();
 const router = useRouter();
+import { useInputStore } from '../stores/useInputStore';
+
+const inputStore = useInputStore();
 
 // 備用警告方法，以防 SweetAlert 出現問題
 const safeShowWarning = (title, text) => {
   try {
     return showWarning(title, text);
   } catch (error) {
-    console.error('SweetAlert 錯誤:', error);
+    // console.error('SweetAlert 錯誤:', error);
     // 使用原生 alert 作為備用
     alert(`${title}\n${text}`);
     return Promise.resolve();
@@ -32,7 +35,7 @@ function getIdIndex(index){
 async function handleAnalysis(index){
   getIdIndex(index);
   //接分析
-  console.log(recommendStore.recommendation[index].name, recommendStore.recommendation[index].id);
+  // console.log(recommendStore.recommendation[index].name, recommendStore.recommendation[index].id);
   showLoading('努力分析中...')
 
   let currentProgress = 5;
@@ -51,13 +54,14 @@ async function handleAnalysis(index){
   try{
         updateLoading(5);
         startSimulatedProgress();
-        const response = await axios.post(
-            'https://api-xssearch.brid.pw/api/analysis/',
+        const response = await apiClient.post(
+            '/api/analysis/',
             {"keyword":recommendStore.recommendation[index].name,
             "product_id": recommendStore.recommendation[index].id},
             {
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json'
+                    // Authorization header 會由 axios 攔截器自動添加
                 },
                 onDownloadProgress: (progressEvent) => {
                     if (progressEvent.total) {
@@ -71,10 +75,10 @@ async function handleAnalysis(index){
                         );
                         currentProgress = percentCompleted;
                         updateLoading(percentCompleted);
-                        console.log('下載進度:', percentCompleted);
+                        // console.log('下載進度:', percentCompleted);
                     } else {
                         // 如果沒有 total，使用假進度
-                        console.log('使用模擬進度，當前:', Math.floor(currentProgress));
+                        // console.log('使用模擬進度，當前:', Math.floor(currentProgress));
                     }
                 }
             }
@@ -85,11 +89,11 @@ async function handleAnalysis(index){
             progressInterval = null;
         }
         const data = response.data;
-        console.log('分析回應資料:', data);
+        // console.log('分析回應資料:', data);
         
         // 檢查回應中是否包含 Gemini 繁忙訊息
         if (data.analysis?.summary?.includes('當前Gemini API 過於繁忙')) {
-            console.log('從回應數據中檢測到 Gemini 繁忙，顯示警告');
+            // console.log('從回應數據中檢測到 Gemini 繁忙，顯示警告');
             closeLoading();
             await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
             return;
@@ -114,27 +118,27 @@ async function handleAnalysis(index){
           clearInterval(progressInterval);
           progressInterval = null;
         }
-        console.error('=== 錯誤詳細信息 ===');
-        console.error('完整錯誤物件:', error);
-        console.error('錯誤狀態碼:', error.response?.status);
-        console.error('錯誤資料:', error.response?.data);
-        console.error('錯誤訊息:', error.message);
-        console.error('=================');
+        // console.error('=== 錯誤詳細信息 ===');
+        // console.error('完整錯誤物件:', error);
+        // console.error('錯誤狀態碼:', error.response?.status);
+        // console.error('錯誤資料:', error.response?.data);
+        // console.error('錯誤訊息:', error.message);
+        // console.error('=================');
         closeLoading()
         
         // 檢查是否為 429 錯誤 (Gemini 忙碌)
         if (error.response && error.response.status === 429) {
-            console.log('✅ 捕獲到 429 錯誤，顯示警告');
+            // console.log('✅ 捕獲到 429 錯誤，顯示警告');
             await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
             return;
         }
         
         // 檢查錯誤訊息中是否包含 API 錯誤標記
         const errorMessage = error.response?.data?.error || error.message || '';
-        console.log('錯誤訊息:', errorMessage);
+        // console.log('錯誤訊息:', errorMessage);
         
         if (errorMessage.includes('API 請求頻率過高') || errorMessage.includes('429')) {
-            console.log('從錯誤訊息中檢測到 429，顯示警告');
+            // console.log('從錯誤訊息中檢測到 429，顯示警告');
             await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
             return;
         }
@@ -142,12 +146,12 @@ async function handleAnalysis(index){
         // 檢查 summary 中是否包含 Gemini 繁忙訊息
         const summaryMessage = error.response?.data?.analysis?.summary || '';
         if (summaryMessage.includes('當前Gemini API 過於繁忙')) {
-            console.log('從摘要中檢測到 Gemini 繁忙，顯示警告');
+            // console.log('從摘要中檢測到 Gemini 繁忙，顯示警告');
             await safeShowWarning("抱歉，目前Gemini 忙碌中", "請稍後再試");
             return;
         }
         
-        console.log('顯示一般錯誤訊息');
+        // console.log('顯示一般錯誤訊息');
         await safeShowWarning("資訊載入錯誤，請重新嘗試", '');
     }
 }

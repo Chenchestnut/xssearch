@@ -59,7 +59,7 @@ export const useAlert = () => {
 
   const updateLoading = (percent) => {
     if (barInstance) {
-      console.log("updateLoading: ", percent);
+      // console.log("updateLoading: ", percent);
       barInstance.set(percent);
     }
   };

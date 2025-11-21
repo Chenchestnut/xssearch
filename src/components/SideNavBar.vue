@@ -20,7 +20,7 @@ function sectionToIndex(index){
     setTimeout(()=>{
         isScrolling.value = false;
     },1000)
-    console.log(target.offsetTop)
+    // console.log(target.offsetTop)
 }
 
 function scroll(){

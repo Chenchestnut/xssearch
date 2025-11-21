@@ -14,8 +14,8 @@ const platform = ref('mobile01')
 // }
 const mobile01Reviews = analysisStore.mobile01Reviews;
 const max = mobile01Reviews.length;
-console.log('mobile01Reviews:', mobile01Reviews);
-console.log('評論總數:', max);
+// console.log('mobile01Reviews:', mobile01Reviews);
+// console.log('評論總數:', max);
 const count = 3;
 function randomNumber(count,max){
     const number = []
@@ -31,7 +31,7 @@ const comments = ref([]);
 function changeComment(){
     const selectComments = [];
     const randomComments = randomNumber(count,max);
-    console.log('randomComments:', randomComments);
+    // console.log('randomComments:', randomComments);
     randomComments.forEach((index) => {
         selectComments.push(mobile01Reviews[index].comment);
     });

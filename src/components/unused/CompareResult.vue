@@ -20,13 +20,13 @@ onMounted(()=>{
         navBarHight.value = navbarElement.offsetHeight;
         offset.value = navBarHight.value;
     }
-    console.log(navBarHight.value);
+    // console.log(navBarHight.value);
 })
 function handleScroll(index){
     const section = document.getElementById(`section${index}`);
     const elementPosition = section.offsetTop-offset.value
     if (!section) return;
-    console.log(section);
+    // console.log(section);
     window.scrollTo({ top: elementPosition, behavior: 'smooth'});
 }
 </script>
