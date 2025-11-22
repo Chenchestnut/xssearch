@@ -4,7 +4,7 @@ import { useInputStore } from '../stores/useInputStore';
 // 創建 axios 實例
 const apiClient = axios.create({
   baseURL: 'https://api-xssearch.brid.pw',
-  timeout: 30000, // 30 秒超時
+  timeout: 90000, // 90 秒超時 (RAG 推薦需要更長時間)
 });
 
 // 請求攔截器：自動添加 Authorization header 並檢查 token

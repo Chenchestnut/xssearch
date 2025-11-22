@@ -80,7 +80,7 @@ async function handleSearch(){
         return;
     }
     
-    showLoading('努力搜尋中...')
+    showLoading('🤖 AI 正在分析您的需求...')
     let currentProgress = 5;
     let progressInterval = null;
     
