@@ -53,7 +53,7 @@ function createFakeGoogleToken(testAccount) {
         "email": testAccount.email,
         "email_verified": true,
         "name": testAccount.name,
-        "picture": "https://avatars.githubusercontent.com/u/48978583?v=4&size=96",
+        "picture": "https://gravatar.com/avatar/fe579bfa697de3a1816a88af5cfbebca9273086b36c521f7ff2a62238461f151",
         "given_name": testAccount.name.split(' ')[0],
         "family_name": testAccount.name.split(' ').slice(1).join(' '),
         "iat": Math.floor(Date.now() / 1000),
