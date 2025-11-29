@@ -34,21 +34,42 @@ const safeShowWarning = (title, text) => {
 
 onMounted(async ()=>{
     searchBoxAnimation('.searchBar')
-    // 初始化 Turnstile
-    await initTurnstile();
+
+
     
-    // 渲染 Turnstile 小工具
-    turnstileWidgetId.value = await renderTurnstile(
-        'turnstile-widget',
-        (token) => {
-            canSubmit.value = true;
-            // console.log('✅ Turnstile 驗證成功');
-        },
-        (error) => {
-            canSubmit.value = false;
-            // console.error('❌ Turnstile 驗證失敗:', error);
+    // 使用新的 token 檢查機制
+    if (!inputStore.token || !inputStore.checkTokenValidity()) {
+        // console.log('❌ 使用者未登入或 Token 已過期，跳轉到登入頁');
+        await safeShowWarning(
+            inputStore.token ? 'Token 已過期' : '請先登入',
+            inputStore.token ? '您的登入已過期，請重新登入' : '您需要登入才能免費使用個人化搜尋'
+        );
+        router.push('/login');
+    } else {
+        // console.log('✅ 使用者已登入:', inputStore.userInfo.name);
+        
+        // 顯示 token 剩餘時間（開發階段除錯用）
+        const tokenInfo = inputStore.tokenInfo;
+        if (tokenInfo) {
+            // console.log(`⏰ Token 剩餘時間: ${tokenInfo.remainingHours} 小時 ${tokenInfo.remainingMinutes % 60} 分鐘`);
         }
-    );
+        
+        // 初始化 Turnstile
+        await initTurnstile();
+        
+        // 渲染 Turnstile 小工具
+        turnstileWidgetId.value = await renderTurnstile(
+            'turnstile-widget',
+            (token) => {
+                canSubmit.value = true;
+                // console.log('✅ Turnstile 驗證成功');
+            },
+            (error) => {
+                canSubmit.value = false;
+                // console.error('❌ Turnstile 驗證失敗:', error);
+            }
+        );
+    }
 })
 
 async function handleSearch(){
